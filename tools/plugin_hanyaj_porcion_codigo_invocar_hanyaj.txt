@@ -1,0 +1,48 @@
+// HANYAJ: accion de abrir la pagina
+    var extension = path.split(".").pop();
+    if (extension == "hanyaj" && ( mode === 'run' ||
+                                   this.outerText === 'Abrir' || 
+                                   this.outerText === 'Abrir en una nueva ventana')) {
+        // Define si se abre en ventana nueva o en la misma
+        var destino = '_self';
+        if (this.outerText === 'Abrir en una nueva ventana') { destino = '_blank'};
+        // URL de destino
+        // HANYAJ_PAGE=http://192.168.132.120:80/sql-olap-v4/sql_olap.php
+        var url = "HANYAJ_PAGE";
+        // Crea un formulario dinámicamente
+        var form = document.createElement("form");
+        form.setAttribute("method", "POST");
+        form.setAttribute("action", url);
+        form.setAttribute("target", destino); // Abre la respuesta en una nueva ventana o la misma
+        form.style.display = "none"; // Oculta el formulario
+        // Crea un campo de entrada para el parámetro pentaho_usuario_logueado
+        var usuarioLogueadoInput = document.createElement("input");
+        usuarioLogueadoInput.setAttribute("type", "hidden");
+        usuarioLogueadoInput.setAttribute("name", "pentaho_usuario_logueado");
+        var elementos = window.top.document.getElementById("pucUserDropDown");
+        var valor = elementos.getElementsByClassName("custom-dropdown-label")[0].innerHTML;
+        usuarioLogueadoInput.setAttribute("value",  valor);
+        // Crea un campo de entrada para el parámetro path (ruta y archivo seleccionado)
+        var pathInput = document.createElement("input");
+        pathInput.setAttribute("type", "hidden");
+        pathInput.setAttribute("name", "path");
+        pathInput.setAttribute("value", path);
+        // Crea un campo de entrada para el parámetro modo (normalmente run)
+        var modoInput = document.createElement("input");
+        modoInput.setAttribute("type", "hidden");
+        modoInput.setAttribute("name", "modo");
+        modoInput.setAttribute("value", mode);
+        // Agrega el campo de entrada al formulario
+        form.appendChild(usuarioLogueadoInput);
+        form.appendChild(pathInput);
+        form.appendChild(modoInput);
+        // Agrega el formulario al cuerpo del documento
+        document.body.appendChild(form);
+        // Envía el formulario
+        form.submit();
+        // Limpia el formulario después de enviarlo (opcional)
+        document.body.removeChild(form);
+        return;
+    }
+// HANYAJ: fin de accion de abrir la pagina
+

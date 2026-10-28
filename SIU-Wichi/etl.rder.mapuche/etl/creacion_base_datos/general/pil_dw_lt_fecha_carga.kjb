@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job>
+  <name>pil_dw_lt_fecha_carga</name>
+    <description>Carga la tabla dw_lt_fecha con todas las fechas</description>
+    <extended_description>Verifica si la tabla ya se encuentra cargada y en caso contrario la completa con todas las fechas.</extended_description>
+    <job_version/>
+    <job_status>0</job_status>
+  <directory>&#x2f;</directory>
+  <created_user>-</created_user>
+  <created_date>2011&#x2f;04&#x2f;07 10&#x3a;30&#x3a;57.541</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2011&#x2f;04&#x2f;07 10&#x3a;30&#x3a;57.541</modified_date>
+    <parameters>
+        <parameter>
+            <name>dw_clave</name>
+            <default_value>postgres</default_value>
+            <description>password del usuario de la base de datos</description>
+        </parameter>
+        <parameter>
+            <name>dw_nombrebase</name>
+            <default_value>siu_dw</default_value>
+            <description>nombre de la base de datos</description>
+        </parameter>
+        <parameter>
+            <name>dw_nombrehost</name>
+            <default_value>localhost</default_value>
+            <description>nombre o ip del host</description>
+        </parameter>
+        <parameter>
+            <name>dw_puerto</name>
+            <default_value>5432</default_value>
+            <description>puerto al que se conecta a la base de datos</description>
+        </parameter>
+        <parameter>
+            <name>dw_usuario</name>
+            <default_value>postgres</default_value>
+            <description>usuario de la base de datos</description>
+        </parameter>
+    </parameters>
+  <connection>
+    <name>siu_dw</name>
+    <server>&#x24;&#x7b;dw_nombrehost&#x7d;</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>&#x24;&#x7b;dw_nombrebase&#x7d;</database>
+    <port>&#x24;&#x7b;dw_puerto&#x7d;</port>
+    <username>&#x24;&#x7b;dw_usuario&#x7d;</username>
+    <password>&#x24;&#x7b;dw_clave&#x7d;</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;dw_puerto&#x7d;</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+    <slaveservers>
+    </slaveservers>
+<job-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
+<field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>START_JOB_ENTRY</id><enabled>N</enabled><name>START_JOB_ENTRY</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></job-log-table>
+<jobentry-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>JOBENTRYNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>RESULT</id><enabled>Y</enabled><name>RESULT</name></field><field><id>NR_RESULT_ROWS</id><enabled>Y</enabled><name>NR_RESULT_ROWS</name></field><field><id>NR_RESULT_FILES</id><enabled>Y</enabled><name>NR_RESULT_FILES</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field><field><id>COPY_NR</id><enabled>N</enabled><name>COPY_NR</name></field></jobentry-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+   <pass_batchid>N</pass_batchid>
+   <shared_objects_file/>
+  <entries>
+    <entry>
+      <name>dw_lt_fecha</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;dw_lt_fecha.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>678</xloc>
+      <yloc>116</yloc>
+      </entry>
+    <entry>
+      <name>dw_lt_fecha est&#xe1; cargada&#x3f;</name>
+      <description/>
+      <type>WAIT_FOR_SQL</type>
+      <connection>siu_dw</connection>
+      <schemaname>public</schemaname>
+      <tablename>dw_lt_fecha</tablename>
+      <success_condition>rows_count_greater</success_condition>
+      <rows_count_value>1</rows_count_value>
+      <is_custom_sql>N</is_custom_sql>
+      <is_usevars>N</is_usevars>
+      <custom_sql/>
+      <add_rows_result>N</add_rows_result>
+      <maximum_timeout>5</maximum_timeout>
+      <check_cycle_time/>
+      <success_on_timeout>N</success_on_timeout>
+      <clear_result_rows>Y</clear_result_rows>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>506</xloc>
+      <yloc>116</yloc>
+      </entry>
+    <entry>
+      <name>Aviso</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Paso&#x3a;&#x5b;dw_lt_fecha est&#xe1; cargada&#x3f;&#x5d;&#xa;La tabla siu_dw.public.dw_lt_fecha ya se encuentra creada y cargada.</logmessage>
+      <loglevel>Rowlevel</loglevel>
+      <logsubject>&#x5b;AVISO&#x5d; - Tabla ya cargada</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>505</xloc>
+      <yloc>294</yloc>
+      </entry>
+    <entry>
+      <name>START</name>
+      <description/>
+      <type>SPECIAL</type>
+      <start>Y</start>
+      <dummy>N</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>45</xloc>
+      <yloc>116</yloc>
+      </entry>
+    <entry>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>864</xloc>
+      <yloc>294</yloc>
+      </entry>
+    <entry>
+      <name>existe dw_lt_fecha&#x3f;</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>dw_lt_fecha</tablename>
+      <schemaname>public</schemaname>
+      <connection>siu_dw</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>272</xloc>
+      <yloc>116</yloc>
+      </entry>
+    <entry>
+      <name>crea la tabla dw_lt_fecha</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dw_lt_fecha&#xa;&#x28;&#xa;  fecha date NOT NULL,&#xa;  ano integer NOT NULL,&#xa;  mes integer NOT NULL,&#xa;  dia integer NOT NULL,&#xa;  diasemana integer NOT NULL,&#xa;  semana_desc character varying NOT NULL,&#xa;  semanaabrev_desc character varying NOT NULL,&#xa;  mes_desc character varying NOT NULL,&#xa;  mesabrev_desc character varying NOT NULL&#xa;&#x29;&#xa;WITH &#x28;&#xa;  OIDS&#x3d;FALSE&#xa;&#x29;&#x3b;&#xa;&#xa;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>siu_dw</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>273</xloc>
+      <yloc>246</yloc>
+      </entry>
+    <entry>
+      <name>Error crear tabla</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Paso&#x3a;&#x5b;crea la tabla dw_lt_fecha&#x5d;&#xa;Se produjo un error al intentar crear la tabla dw_lt_fecha en siu_dw.public</logmessage>
+      <loglevel>Error</loglevel>
+      <logsubject>&#x5b;ERROR&#x5d; - creaci&#xf3;n de tabla</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>274</xloc>
+      <yloc>373</yloc>
+      </entry>
+    <entry>
+      <name>Crea indice &#x2b; analyze</name>
+      <description/>
+      <type>SQL</type>
+      <sql>DROP INDEX IF EXISTS idx_fecha&#x3b;&#xa;&#xa;CREATE INDEX idx_fecha&#xa;  ON dw_lt_fecha&#xa;  USING btree&#xa;  &#x28;fecha&#x29;&#x3b;&#xa;&#xa;ANALYZE dw_lt_fecha&#x3b;&#xa;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>siu_dw</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>863</xloc>
+      <yloc>116</yloc>
+      </entry>
+    <entry>
+      <name>Exito en carga </name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Paso&#x3a;&#x5b;dw_lt_fecha&#x5d;&#xa;Las fechas fueron cargadas en la tabla siu_dw.public.dw_lt_fecha</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>&#x5b;AVISO&#x5d; - dimensi&#xf3;n fecha</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>679</xloc>
+      <yloc>14</yloc>
+      </entry>
+    <entry>
+      <name>Error en carga</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Paso&#x3a;&#x5b;dw_lt_fecha&#x5d;&#xa;Se produzco un error en la carga de fechas en la tabla siu_dw.public.dw_lt_fecha</logmessage>
+      <loglevel>Error</loglevel>
+      <logsubject>&#x5b;Error&#x5d; - dimensi&#xf3;n Fecha</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>683</xloc>
+      <yloc>232</yloc>
+      </entry>
+  </entries>
+  <hops>
+    <hop>
+      <from>dw_lt_fecha est&#xe1; cargada&#x3f;</from>
+      <to>dw_lt_fecha</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>dw_lt_fecha est&#xe1; cargada&#x3f;</from>
+      <to>Aviso</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Aviso</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>existe dw_lt_fecha&#x3f;</from>
+      <to>dw_lt_fecha est&#xe1; cargada&#x3f;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>existe dw_lt_fecha&#x3f;</from>
+      <to>crea la tabla dw_lt_fecha</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>crea la tabla dw_lt_fecha</from>
+      <to>dw_lt_fecha est&#xe1; cargada&#x3f;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>crea la tabla dw_lt_fecha</from>
+      <to>Error crear tabla</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>dw_lt_fecha</from>
+      <to>Crea indice &#x2b; analyze</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Crea indice &#x2b; analyze</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>dw_lt_fecha</from>
+      <to>Exito en carga </to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>dw_lt_fecha</from>
+      <to>Error en carga</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>existe dw_lt_fecha&#x3f;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+  </hops>
+  <notepads>
+    <notepad>
+      <note>Crea la tabla dw_lt_fecha en la base siu_dw.public&#xa;y carga todas las fechas desde el 01&#x2f;01&#x2f;1980 al 01&#x2f;01&#x2f;2020</note>
+      <xloc>172</xloc>
+      <yloc>35</yloc>
+      <width>340</width>
+      <heigth>36</heigth>
+      <fontname>Sans</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+
+</job>

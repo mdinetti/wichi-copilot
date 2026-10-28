@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+
+Este xml especifica validaciones a realizar
+en la carga de datos a Wichi. Si no se cumple alguna
+de las validaciones significa que los datos son
+inválidos o que el extractor o importador es
+inadecuado.
+
+Mantener una copia de este archivo en los
+exportadores y otra en los importadores, para poder
+controlar que al actualizar una se actualice la otra.
+
+-->
+
+
+<validaciones id="validacionesSQ"> <!-- el id debe cambiar con cualquier cambio en este xml -->
+	<sistemaFuente>
+		<codigo>12</codigo> <!-- el código del sistema fuente según estándares wichi -->
+		<nombre>sanaviron-quilmes</nombre> <!-- valor permitido para el nombre del sistema fuente, sin el número de versión -->
+		<obtencionDeSistema> <!-- cómo saber cuál es el sistema fuente (nombre sin versión) -->
+			<sql><![CDATA[
+                            select (case when(
+				    select count(distinct(table_name))
+				    from information_schema.tables
+				    where table_schema = 'public'
+				    and table_name in (
+					'ventas',
+					'cobranzas',
+					'iuv_articulos_por_unidad_venta',
+					'iuv_servicios_por_unidad_venta',
+					'canales_ventas',
+					'puntos_cobranzas',
+					'suscripciones',
+					'unidades_negocios',
+					'unidades_ventas'
+					)
+				) = 9 then 'sanaviron-quilmes' else 'no_sanaviron-quilmes' end) as sistema
+			]]>
+			</sql>
+		</obtencionDeSistema>
+	</sistemaFuente>
+	<!--
+	Por el momento no se guarda la version del sistema en la base de datos
+	<versionSistemaFuente>
+		<versionesAceptadas> versiones del sistema fuente que pasan la validación 
+			<version>^0\.1\.0$</version>
+			<version>^0\.1\.1$</version>
+			<version>^0\.1\.2$</version>
+			<version>^0\.1\.3$</version>
+		</versionesAceptadas>
+		<versionesNoAceptadas> versiones del sistema fuente que NO pasan la validación 
+			<version>^1\..*</version>
+			<version>^2\..*</version>
+		</versionesNoAceptadas>
+		<obtencionDeVersion>  cómo saber cuál es la versión del sistema fuente 
+			 <sql><![CDATA[
+				select 
+					case when esta_completo 
+					then (select denominacion_version from xlib_versionador_comandos 
+					where (id_xlib_versionador_comando = cambios.id_xlib_versionador_comando)) 
+					end as "version"
+				from
+					(select id_xlib_versionador_comando, esta_completo
+					from xlib_versionador_cambios
+					where hito = (select max(hito) from xlib_versionador_cambios)) as cambios
+			]]>
+			</sql>
+		</obtencionDeVersion>
+	</versionSistemaFuente>
+	-->
+	<versionSistemaFuente>
+			<versionesAceptadas> <!-- versiones del sistema fuente que pasan la validación --> 
+				<version>^0\.1\.0$</version>
+				<version>^0\.1\.1$</version>
+				<version>^0\.1\.2$</version>
+				<version>^0\.1\.3$</version>
+			</versionesAceptadas>
+			<versionesNoAceptadas> <!-- versiones del sistema fuente que NO pasan la validación -->
+				<version>^1\..*</version>
+				<version>^2\..*</version>
+			</versionesNoAceptadas>
+			<obtencionDeVersion>  <!-- cómo saber cuál es la versión del sistema fuente -->
+				 <sql><![CDATA[
+					select 010 as version
+					]]>
+				</sql>
+			</obtencionDeVersion>
+		</versionSistemaFuente>
+	<estructuraArchivos>
+		<archivo nombre="d_canal_venta.txt" desc="">
+			<columna nombre="id" desc=""></columna>
+			<columna nombre="codigo" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_cliente.txt" desc="">
+			<columna nombre="id" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+			<columna nombre="identificacion" desc=""></columna>
+			<columna nombre="es_persona_fisica" desc=""></columna>
+			<columna nombre="id_global" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_condicion_venta.txt" desc="">
+			<columna nombre="id" desc=""></columna>
+			<columna nombre="codigo" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_concepto_venta.txt" desc="">
+			<columna nombre="id" desc=""></columna>
+			<columna nombre="codigo" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_servicio.txt" desc="">
+			<columna nombre="id" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_venta_estado.txt" desc="">
+			<columna nombre="id" desc=""></columna>
+			<columna nombre="codigo" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_medio_pago.txt" desc="">
+			<columna nombre="id" desc=""></columna>
+			<columna nombre="codigo" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+			<columna nombre="codigo_tipo_mp" desc=""></columna>
+			<columna nombre="descripcion_tipo_mp" desc=""></columna>
+			<columna nombre="cuenta_tesoreria" desc=""></columna>
+			<columna nombre="tesoreria" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_consumidor.txt" desc="">
+			<columna nombre="id" desc=""></columna>
+			<columna nombre="codigo" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+			<columna nombre="es_persona_fisica" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_unidad_venta.txt" desc="">
+			<columna nombre="id" desc=""></columna>
+			<columna nombre="unidad_venta_codigo" desc=""></columna>
+			<columna nombre="unidad_venta_descripcion" desc=""></columna>
+			<columna nombre="unidad_negocio_codigo" desc=""></columna>
+			<columna nombre="unidad_negocio_descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="ft_ventas.txt" desc="">
+			<columna nombre="id_venta" desc=""></columna>
+			<columna nombre="id_unidad_venta" desc=""></columna>
+			<columna nombre="id_cliente" desc=""></columna>
+			<columna nombre="id_canal_venta" desc=""></columna>
+			<columna nombre="id_condicion_venta" desc=""></columna>
+			<columna nombre="id_venta_estado" desc=""></columna>
+			<columna nombre="cobrado_en_id" desc=""></columna>
+			<columna nombre="reportado_pilaga_id" desc=""></columna>
+			<columna nombre="id_medio_pago" desc=""></columna>
+			<columna nombre="id_consumidor" desc=""></columna>
+			<columna nombre="fecha_id" desc=""></columna>
+			<columna nombre="leyenda" desc=""></columna>
+			<columna nombre="id_servicio" desc=""></columna>
+			<columna nombre="id_concepto_venta" desc=""></columna>
+			<columna nombre="importe_total" desc=""></columna>
+			<columna nombre="importe_total_a_cobrar" desc=""></columna>
+			<columna nombre="importe_total_cobrado" desc=""></columna>
+		</archivo>
+	</estructuraArchivos>
+</validaciones>

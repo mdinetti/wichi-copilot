@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>creacion_integrado</name>
+    <description/>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>&#x2f;</directory>
+    <parameters>
+    </parameters>
+    <log>
+<trans-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
+<perf-log-table><connection/>
+<schema/>
+<table/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+<step-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+<metrics-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+  <created_user>-</created_user>
+  <created_date>2013&#x2f;03&#x2f;22 15&#x3a;33&#x3a;44.716</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2013&#x2f;03&#x2f;22 15&#x3a;33&#x3a;44.716</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+    <notepad>
+      <note>Ejecuta el script que&#xa;crea el esquema, las tablas &#xa;y la funcion de actualizacion</note>
+      <xloc>144</xloc>
+      <yloc>48</yloc>
+      <width>175</width>
+      <heigth>58</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <connection>
+    <name>siu_dsa</name>
+    <server>&#x24;&#x7b;dsa_nombrehost&#x7d;</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>&#x24;&#x7b;dsa_nombrebase&#x7d;</database>
+    <port>&#x24;&#x7b;dsa_puerto&#x7d;</port>
+    <username>&#x24;&#x7b;dsa_usuario&#x7d;</username>
+    <password>&#x24;&#x7b;dsa_clave&#x7d;</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;dsa_puerto&#x7d;</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SQL_CONNECT</code><attribute>SET datestyle to iso,YMD</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <order>
+  <hop> <from>nada</from><to>Execute SQL script</to><enabled>Y</enabled> </hop>
+  </order>
+  <step>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>Y</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>--&#xa;-- PostgreSQL database dump&#xa;--&#xa;&#xa;-- Dumped from database version 9.4.9&#xa;-- Dumped by pg_dump version 9.4.10&#xa;-- Started on 2016-12-07 15&#x3a;21&#x3a;39 ART&#xa;&#xa;SET statement_timeout &#x3d; 0&#x3b;&#xa;SET lock_timeout &#x3d; 0&#x3b;&#xa;SET client_encoding &#x3d; &#x27;UTF8&#x27;&#x3b;&#xa;SET standard_conforming_strings &#x3d; off&#x3b;&#xa;SET check_function_bodies &#x3d; false&#x3b;&#xa;SET client_min_messages &#x3d; warning&#x3b;&#xa;SET escape_string_warning &#x3d; off&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 36 &#x28;class 2615 OID 1334025929&#x29;&#xa;-- Name&#x3a; integrado&#x3b; Type&#x3a; SCHEMA&#x3b; Schema&#x3a; -&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;CREATE SCHEMA integrado&#x3b;&#xa;&#xa;&#xa;ALTER SCHEMA integrado OWNER TO postgres&#x3b;&#xa;&#xa;SET search_path &#x3d; integrado, pg_catalog&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 982 &#x28;class 1255 OID 1334025930&#x29;&#xa;-- Name&#x3a; carga_integrado&#x28;&#x29;&#x3b; Type&#x3a; FUNCTION&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;CREATE FUNCTION carga_integrado&#x28;&#x29; RETURNS integer&#xa;    LANGUAGE plpgsql&#xa;    AS &#x24;&#x24;&#xa;DECLARE fecha_hora_inicio timestamp without time zone &#x3b;&#xa;BEGIN&#xa;   fecha_hora_inicio &#x3a;&#x3d; clock_timestamp&#x28;&#x29;&#x3b;&#xa;-- ELIMINA TODOS LOS REGISTROS EXISTENTES&#xa;TRUNCATE integrado.ft_integrado&#x3b;&#xa;-- INSERTA TODOS LOS REGISTROS CON COMBINACION DE ANIO-UA&#xa;INSERT INTO integrado.ft_integrado &#x28;anio_id, unidad_generica_id&#x29; &#xa;SELECT anio_id, unidad_generica_id FROM&#xa;&#x28;&#xa;SELECT DISTINCT idanioinformado AS anio_id FROM araucano.academica_ft_cuadros1y2&#xa;UNION&#xa;SELECT DISTINCT anio_id FROM pilaga.ft_movimientos&#xa;UNION &#xa;SELECT DISTINCT anio_id FROM mapuche.ft_personal&#xa;ORDER BY 1&#xa;&#x29; as anio_id,&#xa;&#x28;SELECT DISTINCT unidad_generica_id FROM public.d_unidad_generica ORDER BY 1&#x29; as unidad_generica_id&#x3b;&#xa;&#xa;&#xa;-- ACTUALIZA DATOS DE PILAGA &#xa;EXECUTE &#x27;CREATE TEMP TABLE temp_pilaga_integrado ON COMMIT DROP AS&#xa;SELECT DISTINCT mov.anio_id, mov.unidad_generica_id,&#xa; coalesce&#x28;sum&#x28;CASE WHEN o.resumen_desc&#x3d;&#x27;&#x27;1 - Sueldos&#x27;&#x27; THEN credito ELSE 0 END&#x29;,0&#x29; AS pilaga_credito_uno,&#xa; coalesce&#x28;sum&#x28;CASE WHEN o.resumen_desc&#x3c;&#x3e;&#x27;&#x27;1 - Sueldos&#x27;&#x27; THEN credito ELSE 0 END&#x29;,0&#x29; AS pilaga_credito_no_uno,&#xa; coalesce&#x28;sum&#x28;CASE WHEN o.resumen_desc&#x3d;&#x27;&#x27;1 - Sueldos&#x27;&#x27; THEN devengado ELSE 0 END&#x29;,0&#x29; AS pilaga_devengado_uno,&#xa; coalesce&#x28;sum&#x28;CASE WHEN o.resumen_desc&#x3c;&#x3e;&#x27;&#x27;1 - Sueldos&#x27;&#x27; THEN devengado ELSE 0 END&#x29;,0&#x29; AS pilaga_devengado_no_uno,&#xa; coalesce&#x28;sum&#x28;devengado_de_ingreso&#x29;,0&#x29; AS pilaga_devengado_de_ingreso,&#xa; coalesce&#x28;sum&#x28;cobrado&#x29;,0&#x29; AS pilaga_cobrado&#xa; FROM pilaga.ft_movimientos mov, pilaga.d_objeto_del_gasto o&#xa; WHERE mov.objeto_del_gasto_id&#x3d;o.objeto_del_gasto_id --AND o.resumen_desc&#x3d;&#x27;&#x27;1 - Sueldos&#x27;&#x27;&#xa; GROUP BY 1,2&#x3b;&#x27;&#x3b;&#xa;UPDATE integrado.ft_integrado i &#xa;  SET pilaga_credito_uno &#x3d; coalesce&#x28;mov.pilaga_credito_uno,0&#x29;,&#xa;      pilaga_credito_no_uno &#x3d; coalesce&#x28;mov.pilaga_credito_no_uno,0&#x29;,&#xa;      pilaga_devengado_uno &#x3d; coalesce&#x28;mov.pilaga_devengado_uno,0&#x29;, &#xa;      pilaga_devengado_no_uno &#x3d; coalesce&#x28;mov.pilaga_devengado_no_uno,0&#x29;, &#xa;      pilaga_devengado_de_ingreso &#x3d; coalesce&#x28;mov.pilaga_devengado_de_ingreso,0&#x29;, &#xa;      pilaga_cobrado &#x3d; coalesce&#x28;mov.pilaga_cobrado,0&#x29; &#xa; FROM temp_pilaga_integrado mov&#xa;WHERE i.anio_id &#x3d; mov.anio_id AND i.unidad_generica_id &#x3d; mov.unidad_generica_id&#x3b;&#xa;&#xa;-- ACTUALIZA DATOS DE ARAUCANO&#xa;UPDATE integrado.ft_integrado i&#xa;SET araucano_alumnos &#x3d;&#xa;&#x28;SELECT coalesce&#x28;sum&#x28;case when cantidadm &#x3e; 0 then cantidadm else cantidadn end&#x29;,0&#x29;&#xa; FROM araucano.academica_ft_cuadros1y2 c, araucano.academica_d_series s&#xa; WHERE i.anio_id&#x3d;c.idanioinformado AND i.unidad_generica_id&#x3d;c.unidad_generica_id AND c.idserie&#x3d;s.idserie AND s.serie&#x3d;&#x27;MA&#x27;&#x29;, &#xa;araucano_nuevos_inscriptos &#x3d;&#xa;&#x28;SELECT coalesce&#x28;sum&#x28;case when cantidadm &#x3e; 0 then cantidadm else cantidadn end&#x29;,0&#x29;&#xa; FROM araucano.academica_ft_cuadros1y2 c, araucano.academica_d_series s&#xa; WHERE i.anio_id&#x3d;c.idanioinformado AND i.unidad_generica_id&#x3d;c.unidad_generica_id AND c.idserie&#x3d;s.idserie AND s.serie IN &#x28;&#x27;NI&#x27;, &#x27;NIP&#x27;, &#x27;NIQ&#x27;&#x29;&#x29;,&#xa;araucano_reinscriptos &#x3d;&#xa;&#x28;SELECT coalesce&#x28;sum&#x28;case when cantidadm &#x3e; 0 then cantidadm else cantidadn end&#x29;,0&#x29;&#xa; FROM araucano.academica_ft_cuadros1y2 c, araucano.academica_d_series s&#xa; WHERE i.anio_id&#x3d;c.idanioinformado AND i.unidad_generica_id&#x3d;c.unidad_generica_id AND c.idserie&#x3d;s.idserie AND s.serie&#x3d;&#x27;R&#x27;&#x29;,&#xa; araucano_egresados &#x3d;&#xa;&#x28;SELECT coalesce&#x28;sum&#x28;case when cantidadm &#x3e; 0 then cantidadm else cantidadn end&#x29;,0&#x29;&#xa; FROM araucano.academica_ft_cuadros1y2 c, araucano.academica_d_series s&#xa; WHERE i.anio_id&#x3d;c.idanioinformado AND i.unidad_generica_id&#x3d;c.unidad_generica_id AND c.idserie&#x3d;s.idserie AND s.serie&#x3d;&#x27;E&#x27;&#x29;&#x3b;&#xa;&#xa; -- ACTUALIZA DATOS DE MAPUCHE&#xa;EXECUTE &#x27;CREATE TEMP TABLE temp_cargos_escalafones ON COMMIT DROP AS &#xa;SELECT DISTINCT anio_id, unidad_generica_id, &#xa;cat.escalafon_codigo as escalafon, &#xa;coalesce&#x28;count&#x28;nro_cargo&#x29; &#x2f; count&#x28;DISTINCT mes_id&#x29;,0&#x29; as cantidad&#xa;FROM mapuche.ft_personal c, mapuche.d_categoriascargo cat, mapuche.d_estadodelcargo e&#xa;WHERE c.categoria_id&#x3d;cat.categoria_id AND c.estadodelcargo_id &#x3d; e.estadodelcargo_id&#xa;AND condicion_id &#x3d; 1 AND estadodelcargo_codigo&#x3d;&#x27;&#x27;1&#x27;&#x27;&#xa;GROUP BY 1,2,3&#x3b;&#x27;&#x3b;&#xa;UPDATE integrado.ft_integrado i&#xa;SET mapuche_cargos_docentes &#x3d;&#xa;&#x28;SELECT coalesce&#x28;sum&#x28;cantidad&#x29;,0&#x29;&#xa;FROM temp_cargos_escalafones tempo&#xa;WHERE tempo.escalafon&#x3d;&#x27;D&#x27; AND &#xa;i.anio_id&#x3d;tempo.anio_id AND i.unidad_generica_id&#x3d;tempo.unidad_generica_id&#x29;,&#xa;mapuche_cargos_no_docentes &#x3d;&#xa;&#x28;SELECT coalesce&#x28;sum&#x28;cantidad&#x29;,0&#x29;&#xa;FROM temp_cargos_escalafones tempo&#xa;WHERE tempo.escalafon&#x3d;&#x27;N&#x27; AND &#xa;i.anio_id&#x3d;tempo.anio_id AND i.unidad_generica_id&#x3d;tempo.unidad_generica_id&#x29;,&#xa;mapuche_cargos_superiores &#x3d;&#xa;&#x28;SELECT coalesce&#x28;sum&#x28;cantidad&#x29;,0&#x29;&#xa;FROM temp_cargos_escalafones tempo&#xa;WHERE tempo.escalafon&#x3d;&#x27;S&#x27; AND &#xa;i.anio_id&#x3d;tempo.anio_id AND i.unidad_generica_id&#x3d;tempo.unidad_generica_id&#x29;&#x3b;&#xa;&#xa;-- Agrega registro informando la actualizacion, luego se usa para saber si esta actualizada ft_integrado.&#xa;insert into public.importacion &#x28;instalacion_id, fecha_inicio, fecha_fin, tipo, parametros, observaciones, estado&#x29;&#xa;values &#x28;0, fecha_hora_inicio, clock_timestamp&#x28;&#x29;, &#x27;actualizacion&#x27;, &#x27; &#x27;, &#x27;Actualizacion ft_integrado&#x27;, &#x27;finalizada&#x27;&#x29;&#x3b;&#xa;&#xa;RETURN &#x28;SELECT count&#x28;&#x2a;&#x29; FROM integrado.ft_integrado&#x29;&#x3b;&#xa;END&#xa;&#x24;&#x24;&#x3b;&#xa;&#xa;&#xa;ALTER FUNCTION integrado.carga_integrado&#x28;&#x29; OWNER TO postgres&#x3b;&#xa;&#xa;SET default_tablespace &#x3d; &#x27;&#x27;&#x3b;&#xa;&#xa;SET default_with_oids &#x3d; false&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 961 &#x28;class 1259 OID 1334025931&#x29;&#xa;-- Name&#x3a; ft_integrado&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE ft_integrado &#x28;&#xa;    id integer NOT NULL,&#xa;    anio_id integer,&#xa;    unidad_generica_id integer,&#xa;    araucano_alumnos numeric&#x28;13,2&#x29;,&#xa;    araucano_nuevos_inscriptos numeric&#x28;13,2&#x29;,&#xa;    araucano_reinscriptos numeric&#x28;13,2&#x29;,&#xa;    araucano_egresados numeric&#x28;13,2&#x29;,&#xa;    pilaga_credito_uno numeric&#x28;13,2&#x29;,&#xa;    pilaga_credito_no_uno numeric&#x28;13,2&#x29;,&#xa;    pilaga_devengado_uno numeric&#x28;13,2&#x29;,&#xa;    pilaga_devengado_no_uno numeric&#x28;13,2&#x29;,&#xa;    pilaga_devengado_de_ingreso numeric&#x28;13,2&#x29;,&#xa;    pilaga_cobrado numeric&#x28;13,2&#x29;,&#xa;    mapuche_cargos_docentes numeric&#x28;13,2&#x29;,&#xa;    mapuche_cargos_no_docentes numeric&#x28;13,2&#x29;,&#xa;    mapuche_cargos_superiores numeric&#x28;13,2&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE ft_integrado OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 962 &#x28;class 1259 OID 1334025934&#x29;&#xa;-- Name&#x3a; ft_integrado_id_seq&#x3b; Type&#x3a; SEQUENCE&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;CREATE SEQUENCE ft_integrado_id_seq&#xa;    START WITH 1&#xa;    INCREMENT BY 1&#xa;    NO MINVALUE&#xa;    NO MAXVALUE&#xa;    CACHE 1&#x3b;&#xa;&#xa;&#xa;ALTER TABLE ft_integrado_id_seq OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 4681 &#x28;class 0 OID 0&#x29;&#xa;-- Dependencies&#x3a; 962&#xa;-- Name&#x3a; ft_integrado_id_seq&#x3b; Type&#x3a; SEQUENCE OWNED BY&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;ALTER SEQUENCE ft_integrado_id_seq OWNED BY ft_integrado.id&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 963 &#x28;class 1259 OID 1334025936&#x29;&#xa;-- Name&#x3a; metas&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE metas &#x28;&#xa;    id integer NOT NULL,&#xa;    descripcion character varying&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE metas OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 964 &#x28;class 1259 OID 1334025942&#x29;&#xa;-- Name&#x3a; metas_estados&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE metas_estados &#x28;&#xa;    id integer NOT NULL,&#xa;    color character varying,&#xa;    descripcion character varying,&#xa;    rgb character varying&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE metas_estados OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 965 &#x28;class 1259 OID 1334025948&#x29;&#xa;-- Name&#x3a; metas_estados_id_seq&#x3b; Type&#x3a; SEQUENCE&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;CREATE SEQUENCE metas_estados_id_seq&#xa;    START WITH 1&#xa;    INCREMENT BY 1&#xa;    NO MINVALUE&#xa;    NO MAXVALUE&#xa;    CACHE 1&#x3b;&#xa;&#xa;&#xa;ALTER TABLE metas_estados_id_seq OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 4682 &#x28;class 0 OID 0&#x29;&#xa;-- Dependencies&#x3a; 965&#xa;-- Name&#x3a; metas_estados_id_seq&#x3b; Type&#x3a; SEQUENCE OWNED BY&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;ALTER SEQUENCE metas_estados_id_seq OWNED BY metas_estados.id&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 966 &#x28;class 1259 OID 1334025950&#x29;&#xa;-- Name&#x3a; metas_id_seq&#x3b; Type&#x3a; SEQUENCE&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;CREATE SEQUENCE metas_id_seq&#xa;    START WITH 1&#xa;    INCREMENT BY 1&#xa;    NO MINVALUE&#xa;    NO MAXVALUE&#xa;    CACHE 1&#x3b;&#xa;&#xa;&#xa;ALTER TABLE metas_id_seq OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 4683 &#x28;class 0 OID 0&#x29;&#xa;-- Dependencies&#x3a; 966&#xa;-- Name&#x3a; metas_id_seq&#x3b; Type&#x3a; SEQUENCE OWNED BY&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;ALTER SEQUENCE metas_id_seq OWNED BY metas.id&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 967 &#x28;class 1259 OID 1334025952&#x29;&#xa;-- Name&#x3a; metas_rangos&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE metas_rangos &#x28;&#xa;    id integer NOT NULL,&#xa;    metas_id integer,&#xa;    metas_estados_id integer,&#xa;    valor_inicio real,&#xa;    valor_fin real&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE metas_rangos OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 968 &#x28;class 1259 OID 1334025955&#x29;&#xa;-- Name&#x3a; metas_rangos_id_seq&#x3b; Type&#x3a; SEQUENCE&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;CREATE SEQUENCE metas_rangos_id_seq&#xa;    START WITH 1&#xa;    INCREMENT BY 1&#xa;    NO MINVALUE&#xa;    NO MAXVALUE&#xa;    CACHE 1&#x3b;&#xa;&#xa;&#xa;ALTER TABLE metas_rangos_id_seq OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 4684 &#x28;class 0 OID 0&#x29;&#xa;-- Dependencies&#x3a; 968&#xa;-- Name&#x3a; metas_rangos_id_seq&#x3b; Type&#x3a; SEQUENCE OWNED BY&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;ALTER SEQUENCE metas_rangos_id_seq OWNED BY metas_rangos.id&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4539 &#x28;class 2604 OID 1334025957&#x29;&#xa;-- Name&#x3a; id&#x3b; Type&#x3a; DEFAULT&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;ALTER TABLE ONLY ft_integrado ALTER COLUMN id SET DEFAULT nextval&#x28;&#x27;ft_integrado_id_seq&#x27;&#x3a;&#x3a;regclass&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4540 &#x28;class 2604 OID 1334025958&#x29;&#xa;-- Name&#x3a; id&#x3b; Type&#x3a; DEFAULT&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;ALTER TABLE ONLY metas ALTER COLUMN id SET DEFAULT nextval&#x28;&#x27;metas_id_seq&#x27;&#x3a;&#x3a;regclass&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4541 &#x28;class 2604 OID 1334025959&#x29;&#xa;-- Name&#x3a; id&#x3b; Type&#x3a; DEFAULT&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;ALTER TABLE ONLY metas_estados ALTER COLUMN id SET DEFAULT nextval&#x28;&#x27;metas_estados_id_seq&#x27;&#x3a;&#x3a;regclass&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4542 &#x28;class 2604 OID 1334025960&#x29;&#xa;-- Name&#x3a; id&#x3b; Type&#x3a; DEFAULT&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;ALTER TABLE ONLY metas_rangos ALTER COLUMN id SET DEFAULT nextval&#x28;&#x27;metas_rangos_id_seq&#x27;&#x3a;&#x3a;regclass&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4669 &#x28;class 0 OID 1334025931&#x29;&#xa;-- Dependencies&#x3a; 961&#xa;-- Data for Name&#x3a; ft_integrado&#x3b; Type&#x3a; TABLE DATA&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4685 &#x28;class 0 OID 0&#x29;&#xa;-- Dependencies&#x3a; 962&#xa;-- Name&#x3a; ft_integrado_id_seq&#x3b; Type&#x3a; SEQUENCE SET&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;SELECT pg_catalog.setval&#x28;&#x27;ft_integrado_id_seq&#x27;, 24156, true&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4671 &#x28;class 0 OID 1334025936&#x29;&#xa;-- Dependencies&#x3a; 963&#xa;-- Data for Name&#x3a; metas&#x3b; Type&#x3a; TABLE DATA&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;INSERT INTO metas VALUES &#x28;1, &#x27;Porcentaje del devengado correspondiente al inciso 1 sobre el total.&#x27;&#x29;&#x3b;&#xa;INSERT INTO metas VALUES &#x28;2, &#x27;Porcentaje de Cargos Docentes sobre el total.&#x27;&#x29;&#x3b;&#xa;INSERT INTO metas VALUES &#x28;3, &#x27;Cantidad de Egresados cada 100 Alumnos.&#x27;&#x29;&#x3b;&#xa;INSERT INTO metas VALUES &#x28;4, &#x27;Porcentaje de Alumnos sobre Porcentaje de Devengado con relaci&#xf3;n al total de la Universidad.&#x27;&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4672 &#x28;class 0 OID 1334025942&#x29;&#xa;-- Dependencies&#x3a; 964&#xa;-- Data for Name&#x3a; metas_estados&#x3b; Type&#x3a; TABLE DATA&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;INSERT INTO metas_estados VALUES &#x28;1, &#x27;verde&#x27;, &#x27;El valor se encuentra dentro del rango de valores deseados.&#x27;, &#x27;rgb&#x28;82, 240, 55&#x29;&#x27;&#x29;&#x3b;&#xa;INSERT INTO metas_estados VALUES &#x28;2, &#x27;amarillo&#x27;, &#x27;El valor se encuentra fuera del rango deseado pero a poca distancia.&#x27;, &#x27;rgb&#x28;255, 255, 0&#x29;&#x27;&#x29;&#x3b;&#xa;INSERT INTO metas_estados VALUES &#x28;3, &#x27;rojo&#x27;, &#x27;El valor se encuentra fuera del rango de valores deseados.&#x27;, &#x27;rgb&#x28;255, 0, 0&#x29;&#x27;&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4686 &#x28;class 0 OID 0&#x29;&#xa;-- Dependencies&#x3a; 965&#xa;-- Name&#x3a; metas_estados_id_seq&#x3b; Type&#x3a; SEQUENCE SET&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;SELECT pg_catalog.setval&#x28;&#x27;metas_estados_id_seq&#x27;, 1, false&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4687 &#x28;class 0 OID 0&#x29;&#xa;-- Dependencies&#x3a; 966&#xa;-- Name&#x3a; metas_id_seq&#x3b; Type&#x3a; SEQUENCE SET&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;SELECT pg_catalog.setval&#x28;&#x27;metas_id_seq&#x27;, 1, false&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4675 &#x28;class 0 OID 1334025952&#x29;&#xa;-- Dependencies&#x3a; 967&#xa;-- Data for Name&#x3a; metas_rangos&#x3b; Type&#x3a; TABLE DATA&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;INSERT INTO metas_rangos VALUES &#x28;1, 1, 1, 0, 80&#x29;&#x3b;&#xa;INSERT INTO metas_rangos VALUES &#x28;2, 1, 2, 80, 94&#x29;&#x3b;&#xa;INSERT INTO metas_rangos VALUES &#x28;3, 1, 3, 94, 100&#x29;&#x3b;&#xa;INSERT INTO metas_rangos VALUES &#x28;4, 2, 3, 0, 60&#x29;&#x3b;&#xa;INSERT INTO metas_rangos VALUES &#x28;5, 2, 2, 60, 80&#x29;&#x3b;&#xa;INSERT INTO metas_rangos VALUES &#x28;6, 2, 1, 80, 100&#x29;&#x3b;&#xa;INSERT INTO metas_rangos VALUES &#x28;7, 3, 3, 0, 5&#x29;&#x3b;&#xa;INSERT INTO metas_rangos VALUES &#x28;8, 3, 2, 5, 10&#x29;&#x3b;&#xa;INSERT INTO metas_rangos VALUES &#x28;9, 3, 1, 10, 1000000&#x29;&#x3b;&#xa;INSERT INTO metas_rangos VALUES &#x28;10, 4, 3, 0, 25&#x29;&#x3b;&#xa;INSERT INTO metas_rangos VALUES &#x28;11, 4, 2, 25, 50&#x29;&#x3b;&#xa;INSERT INTO metas_rangos VALUES &#x28;12, 4, 1, 50, 100&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4688 &#x28;class 0 OID 0&#x29;&#xa;-- Dependencies&#x3a; 968&#xa;-- Name&#x3a; metas_rangos_id_seq&#x3b; Type&#x3a; SEQUENCE SET&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;SELECT pg_catalog.setval&#x28;&#x27;metas_rangos_id_seq&#x27;, 1, false&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4544 &#x28;class 2606 OID 1334025962&#x29;&#xa;-- Name&#x3a; ft_integrado_pkey&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY ft_integrado&#xa;    ADD CONSTRAINT ft_integrado_pkey PRIMARY KEY &#x28;id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4546 &#x28;class 2606 OID 1334025964&#x29;&#xa;-- Name&#x3a; pk_metas&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY metas&#xa;    ADD CONSTRAINT pk_metas PRIMARY KEY &#x28;id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4548 &#x28;class 2606 OID 1334025966&#x29;&#xa;-- Name&#x3a; pk_metas_estados&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY metas_estados&#xa;    ADD CONSTRAINT pk_metas_estados PRIMARY KEY &#x28;id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4550 &#x28;class 2606 OID 1334025968&#x29;&#xa;-- Name&#x3a; pk_metas_rangos&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY metas_rangos&#xa;    ADD CONSTRAINT pk_metas_rangos PRIMARY KEY &#x28;id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4551 &#x28;class 2606 OID 1334025969&#x29;&#xa;-- Name&#x3a; fk_metas_rangos_metas&#x3b; Type&#x3a; FK CONSTRAINT&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;ALTER TABLE ONLY metas_rangos&#xa;    ADD CONSTRAINT fk_metas_rangos_metas FOREIGN KEY &#x28;metas_id&#x29; REFERENCES metas&#x28;id&#x29; ON UPDATE CASCADE ON DELETE RESTRICT&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4552 &#x28;class 2606 OID 1334025974&#x29;&#xa;-- Name&#x3a; fk_metas_rangos_metas_estados&#x3b; Type&#x3a; FK CONSTRAINT&#x3b; Schema&#x3a; integrado&#x3b; Owner&#x3a; postgres&#xa;--&#xa;&#xa;ALTER TABLE ONLY metas_rangos&#xa;    ADD CONSTRAINT fk_metas_rangos_metas_estados FOREIGN KEY &#x28;metas_estados_id&#x29; REFERENCES metas_estados&#x28;id&#x29; ON UPDATE CASCADE ON DELETE RESTRICT&#x3b;&#xa;&#xa;&#xa;-- Completed on 2016-12-07 15&#x3a;21&#x3a;39 ART&#xa;&#xa;--&#xa;-- PostgreSQL database dump complete&#xa;--&#xa;&#xa;</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>224</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>nada</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>80</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step_error_handling>
+  </step_error_handling>
+   <slave-step-copy-partition-distribution>
+</slave-step-copy-partition-distribution>
+   <slave_transformation>N</slave_transformation>
+
+</transformation>

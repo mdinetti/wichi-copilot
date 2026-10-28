@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>creacion_dsa_rhun</name>
+    <description/>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>&#x2f;</directory>
+    <parameters>
+    </parameters>
+    <log>
+<trans-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
+<perf-log-table><connection/>
+<schema/>
+<table/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+<step-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+<metrics-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+  <created_user>-</created_user>
+  <created_date>2013&#x2f;03&#x2f;22 15&#x3a;33&#x3a;44.716</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2013&#x2f;03&#x2f;22 15&#x3a;33&#x3a;44.716</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+    <notepad>
+      <note>Ejecuta el script&#xa;de creaci&#xf3;n</note>
+      <xloc>193</xloc>
+      <yloc>74</yloc>
+      <width>109</width>
+      <heigth>42</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <connection>
+    <name>siu_dsa</name>
+    <server>&#x24;&#x7b;dsa_nombrehost&#x7d;</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>&#x24;&#x7b;dsa_nombrebase&#x7d;</database>
+    <port>&#x24;&#x7b;dsa_puerto&#x7d;</port>
+    <username>&#x24;&#x7b;dsa_usuario&#x7d;</username>
+    <password>&#x24;&#x7b;dsa_clave&#x7d;</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;dsa_puerto&#x7d;</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SQL_CONNECT</code><attribute>SET datestyle to iso,YMD</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <order>
+  <hop> <from>nada</from><to>Execute SQL script</to><enabled>Y</enabled> </hop>
+  </order>
+  <step>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>--Crea el esquema rhun_dsa&#xa;CREATE SCHEMA rhun_dsa&#x3b;&#xa;&#xa;--Tablas del esquema rhun&#xa;create table rhun_dsa.d_unidad_academica&#x28;&#xa;	unidad_academica_id	integer,&#xa;	unidad_academica_codigo	character varying,&#xa;	unidad_academica_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_unidad_academica primary key &#x28;unidad_academica_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_tipo_cargo_asociado&#x28;&#xa;	tipo_cargo_asociado_id	integer,&#xa;	tipo_cargo_asociado_codigo	character varying,&#xa;	tipo_cargo_asociado_desc	character varying,&#xa;	orden	integer,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_tipo_cargo_asociado primary key &#x28;tipo_cargo_asociado_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_concepto&#x28;&#xa;	concepto_id	integer,&#xa;	concepto_codigo	character varying,&#xa;	concepto_desc	character varying,&#xa;	tipo_concepto_codigo	character varying,&#xa;	tipo_concepto_desc	character varying,&#xa;	objeto_gasto_permanente_codigo character varying,&#xa;	objeto_gasto_transitorio_codigo character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_concepto primary key &#x28;concepto_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_escalafon&#x28;&#xa;	escalafon_id	integer,&#xa;	escalafon_codigo	character varying,&#xa;	escalafon_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_escalafon primary key &#x28;escalafon_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_categoria_universidad&#x28;&#xa;	categoria_universidad_id	integer,&#xa;	categoria_universidad_desc	character varying,&#xa;	categoria_universidad_dedicacion	character varying,&#xa;	escalafon_codigo	character varying,&#xa;	cargo_codigo	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_d_categoria_universidad primary key &#x28;categoria_universidad_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_fuente_financiamiento&#x28;&#xa;	fuente_financiamiento_id	integer,&#xa;	fuente_financiamiento_codigo	character varying,&#xa;	fuente_financiamiento_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_fuente_financiamiento primary key &#x28;fuente_financiamiento_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_estado_laboral&#x28;&#xa;	estado_laboral_id	integer,&#xa;	estado_laboral_codigo	character varying,&#xa;	estado_laboral_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_estado_laboral primary key &#x28;estado_laboral_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_situacion_laboral&#x28;&#xa;	situacion_laboral_id	integer,&#xa;	situacion_laboral_codigo	character varying,&#xa;	situacion_laboral_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_situacion_laboral primary key &#x28;situacion_laboral_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_ona_jerarquia&#x28;&#xa;	ona_jerarquia_id	integer,&#xa;	ona_rama_codigo	character varying,&#xa;	ona_rama_desc	character varying,&#xa;	ona_disciplina_codigo	character varying,&#xa;	ona_disciplina_desc	character varying,&#xa;	ona_area_codigo	character varying,&#xa;	ona_area_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_ona_jerarquia primary key &#x28;ona_jerarquia_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_agrupamiento_no_docente&#x28;&#xa;	agrupamiento_no_docente_id	integer,&#xa;	agrupamiento_no_docente_codigo	character varying,&#xa;	agrupamiento_no_docente_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_agrupamiento_no_docente primary key &#x28;agrupamiento_no_docente_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_nivel_ensenianza&#x28;&#xa;	nivel_ensenianza_id	integer,&#xa;	nivel_ensenianza_codigo	character varying,&#xa;	nivel_ensenianza_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_nivel_ensenianza primary key &#x28;nivel_ensenianza_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_anios_de_antiguedad&#x28;&#xa;	anios_de_antiguedad_id	integer,&#xa;	antiguedad_codigo	character varying,&#xa;	antiguedad_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_anios_de_antiguedad primary key &#x28;anios_de_antiguedad_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_antiguedad_docente&#x28;&#xa;	antiguedad_docente_id	integer,&#xa;	antiguedad_docente_codigo	character varying,&#xa;	antiguedad_docente_desc	character varying,&#xa;	rango_antiguedad_docente_codigo	character varying,&#xa;	rango_antiguedad_docente_desc	character varying,&#xa;	meses	integer, --lo generamos nosotros con valores del 0 al 720&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_antiguedad_docente primary key &#x28;antiguedad_docente_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_estado_cargo&#x28;&#xa;	estado_cargo_id	integer,&#xa;	estado_cargo_codigo	character varying,&#xa;	estado_cargo_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_estado_cargo primary key &#x28;estado_cargo_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_tipo_planta&#x28;&#xa;	tipo_planta_id	integer,&#xa;	tipo_planta_codigo	character varying,&#xa;	tipo_planta_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_tipo_planta primary key &#x28;tipo_planta_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_objeto_del_gasto&#x28;&#xa;	objeto_del_gasto_id	integer,&#xa;	objeto_del_gasto_codigo	character varying,&#xa;	resumen	character varying,&#xa;	inciso	character varying,&#xa;	partida_principal	character varying,&#xa;	partida_parcial	character varying,&#xa;	orden	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_objeto_del_gasto primary key &#x28;objeto_del_gasto_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_periodo_retroactivo&#x28;&#xa;	periodo_retroactivo_id	integer,&#xa;	periodo_retroactivo_codigo	character varying, --Concatenar anio_codigo y mes_codigo&#xa;	anio_codigo	character varying,&#xa;	anio_desc	character varying,&#xa;	mes_codigo	character varying,&#xa;	mes_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_periodo_retroactivo primary key &#x28;periodo_retroactivo_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_tipo_grupo_concepto&#x28;&#xa;	tipo_grupo_concepto_id	integer,&#xa;	tipo_grupo_concepto_codigo	character varying,&#xa;	tipo_grupo_concepto_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_tipo_grupo_concepto primary key &#x28;tipo_grupo_concepto_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;create table rhun_dsa.d_nacionalidad&#x28;&#xa;	nacionalidad_id	integer,&#xa;	nacionalidad_codigo	character varying,&#xa;	nacionalidad_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_d_nacionalidad primary key &#x28;nacionalidad_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_estado_civil&#x28;&#xa;	estado_civil_id	integer,&#xa;	estado_civil_codigo	character varying,&#xa;	estado_civil_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_estado_civil primary key &#x28;estado_civil_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_sistema_previsional&#x28;&#xa;	sistema_previsional_id	integer,&#xa;	sistema_previsional_codigo	character varying,&#xa;	sistema_previsional_desc	character varying,&#xa;	tipo_sistema_previsional_codigo character varying,&#xa;	tipo_sistema_previsional_desc character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_sistema_previsional primary key &#x28;sistema_previsional_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_nivel_educacion&#x28;&#xa;	nivel_educacion_id	integer,&#xa;	nivel_educacion_codigo	character varying,&#xa;	sirhu	text,&#xa;	nivel_educacion_tipo_codigo	character varying,&#xa;	nivel_educacion_desc	character varying,&#xa;	nivel_educacion_tipo_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_nivel_educacion primary key &#x28;nivel_educacion_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;create table rhun_dsa.d_ona_tipo_titulo&#x28;&#xa;	ona_tipo_titulo_id	integer,&#xa;	tipo_titulo_codigo	character varying,&#xa;	tipo_titulo_desc	character varying,&#xa;	titulo_codigo	character varying,&#xa;	titulo_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_ona_tipo_titulo primary key &#x28;ona_tipo_titulo_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_categoria_conicet&#x28;&#xa;	categoria_conicet_id	integer,&#xa;	categoria_conicet_codigo	character varying,&#xa;	categoria_conicet_tipo_desc	character varying,&#xa;	categoria_conicet_desc	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_categoria_conicet primary key &#x28;categoria_conicet_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_equivalencia_cargo&#x28;&#xa;	equivalencia_cargo_id	integer,&#xa;	equivalencia_cargo_codigo	character varying,&#xa;	escalafon_codigo	character varying,&#xa;	categoria_dedicacion	character varying,&#xa;	categoria_tipo	character varying, -- 1er nivel de la dimensi&#xf3;n&#xa;	categoria_denominacion	character varying, -- 2do nivel de la dimensi&#xf3;n&#xa;	categoria_horas	character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_equivalencia_cargo primary key &#x28;equivalencia_cargo_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table rhun_dsa.d_persona&#x28;&#xa;	persona_id integer,&#xa;	persona_codigo character varying,&#xa;	persona_desc character varying,&#xa;	fecha_desde	date,&#xa;	fecha_hasta	date,&#xa;	&#x22;version&#x22;	integer,&#xa;	vigente	character varying,&#xa;	fecha_actualizacion	 timestamp without time zone,&#xa;	constraint idxp_dsa_d_persona primary key &#x28;persona_id&#x29;&#xa;&#x29;&#x3b;&#xa;--indice para que la carga de la dimension sea m&#xe1;s r&#xe1;pida&#xa;CREATE INDEX idxp_dsa_d_persona_codigo ON rhun_dsa.d_persona USING btree &#x28;persona_codigo&#x29;&#x3b;&#xa;&#xa;CREATE TABLE rhun_dsa.d_categoria_incentivo&#xa;&#x28;&#xa;  categoria_incentivo_id integer NOT NULL,&#xa;  categoria_incentivo_codigo character varying,&#xa;  categoria_incentivo_desc character varying,&#xa;  fecha_desde date,&#xa;  fecha_hasta date,&#xa;  &#x22;version&#x22; integer,&#xa;  vigente character varying,&#xa;  fecha_actualizacion timestamp without time zone,&#xa;  CONSTRAINT idxp_dsa_d_categoria_incentivo PRIMARY KEY &#x28;categoria_incentivo_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE rhun_dsa.d_cargo_por_persona&#xa;&#x28;&#xa;  cargo_por_persona_id integer NOT NULL,&#xa;  cargo_por_persona_codigo character varying,&#xa;  cargo_por_persona_desc character varying,&#xa;  fecha_desde date,&#xa;  fecha_hasta date,&#xa;  version integer,&#xa;  vigente character varying,&#xa;  fecha_actualizacion timestamp without time zone,&#xa;  CONSTRAINT idxp_dsa_d_cargo_por_persona PRIMARY KEY &#x28;cargo_por_persona_id &#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE rhun_dsa.d_hora_dedicacion&#xa;&#x28;&#xa;  hora_dedicacion_id integer NOT NULL,&#xa;  hora_dedicacion_codigo character varying,&#xa;  hora_dedicacion_desc character varying,&#xa;  fecha_desde date,&#xa;  fecha_hasta date,&#xa;  version integer,&#xa;  vigente character varying,&#xa;  fecha_actualizacion timestamp without time zone,&#xa;  CONSTRAINT idxp_dsa_d_hora_dedicacion PRIMARY KEY &#x28;hora_dedicacion_id &#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE rhun_dsa.d_edad&#xa;&#x28;&#xa;  edad_id integer NOT NULL,&#xa;  edad_codigo character varying,&#xa;  edad_desc character varying,&#xa;  fecha_desde date,&#xa;  fecha_hasta date,&#xa;  &#x22;version&#x22; integer,&#xa;  vigente character varying,&#xa;  fecha_actualizacion timestamp without time zone,&#xa;  CONSTRAINT idxp_dsa_d_edad PRIMARY KEY &#x28;edad_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE rhun_dsa.ft_cargo_liquidado&#xa;&#x28;&#xa;periodo_id integer NOT NULL,&#xa;numero_cargo integer NOT NULL,&#xa;persona_id integer NOT NULL,&#xa;escalafon_id integer NOT NULL,&#xa;categoria_universidad_id integer NOT NULL,&#xa;equivalencia_cargo_id integer NOT NULL,&#xa;unidad_academica_id integer NOT NULL,&#xa;fuente_financiamiento_id integer NOT NULL,&#xa;estado_laboral_id integer NOT NULL,&#xa;tipo_planta_id integer NOT NULL,&#xa;estado_cargo_id integer NOT NULL,&#xa;situacion_laboral_id integer NOT NULL,&#xa;nivel_ensenianza_id integer NOT NULL,&#xa;rango_antiguedad_id integer NOT NULL,&#xa;horas_dedicacion_id integer NOT NULL,&#xa;numero_cargo_id integer NOT NULL,&#xa;anios_antiguedad_id integer NOT NULL,&#xa;agrupamiento_nd_id integer NOT NULL,&#xa;tipo_cargo_asociado_id 	integer NOT NULL,&#xa;escalafon_relacionado_id integer NOT NULL,&#xa;dedicacion_relacionada_id integer NOT NULL,&#xa;categoria_relacionada_id integer NOT NULL,&#xa;equivalencia_cargo_relacionado_id integer NOT NULL,&#xa;cantidad_cargos integer NOT NULL&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE rhun_dsa.ft_detalle_liquidacion_haberes&#xa;&#x28;&#xa;periodo_id  integer NOT NULL,&#xa;concepto_id integer NOT NULL,&#xa;numero_cargo  integer NOT NULL,&#xa;periodo_retroactivo_id integer NOT NULL,&#xa;categoria_universidad_id integer NOT NULL,&#xa;unidad_academica_id  integer NOT NULL,&#xa;equivalencia_cargo_id  integer NOT NULL,&#xa;fuente_financiamiento_id  integer NOT NULL,&#xa;estado_laboral_id  integer NOT NULL,&#xa;tipo_planta_id  integer NOT NULL,&#xa;estado_cargo_id  integer NOT NULL,&#xa;situacion_laboral_id  integer NOT NULL,&#xa;nivel_ensenianza_id  integer NOT NULL,&#xa;rango_antiguedad_id integer NOT NULL,&#xa;horas_dedicacion_id integer NOT NULL,&#xa;anios_antiguedad_id  integer NOT NULL,&#xa;agrupamiento_nd_id  integer NOT NULL,&#xa;tipo_cargo_asociado_id  integer NOT NULL,&#xa;escalafon_relacionado_id  integer NOT NULL,&#xa;dedicacion_relacionada_id integer NOT NULL,&#xa;categoria_relacionada_id integer NOT NULL,&#xa;objeto_del_gasto_id integer NOT NULL,&#xa;persona_id integer NOT NULL,&#xa;numero_cargo_id integer NOT NULL,&#xa;equivalencia_cargo_relacionado_id integer NOT NULL,&#xa;escalafon_id  integer NOT NULL,&#xa;importe  numeric&#x28;13,2&#x29; NOT NULL,&#xa;conceptos_por_cargos integer NOT NULL&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE rhun_dsa.ft_detalle_liquidacion_haberes_por_grupo&#xa;&#x28;&#xa;periodo_id  integer NOT NULL,&#xa;tipo_grupo_concepto_id  integer NOT NULL,&#xa;concepto_id integer NOT NULL,&#xa;numero_cargo  integer NOT NULL,&#xa;periodo_retroactivo_id integer NOT NULL,&#xa;categoria_universidad_id integer NOT NULL,&#xa;unidad_academica_id  integer NOT NULL,&#xa;equivalencia_cargo_id  integer NOT NULL,&#xa;fuente_financiamiento_id  integer NOT NULL,&#xa;estado_laboral_id  integer NOT NULL,&#xa;tipo_planta_id  integer NOT NULL,&#xa;estado_cargo_id  integer NOT NULL,&#xa;situacion_laboral_id  integer NOT NULL,&#xa;nivel_ensenianza_id  integer NOT NULL,&#xa;rango_antiguedad_id integer NOT NULL,&#xa;horas_dedicacion_id integer NOT NULL,&#xa;anios_antiguedad_id  integer NOT NULL,&#xa;agrupamiento_nd_id  integer NOT NULL,&#xa;tipo_cargo_asociado_id  integer NOT NULL,&#xa;escalafon_relacionado_id  integer NOT NULL,&#xa;dedicacion_relacionada_id integer NOT NULL,&#xa;categoria_relacionada_id integer NOT NULL,&#xa;objeto_del_gasto_id integer NOT NULL,&#xa;persona_id integer NOT NULL,&#xa;numero_cargo_id integer NOT NULL,&#xa;equivalencia_cargo_relacionado_id integer NOT NULL,&#xa;escalafon_id  integer NOT NULL,&#xa;importe_por_grupo_de_concepto  numeric&#x28;13,2&#x29; NOT NULL,&#xa;conceptos_por_cargos_por_grupos integer NOT NULL&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE rhun_dsa.ft_datos_personales_planta&#xa;&#x28;&#xa;periodo_id  integer NOT NULL,&#xa;persona_id integer NOT NULL,&#xa;nacionalidad_id  integer NOT NULL,&#xa;estado_civil_id  integer NOT NULL,&#xa;sexo_id  integer NOT NULL,&#xa;edad_id integer NOT NULL,&#xa;sistema_previsional_id  integer NOT NULL,&#xa;nivel_educacion_id  integer NOT NULL,&#xa;titulo_id  integer NOT NULL,&#xa;categoria_conicet_id integer NOT NULL,&#xa;categoria_incentivo_id integer NOT NULL,&#xa;personas integer NOT NULL&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE rhun_dsa.ft_cargos_planta&#xa;&#x28;&#xa;periodo_id  integer NOT NULL,&#xa;numero_cargo  integer NOT NULL,&#xa;persona_id integer NOT NULL,&#xa;escalafon_id  integer NOT NULL,&#xa;categoria_universidad_id integer NOT NULL,&#xa;equivalencia_cargo_id  integer NOT NULL,&#xa;unidad_academica_id  integer NOT NULL,&#xa;ona_jerarquia_id  integer NOT NULL,&#xa;agrupamiento_nd_id  integer NOT NULL,&#xa;nivel_ensenianza_id  integer NOT NULL,&#xa;grado  integer NOT NULL,&#xa;rango_antiguedad_id integer NOT NULL,&#xa;horas_dedicacion_id integer NOT NULL,&#xa;porcentaje_dedicacion_id integer NOT NULL,&#xa;porcentaje_investigacion_id integer NOT NULL,&#xa;porcentaje_extension_id integer NOT NULL,&#xa;porcentaje_gestion_id integer NOT NULL,&#xa;numero_cargo_id  integer NOT NULL,&#xa;tipo_cargo_asociado_id  integer NOT NULL,&#xa;escalafon_relacionado_id  integer NOT NULL,&#xa;dedicacion_relacionada_id integer NOT NULL,&#xa;categoria_relacionada_id integer NOT NULL,&#xa;nacionalidad_id  integer NOT NULL,&#xa;estado_civil_id  integer NOT NULL,&#xa;sexo_id integer NOT NULL,&#xa;edad_id integer NOT NULL,&#xa;sistema_previsional_id  integer NOT NULL,&#xa;nivel_educacion_id  integer NOT NULL,&#xa;titulo_id  integer NOT NULL,&#xa;categoria_conicet_id integer NOT NULL,&#xa;categoria_incentivo_id integer NOT NULL,&#xa;equivalencia_cargo_relacionado_id integer NOT NULL,&#xa;cargos  integer NOT NULL,&#xa;sueldo_bruto  numeric&#x28;13,2&#x29; NOT NULL&#xa;&#x29;&#x3b;&#xa;</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>225</xloc>
+      <yloc>120</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>nada</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>90</xloc>
+      <yloc>119</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step_error_handling>
+  </step_error_handling>
+   <slave-step-copy-partition-distribution>
+</slave-step-copy-partition-distribution>
+   <slave_transformation>N</slave_transformation>
+
+</transformation>

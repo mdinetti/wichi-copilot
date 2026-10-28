@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job>
+  <name>validar_y_crear_importacion</name>
+    <description/>
+    <extended_description/>
+    <job_version/>
+    <job_status>0</job_status>
+  <directory>&#x2f;</directory>
+  <created_user>-</created_user>
+  <created_date>2012&#x2f;07&#x2f;30 17&#x3a;30&#x3a;50.871</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2012&#x2f;07&#x2f;30 17&#x3a;30&#x3a;50.871</modified_date>
+    <parameters>
+        <parameter>
+            <name>dsa_clave</name>
+            <default_value>postgres</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>dsa_nombrebase</name>
+            <default_value>siu_dsa</default_value>
+            <description>nombre de la base de datos dsa</description>
+        </parameter>
+        <parameter>
+            <name>dsa_nombrehost</name>
+            <default_value>localhost</default_value>
+            <description>nombre o ip del host</description>
+        </parameter>
+        <parameter>
+            <name>dsa_puerto</name>
+            <default_value>5432</default_value>
+            <description>puerto al que se conecta a la base de datos</description>
+        </parameter>
+        <parameter>
+            <name>dsa_usuario</name>
+            <default_value>postgres</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>dw_clave</name>
+            <default_value>postgres</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>dw_nombrebase</name>
+            <default_value>siu_dw</default_value>
+            <description>nombre de la base de datos dw</description>
+        </parameter>
+        <parameter>
+            <name>dw_nombrehost</name>
+            <default_value>localhost</default_value>
+            <description>nombre o ip del host</description>
+        </parameter>
+        <parameter>
+            <name>dw_puerto</name>
+            <default_value>5432</default_value>
+            <description>puerto al que se conecta a la base de datos</description>
+        </parameter>
+        <parameter>
+            <name>dw_usuario</name>
+            <default_value>postgres</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>estado</name>
+            <default_value>x</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>observaciones</name>
+            <default_value> </default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>ultima_importacion_id</name>
+            <default_value>-3</default_value>
+            <description/>
+        </parameter>
+    </parameters>
+  <connection>
+    <name>siu_dw</name>
+    <server>&#x24;&#x7b;dw_nombrehost&#x7d;</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>&#x24;&#x7b;dw_nombrebase&#x7d;</database>
+    <port>&#x24;&#x7b;dw_puerto&#x7d;</port>
+    <username>&#x24;&#x7b;dw_usuario&#x7d;</username>
+    <password>&#x24;&#x7b;dw_clave&#x7d;</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;dw_puerto&#x7d;</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+    <slaveservers>
+    </slaveservers>
+<job-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
+<field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>START_JOB_ENTRY</id><enabled>N</enabled><name>START_JOB_ENTRY</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></job-log-table>
+<jobentry-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>JOBENTRYNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>RESULT</id><enabled>Y</enabled><name>RESULT</name></field><field><id>NR_RESULT_ROWS</id><enabled>Y</enabled><name>NR_RESULT_ROWS</name></field><field><id>NR_RESULT_FILES</id><enabled>Y</enabled><name>NR_RESULT_FILES</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field><field><id>COPY_NR</id><enabled>N</enabled><name>COPY_NR</name></field></jobentry-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+   <pass_batchid>N</pass_batchid>
+   <shared_objects_file/>
+  <entries>
+    <entry>
+      <name>START</name>
+      <description/>
+      <type>SPECIAL</type>
+      <start>Y</start>
+      <dummy>N</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>43</xloc>
+      <yloc>85</yloc>
+      </entry>
+    <entry>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>841</xloc>
+      <yloc>321</yloc>
+      </entry>
+    <entry>
+      <name>est&#xe1; finalizada</name>
+      <description/>
+      <type>SIMPLE_EVAL</type>
+      <valuetype>variable</valuetype>
+      <fieldname>estado</fieldname>
+      <variablename>&#x24;&#x7b;estado&#x7d;</variablename>
+      <fieldtype>string</fieldtype>
+      <mask/>
+      <comparevalue>finalizada</comparevalue>
+      <minvalue/>
+      <maxvalue/>
+      <successcondition>equal</successcondition>
+      <successnumbercondition>equal</successnumbercondition>
+      <successbooleancondition>false</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>400</xloc>
+      <yloc>201</yloc>
+      </entry>
+    <entry>
+      <name>buscar &#xfa;ltima importaci&#xf3;n</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;buscar_ultima_importacion.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>238</xloc>
+      <yloc>200</yloc>
+      </entry>
+    <entry>
+      <name>asignar id</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;asignar_importacion_id.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>588</xloc>
+      <yloc>320</yloc>
+      </entry>
+    <entry>
+      <name>hay importaciones&#x3f;</name>
+      <description/>
+      <type>EVAL_TABLE_CONTENT</type>
+      <connection>siu_dw</connection>
+      <schemaname>public</schemaname>
+      <tablename>importacion</tablename>
+      <success_condition>rows_count_greater</success_condition>
+      <limit>0</limit>
+      <is_custom_sql>Y</is_custom_sql>
+      <is_usevars>Y</is_usevars>
+      <custom_sql>SELECT importacion_id&#xa;	,estado&#xa;from public.importacion&#xa;where importacion_id &#x3d; &#x28;&#xa;	select max&#x28;importacion_id&#x29;&#xa;	from importacion&#xa;&#x29;&#xa;and instalacion_id &#x3d; &#x24;&#x7b;instalacion_id&#x7d;&#xa;</custom_sql>
+      <add_rows_result>N</add_rows_result>
+      <clear_result_rows>Y</clear_result_rows>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>237</xloc>
+      <yloc>86</yloc>
+      </entry>
+    <entry>
+      <name>buscar nueva importaci&#xf3;n</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;buscar_ultima_importacion.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>588</xloc>
+      <yloc>202</yloc>
+      </entry>
+    <entry>
+      <name>crear importaci&#xf3;n</name>
+      <description/>
+      <type>SQL</type>
+      <sql>insert into public.importacion&#x28;fecha_inicio, observaciones, estado,tipo, parametros, instalacion_id&#x29;&#xa;values&#x28;&#xa;    now&#x28;&#x29;,&#xa;    &#x27;&#x24;&#x7b;observaciones&#x7d;&#x27;,&#xa;    &#x27;en proceso&#x27;,&#xa;    &#x27;&#x24;&#x7b;tipo_importacion&#x7d;&#x27;,&#xa;    &#x27;base&#x3d;&#x24;&#x7b;dw_nombrebase&#x7d; host&#x3d;&#x24;&#x7b;dw_nombrehost&#x7d; puerto&#x3d;&#x24;&#x7b;dw_puerto&#x7d; usuario&#x3d;&#x24;&#x7b;dw_usuario&#x7d;&#x27;,&#xa;    &#x24;&#x7b;instalacion_id&#x7d;&#xa;&#x29;&#x3b;&#xa;</sql>
+      <useVariableSubstitution>T</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>siu_dw</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>590</xloc>
+      <yloc>83</yloc>
+      </entry>
+    <entry>
+      <name>loguear</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Se detect&#xf3; una importaci&#xf3;n en proceso. Se reiniciar&#xe1; la importaci&#xf3;n marcada como &#x27;en proceso&#x27;.</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>&#x5b;INFORMACION&#x5d;</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>400</xloc>
+      <yloc>320</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>importacion_id &#x3d; &#x24;&#x7b;importacion_id&#x7d;</logmessage>
+      <loglevel>Debug</loglevel>
+      <logsubject>&#x5b;DEBUG&#x5d;</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>722</xloc>
+      <yloc>321</yloc>
+      </entry>
+  </entries>
+  <hops>
+    <hop>
+      <from>buscar &#xfa;ltima importaci&#xf3;n</from>
+      <to>est&#xe1; finalizada</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>hay importaciones&#x3f;</from>
+      <to>buscar &#xfa;ltima importaci&#xf3;n</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>buscar nueva importaci&#xf3;n</from>
+      <to>asignar id</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>crear importaci&#xf3;n</from>
+      <to>buscar nueva importaci&#xf3;n</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>est&#xe1; finalizada</from>
+      <to>loguear</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>loguear</from>
+      <to>asignar id</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>asignar id</from>
+      <to>Write To Log</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>hay importaciones&#x3f;</from>
+      <to>crear importaci&#xf3;n</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>est&#xe1; finalizada</from>
+      <to>crear importaci&#xf3;n</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>hay importaciones&#x3f;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+  </hops>
+  <notepads>
+    <notepad>
+      <note>Busca la &#xfa;ltima importaci&#xf3;n del sistema indicado en el par&#xe1;metro fuentedato_id. Si la importaci&#xf3;n est&#xe1; finalizada, crea una nueva. Si no, la contin&#xfa;a.</note>
+      <xloc>73</xloc>
+      <yloc>20</yloc>
+      <width>873</width>
+      <heigth>26</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#xa;&#x2a;&#x2a;&#x2a;&#x2a;ATENCION&#x2a;&#x2a;&#x2a;&#x2a;&#xa;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#x2a;&#xa;Hay que definir en el JOB principal las siguientes 3 variables&#xa;para que el proceso funcione correctamente&#xa;&#xa;Nombre- Valor - Alcance&#xa;---------------------------------------------------------------------------------------------------------------------------&#xa;tipo_importacion	- &#x28;nueva &#x7c; actualizacion&#x29; - 	Valid in the root job&#xa;fuentedato_id - &#x3c;id de la fuente de datos ej&#x3a; 6 para SPU-RHUN&#x3e;- Valid in the root job&#xa;fuentedato_desc - &#x3c;nombre de la fuente de datos ej&#x3a; rhun&#x3e; - 	Valid in the root job&#xa;</note>
+      <xloc>9</xloc>
+      <yloc>315</yloc>
+      <width>502</width>
+      <heigth>166</heigth>
+      <fontname>Sans</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+
+</job>

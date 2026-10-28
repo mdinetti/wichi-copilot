@@ -1,0 +1,1314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>creacion_dw_guarani</name>
+    <description/>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>/</directory>
+    <parameters>
+    </parameters>
+    <log>
+      <trans-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+    <created_user>-</created_user>
+    <created_date>2013/03/22 15:33:44.716</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2013/03/22 15:33:44.716</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+    <notepad>
+      <note>Ejecuta el script
+de creación</note>
+      <xloc>193</xloc>
+      <yloc>74</yloc>
+      <width>131</width>
+      <heigth>48</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <connection>
+    <name>siu_dw</name>
+    <server>${dw_nombrehost}</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>${dw_nombrebase}</database>
+    <port>${dw_puerto}</port>
+    <username>${dw_usuario}</username>
+    <password>${dw_clave}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>${dw_puerto}</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <order>
+    <hop>
+      <from>nada</from>
+      <to>Execute SQL script</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <step>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>siu_dw</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>--Crea el esquema guarani
+CREATE SCHEMA guarani;
+
+--Tablas cubo procedencia
+CREATE TABLE guarani.gua_dw_lt_periodosinscripcion (
+                periodoinscripcion_id INTEGER NOT NULL,
+                periodoinscripcion_desc VARCHAR,
+                anioacademico INTEGER,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP without time zone,
+                CONSTRAINT gua_dw_lt_periodosinscripcion_pk PRIMARY KEY (periodoinscripcion_id)
+);
+CREATE TABLE guarani.gua_dw_lt_situacionesaspirantes (
+                situacionaspirante_id INTEGER NOT NULL,
+                situacionasp_id_gua VARCHAR,
+                situacionasp_desc VARCHAR,
+                resultadoasp_id_gua VARCHAR,
+                resultadoasp_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP without time zone,
+                CONSTRAINT gua_dw_lt_situacionesaspirantes_pk PRIMARY KEY (situacionaspirante_id)
+);
+CREATE TABLE guarani.gua_dw_ft_procedenciaaspirantes (
+				id serial NOT NULL,
+				importacion_id integer,
+                unidadacademica_id INTEGER NOT NULL,
+                periodoinscripcion_id INTEGER NOT NULL,
+                carrera_id INTEGER NOT NULL,
+                procedencia_id INTEGER NOT NULL,
+                situacionaspirante_id INTEGER NOT NULL,
+                sexo_id INTEGER NOT NULL,
+                cantidad INTEGER NOT NULL,
+                unidad_generica_id integer
+);
+CREATE INDEX idxp_ft_procedenciaaspirantes_unidadgenericaid ON guarani.gua_dw_ft_procedenciaaspirantes USING btree (unidad_generica_id);
+
+
+--Tablas cubo alumnos
+CREATE TABLE guarani.gua_dw_ft_alumnosarau (
+				id serial NOT NULL,
+				importacion_id integer,
+                unidadacademica_id INTEGER NOT NULL,
+                anioacademico INTEGER NOT NULL,
+                carrera_id INTEGER NOT NULL,
+                tituloaraucanocarrera_id INTEGER NOT NULL,
+                sexo_id INTEGER NOT NULL,
+                anioingresocarrera INTEGER NOT NULL,
+                procedencia_id INTEGER NOT NULL,
+                materiasrendidasanioanterior_id INTEGER NOT NULL,
+                materiasaprobadasanioanterior_id INTEGER NOT NULL,
+                totalmateriasrendidas_id INTEGER NOT NULL,
+                totalmateriasaprobadas_id INTEGER NOT NULL,
+                horastrabajadas_id INTEGER NOT NULL,
+                tipoingreso_id INTEGER NOT NULL,
+                edad_id INTEGER NOT NULL,
+                procesoaraucanook_id INTEGER NOT NULL,
+                nuevosinscriptos INTEGER,
+                reinscriptos INTEGER,
+                egresados INTEGER,
+                unidad_generica_id integer,
+	            legajo_id integer NOT NULL
+);
+COMMENT ON TABLE guarani.gua_dw_ft_alumnosarau IS 'Corresponde al cubo 05';
+COMMENT ON COLUMN guarani.gua_dw_ft_alumnosarau.unidadacademica_id IS 'Clave subrogada que identifica a la unidad académica';
+COMMENT ON COLUMN guarani.gua_dw_ft_alumnosarau.carrera_id IS 'clave subrogada para identificar a la carrera';
+COMMENT ON COLUMN guarani.gua_dw_ft_alumnosarau.tituloaraucanocarrera_id IS 'clave subrogada que identifica al titulo araucano';
+COMMENT ON COLUMN guarani.gua_dw_ft_alumnosarau.procedencia_id IS 'Reemplaza a colegio_id';
+COMMENT ON COLUMN guarani.gua_dw_ft_alumnosarau.edad_id IS 'edad en el año académico considerado';
+COMMENT ON COLUMN guarani.gua_dw_ft_alumnosarau.procesoaraucanook_id IS 'Indica si el proceso de generacion de datos para informar a SIU-Araucano fue exitoso para el/los registro/s considerado/s';
+COMMENT ON COLUMN guarani.gua_dw_ft_alumnosarau.nuevosinscriptos IS 'cantidad de nuevos inscriptos';
+COMMENT ON COLUMN guarani.gua_dw_ft_alumnosarau.reinscriptos IS 'cantidad de reinscriptos';
+COMMENT ON COLUMN guarani.gua_dw_ft_alumnosarau.egresados IS 'cantidad de egresados';
+CREATE INDEX idxp_ft_alumnosarau_unidadgenericaid ON guarani.gua_dw_ft_alumnosarau USING btree (unidad_generica_id);
+
+CREATE TABLE guarani.gua_dw_lt_titulosaraucano (
+                tituloaraucano_id INTEGER NOT NULL,
+                tituloaraucano_id_gua VARCHAR ,
+                tituloaraucano_desc VARCHAR,
+				unidadacademica_id integer,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_titulosaraucano_pk PRIMARY KEY (tituloaraucano_id)
+);
+COMMENT ON TABLE guarani.gua_dw_lt_titulosaraucano IS 'cubo 05';
+COMMENT ON COLUMN guarani.gua_dw_lt_titulosaraucano.tituloaraucano_id_gua IS 'clave subrogada';
+
+CREATE TABLE guarani.gua_dw_lt_tipoingreso (
+                tipoingreso_id INTEGER NOT NULL,
+                tipoingreso_id_gua VARCHAR ,
+                tipoingreso_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_tipoingreso_pk PRIMARY KEY (tipoingreso_id)
+);
+COMMENT ON TABLE guarani.gua_dw_lt_tipoingreso IS 'cubo 05';
+COMMENT ON COLUMN guarani.gua_dw_lt_tipoingreso.tipoingreso_id_gua IS 'clave subrogada';
+
+CREATE TABLE guarani.gua_dw_lt_horastrabajadas (
+                horastrabajadas_id INTEGER NOT NULL,
+                horastrabajadas_id_gua VARCHAR,
+                horastrabajadas_desc VARCHAR,
+			    horastrabajadas_grupo_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_horastrabajadas_pk PRIMARY KEY (horastrabajadas_id)
+);
+COMMENT ON TABLE guarani.gua_dw_lt_horastrabajadas IS 'cubo 05';
+COMMENT ON COLUMN guarani.gua_dw_lt_horastrabajadas.horastrabajadas_id IS 'clave subrogada';
+
+CREATE TABLE guarani.gua_dw_lt_materiasrangos (
+                materiasrangos_id INTEGER NOT NULL,
+                cantmaterias INTEGER,
+                rangoaprobanioant_desc VARCHAR,
+                rangoaprobtotal_desc VARCHAR,
+                rangorendanioant_desc VARCHAR,
+                rangorendtotal_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_materiasrangos_pk PRIMARY KEY (materiasrangos_id)
+);
+COMMENT ON TABLE guarani.gua_dw_lt_materiasrangos IS 'cubo 05';
+
+CREATE TABLE guarani.gua_dw_lt_edades (
+                edad_id INTEGER NOT NULL,
+                edad INTEGER,
+                rangoedad_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_edades_pk PRIMARY KEY (edad_id)
+);
+COMMENT ON TABLE guarani.gua_dw_lt_edades IS 'cubo 05';
+
+CREATE TABLE guarani.gua_dw_lt_procesadook (
+                procesadook_id INTEGER NOT NULL,
+                procesadook_desc VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_procesadook_pk PRIMARY KEY (procesadook_id)
+);
+
+--Tablas cubo rend.academico
+CREATE TABLE guarani.gua_dw_lt_condicion (
+                condicion_id INTEGER NOT NULL,
+                condicion_id_gua VARCHAR,
+                condicion_desc VARCHAR,
+                tipocondicion_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_condicion_pk PRIMARY KEY (condicion_id)
+);
+COMMENT ON COLUMN guarani.gua_dw_lt_condicion.condicion_id_gua IS 'Código de condición del alumno utilizado para exámenes y equivalencias (E)';
+COMMENT ON COLUMN guarani.gua_dw_lt_condicion.condicion_desc IS 'Descripción correspondiente a la condición del alumno para exámenes y caso de equivalencia.';
+
+CREATE TABLE guarani.gua_dw_lt_tiposperiodo (
+                tipoperiodo_id INTEGER NOT NULL,
+                tipoperiodo_id_gua VARCHAR,
+                tipoperiodo_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_tiposperiodo_pk PRIMARY KEY (tipoperiodo_id)
+);
+
+CREATE TABLE guarani.gua_dw_lt_planes (
+                plan_id INTEGER NOT NULL,
+                carrera_id_gua VARCHAR,
+                plan_id_gua VARCHAR,
+                plan_desc VARCHAR,
+                planversion_id VARCHAR,
+                carrera_id INTEGER ,
+				carrera_desc VARCHAR,
+				unidadacademica_id INTEGER,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_planes_pk PRIMARY KEY (plan_id)
+);
+COMMENT ON COLUMN guarani.gua_dw_lt_planes.plan_desc IS 'Se copia el valor de plan_id ya que en las tablas de guaraní 2 no tiene un campo descripción para el plan.';
+
+CREATE TABLE guarani.gua_dw_lt_intentos (
+                intento_id INTEGER NOT NULL,
+                nrointento_id VARCHAR,
+                totalintento_id INTEGER,
+                primeravez VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_intentos_pk PRIMARY KEY (intento_id)
+);
+COMMENT ON COLUMN guarani.gua_dw_lt_intentos.totalintento_id IS 'PK de la dimensión lt_totalintentos';
+COMMENT ON COLUMN guarani.gua_dw_lt_intentos.primeravez IS 'Valores posibles: SI / NO';
+
+CREATE TABLE guarani.gua_dw_lt_totalintentos (
+                totalintento_id INTEGER NOT NULL,
+                totalintento_id_gua VARCHAR,
+                totalintento_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_totalintentos_pk PRIMARY KEY (totalintento_id)
+);
+CREATE TABLE guarani.gua_dw_lt_notas (
+                nota_id INTEGER NOT NULL,
+                nota_id_gua VARCHAR,
+                nota_desc VARCHAR,
+                resultado_id INTEGER,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_notas_pk PRIMARY KEY (nota_id)
+);
+COMMENT ON COLUMN guarani.gua_dw_lt_notas.resultado_id IS 'PK a la dimensión lt_notas';
+
+CREATE TABLE guarani.gua_dw_ft_equivalencia (
+				id serial NOT NULL,
+				importacion_id integer,
+                unidadacademica_id INTEGER NOT NULL,
+                anioacademico INTEGER NOT NULL,
+                tipoperiodo_id INTEGER NOT NULL,
+                fechaequivalencia DATE NOT NULL,
+                legajo_id INTEGER NOT NULL,
+                carrera_id INTEGER NOT NULL,
+                plancarrera_id INTEGER NOT NULL,
+                versionplan_id VARCHAR NOT NULL,
+                materia_id INTEGER NOT NULL,
+                alcanceequivalencia_id INTEGER NOT NULL,
+                resultado_id INTEGER NOT NULL,
+                nota INTEGER NOT NULL,
+                origenequivalencia_id INTEGER NOT NULL,
+                equivalenciaguarani_id VARCHAR NOT NULL,
+                tipomateria_id INTEGER NOT NULL,
+                estadoacta_id INTEGER NOT NULL,
+                condicionalumno_id INTEGER NOT NULL,
+                cantidadregistrosexamen INTEGER NOT NULL,
+                anioingresoua INTEGER NOT NULL,
+                cohorte INTEGER NOT NULL,
+                periodoinscripcioncarrera_desc VARCHAR NOT NULL,
+                periodoinsccarrera_id INTEGER,
+				periodo_id integer NOT NULL,
+                unidad_generica_id integer
+);
+COMMENT ON COLUMN guarani.gua_dw_ft_equivalencia.tipoperiodo_id IS 'Es siempre NP indicando que no está asociado a ningún período.';
+COMMENT ON COLUMN guarani.gua_dw_ft_equivalencia.fechaequivalencia IS 'Fecha de otorgamiento de la equivalencia.';
+COMMENT ON COLUMN guarani.gua_dw_ft_equivalencia.equivalenciaguarani_id IS 'Código con que queda registrada la equivalencia en el SIU-Guaraní';
+COMMENT ON COLUMN guarani.gua_dw_ft_equivalencia.tipomateria_id IS 'Indicación de si es una materia normal o se obtiene como materia común con otra carrera. 0/1 (Indicando normal  / materia común respectivamente)';
+COMMENT ON COLUMN guarani.gua_dw_ft_equivalencia.condicionalumno_id IS 'Código de condición del alumno. Es siempre E';
+COMMENT ON COLUMN guarani.gua_dw_ft_equivalencia.cantidadregistrosexamen IS 'Es siempre 1';
+COMMENT ON COLUMN guarani.gua_dw_ft_equivalencia.cohorte IS 'Año de ingreso a la carrera.';
+COMMENT ON COLUMN guarani.gua_dw_ft_equivalencia.periodoinsccarrera_id IS 'clave de la dimensión lt_periodoinsccarrera';
+CREATE INDEX idxp_ft_equivalencia_unidadgenericaid ON guarani.gua_dw_ft_equivalencia USING btree (unidad_generica_id);
+
+CREATE TABLE guarani.gua_dw_lt_legajos (
+                legajo_id INTEGER NOT NULL,
+                legajo_id_gua VARCHAR,
+                legajo_desc VARCHAR,
+				agrupamiento_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_legajos_pk PRIMARY KEY (legajo_id)
+);
+CREATE TABLE guarani.gua_dw_lt_periodosanioacad (
+                periodo_id INTEGER NOT NULL,
+                periodo_desc VARCHAR,
+                periodoordenanio VARCHAR,
+                tipoperiodo_id INTEGER,
+                anioacademico VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_periodosanioacad_pk PRIMARY KEY (periodo_id)
+);
+COMMENT ON COLUMN guarani.gua_dw_lt_periodosanioacad.tipoperiodo_id IS 'PK de la dimensión lt_tiposperiodo';
+
+CREATE TABLE guarani.gua_dw_lt_estadosacta (
+                estadoacta_id INTEGER NOT NULL,
+                estadoacta_id_gua VARCHAR ,
+                estadoacta_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_estadosacta_pk PRIMARY KEY (estadoacta_id)
+);
+CREATE TABLE guarani.gua_dw_lt_alcanceequivalencia (
+                alcanceequivalencia_id INTEGER NOT NULL,
+                alcanceequivalencia_id_gua VARCHAR ,
+                alcanceequivalencia_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_alcanceequivalencia_pk PRIMARY KEY (alcanceequivalencia_id)
+);
+CREATE TABLE guarani.gua_dw_ft_cursado (
+				id serial NOT NULL,
+				importacion_id integer,
+                unidadacademica_id INTEGER NOT NULL,
+                sede_id INTEGER NOT NULL,
+                anioacademico INTEGER NOT NULL,
+                tipoperiodo_id INTEGER NOT NULL,
+                periodolectivo_id INTEGER NOT NULL,
+                ordenperiodoenanio INTEGER NOT NULL,
+                legajo_id INTEGER NOT NULL,
+                carrera_id INTEGER NOT NULL,
+                plancarrera_id INTEGER NOT NULL,
+                versionplan_id VARCHAR NOT NULL,
+                materia_id INTEGER NOT NULL,
+                comision_id VARCHAR NOT NULL,
+                condicionregularidad_id INTEGER NOT NULL,
+                resultado_id INTEGER NOT NULL,
+                nota INTEGER NOT NULL,
+                porcentajeasistencia NUMERIC(5,2) NOT NULL,
+                materiacomun_id INTEGER NOT NULL,
+                acta VARCHAR NOT NULL,
+                estadoacta_id INTEGER NOT NULL,
+                totalintentoscursada INTEGER NOT NULL,
+                nrointentocursada INTEGER NOT NULL,
+                cantidadregistroscursada INTEGER NOT NULL,
+                anioingresoua INTEGER NOT NULL,
+                cohorte INTEGER NOT NULL,
+                periodoinsccarrera_id INTEGER,
+                periodoinscripcioncarrera_desc VARCHAR NOT NULL,
+				catedra_id integer NOT NULL,
+                unidad_generica_id integer
+);
+COMMENT ON TABLE guarani.gua_dw_ft_cursado IS 'Cubo 02 rend acad v2';
+COMMENT ON COLUMN guarani.gua_dw_ft_cursado.tipoperiodo_id IS 'Es siempre (PL)';
+COMMENT ON COLUMN guarani.gua_dw_ft_cursado.periodolectivo_id IS 'PK dimension lt_periodosanioacad';
+COMMENT ON COLUMN guarani.gua_dw_ft_cursado.materiacomun_id IS 'Indicación de si es una materia normal o se obtiene como materia común con otra carrera.';
+COMMENT ON COLUMN guarani.gua_dw_ft_cursado.totalintentoscursada IS 'Total de veces que ha intentado cursar la materia dentro de la carrera.';
+COMMENT ON COLUMN guarani.gua_dw_ft_cursado.nrointentocursada IS 'Número de vez que intenta cursar la materia dentro de la carrera.';
+COMMENT ON COLUMN guarani.gua_dw_ft_cursado.cantidadregistroscursada IS 'Cantidad de registros de cursada. Es siempre 1.';
+COMMENT ON COLUMN guarani.gua_dw_ft_cursado.anioingresoua IS 'Año de ingreso a la unidad académica.';
+COMMENT ON COLUMN guarani.gua_dw_ft_cursado.cohorte IS 'Año de ingreso a la carrera';
+COMMENT ON COLUMN guarani.gua_dw_ft_cursado.periodoinsccarrera_id IS 'clave de la dimensión lt_periodoinsccarrera';
+COMMENT ON COLUMN guarani.gua_dw_ft_cursado.periodoinscripcioncarrera_desc IS 'Descripción del período de inscripción a la carrera.';
+CREATE INDEX idxp_ft_cursado_unidadgenericaid ON guarani.gua_dw_ft_cursado USING btree (unidad_generica_id);
+
+CREATE TABLE guarani.gua_dw_lt_origenequivalencia (
+                origenequivalencia_id INTEGER NOT NULL,
+                origenequivalencia_id_gua VARCHAR ,
+                origenequivalencia_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_origenequivalencia_pk PRIMARY KEY (origenequivalencia_id)
+);
+CREATE TABLE guarani.gua_dw_lt_periodosinsccarrera (
+                periodoinsccarrera_id INTEGER NOT NULL,
+                anioingresocarrera_id_gua VARCHAR,
+                periodoinsccarrera_id_gua VARCHAR,
+                periodoinsccarrera_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_periodosinsccarrera_pk PRIMARY KEY (periodoinsccarrera_id)
+);
+COMMENT ON COLUMN guarani.gua_dw_lt_periodosinsccarrera.anioingresocarrera_id_gua IS 'Corresponde a la cohorte';
+
+CREATE TABLE guarani.gua_dw_lt_materiacomun (
+                materiacomun_id INTEGER NOT NULL,
+                materiacomun_id_gua VARCHAR,
+                materiacomun_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_materiacomun_pk PRIMARY KEY (materiacomun_id)
+);
+COMMENT ON TABLE guarani.gua_dw_lt_materiacomun IS 'Corresponde a LT_Materia_Comun.';
+COMMENT ON COLUMN guarani.gua_dw_lt_materiacomun.materiacomun_id IS 'Código que indica se es una materia normal o se obtiene como materia común con otra carrera. 0 / 1';
+COMMENT ON COLUMN guarani.gua_dw_lt_materiacomun.materiacomun_id_gua IS 'Código que indica se es una materia normal o se obtiene como materia común con otra carrera. 0 / 1';
+
+CREATE TABLE guarani.gua_dw_lt_catedras (
+                catedra_id INTEGER NOT NULL,
+                catedra_id_gua VARCHAR,
+                catedra_desc VARCHAR,
+                materia_id INTEGER ,
+                materia_id_gua VARCHAR,
+                unidadacademica_id_gua VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_catedras_pk PRIMARY KEY (catedra_id)
+);
+COMMENT ON COLUMN guarani.gua_dw_lt_catedras.materia_id IS 'id correspondiente a la dimension lt_materias';
+COMMENT ON COLUMN guarani.gua_dw_lt_catedras.materia_id_gua IS 'id correspondiente a la dimension lt_materias';
+COMMENT ON COLUMN guarani.gua_dw_lt_catedras.unidadacademica_id_gua IS 'id correspondiente a la dimension lt_materias';
+
+CREATE TABLE guarani.gua_dw_lt_materias (
+                materia_id INTEGER NOT NULL,
+                materia_id_gua VARCHAR ,
+                materia_desc VARCHAR,
+                unidadacademica_id_gua VARCHAR ,
+				unidadacademica_id integer,
+				descripcion_completa text,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_materias_pk PRIMARY KEY (materia_id)
+);
+CREATE TABLE guarani.gua_dw_lt_sedes (
+                sede_id INTEGER NOT NULL,
+                sede_id_gua VARCHAR,
+                sede_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_sedes_pk PRIMARY KEY (sede_id)
+);
+CREATE TABLE guarani.gua_dw_lt_resultados (
+                resultado_id INTEGER NOT NULL,
+                resultado_id_gua VARCHAR ,
+                resultado_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_resultados_pk PRIMARY KEY (resultado_id)
+);
+CREATE TABLE guarani.gua_dw_lt_comision (
+                comision_id INTEGER NOT NULL,
+                comision_desc VARCHAR,
+                comision_id_gua VARCHAR,
+                unidadacademica_id_gua VARCHAR,
+                catedra_id INTEGER,
+                materia_id INTEGER,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_comision_pk PRIMARY KEY (comision_id)
+);
+COMMENT ON COLUMN guarani.gua_dw_lt_comision.materia_id IS 'id correspondiente a la dimension lt_materias';
+
+CREATE TABLE guarani.gua_dw_ft_examen (
+				id serial NOT NULL,
+				importacion_id integer,
+                unidadacademica_id INTEGER NOT NULL,
+                sede_id INTEGER NOT NULL,
+                anioacademico INTEGER NOT NULL,
+                tipoperiodo_id INTEGER NOT NULL,
+                turnoexamen_id INTEGER NOT NULL,
+                mesaexamen_desc VARCHAR NOT NULL,
+                fechaexamen DATE NOT NULL,
+                legajo_id INTEGER NOT NULL,
+                carrera_id INTEGER NOT NULL,
+                plancarrera_id INTEGER NOT NULL,
+                versionplan_id INTEGER NOT NULL,
+                materia_id INTEGER NOT NULL,
+                catedra_id INTEGER NOT NULL,
+                resultado_id INTEGER NOT NULL,
+                nota INTEGER NOT NULL,
+                tipomateria_id INTEGER NOT NULL,
+                tipoacta_id VARCHAR NOT NULL,
+                acta VARCHAR NOT NULL,
+                estadoacta_id INTEGER NOT NULL,
+                condicionalumno_id INTEGER NOT NULL,
+                totalintentosrendir INTEGER NOT NULL,
+                nrointentorendir INTEGER NOT NULL,
+                cantidadregistrosexamen INTEGER NOT NULL,
+                anioingresoua INTEGER NOT NULL,
+                cohorte INTEGER NOT NULL,
+                periodoinscripcioncarrera_desc VARCHAR NOT NULL,
+                periodoinsccarrera_id INTEGER,
+                unidad_generica_id integer
+);
+COMMENT ON COLUMN guarani.gua_dw_ft_examen.turnoexamen_id IS 'FT dimension lt_periodosanioacad';
+COMMENT ON COLUMN guarani.gua_dw_ft_examen.tipomateria_id IS 'Indicación de si es una materia normal o se obtiene como materia común con otra carrera. 0/1 (Indicando normal  / materia común respectivamente)';
+COMMENT ON COLUMN guarani.gua_dw_ft_examen.totalintentosrendir IS 'Total de veces que ha intentado rendir la materia dentro de la carrera';
+COMMENT ON COLUMN guarani.gua_dw_ft_examen.nrointentorendir IS 'Número de vez que intenta rendir la materia dentro de la carrera.';
+COMMENT ON COLUMN guarani.gua_dw_ft_examen.cohorte IS 'Año de ingreso a la carrera.';
+COMMENT ON COLUMN guarani.gua_dw_ft_examen.periodoinsccarrera_id IS 'clave de la dimensión lt_periodoinsccarrera';
+CREATE INDEX idxp_ft_examen_unidadgenericaid ON guarani.gua_dw_ft_examen USING btree (unidad_generica_id);
+
+--Tablas comunes guarani
+CREATE TABLE guarani.gua_dw_lt_procedencia (
+                procedencia_id INTEGER NOT NULL,
+                colegio_id_gua INTEGER,
+                colegio_desc VARCHAR,
+                localidad_id_gua INTEGER,
+                localidad_desc VARCHAR,
+                provincia_id_gua INTEGER,
+                provincia_desc VARCHAR,
+                pais_id_gua INTEGER,
+                pais_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_procedencia_pk PRIMARY KEY (procedencia_id)
+);
+CREATE TABLE guarani.gua_dw_lt_unidadesacademicas (
+                unidadacademica_id INTEGER NOT NULL,
+                unidadacademica_id_gua VARCHAR,
+                unidadacademica_desc VARCHAR,
+				instalacion_id integer NOT NULL,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_unidadesacademicas_pk PRIMARY KEY (unidadacademica_id)
+);
+CREATE TABLE guarani.gua_dw_lt_carreras (
+                carrera_id INTEGER NOT NULL,
+                carrera_id_gua VARCHAR,
+                carrera_desc VARCHAR,
+                unidadacademica_id INTEGER,
+                departamento_id_gua VARCHAR,
+                departamento_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_carreras_pk PRIMARY KEY (carrera_id)
+);
+CREATE TABLE guarani.gua_dw_lt_sexos (
+                sexo_id INTEGER NOT NULL,
+                sexo_id_gua INTEGER,
+                sexo_desc VARCHAR,
+                fechadesde DATE,
+                fechahasta DATE,
+                version INTEGER,
+                vigente VARCHAR,
+                fechaact TIMESTAMP,
+                CONSTRAINT gua_dw_lt_sexos_pk PRIMARY KEY (sexo_id)
+);
+
+CREATE VIEW guarani.gua_dw_vista_comisiones AS
+	SELECT COALESCE((ltco.comision_id)::character varying, '-1'::character varying) AS comision_id
+	, COALESCE(ltco.comision_desc, 'N/A'::character varying) AS comision_desc
+	, COALESCE(ltca.catedra_id, (-1)) AS catedra_id
+	, COALESCE(ltca.catedra_desc, 'Sin cátedra asociada'::character varying) AS catedra_desc
+	, ltma.materia_id, ltma.descripcion_completa AS materia_desc
+	, ltma.unidadacademica_id 
+	, uni.unidadacademica_desc
+	FROM ((guarani.gua_dw_lt_comision ltco 
+		LEFT JOIN guarani.gua_dw_lt_catedras ltca ON ((((ltco.catedra_id = ltca.catedra_id) AND ((ltco.unidadacademica_id_gua)::text = (ltca.unidadacademica_id_gua)::text)) AND (ltco.materia_id = ltca.materia_id)))) 
+		LEFT JOIN guarani.gua_dw_lt_materias ltma ON (((ltco.materia_id = ltma.materia_id) AND ((ltco.unidadacademica_id_gua)::text = (ltma.unidadacademica_id_gua)::text)))) 
+		LEFT JOIN guarani.gua_dw_lt_unidadesacademicas uni ON uni.unidadacademica_id = ltma.unidadacademica_id
+	WHERE (ltma.materia_id &lt;&gt; 0);
+
+COMMENT ON VIEW guarani.gua_dw_vista_comisiones IS 'Comisión -> Materia -> Cátedra';
+
+CREATE VIEW guarani.gua_dw_vista_catedra AS
+	SELECT COALESCE(ltca.catedra_id, (-1)) AS catedra_id
+	, COALESCE(ltca.catedra_desc, 'Sin cátedra asociada'::character varying) AS catedra_desc
+	, ltma.materia_id, ltma.descripcion_completa AS materia_desc
+	, ltua.unidadacademica_id
+	, ltua.unidadacademica_desc 
+	FROM ((guarani.gua_dw_lt_catedras ltca 
+		LEFT JOIN guarani.gua_dw_lt_materias ltma ON ((((ltca.materia_id_gua)::text = (ltma.materia_id_gua)::text) AND ((ltca.unidadacademica_id_gua)::text = (ltma.unidadacademica_id_gua)::text)))) 
+		LEFT JOIN guarani.gua_dw_lt_unidadesacademicas ltua ON (((ltca.unidadacademica_id_gua)::text = (ltua.unidadacademica_id_gua)::text))) 
+	WHERE ((ltma.materia_id &lt;&gt; 0) AND (ltma.descripcion_completa &lt;&gt; '(-1) Sin Materia Asociada'::text)) 
+	ORDER BY ltca.catedra_id;
+
+-- *************************************************************************************************
+-- Vistas para eliminar los JOIN en SIU-Wichi.xml
+-- guarani
+-- SELECT * FROM guarani.v_gua_dw_lt_materias_x_gua_dw_lt_unidadesacademicas;
+CREATE OR REPLACE VIEW guarani.v_gua_dw_lt_materias_x_gua_dw_lt_unidadesacademicas AS
+SELECT 
+    primera.materia_id,
+    segunda.unidadacademica_id,
+	segunda.unidadacademica_desc,
+    primera.materia_desc
+FROM 
+    guarani.gua_dw_lt_materias primera
+JOIN 
+    guarani.gua_dw_lt_unidadesacademicas segunda
+ON 
+    primera.unidadacademica_id = segunda.unidadacademica_id;
+
+-- SELECT * FROM guarani.v_gua_dw_lt_periodosanioacad_x_gua_dw_lt_tiposperiodo;
+CREATE OR REPLACE VIEW guarani.v_gua_dw_lt_periodosanioacad_x_gua_dw_lt_tiposperiodo AS
+SELECT 
+    primera.periodo_id,
+    segunda.tipoperiodo_id,
+	segunda.tipoperiodo_desc,
+    primera.periodo_desc,
+	primera.anioacademico
+FROM 
+    guarani.gua_dw_lt_periodosanioacad primera
+JOIN 
+    guarani.gua_dw_lt_tiposperiodo segunda
+ON 
+    primera.tipoperiodo_id = segunda.tipoperiodo_id;
+
+-- SELECT * FROM guarani.v_gua_dw_lt_unidadesacademicas_x_gua_dw_lt_planes;
+CREATE OR REPLACE VIEW guarani.v_gua_dw_lt_unidadesacademicas_x_gua_dw_lt_planes AS
+SELECT 
+    segunda.plan_id,
+    primera.unidadacademica_id,
+	primera.unidadacademica_desc,
+	segunda.carrera_id,
+    segunda.carrera_desc,
+	segunda.plan_desc
+FROM 
+    guarani.gua_dw_lt_unidadesacademicas primera
+JOIN 
+    guarani.gua_dw_lt_planes segunda
+ON 
+    primera.unidadacademica_id = segunda.unidadacademica_id;
+
+-- SELECT * FROM guarani.v_gua_dw_lt_notas_x_gua_dw_lt_resultados;
+CREATE OR REPLACE VIEW guarani.v_gua_dw_lt_notas_x_gua_dw_lt_resultados AS
+SELECT 
+    primera.nota_id,
+    segunda.resultado_id,
+	segunda.resultado_desc,
+    primera.nota_desc
+FROM 
+    guarani.gua_dw_lt_notas primera
+JOIN 
+    guarani.gua_dw_lt_resultados segunda
+ON 
+    primera.resultado_id = segunda.resultado_id;
+
+-- SELECT * FROM guarani.v_gua_dw_lt_intentos_x_gua_dw_lt_totalintentos;
+CREATE OR REPLACE VIEW guarani.v_gua_dw_lt_intentos_x_gua_dw_lt_totalintentos AS
+SELECT 
+    primera.intento_id,
+	primera.primeravez,
+    segunda.totalintento_id,
+	segunda.totalintento_desc,
+    primera.nrointento_id
+FROM 
+    guarani.gua_dw_lt_intentos primera
+JOIN 
+    guarani.gua_dw_lt_totalintentos segunda
+ON 
+    primera.totalintento_id = segunda.totalintento_id;
+
+-- SELECT * FROM guarani.v_gua_dw_lt_carreras_x_gua_dw_lt_unidadesacademicas;
+CREATE OR REPLACE VIEW guarani.v_gua_dw_lt_carreras_x_gua_dw_lt_unidadesacademicas AS
+SELECT 
+    primera.carrera_id,
+    segunda.unidadacademica_id,
+	segunda.unidadacademica_desc,
+    primera.carrera_desc
+FROM 
+    guarani.gua_dw_lt_carreras primera
+JOIN 
+    guarani.gua_dw_lt_unidadesacademicas segunda
+ON 
+    primera.unidadacademica_id = segunda.unidadacademica_id;
+
+-- SELECT * FROM guarani.v_gua_dw_lt_titulosaraucano_x_gua_dw_lt_unidadesacademicas;
+CREATE OR REPLACE VIEW guarani.v_gua_dw_lt_titulosaraucano_x_gua_dw_lt_unidadesacademicas AS
+SELECT 
+    primera.tituloaraucano_id,
+    segunda.unidadacademica_id,
+	segunda.unidadacademica_desc,
+    primera.tituloaraucano_desc
+FROM 
+    guarani.gua_dw_lt_titulosaraucano primera
+JOIN 
+    guarani.gua_dw_lt_unidadesacademicas segunda
+ON 
+    primera.unidadacademica_id = segunda.unidadacademica_id;
+
+-- SELECT * FROM guarani.v_gua_dw_lt_carreras_dto_x_gua_dw_lt_unidadesacademicas;
+CREATE OR REPLACE VIEW guarani.v_gua_dw_lt_carreras_dto_x_gua_dw_lt_unidadesacademicas AS
+SELECT 
+    primera.carrera_id,
+    segunda.unidadacademica_id,
+	segunda.unidadacademica_desc,
+    primera.departamento_desc
+FROM 
+    guarani.gua_dw_lt_carreras primera
+JOIN 
+    guarani.gua_dw_lt_unidadesacademicas segunda
+ON 
+    primera.unidadacademica_id = segunda.unidadacademica_id;
+
+-- *************************************************************************************************
+
+
+</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>224</xloc>
+      <yloc>120</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>nada</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>90</xloc>
+      <yloc>119</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step_error_handling>
+  </step_error_handling>
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+  <attributes/>
+</transformation>

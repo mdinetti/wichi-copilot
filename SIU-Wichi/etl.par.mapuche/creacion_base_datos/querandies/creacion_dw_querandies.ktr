@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>creacion_dw_querandies</name>
+    <description/>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>&#x2f;</directory>
+    <parameters>
+    </parameters>
+    <log>
+<trans-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
+<perf-log-table><connection/>
+<schema/>
+<table/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+<step-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+<metrics-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+  <created_user>-</created_user>
+  <created_date>2013&#x2f;03&#x2f;22 15&#x3a;33&#x3a;44.716</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2013&#x2f;03&#x2f;22 15&#x3a;33&#x3a;44.716</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+    <notepad>
+      <note>Ejecuta el script&#xa;de creaci&#xf3;n</note>
+      <xloc>193</xloc>
+      <yloc>74</yloc>
+      <width>131</width>
+      <heigth>48</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <connection>
+    <name>siu_dw</name>
+    <server>&#x24;&#x7b;dw_nombrehost&#x7d;</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>&#x24;&#x7b;dw_nombrebase&#x7d;</database>
+    <port>&#x24;&#x7b;dw_puerto&#x7d;</port>
+    <username>&#x24;&#x7b;dw_usuario&#x7d;</username>
+    <password>&#x24;&#x7b;dw_clave&#x7d;</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;dw_puerto&#x7d;</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <order>
+  <hop> <from>nada</from><to>Execute SQL script</to><enabled>Y</enabled> </hop>
+  </order>
+  <step>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dw</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>Y</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE SCHEMA querandies&#x3b;&#xa;&#xa;ALTER SCHEMA querandies OWNER TO postgres&#x3b;&#xa;SET search_path &#x3d; querandies, pg_catalog&#x3b;&#xa;SET default_tablespace &#x3d; &#x27;&#x27;&#x3b;&#xa;SET default_with_oids &#x3d; false&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 857 &#x28;class 1259 OID 1581162407&#x29;&#xa;-- Name&#x3a; d_anio&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE d_anio &#x28;&#xa;    anio_id integer NOT NULL&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_anio OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 842 &#x28;class 1259 OID 1569248976&#x29;&#xa;-- Name&#x3a; d_construcciones&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE d_construcciones &#x28;&#xa;    construccion_id integer NOT NULL,&#xa;    construccion_codigo character varying&#x28;30&#x29;,&#xa;    construccion_desc character varying&#x28;255&#x29;,&#xa;    anio_id integer,&#xa;    telefono character varying&#x28;30&#x29;,&#xa;    fecha_alta date,&#xa;    calle_nombre_numero character varying&#x28;255&#x29;,&#xa;    anio_ejecucion smallint,&#xa;    anio_intervencion smallint,&#xa;    fecha_desde date,&#xa;    fecha_hasta date,&#xa;    version integer,&#xa;    vigente character varying,&#xa;    fecha_actualizacion timestamp without time zone&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_construcciones OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 843 &#x28;class 1259 OID 1569248982&#x29;&#xa;-- Name&#x3a; d_cumplimiento&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE d_cumplimiento &#x28;&#xa;    cumplimiento_id integer NOT NULL,&#xa;    cumplimiento_codigo character varying&#x28;30&#x29;,&#xa;    cumplimiento_desc character varying&#x28;30&#x29;,&#xa;    fecha_desde date,&#xa;    fecha_hasta date,&#xa;    version integer,&#xa;    vigente character varying,&#xa;    fecha_actualizacion timestamp without time zone&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_cumplimiento OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 844 &#x28;class 1259 OID 1569248988&#x29;&#xa;-- Name&#x3a; d_estado_conservacion&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE d_estado_conservacion &#x28;&#xa;    estado_conservacion_id integer NOT NULL,&#xa;    estado_conservacion_codigo character varying&#x28;30&#x29;,&#xa;    estado_conservacion_desc character varying&#x28;80&#x29;,&#xa;    fecha_desde date,&#xa;    fecha_hasta date,&#xa;    version integer,&#xa;    vigente character varying,&#xa;    fecha_actualizacion timestamp without time zone&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_estado_conservacion OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 845 &#x28;class 1259 OID 1569248994&#x29;&#xa;-- Name&#x3a; d_estado_construccion&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE d_estado_construccion &#x28;&#xa;    estado_construccion_id integer NOT NULL,&#xa;    estado_construccion_codigo character varying&#x28;30&#x29;,&#xa;    estado_construccion_desc character varying&#x28;80&#x29;,&#xa;    fecha_desde date,&#xa;    fecha_hasta date,&#xa;    version integer,&#xa;    vigente character varying,&#xa;    fecha_actualizacion timestamp without time zone&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_estado_construccion OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 846 &#x28;class 1259 OID 1569249000&#x29;&#xa;-- Name&#x3a; d_inmuebles&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE d_inmuebles &#x28;&#xa;    inmueble_id integer NOT NULL,&#xa;    inmueble_codigo character varying&#x28;30&#x29;,&#xa;    inmueble_desc character varying&#x28;255&#x29;,&#xa;    anio_id integer,&#xa;    calle_nombre_numero character varying&#x28;255&#x29;,&#xa;    unidad_economica character&#x28;10&#x29;,&#xa;    fot_normativo numeric&#x28;3,2&#x29;,&#xa;    fot_real numeric&#x28;3,2&#x29;,&#xa;    fos_normativo numeric&#x28;3,2&#x29;,&#xa;    fos_real numeric&#x28;3,2&#x29;,&#xa;    fecha_alta date,&#xa;    fecha_desde date,&#xa;    fecha_hasta date,&#xa;    version integer,&#xa;    vigente character varying,&#xa;    fecha_actualizacion timestamp without time zone,&#xa;    fotfos character varying&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_inmuebles OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 858 &#x28;class 1259 OID 1581162410&#x29;&#xa;-- Name&#x3a; d_localidad&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE d_localidad &#x28;&#xa;    localidad_id integer NOT NULL,&#xa;    localidad_codigo character varying,&#xa;    localidad_desc character varying,&#xa;    partido_codigo character varying,&#xa;    partido_desc character varying,&#xa;    provincia_codigo character varying,&#xa;    provincia_desc character varying,&#xa;    pais_codigo character varying,&#xa;    pais_desc character varying,&#xa;    fecha_desde date,&#xa;    fecha_hasta date,&#xa;    version integer,&#xa;    vigente character varying,&#xa;    fecha_actualizacion timestamp without time zone&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_localidad OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 859 &#x28;class 1259 OID 1581162416&#x29;&#xa;-- Name&#x3a; d_periodo&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE d_periodo &#x28;&#xa;    periodo_id integer NOT NULL,&#xa;    periodo_desc character varying NOT NULL,&#xa;    anio_id text&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_periodo OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 860 &#x28;class 1259 OID 1581162422&#x29;&#xa;-- Name&#x3a; d_sino&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE d_sino &#x28;&#xa;    sino_id integer NOT NULL,&#xa;    sino_desc character varying&#x28;10&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_sino OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 847 &#x28;class 1259 OID 1569249006&#x29;&#xa;-- Name&#x3a; d_situacion_dominio&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE d_situacion_dominio &#x28;&#xa;    situacion_dominio_id integer NOT NULL,&#xa;    situacion_dominio_codigo character varying&#x28;30&#x29;,&#xa;    situacion_dominio_desc character varying&#x28;255&#x29;,&#xa;    propio smallint,&#xa;    fecha_desde date,&#xa;    fecha_hasta date,&#xa;    version integer,&#xa;    vigente character varying,&#xa;    fecha_actualizacion timestamp without time zone&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_situacion_dominio OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 848 &#x28;class 1259 OID 1569249012&#x29;&#xa;-- Name&#x3a; d_sub_tipo_uso&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE d_sub_tipo_uso &#x28;&#xa;    sub_tipo_uso_id integer NOT NULL,&#xa;    sub_tipo_uso_codigo character varying&#x28;80&#x29;,&#xa;    sub_tipo_uso_desc character varying&#x28;255&#x29;,&#xa;    tipo_uso_codigo character varying&#x28;80&#x29;,&#xa;    tipo_uso_desc character varying&#x28;255&#x29;,&#xa;    fecha_desde date,&#xa;    fecha_hasta date,&#xa;    version integer,&#xa;    vigente character varying,&#xa;    fecha_actualizacion timestamp without time zone&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_sub_tipo_uso OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 849 &#x28;class 1259 OID 1569249018&#x29;&#xa;-- Name&#x3a; d_tipo_construccion&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE d_tipo_construccion &#x28;&#xa;    tipo_construccion_id integer NOT NULL,&#xa;    tipo_construccion_codigo character varying&#x28;30&#x29;,&#xa;    tipo_construccion_desc character varying&#x28;80&#x29;,&#xa;    fecha_desde date,&#xa;    fecha_hasta date,&#xa;    version integer,&#xa;    vigente character varying,&#xa;    fecha_actualizacion timestamp without time zone&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_tipo_construccion OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 850 &#x28;class 1259 OID 1569249024&#x29;&#xa;-- Name&#x3a; d_tipo_planta&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE d_tipo_planta &#x28;&#xa;    tipo_planta_id integer NOT NULL,&#xa;    tipo_planta_codigo character varying&#x28;30&#x29;,&#xa;    tipo_planta_desc character varying&#x28;80&#x29;,&#xa;    fecha_desde date,&#xa;    fecha_hasta date,&#xa;    version integer,&#xa;    vigente character varying,&#xa;    fecha_actualizacion timestamp without time zone&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_tipo_planta OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 851 &#x28;class 1259 OID 1569249030&#x29;&#xa;-- Name&#x3a; d_tipo_uso&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;&#xa;&#xa;CREATE TABLE d_ubicacion &#x28;&#xa;    ubicacion_id integer NOT NULL,&#xa;    ubicacion_codigo character varying&#x28;30&#x29;,&#xa;    ubicacion_desc character varying&#x28;255&#x29;,&#xa;    fecha_desde date,&#xa;    fecha_hasta date,&#xa;    version integer,&#xa;    vigente character varying,&#xa;    fecha_actualizacion timestamp without time zone&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_ubicacion OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 861 &#x28;class 1259 OID 1581162425&#x29;&#xa;-- Name&#x3a; d_unidad_academica&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE d_unidad_academica &#x28;&#xa;    unidad_academica_id integer NOT NULL,&#xa;    institucion_codigo character varying,&#xa;    institucion_desc character varying,&#xa;    unidad_academica_codigo character varying,&#xa;    unidad_academica_desc character varying,&#xa;    fecha_desde date,&#xa;    fecha_hasta date,&#xa;    version integer,&#xa;    vigente character varying,&#xa;    fecha_actualizacion timestamp without time zone&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_unidad_academica OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 853 &#x28;class 1259 OID 1569249042&#x29;&#xa;-- Name&#x3a; d_uso&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE d_uso &#x28;&#xa;    uso_id integer NOT NULL,&#xa;    uso_codigo character varying&#x28;30&#x29;,&#xa;    uso_desc character varying&#x28;255&#x29;,&#xa;    fecha_desde date,&#xa;    fecha_hasta date,&#xa;    version integer,&#xa;    vigente character varying,&#xa;    fecha_actualizacion timestamp without time zone&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE d_uso OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 854 &#x28;class 1259 OID 1569249048&#x29;&#xa;-- Name&#x3a; ft_construcciones_plantas&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE ft_construcciones_plantas &#x28;&#xa;    ft_construccion_plantas_id integer,&#xa;    periodo_id integer,&#xa;    institucion_id integer,&#xa;    localidad_id integer,&#xa;    inmueble_id integer,&#xa;    anio_id integer,&#xa;    construccion_id integer,&#xa;    estado_conservacion_id smallint,&#xa;    patrimonio_historico smallint,&#xa;    tipo_construccion_id smallint,&#xa;    estado_construccion_id smallint,&#xa;    acceso_circulacion_senderos smallint,&#xa;    iluminacion_artificial smallint,&#xa;    solados_antideslizantes smallint,&#xa;    estacionamiento_designado smallint,&#xa;    senializacion_vision_reducida smallint,&#xa;    acceso_desnivel_salvado smallint,&#xa;    sanitarios_accesibles smallint,&#xa;    acceso_pisos_superiores smallint,&#xa;    accesos_a_nivel smallint,&#xa;    entradas_aulas_sin_escalones smallint,&#xa;    puertas_accesibles smallint,&#xa;    mostradores_accesibles smallint,&#xa;    adecuacion_comunicacion_reducida smallint,&#xa;    tipo_planta_id smallint,&#xa;    numero_planta smallint,&#xa;    cant_plantas smallint,&#xa;    superficie_construida_cubierta numeric&#x28;10,0&#x29;,&#xa;    superficie_construida_semicubierta numeric&#x28;10,0&#x29;,&#xa;    superficie_no_construida numeric&#x28;10,0&#x29;,&#xa;    superficie_total_construccion numeric&#x28;10,0&#x29;,&#xa;    anio_querandies_id integer&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE ft_construcciones_plantas OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 855 &#x28;class 1259 OID 1569249051&#x29;&#xa;-- Name&#x3a; ft_construcciones_tipo_de_uso&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE ft_construcciones_tipo_de_uso &#x28;&#xa;    ft_construcciones_tipo_de_uso_id integer,&#xa;    periodo_id integer,&#xa;    institucion_id integer,&#xa;    localidad_id integer,&#xa;    inmueble_id integer,&#xa;    anio_id integer,&#xa;    construccion_id integer,&#xa;    patrimonio_historico smallint,&#xa;    estado_conservacion_id smallint,&#xa;    tipo_construccion_id smallint,&#xa;    estado_construccion_id smallint,&#xa;    unidad_academica_id integer,&#xa;    uso_id smallint,&#xa;    sub_tipo_uso_id integer,&#xa;    acceso_circulacion_senderos smallint,&#xa;    iluminacion_artificial smallint,&#xa;    solados_antideslizantes smallint,&#xa;    estacionamiento_designado smallint,&#xa;    senializacion_vision_reducida smallint,&#xa;    acceso_desnivel_salvado smallint,&#xa;    sanitarios_accesibles smallint,&#xa;    acceso_pisos_superiores smallint,&#xa;    accesos_a_nivel smallint,&#xa;    entradas_aulas_sin_escalones smallint,&#xa;    puertas_accesibles smallint,&#xa;    mostradores_accesibles smallint,&#xa;    adecuacion_comunicacion_reducida smallint,&#xa;    superficie_uso numeric&#x28;10,0&#x29;,&#xa;    anio_querandies_id integer,&#xa;    unidad_generica_id integer&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE ft_construcciones_tipo_de_uso OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 856 &#x28;class 1259 OID 1569249054&#x29;&#xa;-- Name&#x3a; ft_inmuebles&#x3b; Type&#x3a; TABLE&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;CREATE TABLE ft_inmuebles &#x28;&#xa;    ft_inmueble_id integer,&#xa;    periodo_id integer,&#xa;    institucion_id integer,&#xa;    localidad_id integer,&#xa;    inmueble_id integer,&#xa;    anio_id integer,&#xa;    situacion_dominio_id integer,&#xa;    ubicacion_id integer,&#xa;    agua_corriente smallint,&#xa;    gas_natural smallint,&#xa;    energia smallint,&#xa;    cloacas smallint,&#xa;    telecomun_e_informatica smallint,&#xa;    superficie_terreno numeric&#x28;10,0&#x29;,&#xa;    valuacion_tecnica_contable numeric&#x28;12,0&#x29;,&#xa;    superficie_construida_planta_baja numeric&#x28;10,0&#x29;,&#xa;    superficie_construida_cubierta numeric&#x28;10,0&#x29;,&#xa;    superficie_construida_semicubierta numeric&#x28;10,0&#x29;,&#xa;    superficie_no_construida numeric&#x28;10,0&#x29;,&#xa;    superficie_total_construida numeric&#x28;10,0&#x29;,&#xa;    cantidad_construcciones smallint,&#xa;    cantidad_solares smallint,&#xa;    cantidad_total_construcciones smallint,&#xa;    anio_querandies_id integer&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;ALTER TABLE ft_inmuebles OWNER TO postgres&#x3b;&#xa;&#xa;--&#xa;-- TOC entry 4330 &#x28;class 2606 OID 1581162432&#x29;&#xa;-- Name&#x3a; d_anio_pkey&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_anio&#xa;    ADD CONSTRAINT d_anio_pkey PRIMARY KEY &#x28;anio_id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4308 &#x28;class 2606 OID 1569253054&#x29;&#xa;-- Name&#x3a; d_cumplimiento_pkey&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_cumplimiento&#xa;    ADD CONSTRAINT d_cumplimiento_pkey PRIMARY KEY &#x28;cumplimiento_id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4334 &#x28;class 2606 OID 1581162434&#x29;&#xa;-- Name&#x3a; d_periodo_pkey&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_periodo&#xa;    ADD CONSTRAINT d_periodo_pkey PRIMARY KEY &#x28;periodo_id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4332 &#x28;class 2606 OID 1581162436&#x29;&#xa;-- Name&#x3a; idxp_d_localidad&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_localidad&#xa;    ADD CONSTRAINT idxp_d_localidad PRIMARY KEY &#x28;localidad_id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4338 &#x28;class 2606 OID 1581162438&#x29;&#xa;-- Name&#x3a; idxp_d_unidad_academica&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_unidad_academica&#xa;    ADD CONSTRAINT idxp_d_unidad_academica PRIMARY KEY &#x28;unidad_academica_id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4306 &#x28;class 2606 OID 1773492033&#x29;&#xa;-- Name&#x3a; pk_d_construcciones&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_construcciones&#xa;    ADD CONSTRAINT pk_d_construcciones PRIMARY KEY &#x28;construccion_id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4310 &#x28;class 2606 OID 1773492035&#x29;&#xa;-- Name&#x3a; pk_d_estado_conservacion&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_estado_conservacion&#xa;    ADD CONSTRAINT pk_d_estado_conservacion PRIMARY KEY &#x28;estado_conservacion_id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4314 &#x28;class 2606 OID 1773492039&#x29;&#xa;-- Name&#x3a; pk_d_inmuebles&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_inmuebles&#xa;    ADD CONSTRAINT pk_d_inmuebles PRIMARY KEY &#x28;inmueble_id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4336 &#x28;class 2606 OID 1773492042&#x29;&#xa;-- Name&#x3a; pk_d_sino&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_sino&#xa;    ADD CONSTRAINT pk_d_sino PRIMARY KEY &#x28;sino_id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4316 &#x28;class 2606 OID 1773492044&#x29;&#xa;-- Name&#x3a; pk_d_situacion_dominio&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_situacion_dominio&#xa;    ADD CONSTRAINT pk_d_situacion_dominio PRIMARY KEY &#x28;situacion_dominio_id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4318 &#x28;class 2606 OID 1773492050&#x29;&#xa;-- Name&#x3a; pk_d_sub_tipo_uso&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_sub_tipo_uso&#xa;    ADD CONSTRAINT pk_d_sub_tipo_uso PRIMARY KEY &#x28;sub_tipo_uso_id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4320 &#x28;class 2606 OID 1773498991&#x29;&#xa;-- Name&#x3a; pk_d_tipo_construccion&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_tipo_construccion&#xa;    ADD CONSTRAINT pk_d_tipo_construccion PRIMARY KEY &#x28;tipo_construccion_id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4322 &#x28;class 2606 OID 1773498997&#x29;&#xa;-- Name&#x3a; pk_d_tipo_planta&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_tipo_planta&#xa;    ADD CONSTRAINT pk_d_tipo_planta PRIMARY KEY &#x28;tipo_planta_id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4326 &#x28;class 2606 OID 1773499001&#x29;&#xa;-- Name&#x3a; pk_d_ubicacion&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_ubicacion&#xa;    ADD CONSTRAINT pk_d_ubicacion PRIMARY KEY &#x28;ubicacion_id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4328 &#x28;class 2606 OID 1773499018&#x29;&#xa;-- Name&#x3a; pk_d_uso&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_uso&#xa;    ADD CONSTRAINT pk_d_uso PRIMARY KEY &#x28;uso_id&#x29;&#x3b;&#xa;&#xa;&#xa;--&#xa;-- TOC entry 4312 &#x28;class 2606 OID 1773492037&#x29;&#xa;-- Name&#x3a; pk_estado_construccion&#x3b; Type&#x3a; CONSTRAINT&#x3b; Schema&#x3a; querandies&#x3b; Owner&#x3a; postgres&#x3b; Tablespace&#x3a; &#xa;--&#xa;&#xa;ALTER TABLE ONLY d_estado_construccion&#xa;    ADD CONSTRAINT pk_estado_construccion PRIMARY KEY &#x28;estado_construccion_id&#x29;&#x3b;&#xa;&#xa;&#xa;-- Completed on 2017-02-13 15&#x3a;07&#x3a;27 ART&#xa;&#xa;--&#xa;-- PostgreSQL database dump complete&#xa;--</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>225</xloc>
+      <yloc>120</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>nada</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>90</xloc>
+      <yloc>119</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step_error_handling>
+  </step_error_handling>
+   <slave-step-copy-partition-distribution>
+</slave-step-copy-partition-distribution>
+   <slave_transformation>N</slave_transformation>
+
+</transformation>

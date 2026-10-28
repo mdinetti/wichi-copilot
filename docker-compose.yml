@@ -1,0 +1,26 @@
+services:
+
+  pentaho-server:
+    image: pentaho_server_94
+    container_name: pentaho
+    restart: always
+    ports:
+      - 8080:8080
+    env_file:
+      - ./pentaho.env
+    volumes:
+      - /usr/local/proyectos/wichi/SIU-Wichi/etl.ba.mapuche:/opt/pentaho/SIU-Wichi/etl.ba.mapuche
+      - /usr/local/proyectos/wichi/SIU-Wichi/etl.par.mapuche:/opt/pentaho/SIU-Wichi/etl.par.mapuche
+      - /usr/local/proyectos/wichi/SIU-Wichi/etl.rder.mapuche:/opt/pentaho/SIU-Wichi/etl.rder.mapuche
+      - /usr/local/proyectos/wichi/SIU-Wichi/etl.reco.mapuche:/opt/pentaho/SIU-Wichi/etl.reco.mapuche
+      - /usr/local/proyectos/wichi/SIU-Wichi/etl.ring.mapuche:/opt/pentaho/SIU-Wichi/etl.ring.mapuche
+      - /usr/local/proyectos/wichi/SIU-Wichi/etl.men.mapuche:/opt/pentaho/SIU-Wichi/etl.men.mapuche
+
+  hanyaj:
+    image: hanyaj
+    container_name: hanyaj
+    restart: always
+    ports:
+      - 9999:8080
+    env_file:
+      - ./config_hanyaj.env

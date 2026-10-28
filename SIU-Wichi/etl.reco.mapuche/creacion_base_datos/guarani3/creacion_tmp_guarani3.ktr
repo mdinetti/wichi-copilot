@@ -1,0 +1,1342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>creacion_tmp_guarani3</name>
+    <description/>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>/</directory>
+    <parameters>
+    </parameters>
+    <log>
+      <trans-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+    <created_user>-</created_user>
+    <created_date>2013/03/22 15:33:44.716</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2013/03/22 15:33:44.716</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+    <notepad>
+      <note>Ejecuta el script
+de creación</note>
+      <xloc>144</xloc>
+      <yloc>32</yloc>
+      <width>131</width>
+      <heigth>48</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <connection>
+    <name>siu_dsa</name>
+    <server>${dsa_nombrehost}</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>${dsa_nombrebase}</database>
+    <port>${dsa_puerto}</port>
+    <username>${dsa_usuario}</username>
+    <password>${dsa_clave}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>${dsa_puerto}</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>SET datestyle to iso,YMD</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <order>
+    <hop>
+      <from>nada</from>
+      <to>Execute SQL script</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <step>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>siu_dsa</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>--Esquema guarani3_tmp
+
+--Crea el esquema temporal de guarani3
+CREATE SCHEMA guarani3_tmp;
+
+SET search_path = guarani3_tmp, pg_catalog;
+
+CREATE TABLE d_actividad (
+    estado_actividad_desc character varying,
+    tipo_actividad_desc character varying,
+    actividad_id character varying,
+    actividad_desc character varying,
+    elemento integer
+);
+
+
+CREATE TABLE d_alcance_equivalencia (
+    alcance_equivalencia_id character varying NOT NULL,
+    alcance_equivalencia_desc character varying
+);
+
+
+CREATE TABLE d_alumno (
+    alumno_id integer NOT NULL,
+    legajo_id character varying,
+    persona_id integer
+);
+
+
+CREATE TABLE d_calidad_alumno (
+    calidad_alumno_id character varying NOT NULL,
+    calidad_alumno_desc character varying
+);
+
+
+CREATE TABLE d_catedra (
+    catedra_id character varying NOT NULL,
+    catedra_desc character varying
+);
+
+
+CREATE TABLE d_colegio (
+    colegio_id integer,
+    colegio_desc character varying,
+    ambito_desc character varying,
+    sector_desc character varying,
+    localidad_id integer
+);
+
+
+CREATE TABLE d_comision (
+    comision_id character varying NOT NULL,
+    comision_desc character varying,
+    modalidad_desc character varying
+);
+
+
+CREATE TABLE d_comision_docentes
+(
+  comision_id character varying NOT NULL,
+  responsabilidad_docentes_codigo character varying,
+  responsabilidad_docentes_desc character varying
+);
+
+
+CREATE TABLE d_concepto (
+    concepto_id character varying NOT NULL,
+    concepto_desc character varying
+);
+
+
+CREATE TABLE d_condicion_examen (
+    condicion_examen_id character varying NOT NULL,
+    condicion_examen_desc character varying
+);
+
+
+CREATE TABLE d_condicion_regularidad (
+    condicion_regularidad_id character varying NOT NULL,
+    condicion_regularidad_desc character varying
+);
+
+CREATE TABLE d_costeo_estudios
+(
+  costeo_estudios_id character varying NOT NULL,
+  costeo_estudios_desc character varying
+);
+
+CREATE TABLE d_estado_acta (
+    estado_acta_id character varying NOT NULL,
+    estado_acta_desc character varying
+);
+
+
+CREATE TABLE d_estado_tramite (
+    estado_tramite_id character varying NOT NULL,
+    estado_tramite_desc character varying
+);
+
+CREATE TABLE d_estado_civil
+(
+  estado_civil_id integer,
+  estado_civil_desc character varying
+);
+
+CREATE TABLE d_estudio_padres (
+    estudio_padres_id integer NOT NULL,
+    estudio_padres_desc character varying
+);
+
+
+CREATE TABLE d_horas_trabajadas (
+    horas_trabajadas_id character varying NOT NULL,
+    horas_trabajadas_desc character varying
+);
+
+CREATE TABLE d_idioma
+(
+  idioma_id character varying,
+  idioma_desc character varying
+);
+
+CREATE TABLE d_localidad (
+    localidad_id integer,
+    localidad_desc character varying,
+	dpto_partido_id integer,
+    dpto_partido_desc character varying,
+    provincia_id integer
+);
+
+
+CREATE TABLE d_actividad_comun (
+    actividad_comun_id character varying,
+    actividad_comun_desc character varying
+);
+
+CREATE TABLE d_mesa_docentes
+(
+  mesa_id character varying NOT NULL,
+  tribunal_docentes_codigo character varying,
+  tribunal_docentes_desc character varying
+);
+
+CREATE TABLE guarani3_tmp.d_modalidad
+(
+    modalidad_id character NOT NULL,
+    modalidad_desc character varying
+);
+
+CREATE TABLE d_nacionalidad (
+    nacionalidad_id integer NOT NULL,
+    nacionalidad_desc character varying
+);
+
+
+CREATE TABLE d_origen_equivalencia (
+    origen_equivalencia_id character varying,
+    origen_equivalencia_desc character varying
+);
+
+
+CREATE TABLE d_pais (
+    pais_id integer,
+    pais_desc character varying
+);
+
+
+CREATE TABLE d_persona (
+    persona_id integer,
+    apellido_nombres character varying,
+    fecha_nacimiento date,
+    tipo_nro_documento character varying,
+    email character varying,
+    telefono character varying,
+    apyno_elegido character varying,
+    pueblo_originario character varying,
+    identidad_genero character varying
+);
+
+
+CREATE TABLE d_plan_version (
+    plan_version_id character varying,
+    plan_version_desc character varying,
+    plan_version_estado character varying,
+    plan character varying,
+    plan_version character varying
+);
+
+
+CREATE TABLE d_propuesta_formativa (
+    tipo_propuesta_formativa_id character varying,
+    tipo_propuesta_formativa_desc character varying,
+    propuesta_formativa_id character varying,
+    propuesta_formativa_desc character varying,
+    responsables_academicas_codigo character varying
+);
+
+
+CREATE TABLE d_provincia (
+    provincia_id integer,
+    provincia_desc character varying,
+    pais_id integer
+);
+
+
+CREATE TABLE d_rama_disciplinar (
+    rama_disciplinar_id integer,
+    rama_id integer,
+    rama_desc character varying,
+    disciplina_id character varying,
+    disciplina_desc character varying,
+    area_id integer,
+    area_desc character varying
+);
+
+
+CREATE TABLE d_responsable_academica (
+    propuesta character varying,
+    tipo_reponsable_academica_desc character varying,
+    responsable_academica_id character varying,
+    responsable_academica_desc character varying
+);
+
+
+CREATE TABLE d_resultado (
+    resultado_id character varying NOT NULL,
+    resultado_desc character varying
+);
+
+
+CREATE TABLE d_resultado_aspirante (
+    resultado_aspirante_id character varying NOT NULL,
+    resultado_aspirante_desc character varying
+);
+
+
+CREATE TABLE d_sexo (
+    sexo_id integer,
+    sexo_desc character varying
+);
+
+
+CREATE TABLE d_situacion_aspirante (
+    situacion_aspirante_id integer NOT NULL,
+    situacion_aspirante_desc character varying,
+    resultado_aspirante_id character varying
+);
+
+
+CREATE TABLE d_situacion_laboral_padres (
+    situacion_laboral_padres_id integer NOT NULL,
+    situacion_laboral_padres_desc character varying
+);
+
+CREATE TABLE d_tecno_internet
+(
+  tecno_internet_id character varying,
+  tecno_internet_desc character varying
+);
+
+CREATE TABLE d_tecno_pc
+(
+  tecno_pc_id character varying,
+  tecno_pc_desc character varying
+);
+
+CREATE TABLE d_tipo_ingreso (
+    tipo_ingreso_id character varying NOT NULL,
+    tipo_ingreso_desc character varying
+);
+
+
+CREATE TABLE d_tipo_ingreso_aspirante (
+    tipo_ingreso_aspirante_id integer NOT NULL,
+    tipo_ingreso_aspirante_desc character varying
+);
+
+
+CREATE TABLE d_tipo_periodo (
+    tipo_periodo_id character varying NOT NULL,
+    tipo_periodo_desc character varying
+);
+
+
+CREATE TABLE d_titulo_araucano (
+    titulo_araucano_id character varying NOT NULL,
+    titulo_araucano_desc character varying,
+	titulo_araucano_nivel character varying
+);
+
+
+CREATE TABLE d_ubicacion (
+    tipo_ubicacion_id character varying,
+    tipo_ubicacion_desc character varying,
+    ubicacion_id character varying,
+    ubicacion_desc character varying
+);
+
+CREATE TABLE d_discapacidad(
+  discapacidad_id character varying,
+  discapacidad_desc character varying
+);
+
+CREATE TABLE IF NOT EXISTS guarani3_tmp.d_estado_inscripcion
+(
+    estado_inscripcion_id character NOT NULL,
+    estado_inscripcion_desc character varying
+);
+
+CREATE TABLE IF NOT EXISTS guarani3_tmp.d_turno_cursada
+(
+    turno_cursada_id character NOT NULL,
+    turno_cursada_desc character varying
+);
+
+CREATE TABLE ft_alumnos (
+    anio_academico integer NOT NULL,
+    plan_version_id character varying,
+    propuesta_formativa_id character varying,
+    ubicacion_id character varying,
+    titulo_araucano_id character varying,
+    sexo_id integer,
+    anio_ingreso_propuesta integer,
+    colegio_secundario_id integer,
+    actividades_rendidas_anio_anterior_id integer,
+    actividades_aprobadas_anio_anterior_id integer,
+    total_actividades_rendidas_id integer,
+    total_actividades_aprobadas_id integer,
+    horas_trabajadas_id character varying,
+    tipo_ingreso_id character varying,
+    edad integer,
+    alumno_id integer,
+    nacionalidad_id integer,
+    calidad_alumno_id character varying,
+    modalidad_id character,
+    rama_disciplinar_id integer,
+    max_trabajo_padres integer,
+    max_estudio_padres integer,
+	persona_id integer,
+	estado_civil_id integer,
+    localidad_periodo_lectivo_id integer,
+    localidad_procedencia_id integer,
+	costeo_estudios_id character varying,
+	beca character(1),
+	tecno_internet_id character varying(60),
+	tecno_pc_id character varying(60),
+	idioma_id character varying(60),
+    discapacidad_id character varying,
+	situacion_aspirante_id integer,
+    nuevosinscriptos integer,
+    reinscriptos integer,
+    egresados integer
+);
+
+
+CREATE TABLE ft_cursado (
+    ubicacion_id character varying,
+    anio_academico character varying,
+    tipo_periodo_id character varying,
+    periodo_lectivo_desc character varying,
+    orden_periodo_en_anio character varying,
+    alumno_id character varying,
+    edad_id integer,
+    sexo_id character varying,
+    nacionalidad_id character varying,
+    colegio_secundario_id integer,
+    propuesta_formativa_id character varying,
+    plan_version_id character varying,
+    actividad_id character varying,
+    catedra_id character varying,
+    comision_id character varying,
+    condicion_regularidad_id character varying,
+    resultado_id character varying,
+    nota character varying,
+    concepto character varying,
+    porcentaje_asistencia character varying,
+    tipo_actividad_id character varying,
+    acta character varying,
+    estado_acta_id character varying,
+    total_intentos_cursada character varying,
+    nro_intento_cursada character varying,
+    cantidad_registros_cursada character varying,
+    anio_ingreso_institucion character varying,
+    anio_ingreso_pf character varying,
+    periodo_inscripcion_pf_desc character varying,
+    modalidad_id character,
+    persona_id integer,
+	horas_trabajadas_id character varying,
+	estado_civil_id integer,
+    localidad_periodo_lectivo_id integer,
+    localidad_procedencia_id integer,
+	costeo_estudios_id character varying,
+	beca character(1),
+	tecno_internet_id character varying(60),
+	tecno_pc_id character varying(60),
+	idioma_id character varying(60),
+    discapacidad_id character varying
+);
+
+
+CREATE TABLE ft_equivalencia (
+    ubicacion_id character varying,
+    anio_academico character varying,
+    fecha_equivalencia character varying,
+    alumno_id character varying,
+    edad_id integer,
+    sexo_id character varying,
+    nacionalidad_id character varying,
+    colegio_secundario_id integer,
+    propuesta_formativa_id character varying,
+    plan_version_id character varying,
+    actividad_id character varying,
+    alcance_equivalencia_id character varying,
+    resultado_id character varying,
+    nota character varying,
+    concepto character varying,
+    origen_equivalencia_id character varying,
+    equivalencia_guarani_id character varying,
+    tipo_actividad_id character varying,
+    estado_tramite_id character varying,
+    condicion_alumno_id character varying,
+    cantidad_registros_examen character varying,
+    anio_ingreso_institucion character varying,
+    anio_ingreso_pf character varying,
+    periodo_inscripcion_pf_desc character varying,
+    tramite character varying,
+    modalidad_id character,
+    persona_id integer,
+    horas_trabajadas_id character varying,
+	estado_civil_id integer,
+    localidad_periodo_lectivo_id integer,
+    localidad_procedencia_id integer,
+	costeo_estudios_id character varying,
+	beca character(1),
+	tecno_internet_id character varying(60),
+	tecno_pc_id character varying(60),
+	idioma_id character varying(60),
+	discapacidad_id character varying
+);
+
+
+CREATE TABLE ft_examen (
+    ubicacion_id character varying,
+    anio_academico character varying,
+    tipo_periodo_id character varying,
+    turno_examen_desc character varying,
+    mesa_examen_desc character varying,
+    fecha_examen character varying,
+    mesa_id character varying,
+    alumno_id character varying,
+    edad_id integer,
+    sexo_id character varying,
+    nacionalidad_id character varying,
+    colegio_secundario_id integer,
+    propuesta_formativa_id character varying,
+    plan_version_id character varying,
+    actividad_id character varying,
+    catedra_id character varying,
+    resultado_id character varying,
+    nota character varying,
+    concepto character varying,
+    acta character varying,
+    estado_acta_id character varying,
+    condicion_alumno_id character varying,
+    total_intentos_rendir character varying,
+    nro_intento_rendir character varying,
+    cantidad_registros_examen character varying,
+    anio_ingreso_institucion character varying,
+    anio_ingreso_pf character varying,
+    periodo_inscripcion_pf_desc character varying,
+    tipo_actividad_id character varying,
+    modalidad_id character,
+    persona_id integer,
+	horas_trabajadas_id character varying,
+	estado_civil_id integer,
+    localidad_periodo_lectivo_id integer,
+    localidad_procedencia_id integer,
+	costeo_estudios_id character varying,
+	beca character(1),
+	tecno_internet_id character varying(60),
+	tecno_pc_id character varying(60),
+	idioma_id character varying(60),
+	discapacidad_id character varying
+);
+
+
+CREATE TABLE ft_procedencia_aspirantes (
+    ubicacion_id character varying,
+    periodo_inscripcion_id character varying,
+    propuesta_formativa_id character varying,
+    plan_version_id character varying,
+    tipo_ingreso_aspirante_id integer,
+    colegio_id integer,
+    situacion_aspirante_id integer,
+    sexo_id integer,
+    persona_id integer,
+    edad_id integer,
+    estudio_padres_id integer,
+    situacion_padres_id integer,
+    nacionalidad_id integer,
+    cantidad integer,
+    anio_academico integer,
+    localidad_procedencia_id integer,
+	modalidad_id character
+);
+
+CREATE TABLE IF NOT EXISTS guarani3_tmp.ft_inscripciones_cursadas
+(
+    ubicacion_id character varying,
+    anio_academico character varying,
+    tipo_periodo_id character varying,
+    periodo_lectivo_desc character varying,
+    alumno_id character varying,
+    propuesta_formativa_id character varying,
+    plan_version_id character varying,
+    actividad_id character varying,
+    catedra_id character varying,
+    tipo_actividad_id character varying,
+    comision_id character varying,
+    inscripcion character varying,
+    nro_transaccion character varying,
+    estado_inscripcion_id character(1),
+    turno_id character varying,
+    fecha_inscripcion character varying,
+    instancias_desc character varying,
+    sexo_id character varying,
+    edad_id integer,
+    nacionalidad_id character varying,
+    colegio_secundario_id integer,
+    anio_ingreso_institucion character varying,
+    anio_ingreso_pf character varying,
+    periodo_inscripcion_pf_desc character varying,
+    cantidad_registros_inscripciones character varying,
+    modalidad_id character,
+    persona_id integer,
+    horas_trabajadas_id character varying,
+    estado_civil_id integer,
+    localidad_per_lec_id integer,
+    localidad_proc_id integer,
+    costeo_estudios_id character varying,
+    beca_id character(1),
+    tecno_internet_id character varying(60),
+    tecno_pc_id character varying(60),
+    idioma_id character varying(60),
+    discapacidad_id character varying
+);
+
+--Tablas para integracion Moodle
+
+CREATE TABLE int_pv_cursos(
+  curso integer,
+  id_curso_externo character varying(50),
+  nombre character varying(150),
+  plataforma integer
+);
+
+CREATE TABLE int_pv_cursos_comisiones
+(
+  curso integer,
+  comision integer
+);
+
+CREATE TABLE int_pv_plataformas
+(
+  plataforma integer,
+  nombre character varying(100),
+  url character varying(200),
+  host character varying(200),
+  token character varying,
+  rol_alumno integer,
+  rol_alumno_curso integer,
+  categoria_curso_default integer,
+  activa boolean
+);
+
+CREATE TABLE int_pv_plataformas_ra
+(
+  plataforma integer,
+  responsable_academica integer
+);
+
+CREATE TABLE int_pv_roles_docentes
+(
+  plataforma integer,
+  responsabilidad integer,
+  rol_externo integer
+);
+
+CREATE TABLE int_pv_usuarios
+(
+  plataforma integer,
+  persona integer,
+  id_usuario_externo character varying(50)
+);
+
+CREATE TABLE comisiones_completas(
+	comision integer,
+	materia character varying,
+	propuesta integer,
+	plan integer,
+	responsable_academica integer
+);
+CREATE TABLE inscripciones_personas_comisiones(
+	comision integer,
+	alumno integer,
+	actividad integer,
+	curso integer,
+	legajo character varying,
+	persona integer,
+	propuesta integer,
+	plan_version integer,
+	ubicacion integer,
+	plataforma integer,
+	id_usuario_externo integer
+);
+
+CREATE TABLE inscripciones_comision(
+	comision integer,
+	curso integer,
+	cantidad_inscripciones integer,
+	cantidad_bajas integer,
+	total integer
+);
+
+--Tablas para integracion Kolla
+CREATE TABLE encuestas(
+  respuesta integer, 
+  persona integer, 
+  formulario integer, 
+  fecha_alta timestamp with time zone, 
+  fecha_respuesta timestamp with time zone, 
+  hash character varying(40) NOT NULL
+);
+
+CREATE TABLE encuestas_propuestas(
+    kolla_id_encuesta numeric,
+    encuesta integer,
+    kolla_unidad_gestion character varying,
+    respuesta integer,
+    respuesta_externa integer,
+    formulario integer,
+    formulario_externo integer,
+    elemento integer,
+    elemento_externo integer,
+    kolla_id_habilitacion integer,
+    persona integer,
+    alumno integer,
+    propuesta integer,
+    propuesta_nombre character varying
+);
+
+-- Tablas para Preinscripciones
+
+CREATE TABLE d_cobertura_salud(
+  cobertura_salud_codigo integer,
+  cobertura_salud_desc text
+);
+
+CREATE TABLE d_identidad_genero(
+  identidad_genero_codigo integer,
+  identidad_genero_desc text
+);
+
+CREATE TABLE d_periodo_inscripcion_preinscripciones(
+  periodo_inscripcion_codigo integer,
+  periodo_inscripcion_desc text,
+  anio_academico integer
+);
+
+CREATE TABLE d_pueblos_originarios(
+  pueblo_originario_codigo integer,
+  pueblo_originario_desc text
+);
+
+CREATE TABLE d_tipo_allegado(
+  tipo_allegado_codigo text,
+  tipo_allegado_desc text
+);
+
+CREATE TABLE d_tipo_documento(
+  tipo_documento_codigo integer,
+  tipo_documento_desc text
+);
+
+CREATE TABLE d_trabajo_ocupacion(
+  trabajo_ocupacion_codigo integer,
+  trabajo_ocupacion_desc text
+);
+
+CREATE TABLE d_turno_preferido(
+   turno_preferido_codigo integer,
+   turno_preferido_desc text
+);
+
+CREATE TABLE d_vive_con(
+  vive_con_codigo integer,
+  vive_con_desc text
+);
+
+CREATE TABLE ft_preinscripciones(
+	responsable_academica integer,
+	propuesta integer,
+	ubicacion integer,
+	modalidad text,
+	periodo_insc integer,
+	fecha_preinscripcion date,
+	estado_preinsc text,
+	apyno text,
+	tipo_documento integer,
+	nro_documento text,
+	sexo integer,
+	fecha_nacimiento date,
+    edad INTEGER,
+	nacionalidad integer,
+	loc_nacimiento integer,
+	estado_civil integer,
+	alu_est_civil_uh text,
+	turno_preferido integer,
+	colegio_secundario integer,
+	titulo_secundario integer,
+	anio_egreso_sec integer,
+	alu_trabajo INTEGER,
+	pertenece_pueblo_originario text,
+	pueblo_originario integer,
+	pueblo_originario_otro text,
+	identidad_genero integer,
+	identidad_genero_otro text,
+	celular_numero text,
+	e_mail text,
+	apyno_elegido text,
+	apyno_padre text,
+	apyno_madre text,
+	sit_laboral_padre integer,
+	padre_trab_ocup text,
+	sit_laboral_madre integer,
+	madre_trab_ocup text,
+	sit_actual_padre text,
+	sit_actual_madre text,
+	nivel_estudio_padre integer,
+	nivel_estudio_madre integer,
+	tipo_allegado text,
+	apyno_pers_alleg text,
+	costeo_estudios text,
+	tiene_beca text,
+	tecno_pc text,
+	tecno_int text,
+	idioma text,
+	condicion_discapacidad text,
+	tiene_cud text,
+	discapacidad text,
+	cant_hijos_alum integer,
+	vive_actual_con integer,
+	obra_social_alu text,
+	loc_per_lect integer,
+	loc_proc integer,
+	es_celiaco text,
+	adeuda_materias text
+);	
+</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>227</xloc>
+      <yloc>119</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>nada</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>90</xloc>
+      <yloc>121</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step_error_handling>
+  </step_error_handling>
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+  <attributes/>
+</transformation>

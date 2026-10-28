@@ -1,0 +1,2727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job>
+  <name>importación sudocu_dsa</name>
+  <description/>
+  <extended_description/>
+  <job_version/>
+  <job_status>0</job_status>
+  <directory>/</directory>
+  <created_user>-</created_user>
+  <created_date>2014/11/26 10:33:49.647</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2014/11/26 10:33:49.647</modified_date>
+  <parameters>
+    </parameters>
+  <connection>
+    <name>siu_dw</name>
+    <server>${dw_nombrehost}</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>${dw_nombrebase}</database>
+    <port>${dw_puerto}</port>
+    <username>${dw_usuario}</username>
+    <password>${dw_clave}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>${dw_puerto}</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <slaveservers>
+    </slaveservers>
+  <job-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <size_limit_lines/>
+    <interval/>
+    <timeout_days/>
+    <field>
+      <id>ID_JOB</id>
+      <enabled>Y</enabled>
+      <name>ID_JOB</name>
+    </field>
+    <field>
+      <id>CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>JOBNAME</id>
+      <enabled>Y</enabled>
+      <name>JOBNAME</name>
+    </field>
+    <field>
+      <id>STATUS</id>
+      <enabled>Y</enabled>
+      <name>STATUS</name>
+    </field>
+    <field>
+      <id>LINES_READ</id>
+      <enabled>Y</enabled>
+      <name>LINES_READ</name>
+    </field>
+    <field>
+      <id>LINES_WRITTEN</id>
+      <enabled>Y</enabled>
+      <name>LINES_WRITTEN</name>
+    </field>
+    <field>
+      <id>LINES_UPDATED</id>
+      <enabled>Y</enabled>
+      <name>LINES_UPDATED</name>
+    </field>
+    <field>
+      <id>LINES_INPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_INPUT</name>
+    </field>
+    <field>
+      <id>LINES_OUTPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_OUTPUT</name>
+    </field>
+    <field>
+      <id>LINES_REJECTED</id>
+      <enabled>Y</enabled>
+      <name>LINES_REJECTED</name>
+    </field>
+    <field>
+      <id>ERRORS</id>
+      <enabled>Y</enabled>
+      <name>ERRORS</name>
+    </field>
+    <field>
+      <id>STARTDATE</id>
+      <enabled>Y</enabled>
+      <name>STARTDATE</name>
+    </field>
+    <field>
+      <id>ENDDATE</id>
+      <enabled>Y</enabled>
+      <name>ENDDATE</name>
+    </field>
+    <field>
+      <id>LOGDATE</id>
+      <enabled>Y</enabled>
+      <name>LOGDATE</name>
+    </field>
+    <field>
+      <id>DEPDATE</id>
+      <enabled>Y</enabled>
+      <name>DEPDATE</name>
+    </field>
+    <field>
+      <id>REPLAYDATE</id>
+      <enabled>Y</enabled>
+      <name>REPLAYDATE</name>
+    </field>
+    <field>
+      <id>LOG_FIELD</id>
+      <enabled>Y</enabled>
+      <name>LOG_FIELD</name>
+    </field>
+    <field>
+      <id>EXECUTING_SERVER</id>
+      <enabled>N</enabled>
+      <name>EXECUTING_SERVER</name>
+    </field>
+    <field>
+      <id>EXECUTING_USER</id>
+      <enabled>N</enabled>
+      <name>EXECUTING_USER</name>
+    </field>
+    <field>
+      <id>START_JOB_ENTRY</id>
+      <enabled>N</enabled>
+      <name>START_JOB_ENTRY</name>
+    </field>
+    <field>
+      <id>CLIENT</id>
+      <enabled>N</enabled>
+      <name>CLIENT</name>
+    </field>
+  </job-log-table>
+  <jobentry-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
+    <field>
+      <id>ID_BATCH</id>
+      <enabled>Y</enabled>
+      <name>ID_BATCH</name>
+    </field>
+    <field>
+      <id>CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>LOG_DATE</id>
+      <enabled>Y</enabled>
+      <name>LOG_DATE</name>
+    </field>
+    <field>
+      <id>JOBNAME</id>
+      <enabled>Y</enabled>
+      <name>TRANSNAME</name>
+    </field>
+    <field>
+      <id>JOBENTRYNAME</id>
+      <enabled>Y</enabled>
+      <name>STEPNAME</name>
+    </field>
+    <field>
+      <id>LINES_READ</id>
+      <enabled>Y</enabled>
+      <name>LINES_READ</name>
+    </field>
+    <field>
+      <id>LINES_WRITTEN</id>
+      <enabled>Y</enabled>
+      <name>LINES_WRITTEN</name>
+    </field>
+    <field>
+      <id>LINES_UPDATED</id>
+      <enabled>Y</enabled>
+      <name>LINES_UPDATED</name>
+    </field>
+    <field>
+      <id>LINES_INPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_INPUT</name>
+    </field>
+    <field>
+      <id>LINES_OUTPUT</id>
+      <enabled>Y</enabled>
+      <name>LINES_OUTPUT</name>
+    </field>
+    <field>
+      <id>LINES_REJECTED</id>
+      <enabled>Y</enabled>
+      <name>LINES_REJECTED</name>
+    </field>
+    <field>
+      <id>ERRORS</id>
+      <enabled>Y</enabled>
+      <name>ERRORS</name>
+    </field>
+    <field>
+      <id>RESULT</id>
+      <enabled>Y</enabled>
+      <name>RESULT</name>
+    </field>
+    <field>
+      <id>NR_RESULT_ROWS</id>
+      <enabled>Y</enabled>
+      <name>NR_RESULT_ROWS</name>
+    </field>
+    <field>
+      <id>NR_RESULT_FILES</id>
+      <enabled>Y</enabled>
+      <name>NR_RESULT_FILES</name>
+    </field>
+    <field>
+      <id>LOG_FIELD</id>
+      <enabled>N</enabled>
+      <name>LOG_FIELD</name>
+    </field>
+    <field>
+      <id>COPY_NR</id>
+      <enabled>N</enabled>
+      <name>COPY_NR</name>
+    </field>
+  </jobentry-log-table>
+  <channel-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
+    <field>
+      <id>ID_BATCH</id>
+      <enabled>Y</enabled>
+      <name>ID_BATCH</name>
+    </field>
+    <field>
+      <id>CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>LOG_DATE</id>
+      <enabled>Y</enabled>
+      <name>LOG_DATE</name>
+    </field>
+    <field>
+      <id>LOGGING_OBJECT_TYPE</id>
+      <enabled>Y</enabled>
+      <name>LOGGING_OBJECT_TYPE</name>
+    </field>
+    <field>
+      <id>OBJECT_NAME</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_NAME</name>
+    </field>
+    <field>
+      <id>OBJECT_COPY</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_COPY</name>
+    </field>
+    <field>
+      <id>REPOSITORY_DIRECTORY</id>
+      <enabled>Y</enabled>
+      <name>REPOSITORY_DIRECTORY</name>
+    </field>
+    <field>
+      <id>FILENAME</id>
+      <enabled>Y</enabled>
+      <name>FILENAME</name>
+    </field>
+    <field>
+      <id>OBJECT_ID</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_ID</name>
+    </field>
+    <field>
+      <id>OBJECT_REVISION</id>
+      <enabled>Y</enabled>
+      <name>OBJECT_REVISION</name>
+    </field>
+    <field>
+      <id>PARENT_CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>PARENT_CHANNEL_ID</name>
+    </field>
+    <field>
+      <id>ROOT_CHANNEL_ID</id>
+      <enabled>Y</enabled>
+      <name>ROOT_CHANNEL_ID</name>
+    </field>
+  </channel-log-table>
+  <pass_batchid>N</pass_batchid>
+  <shared_objects_file/>
+  <entries>
+    <entry>
+      <name>START</name>
+      <description/>
+      <type>SPECIAL</type>
+      <attributes/>
+      <start>Y</start>
+      <dummy>N</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>38</xloc>
+      <yloc>81</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <attributes/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>112</xloc>
+      <yloc>320</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>dimensiones tmp->dsa</name>
+      <description/>
+      <type>JOB</type>
+      <attributes/>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>${Internal.Job.Filename.Directory}/carga_dsa_dimensiones.kjb</filename>
+      <jobname/>
+      <directory/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <run_configuration/>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>656</xloc>
+      <yloc>80</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>hechos</name>
+      <description/>
+      <type>JOB</type>
+      <attributes/>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>${Internal.Job.Filename.Directory}/carga_dsa_hechos.kjb</filename>
+      <jobname/>
+      <directory/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <run_configuration/>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>656</xloc>
+      <yloc>320</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>loguear inicio</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <attributes/>
+      <logmessage>Comienza el proceso de importación sudocu_dsa.
+Comienza la carga de dimensiones</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>INFO</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>148</xloc>
+      <yloc>81</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>loguear fin</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <attributes/>
+      <logmessage>Finalizó correctamente la carga de hechos.
+Finalizó correctamente el proceso de importación sudocu_dsa.</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>INFO</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>272</xloc>
+      <yloc>320</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>loguear2</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <attributes/>
+      <logmessage>Finalizó correctamente la carga de dimensiones.
+Se continúa con la carga de hechos.</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>INFO</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>656</xloc>
+      <yloc>208</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>loguear error</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <attributes/>
+      <logmessage>Finalizó con errores el proceso de importación sudocu_dsa.</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>ERROR</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>448</xloc>
+      <yloc>192</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Abort job</name>
+      <description/>
+      <type>ABORT</type>
+      <attributes/>
+      <message/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>272</xloc>
+      <yloc>192</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>asignar y probar conexión</name>
+      <description/>
+      <type>JOB</type>
+      <attributes/>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>${Internal.Job.Filename.Directory}/../../../../general/asignar_y_probar_conexion/asignar_y_probar_conexion.kjb</filename>
+      <jobname/>
+      <directory/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <run_configuration/>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>290</xloc>
+      <yloc>81</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>setear_parametros</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <attributes/>
+      <replacevars>Y</replacevars>
+      <filename/>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>dw_esquema</variable_name>
+          <variable_value>sudocu</variable_value>
+          <variable_type>ROOT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>dsa_esquema</variable_name>
+          <variable_value>sudocu_dsa</variable_value>
+          <variable_type>ROOT_JOB</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>480</xloc>
+      <yloc>80</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Calcula indicadoers</name>
+      <description/>
+      <type>SQL</type>
+      <attributes/>
+      <sql>--script de relevamiento de indicadores SUDOCU v2.0
+
+-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- Tabla: sudocu_dsa.indicadores_calculados
+-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DROP TABLE IF EXISTS sudocu_dsa.indicadores_calculados;
+CREATE TABLE sudocu_dsa.indicadores_calculados
+(
+	id_indicador integer NOT NULL,
+	descripcion_indicador varchar(300) NOT NULL,
+	alcance varchar(16) NOT NULL,
+	valor_indicador_calculado varchar(60),
+	tipo_campo character varying(10) DEFAULT 'int4',
+	fecha_relevamiento_indicador date NOT NULL
+);
+
+ALTER TABLE sudocu_dsa.indicadores_calculados ADD CONSTRAINT pk_sudocu_dsa_2_sudocu_indicadores_calculados PRIMARY KEY (id_indicador,alcance);
+  
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	 1,
+	 'Fecha y hora de inicio del relevamiento de indicadores SUDOCU',
+	 'General', 
+	  clock_timestamp(),
+	 CURRENT_DATE
+	 );
+
+
+-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- Tabla: sudocu_dsa.expedientes_tramites_mb
+-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+DROP TABLE IF EXISTS sudocu_dsa.expedientes_tramites_mb;
+DROP SEQUENCE IF EXISTS sudocu_dsa.expedientes_tramites_mb_id_seq;
+CREATE SEQUENCE sudocu_dsa.expedientes_tramites_mb_id_seq START 1;
+CREATE TABLE sudocu_dsa.expedientes_tramites_mb
+(
+	id integer NOT NULL DEFAULT nextval('sudocu_dsa.expedientes_tramites_mb_id_seq'::regclass),
+	total_mb decimal(12,2)
+);
+
+ALTER TABLE sudocu_dsa.expedientes_tramites_mb ADD CONSTRAINT pk_sudocu_dsa_sudocu_expedientes_tramites_mb PRIMARY KEY (id);
+
+INSERT INTO sudocu_dsa.expedientes_tramites_mb(total_mb)
+	(SELECT cast(sum(a.size)/1048576 as decimal(12,2))
+	FROM sudocu_tmp.ft_evento e
+	INNER JOIN sudocu_tmp.d_documento d ON e.atributos::json->>'documento_incorporado' = d.documento_uuid
+	INNER JOIN sudocu_tmp.archivos a ON d.documento = a.id
+	INNER JOIN sudocu_tmp.d_documento exp ON e.documento_uuid = exp.documento_uuid
+	WHERE e.tipo_evento_id = '18' -- 18= evento incorporación
+	OR e.tipo_evento_id = '19' -- 19= evento tramitación
+	GROUP BY exp.documento_uuid);
+
+-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- Tabla: sudocu_dsa.documentos_mb
+-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+DROP TABLE IF EXISTS sudocu_dsa.documentos_mb;
+DROP SEQUENCE IF EXISTS sudocu_dsa.documentos_mb_id_seq;
+CREATE SEQUENCE sudocu_dsa.documentos_mb_id_seq START 1;
+CREATE TABLE sudocu_dsa.documentos_mb
+(
+	id integer NOT NULL DEFAULT nextval('sudocu_dsa.documentos_mb_id_seq'::regclass),
+	total_mb decimal(12,2)
+);
+
+ALTER TABLE sudocu_dsa.documentos_mb ADD CONSTRAINT pk_sudocu_dsa_sudocu_documentos_mb PRIMARY KEY (id);
+
+INSERT INTO sudocu_dsa.documentos_mb(total_mb)
+	(SELECT CAST((a.size::decimal(50,2) / 1048576) as decimal(12,2))
+	FROM sudocu_tmp.d_documento d
+	INNER JOIN sudocu_tmp.archivos a ON d.documento = a.id
+	INNER JOIN sudocu_tmp.d_tipo_documento dt ON d.documento_tipo_documento_id = dt.tipo_documento_id
+	WHERE d.documento_estado = '19' AND dt.tipo_documento_esencia = 'documento');
+	 
+
+-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- Tabla: sudocu_dsa.enviados_no_recibidos
+-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+DROP TABLE IF EXISTS sudocu_dsa.enviados_no_recibidos;
+DROP SEQUENCE IF EXISTS sudocu_dsa.enviados_no_recibidos_id_seq;
+CREATE SEQUENCE sudocu_dsa.enviados_no_recibidos_id_seq START 1;
+CREATE TABLE sudocu_dsa.enviados_no_recibidos
+(
+	id integer NOT NULL DEFAULT nextval('sudocu_dsa.enviados_no_recibidos_id_seq'::regclass),
+	dias integer,
+	ts timestamp without time zone
+);
+
+ALTER TABLE sudocu_dsa.enviados_no_recibidos ADD CONSTRAINT pk_sudocu_dsa_sudocu_enviados_no_recibidos PRIMARY KEY (id);
+
+INSERT INTO sudocu_dsa.enviados_no_recibidos(dias,ts)
+	(SELECT  FLOOR(EXTRACT(EPOCH FROM age(NOW(), e.ts)) / 86400), e.ts
+	FROM sudocu_tmp.ft_evento e
+	LEFT JOIN sudocu_tmp.d_documento d on d.documento_uuid = e.documento_uuid
+	WHERE e.tipo_evento_id='16' AND d.documento_estado='3' AND e.resultado = 'enviado');
+	 
+-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- Tabla: sudocu_dsa.documentos_archivados
+-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DROP TABLE IF EXISTS sudocu_dsa.documentos_archivados;
+CREATE TABLE sudocu_dsa.documentos_archivados
+(
+	id_documento uuid NOT NULL
+);
+
+ALTER TABLE sudocu_dsa.documentos_archivados ADD CONSTRAINT pk_sudocu_dsa_sudocu_documentos_archivados PRIMARY KEY (id_documento);
+
+--Incorporo todos los documentos en estado autorizado
+INSERT INTO sudocu_dsa.documentos_archivados(id_documento)
+	(SELECT 
+	documento_uuid::uuid
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'documento')
+	AND documento_estado = '19');
+
+--Elimino los documentos que nunca fueron incorporados a Expedientes/Trámites.
+DELETE FROM sudocu_dsa.documentos_archivados
+WHERE id_documento IN (
+    SELECT tid.id_documento
+    FROM sudocu_dsa.documentos_archivados tid
+    LEFT JOIN sudocu_tmp.documentos_relaciones sdr
+    ON tid.id_documento = sdr.id_documento_relacionado::uuid
+    WHERE sdr.id_documento_relacionado IS NULL);
+
+--Elimino los documentos que están al menos en un Expedientes/Trámites distinto al estado archivado.
+DELETE FROM sudocu_dsa.documentos_archivados WHERE id_documento IN 
+	(
+	SELECT 
+	tid.id_documento 
+	FROM sudocu_dsa.documentos_archivados tid
+	LEFT JOIN sudocu_tmp.documentos_relaciones sdr ON tid.id_documento = sdr.id_documento_relacionado::uuid
+	LEFT JOIN sudocu_tmp.d_documento sd ON sdr.id_documento = sd.documento_uuid   --link con los exp_tram
+	WHERE sd.documento_estado &lt;&gt; '26'); --26: archivado
+-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	2,
+ 	'Versión del script de relevamiento de indicadores de SUDOCU',
+	'General', 
+	'v2.0', 
+	CURRENT_DATE
+	 );
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	3, 
+	'Versión SUDOCU en producción',
+	'General',
+	valor::json->>'version',
+	CURRENT_DATE
+	FROM sudocu_tmp.config
+	WHERE clave = 'version');
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	4,
+	'Cantidad de áreas habilitadas',
+	'General',
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_area
+	WHERE eliminado = 'false');
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	5, 
+	'Cantidad de áreas que realizaron alguna gestión (por año)',
+	date_part('year', e.ts) AS anio, 
+	count(DISTINCT area_origen_id),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento as d
+	INNER JOIN sudocu_tmp.ft_evento e ON d.documento_uuid = e.documento_uuid 
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	6, 
+	'Cantidad de usuarios habilitados',
+	'General',
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_usuario
+	WHERE estado = 'N');
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	7, 
+	'Cantidad de usuarios que realizaron alguna gestión (por año)',
+	date_part('year', e.ts) AS anio, 
+	count(DISTINCT e.usuario_uuid),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento as d
+	INNER JOIN sudocu_tmp.ft_evento e ON d.documento_uuid = e.documento_uuid 
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	8, 
+	'Cantidad de usuarios con nivel de firma básica habilitada',
+	'General',
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_usuario
+	WHERE estado = 'N' AND nivel_firma::json->>'basica' = 'true');
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(WITH q as(
+	SELECT
+	jsonb_array_elements(atributos::jsonb->'autorizacion'->'autorizantes')->>'id_usuario_sso' as usuario,
+	jsonb_array_elements(atributos::jsonb->'autorizacion'->'autorizantes')->>'nivel' as tipo_firma,
+	jsonb_array_elements(atributos::jsonb->'autorizacion'->'autorizantes')->>'timestamp' as ts,
+	date_part('year', ts) AS anio 
+	FROM sudocu_tmp.ft_evento 
+	WHERE tipo_evento_id = '4' AND resultado='confirmado' AND atributos::jsonb->'autorizacion'->>'estado' = 'autorizado'
+	),
+	usuarios_basica as(
+	SELECT count(*) as total, usuario, tipo_firma, anio FROM q
+	WHERE tipo_firma = 'basica'
+	GROUP BY usuario, tipo_firma, anio
+	)
+	SELECT 
+	9, 
+	'Cantidad de usuarios que realizaron al menos una autorización con nivel de firma básica (por año)',
+	anio,
+	count(total), 
+	CURRENT_DATE
+	FROM usuarios_basica 
+	GROUP BY tipo_firma, anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	10, 
+	'Cantidad de usuarios con nivel de firma digital habilitada',
+	'General',
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_usuario
+	WHERE estado = 'N' AND nivel_firma::json->>'reconocida' = 'true');
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(WITH q as(
+	SELECT
+	jsonb_array_elements(atributos::jsonb->'autorizacion'->'autorizantes')->>'id_usuario_sso' as usuario,
+	jsonb_array_elements(atributos::jsonb->'autorizacion'->'autorizantes')->>'nivel' as tipo_firma,
+	jsonb_array_elements(atributos::jsonb->'autorizacion'->'autorizantes')->>'timestamp' as ts,
+	date_part('year', ts) AS anio 
+	FROM sudocu_tmp.ft_evento 
+	WHERE tipo_evento_id = '4' AND resultado='confirmado' AND atributos::jsonb->'autorizacion'->>'estado' = 'autorizado'
+	),
+	usuarios_firma_digital as(
+	SELECT count(*) as total, usuario, tipo_firma, anio FROM q
+	WHERE tipo_firma = 'firma'
+	GROUP BY usuario, tipo_firma, anio
+	)
+	SELECT 
+	11, 
+	'Cantidad de usuarios que realizaron al menos una autorización con nivel de firma digital (por año)',
+	anio,
+	count(total), 
+	CURRENT_DATE
+	FROM usuarios_firma_digital 
+	GROUP BY tipo_firma, anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	12, 
+	'Cantidad de numeradores de documentos habilitados',
+	'General',
+	COUNT(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_numeradores);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	13, 
+	'Cantidad de templates PDF habilitados',
+	date_part('year', fecha_creacion) AS anio, 
+	COUNT(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.pdf_templates
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	14, 
+	'Cantidad de templates de documentos habilitados',
+	date_part('year', fecha_creacion) AS anio, 
+	COUNT(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_templates
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	15, 
+	'Cantidad de tipos de documentos utilizados de esencia documento',
+	date_part('year', d.ts) AS anio, --reemplazar por fch 
+	COUNT(DISTINCT documento_tipo_documento_id),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento as d
+	INNER JOIN sudocu_tmp.d_tipo_documento dt ON d.documento_tipo_documento_id = dt.tipo_documento_id
+	WHERE tipo_documento_esencia = 'documento'
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	16, 
+	'Cantidad de tipos de documentos utilizados de esencia expediente (contenedor)',
+	date_part('year', d.ts) AS anio, 
+	COUNT(DISTINCT documento_tipo_documento_id),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento as d
+	INNER JOIN sudocu_tmp.d_tipo_documento dt ON d.documento_tipo_documento_id = dt.tipo_documento_id
+	WHERE tipo_documento_esencia = 'contenedor'
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	17, 
+	'Cantidad de tipos de documentos utilizados de esencia trámite',
+	date_part('year', d.ts) AS anio, 
+	COUNT(DISTINCT documento_tipo_documento_id),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento as d
+	INNER JOIN sudocu_tmp.d_tipo_documento dt ON d.documento_tipo_documento_id = dt.tipo_documento_id
+	WHERE tipo_documento_esencia = 'tramite'
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	18, 
+	'Fecha de creación del primer expediente (contenedor)',
+	date_part('year', ts) AS anio, 
+	min(ts),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'contenedor')
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	19, 
+	'Cantidad de expedientes (contenedores)',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'contenedor')	
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	20, 
+	'Fecha de creación del primer trámite',
+	date_part('year', ts) AS anio, 
+	min(ts),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'tramite')
+	GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	21, 
+	'Cantidad de trámites',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'tramite')	
+	GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	22, 
+	'Fecha de creación del primer documento autorizado',
+	date_part('year', ts) AS anio, 
+	min(ts),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'documento')
+	AND documento_estado = '19'
+	GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	23, 
+	'Cantidad de documentos en estado autorizado',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'documento')
+	AND documento_estado = '19'
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	24, 
+	'Cantidad de documentos en estado autorizado utilizando la API de integración (SIU-Pilagá, SIU-Diaguita, SIU-Guaraní, etc.)',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_relaciones
+	WHERE atributos::json->>'integracion' = 'true' 
+	AND id_tipo_relacion = 10 
+	AND estado = 1
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	25, 
+	'Cantidad de páginas de documentos en estado autorizado',
+	date_part('year', d.ts) AS anio, 
+	sum(a.paginas),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento d
+	INNER JOIN sudocu_tmp.archivos a ON d.documento = a.id
+	WHERE documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'documento')
+	AND d.documento_estado = '19'
+	GROUP BY anio
+	ORDER BY anio);
+		
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	26, 
+	'Cantidad de Mega Bytes que ocupan los documentos en estado autorizado (en Araí-Documentos)',
+	date_part('year', d.ts) AS anio, 
+	CEIL(sum(a.size)/1048576), --en Mega Bytes
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento d
+	INNER JOIN sudocu_tmp.archivos a ON d.documento = a.id
+	WHERE documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'documento')
+	AND d.documento_estado = '19'
+	GROUP BY anio
+	ORDER BY anio);	
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	27, 
+	'Cantidad de resmas de 500 hojas que se necesitan para imprimir todos los documentos en estado autorizado',
+	alcance, 
+	CAST((sum(valor_indicador_calculado::decimal(12,4)) / 500) as decimal(12,2)),
+	CURRENT_DATE
+	FROM sudocu_dsa.indicadores_calculados
+	WHERE id_indicador = 25 --25: cantidad de páginas
+	GROUP BY alcance
+	ORDER BY alcance);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	28, 
+	'Altura en metros de todas las resmas apiladas (altura: 55 mm)',
+	alcance, 
+	CAST((sum(valor_indicador_calculado::decimal(12,4)) * 0.055) as decimal(12,2)),
+	CURRENT_DATE
+	FROM sudocu_dsa.indicadores_calculados
+	WHERE id_indicador = 27 --27: cantidad de resmas
+	GROUP BY alcance
+	ORDER BY alcance);	
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	29, 
+	'Altura en elefantes apilados (altura: 3,2 mts)',
+	alcance, 
+	CAST(((sum(valor_indicador_calculado::decimal(12,4))) / 3.2) as decimal(12,2)),
+	CURRENT_DATE
+	FROM sudocu_dsa.indicadores_calculados
+	WHERE id_indicador = 28 --28: Altura en metros de todas las resmas apiladas
+	GROUP BY alcance
+	ORDER BY alcance);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	30,
+	'Distancia en kilómetros de todas las páginas puestas una a continuación de otra (longitud página: 29.7 cm)',
+	alcance, 
+	CAST(((sum(valor_indicador_calculado::decimal(12,4)) * 29.7) / 100000) as decimal(12,2)),
+	CURRENT_DATE
+	FROM sudocu_dsa.indicadores_calculados
+	WHERE id_indicador = 25 --25: cantidad de páginas
+	GROUP BY alcance
+	ORDER BY alcance);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	31,
+	'Cantidad de árboles que se salvan de ser resmas (https://steemit.com/spanish/@sabias-que/sabias-cuantos-arboles-se-deben-talar-para-producir-una-resma-de-papel)',
+	alcance, 
+	CAST(((sum(valor_indicador_calculado::decimal(12,4)) / 500) / 16) as decimal(12,2)),
+	CURRENT_DATE
+	FROM sudocu_dsa.indicadores_calculados
+	WHERE id_indicador = 25 --25: cantidad de páginas
+	GROUP BY alcance
+	ORDER BY alcance);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	32,
+	'Cantidad de personas que respiran mejor aire puro por cada árbol salvado de ser resma (https://elpais.com/elpais/2018/05/07/seres_urbanos/1525688899_487227.html)',
+	alcance, 
+	CAST(((sum(valor_indicador_calculado::decimal(12,4)) / 500) / 16 * 3) as decimal(12,2)),
+	CURRENT_DATE
+	FROM sudocu_dsa.indicadores_calculados
+	WHERE id_indicador = 25 --25: cantidad de páginas
+	GROUP BY alcance
+	ORDER BY alcance);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	33,
+	'Litros de agua que se ahorran en la fabricación del papel (https://www.lavoz.com.ar/espacio-de-marca/cuanto-papel-usas/)',
+	alcance, 
+	CAST((sum(valor_indicador_calculado::decimal(12)) * 10) as decimal(12)),
+	CURRENT_DATE
+	FROM sudocu_dsa.indicadores_calculados
+	WHERE id_indicador = 25 --25: cantidad de páginas
+	GROUP BY alcance
+	ORDER BY alcance);	
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	34, 
+	'Cantidad de seguimientos de tipo notificación',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_seguimientos
+	WHERE tipo = 'notificacion'
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	35,
+	'Cantidad de seguimientos de tipo observación',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_seguimientos
+	WHERE tipo = 'nota'
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	36, 
+	'Cantidad de seguimientos de tipo recordatorio',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_seguimientos
+	WHERE tipo = 'recordatorio'
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	37, 
+	'Cantidad de seguimientos de tipo seguimiento',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_seguimientos
+	WHERE tipo = 'seguimiento'
+	GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	38, 
+	'Cantidad de seguimientos de tipo revisión',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_seguimientos
+	WHERE tipo = 'revision'
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	39, 
+	'Cantidad de carpetas MPD públicas',
+	'General',
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_contenedores
+	WHERE publico = 'true');
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	40, 
+	'Cantidad de carpetas MPD no públicas',
+	'General',
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_contenedores
+	WHERE publico = 'false');
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	41, 
+	'Cantidad de personas físicas creadas y habilitadas',
+	'General',
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.personas
+	WHERE tipo = 'física');
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	42, 
+	'Cantidad de personas jurídicas creadas y habilitadas',
+	'General',
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.personas
+	WHERE tipo = 'jurídica');
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	44,
+	'Cantidad de trámites que se transformaron en expedientes (contenedores)',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.ft_evento
+	WHERE tipo_evento_id='17' AND atributos::json->>'transformado_de' IN (SELECT tipo_documento_id::text FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia='tramite')	
+	GROUP BY anio
+	ORDER BY anio);
+
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	45, 
+	'Cantidad de remisiones (pases) confirmadas de expedientes(contenedores)/trámites realizados entre áreas',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.ft_evento
+	WHERE tipo_evento_id='16' AND resultado = 'confirmado'
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	46, 
+	'Cantidad de expedientes (contenedores) en estado archivado por año de archivo',
+	date_part('year', t1.ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento sd, 
+	 (SELECT e.documento_uuid, e.ts
+	  FROM sudocu_tmp.ft_evento e
+	  JOIN (
+	  SELECT documento_uuid, MAX(ts) AS max_ts
+	  FROM sudocu_tmp.ft_evento
+	  WHERE
+	  tipo_evento_id = '23'
+	  AND resultado = 'confirmado'
+	  GROUP BY documento_uuid
+	 ) AS latest ON e.documento_uuid = latest.documento_uuid AND e.ts = latest.max_ts) as t1
+	WHERE sd.documento_uuid = t1.documento_uuid
+	AND sd.documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'contenedor')
+	AND sd.documento_estado = '26' --expediente/trámite archivado
+	GROUP BY anio
+	ORDER BY anio);	
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	47, 
+	'Cantidad de trámites en estado archivado por año de archivo',
+	date_part('year', t1.ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento sd, 
+	 (SELECT e.documento_uuid, e.ts
+	  FROM sudocu_tmp.ft_evento e
+	  JOIN (
+	  SELECT documento_uuid, MAX(ts) AS max_ts
+	  FROM sudocu_tmp.ft_evento
+	  WHERE
+	  tipo_evento_id = '23'
+	  AND resultado = 'confirmado'
+	  GROUP BY documento_uuid
+	 ) AS latest ON e.documento_uuid = latest.documento_uuid AND e.ts = latest.max_ts) as t1
+	WHERE sd.documento_uuid = t1.documento_uuid
+	AND sd.documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'tramite')
+	AND sd.documento_estado = '26' --expediente/trámite archivado
+	GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	48, 
+	'Fecha y hora de instalación de la actual versión SUDOCU en producción',
+	'General',
+	run_on,
+	CURRENT_DATE
+	FROM sudocu_tmp.migrations
+	ORDER BY id DESC
+	LIMIT 1);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	49, 
+	'Cantidad de expedientes (contenedores) y trámites',
+	alcance, 
+	sum(cast(valor_indicador_calculado as int4)),
+	CURRENT_DATE
+	FROM sudocu_dsa.indicadores_calculados
+	WHERE id_indicador IN(19, 21) --19:cantidad de expediente   --21: cantidad de trámites
+	GROUP BY alcance
+	ORDER BY alcance);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	50, 
+	'Altura en obeliscos apilados (altura: 67,5 mts)',
+	alcance, 
+	CAST(((sum(valor_indicador_calculado::decimal(12,4))) / 67.5) as decimal(12,2)),
+	CURRENT_DATE
+	FROM sudocu_dsa.indicadores_calculados
+	WHERE id_indicador = 28 --28: Altura en metros de todas las resmas apiladas
+	GROUP BY alcance
+	ORDER BY alcance);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	51, 
+	'Cantidad de documentos en estado autorizado iniciados dentro de SUDOCU',
+	alcance, 
+	sum(cast(valor_indicador_calculado as int4)),
+	CURRENT_DATE
+	FROM sudocu_dsa.indicadores_calculados
+	WHERE id_indicador = 23 --23: cantidad de documentos en estado autorizado
+	GROUP BY alcance
+	ORDER BY alcance);
+	
+--Resto ahora el valor del id_indicador 24 (los que ingresaron por API integración)
+
+	UPDATE sudocu_dsa.indicadores_calculados as tabla1
+		SET valor_indicador_calculado= cast(tabla1.valor_indicador_calculado as int4) - cast(tabla2.valor_indicador_calculado as int4)
+	FROM (SELECT id_indicador, alcance, valor_indicador_calculado
+	      FROM  sudocu_dsa.indicadores_calculados WHERE id_indicador = 24) AS tabla2
+	WHERE 
+	tabla1.alcance=tabla2.alcance
+	AND tabla1.id_indicador = 51;
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	52, 
+	'Cantidad de volquete de un volumen de 15m3.',
+	alcance, 
+	CAST((((sum(valor_indicador_calculado::decimal(12,4))) * 0.21 * 0.297 * 0.055) /15) as decimal(12,2)),
+	CURRENT_DATE
+	FROM sudocu_dsa.indicadores_calculados
+	WHERE id_indicador = 27 --27: cantidad de resmas
+	GROUP BY alcance
+	ORDER BY alcance);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	53, 
+	'Peso del papel ahorrado en kilo gramos (peso resma: 2,464 kgrs)',
+	alcance, 
+	CAST(((sum(valor_indicador_calculado::decimal(12,4)) / 500) * 2.464) as decimal(12,2)),
+	CURRENT_DATE
+	FROM sudocu_dsa.indicadores_calculados
+	WHERE id_indicador = 25 --25: cantidad de páginas
+	GROUP BY alcance
+	ORDER BY alcance);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	54, 
+	'Cantidad de usuarios que realizaron alguna gestión',
+	'General', 
+	count(DISTINCT e.usuario_uuid),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento as d
+	INNER JOIN sudocu_tmp.ft_evento e ON d.documento_uuid = e.documento_uuid);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(WITH tipos_firmas AS (
+	SELECT jsonb_array_elements(firmas::jsonb)->>'tipo' AS tipo, date_part('YEAR', ts) AS anio 
+	FROM sudocu_tmp.d_documento
+	)
+	SELECT 
+	55, 
+	'Cantidad de autorizaciones en documentos en estado autorizado con nivel de firma básica',
+	anio,
+	count(*), 
+	CURRENT_DATE
+	FROM tipos_firmas
+	WHERE tipo = 'basica'
+	GROUP BY tipo, anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(WITH tipos_firmas AS (
+	SELECT jsonb_array_elements(firmas::jsonb)->>'tipo' AS tipo, date_part('YEAR', ts) AS anio 
+	FROM sudocu_tmp.d_documento 
+	)
+	SELECT 
+	56, 
+	'Cantidad de autorizaciones en documentos en estado autorizado con nivel de firma digital',
+	anio,
+	count(*), 
+	CURRENT_DATE
+	FROM tipos_firmas
+	WHERE tipo = 'firma'
+	GROUP BY tipo, anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(WITH q as(
+	SELECT
+	jsonb_array_elements(atributos::jsonb->'autorizacion'->'autorizantes')->>'id_usuario_sso' as usuario,
+	jsonb_array_elements(atributos::jsonb->'autorizacion'->'autorizantes')->>'nivel' as tipo_firma
+	FROM sudocu_tmp.ft_evento 
+	WHERE tipo_evento_id = '4' AND resultado='confirmado' AND atributos::jsonb->'autorizacion'->>'estado' = 'autorizado'
+	),
+	usuarios_basica as(
+	SELECT count(*) as total, usuario, tipo_firma FROM q
+	WHERE tipo_firma = 'basica'
+	GROUP BY usuario, tipo_firma
+	)
+	SELECT 
+	57, 
+	'Cantidad de usuarios que realizaron al menos una autorización con nivel de firma básica',
+	'General',
+	count(total), 
+	CURRENT_DATE
+	FROM usuarios_basica 
+	GROUP BY tipo_firma);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(WITH q as(
+	SELECT
+	jsonb_array_elements(atributos::jsonb->'autorizacion'->'autorizantes')->>'id_usuario_sso' as usuario,
+	jsonb_array_elements(atributos::jsonb->'autorizacion'->'autorizantes')->>'nivel' as tipo_firma
+	FROM sudocu_tmp.ft_evento 
+	WHERE tipo_evento_id = '4' AND resultado='confirmado' AND atributos::jsonb->'autorizacion'->>'estado' = 'autorizado'
+	),
+	usuarios_firma_digital as(
+	SELECT count(*) as total, usuario, tipo_firma FROM q
+	WHERE tipo_firma = 'firma'
+	GROUP BY usuario, tipo_firma
+	)
+	SELECT 
+	59, 
+	'Cantidad de usuarios que realizaron al menos una autorización con nivel de firma digital',
+	'General',
+	count(total), 
+	CURRENT_DATE
+	FROM usuarios_firma_digital 
+	GROUP BY tipo_firma);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	61, 
+	'Cantidad de procesos de autorización iniciados con modelo de autorización Simple',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.ft_evento 
+	WHERE tipo_evento_id = '4' AND resultado='confirmado' AND (atributos::jsonb->'autorizacion'->>'metodo' = 'simple' 
+	OR atributos::jsonb->'autorizacion'->>'metodo' is null) --'metodo' is null: para los casos de autorización desde dentro del formulario de modificación
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	62, 
+	'Cantidad de procesos de autorización iniciados con modelo de autorización Escalonada',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.ft_evento 
+	WHERE tipo_evento_id = '4' AND resultado='confirmado' AND atributos::jsonb->'autorizacion'->>'metodo' = 'cadena'
+	GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	63, 
+	'Cantidad de áreas que realizaron alguna gestión',
+	'General',
+	count(DISTINCT area_origen_id),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento as d
+	INNER JOIN sudocu_tmp.ft_evento e ON d.documento_uuid = e.documento_uuid);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	64, 
+	'Cantidad de tipos de documentos de esencia Documento habilitados',
+	'General',
+	COUNT(tipo_documento_id),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_tipo_documento
+	WHERE tipo_documento_esencia = 'documento' AND eliminado = false);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	65, 
+	'Cantidad de tipos de documentos de esencia Documento utilizados',
+	'General',
+	COUNT(DISTINCT documento_tipo_documento_id),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento as d
+	INNER JOIN sudocu_tmp.d_tipo_documento dt ON d.documento_tipo_documento_id = dt.tipo_documento_id
+	WHERE tipo_documento_esencia = 'documento');
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	66, 
+	'Cantidad de tipos de documentos de esencia Expediente (contenedor) habilitados',
+	'General',
+	COUNT(tipo_documento_id),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_tipo_documento
+	WHERE tipo_documento_esencia = 'contenedor' AND eliminado = false);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	67, 
+	'Cantidad de tipos de documentos de esencia Expediente (contenedor) utilizados',
+	'General',
+	COUNT(DISTINCT documento_tipo_documento_id),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento as d
+	INNER JOIN sudocu_tmp.d_tipo_documento dt ON d.documento_tipo_documento_id = dt.tipo_documento_id
+	WHERE tipo_documento_esencia = 'contenedor');
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	68, 
+	'Cantidad de tipos de documentos de esencia Trámite habilitados',
+	'General',
+	COUNT(tipo_documento_id),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_tipo_documento
+	WHERE tipo_documento_esencia = 'tramite' AND eliminado = false);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	69, 
+	'Cantidad de tipos de documentos de esencia Trámite utilizados',
+	'General',
+	COUNT(DISTINCT documento_tipo_documento_id),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento as d
+	INNER JOIN sudocu_tmp.d_tipo_documento dt ON d.documento_tipo_documento_id = dt.tipo_documento_id
+	WHERE tipo_documento_esencia = 'tramite');
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	70, 
+	'Cantidad de trámites en estado finalizado',
+	'General', 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'tramite')
+	AND documento_estado = '2');
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	71, 
+	'Cantidad de expedientes (contenedores) en estado finalizado',
+	'General', 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'contenedor')
+	AND documento_estado = '2');
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	72, 
+	'Cantidad de documentos en estado eliminado',
+	'General', 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'documento')
+	AND documento_estado = '-1'); --eliminado
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	73, 
+	'Cantidad de Mega Bytes que ocupan los documentos en estado eliminado',
+	'General', 
+	CEIL(sum(a.size)/1048576),  --en Mega Bytes
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento d
+	INNER JOIN sudocu_tmp.archivos a ON d.documento = a.id
+	WHERE documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'documento')
+	AND d.documento_estado = '-1'); --eliminado
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	74, 
+	'Cantidad de documentos en estado anulado',
+	'General', 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'documento')
+	AND documento_estado = '22'); --anulado
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	75, 
+	'Cantidad de Mega Bytes que ocupan los documentos en estado anulado',
+	'General', 
+	CEIL(sum(a.size)/1048576),  --en Mega Bytes
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento d
+	INNER JOIN sudocu_tmp.archivos a ON d.documento = a.id
+	WHERE documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia = 'documento')
+	AND d.documento_estado = '22'); --anulado
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	76, 
+	'Cantidad de expedientes (contenedores)/trámites &lt;= 1MB',
+	'General',
+	count(total_mb),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb
+	WHERE total_mb &lt;= 1);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	77, 
+	'Cantidad de expedientes (contenedores)/trámites > 10MB y &lt;= 20MB',
+	'General',
+	count(total_mb),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb
+	WHERE total_mb > 10 AND total_mb &lt;= 20);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	78, 
+	'Cantidad de expedientes (contenedores)/trámites > 20MB y &lt;= 30MB',
+	'General',
+	count(total_mb),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb
+	WHERE total_mb > 20 AND  total_mb &lt;= 30);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	79, 
+	'Cantidad de expedientes (contenedores)/trámites > 30MB y &lt;= 40MB',
+	'General',
+	count(total_mb),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb
+	WHERE total_mb > 30 AND  total_mb &lt;= 40);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	80, 
+	'Cantidad de expedientes (contenedores)/trámites > 40MB y &lt;= 50MB',
+	'General',
+	count(total_mb),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb
+	WHERE total_mb > 40 AND  total_mb &lt;= 50);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	81, 
+	'Cantidad de expedientes (contenedores)/trámites > 50MB y &lt;= 60MB',
+	'General',
+	count(total_mb),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb
+	WHERE total_mb > 50 AND  total_mb &lt;= 60);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	82, 
+	'Cantidad de expedientes (contenedores)/trámites > 60MB y &lt;= 100MB',
+	'General',
+	count(total_mb),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb
+	WHERE total_mb > 60 AND  total_mb &lt;= 100);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	83, 
+	'Cantidad de expedientes (contenedores)/trámites > 100MB y &lt;= 300MB',
+	'General',
+	count(total_mb),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb
+	WHERE total_mb > 100 AND  total_mb &lt;= 300);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	84, 
+	'Cantidad de expedientes (contenedores)/trámites > 300MB y &lt;= 500MB',
+	'General',
+	count(total_mb),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb
+	WHERE total_mb > 300 AND  total_mb &lt;= 500);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	85, 
+	'Cantidad de expedientes (contenedores)/trámites > 500MB y &lt;= 1GB',
+	'General',
+	count(total_mb),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb
+	WHERE total_mb > 500 AND  total_mb &lt;= 1024);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	86, 
+	'Cantidad de expedientes (contenedores)/trámites > 1GB',
+	'General',
+	count(total_mb),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb
+	WHERE total_mb > 1024);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	87, 
+	'Cantidad de documentos en estado autorizado &lt;= 50KB',
+	'General',
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_dsa.documentos_mb
+	WHERE total_mb &lt;= 0.05);  -- 0.05MB
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	88, 
+	'Cantidad de documentos en estado autorizado > 200KB y &lt;= 500KB',
+	'General',
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_dsa.documentos_mb
+	WHERE total_mb > 0.2 AND total_mb &lt;= 0.5);    -- 0.2MB y 0.5MB	
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	89, 
+	'Cantidad de documentos en estado autorizado > 500KB y &lt;=1MB',
+	'General',
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_dsa.documentos_mb
+	WHERE total_mb > 0.5 AND total_mb &lt;= 1);    -- 0.5MB y 1MB
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	90, 
+	'Cantidad de documentos en estado autorizado > 1MB y &lt;=2,5MB',
+	'General',
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_dsa.documentos_mb
+	WHERE total_mb > 1 AND total_mb &lt;= 2.5);        -- 1MB y 2.5MB
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	91, 
+	'Cantidad de documentos en estado autorizado > 5MB y &lt;=10MB',
+	'General',
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_dsa.documentos_mb
+	WHERE total_mb > 5 AND total_mb &lt;= 10);    -- 5MB y 10MB
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	92, 
+	'Cantidad de documentos en estado autorizado > 10MB y &lt;=50MB',
+	'General',
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_dsa.documentos_mb
+	WHERE total_mb > 10 AND total_mb &lt;= 50);        
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	93, 
+	'Cantidad de documentos en estado autorizado > 50MB y &lt;=100MB',
+	'General',
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_dsa.documentos_mb
+	WHERE total_mb > 50 AND total_mb &lt;= 100);            -- 50MB y 100MB
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	94, 
+	'Cantidad de documentos en estado autorizado > 100MB',
+	'General',
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_dsa.documentos_mb
+	WHERE total_mb > 100);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	95, 
+	'Cantidad de registros en tabla sudocu.eventos',
+	date_part('year', ts) AS anio, 
+	count(evento_id),
+	CURRENT_DATE
+	FROM sudocu_tmp.ft_evento
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	96, 
+	'Cantidad de registros en tabla sudocu.ultimos_eventos',
+	date_part('year', ts) AS anio, 
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_tmp.ultimos_eventos
+	GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	97, 
+	'Cantidad de registros en tabla sudocu.documentos',
+	date_part('year', ts) AS anio, 
+	count(documento_uuid),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	98, 
+	'Cantidad de registros en tabla sudocu.documentos_versiones',
+	date_part('year', ts) AS anio, 
+	count(documento_version_uuid),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento_version
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	99, 
+	'Cantidad de registros en tabla sudocu.archivos',
+	date_part('year', ts) AS anio, 
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_tmp.archivos
+	GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	100, 
+	'Cantidad de Mega Bytes de la tabla sudocu.eventos',
+	'General',
+	valor_size,
+	CURRENT_DATE
+	FROM sudocu_tmp.size_indexes_tables WHERE nombre_tabla = 'sudocu.eventos');
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	101,
+	'Cantidad de Mega Bytes de los índices de la tabla sudocu.eventos',
+	'General', 
+	valor_indexes,
+	CURRENT_DATE
+	FROM sudocu_tmp.size_indexes_tables WHERE nombre_tabla = 'sudocu.eventos');
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	102, 
+	'Cantidad de Mega Bytes de la tabla sudocu.ultimos_eventos',
+	'General', 
+	valor_size,
+	CURRENT_DATE
+	FROM sudocu_tmp.size_indexes_tables WHERE nombre_tabla = 'sudocu.ultimos_eventos');
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	103,
+	'Cantidad de Mega Bytes de los índices de la tabla sudocu.ultimos_eventos',
+	'General', 
+	valor_indexes,
+	CURRENT_DATE
+	FROM sudocu_tmp.size_indexes_tables WHERE nombre_tabla = 'sudocu.ultimos_eventos');
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	104, 
+	'Cantidad de Mega Bytes de la tabla sudocu.documentos',
+	'General', 
+	valor_size,
+	CURRENT_DATE
+	FROM sudocu_tmp.size_indexes_tables WHERE nombre_tabla = 'sudocu.documentos');
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	105,
+	'Cantidad de Mega Bytes de los índices de la tabla sudocu.documentos',
+	'General', 
+	valor_indexes,
+	CURRENT_DATE
+	FROM sudocu_tmp.size_indexes_tables WHERE nombre_tabla = 'sudocu.documentos');
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	106, 
+	'Cantidad de Mega Bytes de la tabla sudocu.documentos_versiones',
+	'General', 
+	valor_size,
+	CURRENT_DATE
+	FROM sudocu_tmp.size_indexes_tables WHERE nombre_tabla = 'sudocu.documentos_versiones');
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	107,
+	'Cantidad de Mega Bytes de los índices de la tabla sudocu.documentos_versiones',
+	'General', 
+	valor_indexes,
+	CURRENT_DATE
+	FROM sudocu_tmp.size_indexes_tables WHERE nombre_tabla = 'sudocu.documentos_versiones');
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	108, 
+	'Cantidad de Mega Bytes de la tabla sudocu.archivos',
+	'General', 
+	valor_size,
+	CURRENT_DATE
+	FROM sudocu_tmp.size_indexes_tables WHERE nombre_tabla = 'sudocu.archivos');
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	109,
+	'Cantidad de Mega Bytes de los índices de la tabla sudocu.archivos',
+	'General', 
+	valor_indexes,
+	CURRENT_DATE
+	FROM sudocu_tmp.size_indexes_tables WHERE nombre_tabla = 'sudocu.archivos');
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	110, 
+	'Cantidad de documentos en estado autorizado sin tamaño definido en MB',
+	'General',
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_dsa.documentos_mb
+	WHERE total_mb is null);    -- sin tamaño definido
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	111, 
+	'Cantidad de expedientes (contenedores)/trámite con al menos un documento pero sin tamaño definido en MB',
+	'General',
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb
+	WHERE total_mb is null);    -- sin tamaño definido
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	112, 
+	'Cantidad de expedientes (contenedores)/trámites > 5MB y &lt;= 10MB',
+	'General',
+	count(total_mb),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb
+	WHERE total_mb > 5 AND total_mb &lt;= 10);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	113, 
+	'Cantidad de documentos en estado autorizado > 2,5MB y &lt;=5MB',
+	'General',
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_dsa.documentos_mb
+	WHERE total_mb > 2.5 AND total_mb &lt;= 5);        -- 2.5MB y 5MB
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	114, 
+	'Cantidad de documentos de tipo Providencia Automática en estado Autorizado',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id::integer = 30000 --providencia_auto
+	AND documento_estado = '19'
+	GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	115, 
+	'Cantidad de documentos en estado autorizado de tipo Hoja de Ruta',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id::integer = 30002 --hoja de ruta
+	AND documento_estado = '19'
+	GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	116, 
+	'Cantidad de documentos en estado autorizado provenientes automáticamente de SIU-Pilagá',
+	date_part('year', dr.ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_relaciones as dr
+	INNER JOIN sudocu_tmp.d_documento d ON d.documento_uuid = dr.id_documento_relacionado
+	WHERE dr.atributos::jsonb->>'integracion' = 'true' 
+	AND dr.id_tipo_relacion = 10 
+	AND dr.estado = 1	
+	AND d.documento_tipo_documento_id::integer > 10000 AND d.documento_tipo_documento_id::integer &lt; 10010 --pilagá
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	117, 
+	'Cantidad de documentos en estado autorizado provenientes automáticamente de SIU-Diaguita',
+	date_part('year', dr.ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_relaciones as dr
+	INNER JOIN sudocu_tmp.d_documento d ON d.documento_uuid = dr.id_documento_relacionado
+	WHERE dr.atributos::jsonb->>'integracion' = 'true' 
+	AND dr.id_tipo_relacion = 10 
+	AND dr.estado = 1	
+	AND ((d.documento_tipo_documento_id::integer > 10049 AND d.documento_tipo_documento_id::integer &lt; 10061) --diaguita
+	OR (d.documento_tipo_documento_id::integer > 10100 AND d.documento_tipo_documento_id::integer &lt; 10111) --diaguita
+	OR (d.documento_tipo_documento_id::integer > 10200 AND d.documento_tipo_documento_id::integer &lt; 10215)) --diaguita	
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	118, 
+	'Cantidad de documentos en estado autorizado provenientes automáticamente de SIU-Guaraní',
+	date_part('year', dr.ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_relaciones as dr
+	INNER JOIN sudocu_tmp.d_documento d ON d.documento_uuid = dr.id_documento_relacionado
+	WHERE dr.atributos::jsonb->>'integracion' = 'true' 
+	AND dr.id_tipo_relacion = 10 
+	AND dr.estado = 1	
+	AND (d.documento_tipo_documento_id::integer > 10299 AND d.documento_tipo_documento_id::integer &lt; 10302) --guaraní
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	119, 
+	'Cantidad de documentos en estado autorizado provenientes automáticamente pero no de los módulos SIU-Pilagá, SIU-Diaguita o SIU-Guaraní',
+	date_part('year', dr.ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_relaciones as dr
+	INNER JOIN sudocu_tmp.d_documento d ON d.documento_uuid = dr.id_documento_relacionado
+	WHERE dr.atributos::jsonb->>'integracion' = 'true' 
+	AND dr.id_tipo_relacion = 10 
+	AND dr.estado = 1	
+	AND --otros distintos a SIU-Pilagá, SIU-Diaguita y SIU-Guaraní 
+	(d.documento_tipo_documento_id::integer &lt; 10001 
+	OR (d.documento_tipo_documento_id::integer > 10009 AND d.documento_tipo_documento_id::integer &lt; 10050)   
+	OR (d.documento_tipo_documento_id::integer > 10060 AND d.documento_tipo_documento_id::integer &lt; 10101)
+	OR (d.documento_tipo_documento_id::integer > 10110 AND d.documento_tipo_documento_id::integer &lt; 10201)
+	OR (d.documento_tipo_documento_id::integer > 10214 AND d.documento_tipo_documento_id::integer &lt; 10300)
+	OR d.documento_tipo_documento_id::integer > 10301)
+	GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	220, 
+	'Cantidad de documentos de tipo Providencia Automática distinto al estado Autorizado',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id::integer = 30000 --providencia_auto
+	AND documento_estado &lt;&gt; '19'
+	GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	221, 
+	'Cantidad de documentos con "incorporación programada" pendiente de incorporación menor o igual a 1 día',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_relaciones
+	WHERE estado = 2 --2 "documento está pendiente de incorporación"
+	AND id_tipo_relacion in (8,10) -- 8 "tramita a" "tramitado en" y --10	"incorporado" "incorporado"
+	AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) &lt;= 1   -- &lt;= 1 días
+	 GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	222, 
+	'Cantidad de documentos con "incorporación programada" pendiente de incorporación mayor a 1 y menor o igual a 2 días',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_relaciones
+	WHERE estado = 2 --2 "documento está pendiente de incorporación"
+	AND id_tipo_relacion in (8,10) -- 8 "tramita a" "tramitado en" y --10	"incorporado" "incorporado"
+	AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) > 1 AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) &lt;=2   -- mayor a 1 día y menor o igual a 2 días
+	 GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	223, 
+	'Cantidad de documentos con "incorporación programada" pendiente de incorporación mayor a 2 y menor o igual a 5 días',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_relaciones
+	WHERE estado = 2 --2 "documento está pendiente de incorporación"
+	AND id_tipo_relacion in (8,10) -- 8 "tramita a" "tramitado en" y --10	"incorporado" "incorporado"
+	AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) > 2 AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) &lt;=5   -- mayor a 2 días y menor o igual a 5 días
+	 GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	224, 
+	'Cantidad de documentos con "incorporación programada" pendiente de incorporación mayor a 5 y menor o igual a 10 días',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_relaciones
+	WHERE estado = 2 --2 "documento está pendiente de incorporación"
+	AND id_tipo_relacion in (8,10) -- 8 "tramita a" "tramitado en" y --10	"incorporado" "incorporado"
+	AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) > 5 AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) &lt;=10   -- mayor a 5 días y menor o igual a 10 días
+	 GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	225, 
+	'Cantidad de documentos con "incorporación programada" pendiente de incorporación mayor a 10 días',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.documentos_relaciones
+	WHERE estado = 2 --2 "documento está pendiente de incorporación"
+	AND id_tipo_relacion in (8,10) -- 8 "tramita a" "tramitado en" y --10	"incorporado" "incorporado"
+	AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) > 10   -- mayor a 10 días
+	 GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	226, 
+	'Cantidad de archivos adjuntos (directorio sudocu_files)',
+	date_part('year', ts) AS anio, 
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_tmp.archivos
+	WHERE repositorio = 'filesystem' AND estado = 1
+	GROUP BY anio
+	ORDER BY anio);	
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	227, 
+	'Cantidad de Mega Bytes que ocupan los archivos adjuntos (directorio sudocu_files)',
+	date_part('year', ts) AS anio, 
+	CEIL(sum(size)/1048576), --en Mega Bytes
+	CURRENT_DATE
+	FROM sudocu_tmp.archivos
+	WHERE repositorio = 'filesystem' AND estado = 1
+	GROUP BY anio
+	ORDER BY anio);	
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	228, 
+	'Cantidad de documentos de tipo Providencia Automática distinto al estado Autorizado menor o igual a 1 día',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id::integer = 30000 --providencia_auto
+	AND documento_estado &lt;&gt; '19 ' 
+	AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) &lt;= 1   -- &lt;= 1 días
+	 GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	229, 
+	'Cantidad de documentos de tipo Providencia Automática distinto al estado Autorizado mayor a 1 y menor o igual a 2 días',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id::integer = 30000 --providencia_auto
+	AND documento_estado &lt;&gt; '19'
+	AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) > 1 AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) &lt;=2   -- mayor a 1 día y menor o igual a 2 días
+	 GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	230, 
+	'Cantidad de documentos de tipo Providencia Automática distinto al estado Autorizado mayor a 2 y menor o igual a 5 días',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id::integer = 30000 --providencia_auto
+	AND documento_estado &lt;&gt; '19' 
+	AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) > 2 AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) &lt;=5   -- mayor a 2 días y menor o igual a 5 días
+	 GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	231, 
+	'Cantidad de documentos de tipo Providencia Automática distinto al estado Autorizado mayor a 5 y menor o igual a 10 días',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id::integer = 30000 --providencia_auto
+	AND documento_estado &lt;&gt; '19'  
+	AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) > 5 AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) &lt;=10   -- mayor a 5 días y menor o igual a 10 días
+	 GROUP BY anio
+	ORDER BY anio);	
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	232, 
+	'Cantidad de documentos de tipo Providencia Automática distinto al estado Autorizado mayor a 10 días',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_tipo_documento_id::integer = 30000 --providencia_auto
+	AND documento_estado &lt;&gt; '19'  
+	AND (FLOOR(EXTRACT(EPOCH FROM age(NOW(), ts)) / 86400)) > 10   -- mayor a 10 días
+	 GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	233, 
+	'Cantidad de contenedores (expedientes)/trámites que fueron remitidos (pase) y aún no recibidos menor o igual 1 día',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_dsa.enviados_no_recibidos
+	WHERE dias &lt;= 1
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	234, 
+	'Cantidad de contenedores (expedientes)/trámites que fueron remitidos (pase) y aún no recibidos mayor a 1 y menor o igual a 5 días',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_dsa.enviados_no_recibidos
+	WHERE dias > 1 AND dias &lt;=5
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	235, 
+	'Cantidad de contenedores (expedientes)/trámites que fueron remitidos (pase) y aún no recibidos mayor a 5 y menor o igual 10 días',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_dsa.enviados_no_recibidos
+	WHERE dias > 5 AND dias &lt;=10
+	GROUP BY anio
+	ORDER BY anio);
+
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	236, 
+	'Cantidad de contenedores (expedientes)/trámites que fueron remitidos (pase) y aún no recibidos mayor a 10 días',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_dsa.enviados_no_recibidos
+	WHERE dias > 10
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	237, 
+	'Cantidad de remisiones (pases) canceladas de expedientes(contenedores)/trámites realizados entre áreas',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.ft_evento
+	WHERE tipo_evento_id='16'  --remisión (pase)
+	AND resultado = 'anulado'
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	238, 
+	'Cantidad de contenedores (expedientes)/trámites con más de un registro del tipo remisión (pase) con resultado "enviado" en la tabla sudocu.eventos',
+	'General', 
+	COUNT(enviados_mayor_a_1.casos),
+	CURRENT_DATE
+	FROM 
+	(SELECT 
+	count(DISTINCT documento_uuid) as casos
+	FROM sudocu_tmp.ft_evento
+	WHERE tipo_evento_id = '16'  -- remisión (pase)
+	AND resultado = 'enviado'
+	GROUP BY documento_uuid
+	HAVING COUNT(documento_uuid) > 1) as enviados_mayor_a_1);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	239, 
+	'Cantidad de Expedientes (contenedores) con clave Corresponde en la numeración',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_nro::jsonb ? 'corresponde' AND documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia='contenedor')
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	240, 
+	'Cantidad de Trámites con clave Corresponde  en la numeración',
+	date_part('year', ts) AS anio, 
+	count(*),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE documento_nro::jsonb ? 'corresponde' AND documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia='tramite')
+	GROUP BY anio
+	ORDER BY anio);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	241, 
+	'Cantidad de documentos en estado autorizado que nunca fueron incorporados a Expedientes/Trámites.',
+	date_part('year', sd.ts) AS anio, 
+	COUNT(sd.documento_uuid) AS cantidad_no_existentes,
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento sd
+	LEFT JOIN sudocu_tmp.documentos_relaciones sdr
+	ON sd.documento_uuid = sdr.id_documento_relacionado
+	WHERE 
+	sd.documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia='documento')
+	AND sd.documento_estado = '19'
+	AND sdr.id_documento_relacionado IS NULL
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	242, 
+	'Cantidad de expedientes (contenedores)/trámites sin documentos',
+	'General',	
+	COUNT(*),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb);
+	
+	--Resto ahora el valor del id_indicador 49 'Cantidad de expedientes (contenedores) y trámites' con el actual 242
+	UPDATE sudocu_dsa.indicadores_calculados as tabla1
+		SET valor_indicador_calculado= cast(tabla2.valor_indicador_49 as int4) - cast(tabla1.valor_indicador_calculado as int4)
+	FROM (SELECT sum(cast(valor_indicador_calculado as decimal(12))) as valor_indicador_49
+	      FROM  sudocu_dsa.indicadores_calculados WHERE id_indicador = 49) AS tabla2
+	WHERE 
+	tabla1.id_indicador = 242;
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	243, 
+	'Cantidad de expedientes (contenedores)/trámites > 1MB y &lt;= 3MB',
+	'General',
+	count(total_mb),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb
+	WHERE total_mb > 1 AND total_mb &lt;= 3);
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	244, 
+	'Cantidad de expedientes (contenedores)/trámites > 3MB y &lt;= 5MB',
+	'General',
+	count(total_mb),
+	CURRENT_DATE
+	FROM sudocu_dsa.expedientes_tramites_mb
+	WHERE total_mb > 3 AND total_mb &lt;= 5);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	245, 
+	'Cantidad de documentos en estado autorizado > 50KB y &lt;= 100KB',
+	'General',
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_dsa.documentos_mb
+	WHERE total_mb > 0.05 AND total_mb &lt;= 0.1);    -- 0.05MB y 0.1MB
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	246, 
+	'Cantidad de documentos en estado autorizado > 100KB y &lt;= 200KB',
+	'General',
+	count(id),
+	CURRENT_DATE
+	FROM sudocu_dsa.documentos_mb
+	WHERE total_mb > 0.1 AND total_mb &lt;= 0.2);    -- 0.1MB y 0.2MB	
+	
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	247, 
+	'Cantidad de Mega Bytes que ocupan los documentos en estado autorizado que nunca fueron incorporados a Expedientes/Trámites',
+	date_part('year', sd.ts) AS anio, 
+	CEIL(sum(sa.size)/1048576), --en Mega Bytes
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento sd
+	INNER JOIN sudocu_tmp.archivos sa ON sd.documento = sa.id
+	LEFT JOIN sudocu_tmp.documentos_relaciones sdr
+	ON sd.documento_uuid = sdr.id_documento_relacionado
+	WHERE 
+	sd.documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia='documento')
+	AND sd.documento_estado = '19'
+	AND sdr.id_documento_relacionado IS NULL
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	248,
+	'Cantidad de documentos en estado autorizado que no tienen registro en sudocu.archivos',
+	date_part('year', ts) AS anio, 
+	COUNT(documento_uuid),
+	CURRENT_DATE
+	FROM sudocu_tmp.d_documento
+	WHERE 
+	documento_tipo_documento_id IN (SELECT tipo_documento_id FROM sudocu_tmp.d_tipo_documento WHERE tipo_documento_esencia='documento')
+	AND documento_estado = '19'
+	AND documento IS NULL
+	GROUP BY anio
+	ORDER BY anio);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	249,
+	'Cantidad de documentos en estado autorizado que se encuentran únicamente en Expedientes/Trámites en estado Archivado',
+	'General',
+	COUNT(*),
+	CURRENT_DATE
+	FROM sudocu_dsa.documentos_archivados);
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	250,
+	'Cantidad de Mega Bytes que ocupan los documentos en estado autorizado que se encuentran únicamente en Expedientes/Trámites en estado Archivado',
+	'General',
+	CAST(sum(a.size::decimal(50,2) / 1048576) as decimal(12)),
+	CURRENT_DATE
+	FROM sudocu_dsa.documentos_archivados e
+	LEFT JOIN sudocu_tmp.d_documento d ON e.id_documento = d.documento_uuid::uuid
+	LEFT JOIN sudocu_tmp.archivos a ON d.documento = a.id);
+
+/*	
+--Todos los años (SIN DECIMALES)
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	id_indicador, 
+	descripcion_indicador,
+	'Todos los años',
+	sum(cast(valor_indicador_calculado as decimal(12))),
+	CURRENT_DATE
+	FROM sudocu_dsa.indicadores_calculados
+	WHERE id_indicador IN (13,14,19,21,23,24,25,26,33,34,35,36,37,38,44,45,46,47,49,51,55,56,61,62,95,96,97,98,99,114,115,116,117,118,119,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,239,240,241,242,247,248)
+	AND alcance NOT IN ('General')
+	GROUP BY id_indicador, descripcion_indicador
+	ORDER BY id_indicador);
+
+--Todos los años (CON DECIMALES)
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	id_indicador, 
+	descripcion_indicador,
+	'Todos los años',
+	sum(cast(valor_indicador_calculado as decimal(12,2))),
+	CURRENT_DATE
+	FROM sudocu_dsa.indicadores_calculados
+	WHERE id_indicador IN (27,28,29,30,31,32,50,52,53)
+	AND alcance NOT IN ('General')
+	GROUP BY id_indicador, descripcion_indicador
+	ORDER BY id_indicador);
+*/
+
+UPDATE sudocu_dsa.indicadores_calculados SET valor_indicador_calculado = 0 WHERE id_indicador=73 AND valor_indicador_calculado is null;
+
+DROP TABLE IF EXISTS sudocu_dsa.expedientes_tramites_mb;
+DROP SEQUENCE IF EXISTS sudocu_dsa.expedientes_tramites_mb_id_seq;
+DROP TABLE IF EXISTS sudocu_dsa.documentos_mb;
+DROP SEQUENCE IF EXISTS sudocu_dsa.documentos_mb_id_seq;
+DROP TABLE IF EXISTS sudocu_dsa.documentos_archivados;
+DROP TABLE IF EXISTS sudocu_dsa.enviados_no_recibidos;
+DROP SEQUENCE IF EXISTS sudocu_dsa.enviados_no_recibidos_id_seq;
+
+INSERT INTO sudocu_dsa.indicadores_calculados(id_indicador, descripcion_indicador, alcance, valor_indicador_calculado, fecha_relevamiento_indicador)
+	(SELECT 
+	43,
+	'Fecha y hora de finalización del relevamiento de indicadores SUDOCU',
+	'General', 
+	clock_timestamp(),
+	CURRENT_DATE
+	);
+
+UPDATE sudocu_dsa.indicadores_calculados SET valor_indicador_calculado = 0 WHERE valor_indicador_calculado IN ('','NULL') AND (id_indicador = 75 OR id_indicador = 250);
+
+UPDATE sudocu_dsa.indicadores_calculados SET tipo_campo = 'timestamp' WHERE id_indicador IN (1,18,20,22,43,48);
+UPDATE sudocu_dsa.indicadores_calculados SET tipo_campo = 'char' WHERE id_indicador IN (2,3);
+UPDATE sudocu_dsa.indicadores_calculados SET tipo_campo = 'float' WHERE id_indicador IN (27,28,29,30,31,32,50,52,53);
+</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>T</sendOneStatement>
+      <connection>siu_dw</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>448</xloc>
+      <yloc>320</yloc>
+      <attributes_kjc/>
+    </entry>
+  </entries>
+  <hops>
+    <hop>
+      <from>START</from>
+      <to>loguear inicio</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>loguear fin</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>dimensiones tmp->dsa</from>
+      <to>loguear2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>dimensiones tmp->dsa</from>
+      <to>loguear error</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>hechos</from>
+      <to>loguear error</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>loguear error</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>loguear inicio</from>
+      <to>asignar y probar conexión</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>asignar y probar conexión</from>
+      <to>loguear error</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>asignar y probar conexión</from>
+      <to>setear_parametros</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>loguear2</from>
+      <to>hechos</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>setear_parametros</from>
+      <to>dimensiones tmp->dsa</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>hechos</from>
+      <to>Calcula indicadoers</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Calcula indicadoers</from>
+      <to>loguear fin</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Calcula indicadoers</from>
+      <to>loguear error</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+  </hops>
+  <notepads>
+    <notepad>
+      <note>importación sanaviron_dsa</note>
+      <xloc>11</xloc>
+      <yloc>12</yloc>
+      <width>211</width>
+      <heigth>29</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <attributes/>
+</job>

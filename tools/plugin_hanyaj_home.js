@@ -1,0 +1,230 @@
+/*!
+ * This program is free software; you can redistribute it and/or modify it under the
+ * terms of the GNU Lesser General Public License, version 2.1 as published by the Free Software
+ * Foundation.
+ *
+ * You should have received a copy of the GNU Lesser General Public License along with this
+ * program; if not, you can obtain a copy at http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+ * or from the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Lesser General Public License for more details.
+ *
+ * Copyright (c) 2002-2017 Hitachi Vantara..  All rights reserved.
+ */
+
+define([
+  "common-ui/util/HandlebarsCompiler",
+  "common-ui/bootstrap",
+  "common-ui/jquery", "./gettingStarted", "./createNew"
+], function (HandlebarsCompiler, _bootstrap, _jquery, gettingStarted, createNew) {
+
+
+  function init(context) {
+    var favoriteControllerConfig = {
+      favoritesDisabled: false,
+      recentsDisabled: false,
+      i18nMap: context.i18n,
+
+    };
+
+    var createNewConfig = {
+      canAdminister: context.canAdminister,
+      hasMarketplacePlugin: context.hasMarketplacePlugin,
+      i18nMap: context.i18n
+    };
+
+
+    // Set disabled = true for
+    var disabledWidgetIdsArr = context.config.disabled_widgets.split(",");
+    $.each(disabledWidgetIdsArr, function (index, value) {
+
+      if (value == "favorites") {
+        favoriteControllerConfig.favoritesDisabled = true;
+      }
+      if (value == "recents") {
+        favoriteControllerConfig.recentsDisabled = true;
+      }
+    });
+
+    initFavoritesAndRecents(favoriteControllerConfig);
+
+    // Process and inject all handlebars templates, results are parented to
+    // the template's parent node.
+    HandlebarsCompiler.compileScripts(context, function (compiledContent, jScriptEle) {
+      var html = $(compiledContent);
+      var widgetId = html.attr("id");
+      if (widgetId && $.inArray(widgetId, disabledWidgetIdsArr) != -1) {
+        return;
+      }
+
+      jScriptEle.parent().append(html);
+    });
+
+    // Require getting-started widget if it has not been disabled
+    if ($("#getting-started").length > 0) {
+        gettingStarted.init();
+    }
+
+    // Handle the new popover menu. If we add another, make generic
+
+      createNew.buildContents(createNewConfig, function ($contents) {
+        var result = "";
+        for (var i = 0; i < $contents.length; i++) {
+          result += $contents[i][0].outerHTML;
+        }
+        $("#btnCreateNewContent").append($(result));
+      });
+
+    $("#btnCreateNew").popover({
+      'html': true,
+      content: function () {
+        return $('#btnCreateNewContent').html();
+      }
+    });
+
+    // setup a listener to hide popovers when a click happens outside of them
+    $('body').on('click', function (e) {
+      $('.popover-source').each(function () {
+        if ($(this).has(e.target).length == 0 && !$(this).is(e.target) && $('.popover').has(e.target).length == 0) {
+          $(this).popover('hide');
+        }
+      });
+    });
+  }
+
+  function openFile(title, tooltip, fullPath) {
+    if (parent.mantle_setPerspective && window.parent.openURL) {
+      // show the opened perspective
+      parent.mantle_setPerspective('opened.perspective');
+      window.parent.openURL(title, tooltip, fullPath);
+    }
+  }
+
+  function openRepositoryFile(path, mode) {
+    if (!path) {
+      return;
+    }
+    if (!mode) {
+      mode = "edit";
+    }
+
+    // show the opened perspective
+    var extension = path.split(".").pop();
+
+// HANYAJ: accion de abrir la pagina
+    var extension = path.split(".").pop();
+    if (extension == "hanyaj" && ( mode === 'run' ||
+                                   this.outerText === 'Abrir' || 
+                                   this.outerText === 'Abrir en una nueva ventana')) {
+        // Define si se abre en ventana nueva o en la misma
+        var destino = '_blank';
+        // URL de destino
+        var url = "HANYAJ_PAGE";
+        // Crea un formulario dinámicamente
+        var form = document.createElement("form");
+        form.setAttribute("method", "POST");
+        form.setAttribute("action", url);
+        form.setAttribute("target", destino); // Abre la respuesta en una nueva ventana o la misma
+        form.style.display = "none"; // Oculta el formulario
+        // Crea un campo de entrada para el parámetro pentaho_usuario_logueado
+        var usuarioLogueadoInput = document.createElement("input");
+        usuarioLogueadoInput.setAttribute("type", "hidden");
+        usuarioLogueadoInput.setAttribute("name", "pentaho_usuario_logueado");
+        var elementos = window.top.document.getElementById("pucUserDropDown");
+        var valor = elementos.getElementsByClassName("custom-dropdown-label")[0].innerHTML;
+        usuarioLogueadoInput.setAttribute("value",  valor);
+        // Crea un campo de entrada para el parámetro path (ruta y archivo seleccionado)
+        var pathInput = document.createElement("input");
+        pathInput.setAttribute("type", "hidden");
+        pathInput.setAttribute("name", "path");
+        pathInput.setAttribute("value", path);
+        // Crea un campo de entrada para el parámetro modo (normalmente run)
+        var modoInput = document.createElement("input");
+        modoInput.setAttribute("type", "hidden");
+        modoInput.setAttribute("name", "modo");
+        modoInput.setAttribute("value", mode);
+        // Agrega el campo de entrada al formulario
+        form.appendChild(usuarioLogueadoInput);
+        form.appendChild(pathInput);
+        form.appendChild(modoInput);
+        // Agrega el formulario al cuerpo del documento
+        document.body.appendChild(form);
+        // Envía el formulario
+        form.submit();
+        // Limpia el formulario después de enviarlo (opcional)
+        document.body.removeChild(form);
+        return;
+    }
+// HANYAJ: fin de accion de abrir la pagina
+
+    var hasPlugin = window.parent.PluginOptionHelper_hasPlugin(path);
+    if (window.parent.mantle_isSupportedExtension(extension) && !hasPlugin) {
+        var filename = path.split('\\').pop().split('/').pop();
+        window.parent.mantle_showPluginError(filename);
+        return;
+    }
+
+    // force to open pdf files in another window due to issues with pdf readers in IE browsers
+    // via class added on themeResources for IE browsers
+    if (!($("body").hasClass("pdfReaderEmbeded") && extension == "pdf")) {
+      parent.mantle_setPerspective('opened.perspective');
+    }
+    window.parent.mantle_openRepositoryFile(path, mode);
+  }
+
+  function initFavoritesAndRecents(config) {
+    require(["home/FavoritesController"], function (FavoritesController) {
+      controller = new FavoritesController(config);
+    });
+  }
+
+  function getUrlBase() {
+    return window.location.pathname.substring(0, window.location.pathname.indexOf("/mantle/home")) + "/";
+  }
+
+  function getContent(serviceUrl, successCallback, errorCallback, beforeSendCallback) {
+    var now = new Date();
+    $.ajax({
+      url: serviceUrl + "?ts=" + now.getTime(),
+      success: function (result) {
+        if (successCallback) {
+          successCallback(result);
+        }
+      },
+      error: function (err) {
+        console.log(err);
+        if (errorCallback) {
+          errorCallback(err);
+        }
+      },
+      beforeSend: function () {
+        if (beforeSendCallback) {
+          beforeSendCallback();
+        }
+      }
+    });
+  }
+
+  return {
+    getUrlBase: getUrlBase,
+    getContent: getContent,
+    openFile: openFile,
+    openRepositoryFile: openRepositoryFile,
+    init: init
+  }
+});
+
+var controller = undefined;
+
+/**
+ * this gets triggered when the Home perspective becomes active, must be globally available to get called
+ */
+function perspectiveActivated() {
+  if (controller) {
+    controller.refreshAll();
+  }
+}
+

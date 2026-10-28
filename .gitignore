@@ -1,0 +1,24 @@
+# Variables de entorno / credenciales
+*.env
+.env
+.env.*
+
+# Logs
+*.log
+logs/
+
+# Temporales
+*.tmp
+*.swp
+*~
+
+# IDE / sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Backups
+*.bak
+*.old
+*.orig

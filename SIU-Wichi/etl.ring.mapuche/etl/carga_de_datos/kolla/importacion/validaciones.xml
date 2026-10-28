@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+
+Este xml especifica validaciones a realizar
+en la carga de datos a Wichi. Si no se cumple alguna
+de las validaciones significa que los datos son
+inválidos o que el extractor o importador es
+inadecuado.
+
+Mantener una copia de este archivo en los
+exportadores y otra en los importadores, para poder
+controlar que al actualizar una se actualice la otra.
+
+-->
+
+
+<validaciones id="validacionesKolla1"> <!-- el id debe cambiar con cualquier cambio en este xml -->
+	<sistemaFuente>
+		<codigo>9</codigo> <!-- el código del sistema fuente según estándares wichi -->
+		<nombre>kolla</nombre> <!-- valor permitido para el nombre del sistema fuente, sin el número de versión -->
+		<obtencionDeSistema> <!-- cómo saber cuál es el sistema fuente (nombre sin versión) -->
+			<sql><![CDATA[
+                            select (case when(
+                                    select count(distinct(table_name))
+                                    from information_schema.tables
+                                    where table_schema = 'kolla'
+                                    and table_name in (
+                                      'sge_encuesta_atributo',
+                                      'sge_pregunta',
+                                      'sge_bloque',
+                                      'sge_encuesta_definicion',
+                                      'sge_respondido_detalle')
+                            ) = 5 then 'kolla' else 'no_kolla' end) as sistema			]]>
+			</sql>
+		</obtencionDeSistema>
+	</sistemaFuente>
+	<versionSistemaFuente>
+		<versionesAceptadas> <!-- versiones del sistema fuente que pasan la validación -->
+			<version>^3\.7\..*$</version>
+			<version>^4\.0\..*$</version>
+			<version>^4\.1\..*$</version>
+			<version>^4\.2\..*$</version>
+			<version>^4\.3\..*$</version>
+			<version>^4\.4\..*$</version>
+			<version>^4\.5\..*$</version>
+			<version>^4\.6\..*$</version>
+			<version>^4\.7\.0$</version>
+			<version>^4\.7\.1$</version>
+		</versionesAceptadas>
+		<versionesNoAceptadas> <!-- versiones del sistema fuente que NO pasan la validación -->
+			<version>^0\..*</version>
+			<version>^1\..*</version>
+			<version>^2\..*</version>
+			<version>^3\.0\..*</version>			
+			<version>^3\.1\..*</version>
+			<version>^3\.2\..*</version>
+			<version>^3\.3\..*</version>
+			<version>^3\.4\..*</version>
+			<version>^3\.5\..*</version>
+			<version>^3\.6\..*</version>
+		</versionesNoAceptadas>
+		<obtencionDeVersion> <!-- cómo saber cuál es la versión del sistema fuente -->
+			<sql><![CDATA[
+				SELECT trim(valor) AS version FROM kolla.sge_parametro_configuracion
+			]]>
+			</sql>
+		</obtencionDeVersion>
+	</versionSistemaFuente>
+	<estructuraArchivos>
+		<archivo nombre="d_encuesta.txt" desc="">
+			<columna nombre="instalacion_id" desc=""></columna>
+			<columna nombre="encuesta_codigo" desc=""></columna>
+			<columna nombre="encuesta_desc" desc=""></columna>
+			<columna nombre="habilitacion" desc=""></columna>
+			<columna nombre="anonima" desc=""></columna>
+			<columna nombre="usuario" desc=""></columna>
+			<columna nombre="encuesta_periodo" desc=""></columna>
+			<columna nombre="unidad_gestion_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="posiciones.txt" desc="">
+			<columna nombre="instalacion_id" desc=""></columna>
+			<columna nombre="encuesta_codigo" desc=""></columna>
+			<columna nombre="pregunta_codigo" desc=""></columna>
+			<columna nombre="posicion" desc=""></columna>
+			<columna nombre="bloque_codigo" desc=""></columna>
+			<columna nombre="bloque_nombre" desc=""></columna>
+			<columna nombre="siete_pregunta_nombre" desc=""></columna>
+			<columna nombre="componente_numero" desc=""></columna>
+			<columna nombre="posicion_cantidad" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_pregunta_respuesta.txt" desc="">
+			<columna nombre="instalacion_id" desc=""></columna>
+			<columna nombre="pregunta_codigo" desc=""></columna>
+			<columna nombre="pregunta_desc" desc=""></columna>
+			<columna nombre="respuesta_codigo" desc=""></columna>
+			<columna nombre="respuesta_desc" desc=""></columna>
+			<columna nombre="respuesta_codigo_combinado" desc=""></columna>
+		</archivo>
+		<archivo nombre="ft_encuesta.txt" desc="">
+			<columna nombre="instalacion_id" desc=""></columna>
+			<columna nombre="encuestado_codigo" desc=""></columna>
+			<columna nombre="encuestado_formulario_codigo" desc=""></columna>
+			<columna nombre="encuesta_codigo" desc=""></columna>
+			<columna nombre="habilitacion" desc=""></columna>
+			<columna nombre="pregunta_codigo" desc=""></columna>
+			<columna nombre="respuesta_codigo" desc=""></columna>
+			<columna nombre="respuesta_valor" desc=""></columna>
+			<columna nombre="posicion" desc=""></columna>
+			<columna nombre="bloque_codigo" desc=""></columna>
+			<columna nombre="fecha" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_elemento.txt" desc="">
+			<columna nombre="instalacion_id" desc=""></columna>
+			<columna nombre="elemento_codigo" desc=""></columna>
+			<columna nombre="elemento_codigo_externo" desc=""></columna>
+			<columna nombre="elemento_desc" desc=""></columna>
+			<columna nombre="unidad_gestion_codigo" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_concepto.txt" desc="">
+			<columna nombre="instalacion_id" desc=""></columna>
+			<columna nombre="concepto_codigo" desc=""></columna>
+			<columna nombre="concepto_codigo_externo" desc=""></columna>
+			<columna nombre="concepto_desc" desc=""></columna>
+			<columna nombre="unidad_gestion_codigo" desc=""></columna>
+		</archivo>
+		<archivo nombre="respondido_encuestado.txt" desc="">
+			<columna nombre="instalacion_id" desc=""></columna>
+			<columna nombre="encuestado_formulario_codigo" desc=""></columna>
+			<columna nombre="codigo_externo" desc=""></columna>
+		</archivo>
+	</estructuraArchivos>
+</validaciones>

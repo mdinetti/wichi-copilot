@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+
+Este xml especifica validaciones a realizar
+en la carga de datos a Wichi. Si no se cumple alguna
+de las validaciones significa que los datos son
+inválidos o que el extractor o importador es
+inadecuado.
+
+Mantener una copia de este archivo en los
+exportadores y otra en los importadores, para poder
+controlar que al actualizar una se actualice la otra.
+
+-->
+
+
+<validaciones id="validacionesmoodle"> <!-- el id debe cambiar con cualquier cambio en este xml -->
+	<sistemaFuente>
+		<codigo>13</codigo> <!-- el código del sistema fuente según estándares wichi -->
+		<nombre>moodle</nombre> <!-- valor permitido para el nombre del sistema fuente, sin el número de versión -->
+		<obtencionDeSistema> <!-- cómo saber cuál es el sistema fuente (nombre sin versión) -->
+			<sql><![CDATA[
+                            select (case when(
+                                    select count(distinct(table_name))
+                                    from information_schema.tables
+                                    where table_name in (
+                                      'mdl_user',
+                                      'mdl_course',
+                                      'mdl_logstore_standard_log')
+                            ) = 3 then 'moodle' else 'otra' end) as sistema
+			]]>
+			</sql>
+		</obtencionDeSistema>
+	</sistemaFuente>
+	<versionSistemaFuente>
+		<versionesAceptadas> <!-- versiones del sistema fuente que pasan la validación -->
+			<version>^3\.4\..*$</version>
+			<version>^3\.5\..*$</version>
+		</versionesAceptadas>
+		<versionesNoAceptadas> <!-- versiones del sistema fuente que NO pasan la validación -->
+			<version>^0\..*</version>
+			<version>^1\..*</version>
+			<version>^2\..*</version>
+			<version>^3\.0\..*$</version>
+			<version>^3\.1\..*$</version>
+			<version>^3\.2\..*$</version>
+			<version>^3\.3\..*$</version>
+		</versionesNoAceptadas>
+		<obtencionDeVersion> <!-- cómo saber cuál es la versión del sistema fuente -->
+			<sql><![CDATA[select 3.5 as "version"]]>
+			</sql>
+		</obtencionDeVersion>
+	</versionSistemaFuente>
+	<estructuraArchivos>
+		<archivo nombre="LT_Usuario.txt" desc="">
+			<columna nombre="userid" desc=""></columna>
+			<columna nombre="apyno" desc=""></columna>
+			<columna nombre="plataforma_g3" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Curso.txt" desc="">
+			<columna nombre="courseid" desc=""></columna>
+			<columna nombre="nombre_corto" desc=""></columna>
+			<columna nombre="nombre_completo" desc=""></columna>
+			<columna nombre="plataforma_g3" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Rol_Usuario.txt" desc="">
+			<columna nombre="curseid" desc=""></columna>
+			<columna nombre="userid" desc=""></columna>
+			<columna nombre="rolid" desc=""></columna>
+			<columna nombre="plataforma_g3" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Rol.txt" desc="">
+			<columna nombre="rolid" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+			<columna nombre="plataforma_g3" desc=""></columna>
+		</archivo>
+		<archivo nombre="FT_Actividades.txt" desc="">
+			<columna nombre="userid" desc=""></columna>
+			<columna nombre="courseid" desc=""></columna>
+			<columna nombre="fecha" desc=""></columna>
+			<columna nombre="cantidad" desc=""></columna>
+			<columna nombre="plataforma_g3" desc=""></columna>
+		</archivo>
+	</estructuraArchivos>
+</validaciones>

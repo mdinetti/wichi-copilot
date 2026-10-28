@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+
+Este xml especifica validaciones a realizar
+en la carga de datos a Wichi. Si no se cumple alguna
+de las validaciones significa que los datos son
+inválidos o que el extractor o importador es
+inadecuado.
+
+Mantener una copia de este archivo en los
+exportadores y otra en los importadores, para poder
+controlar que al actualizar una se actualice la otra.
+
+-->
+
+
+<validaciones id="validacionesPilaga6"> <!-- el id debe cambiar con cualquier cambio en este xml -->
+	<sistemaFuente>
+		<codigo>3</codigo> <!-- el código del sistema fuente según estándares wichi -->
+		<nombre>pilaga</nombre> <!-- valor permitido para el nombre del sistema fuente, sin el número de versión -->
+		<obtencionDeSistema> <!-- cómo saber cuál es el sistema fuente (nombre sin versión) -->
+			<sql><![CDATA[
+                            select (case when(
+                                    select count(distinct(table_name))
+                                    from information_schema.tables
+                                    where table_schema = 'public'
+                                    and table_name in (
+                                      'sau_te_bancos',
+                                      'sau_np_elementos',
+                                      'sau_no_comprobantes',
+                                      'sau_no_comprobantes_detalle',
+                                      'sau_no_documentacion_tipos')
+                            ) = 5 then 'pilaga' else 'no_pilaga' end) as sistema
+			]]>
+			</sql>
+		</obtencionDeSistema>
+	</sistemaFuente>
+	<versionSistemaFuente>
+		<versionesAceptadas> <!-- versiones del sistema fuente que pasan la validación -->
+			<version>^3\.0\..*$</version>
+			<version>^3\.1\..*$</version>
+			<version>^3\.2\..*$</version>
+			<version>^3\.3\..*$</version>
+			<version>^3\.4\..*$</version>
+			<version>^3\.5\..*$</version>
+			<version>^3\.6\..*$</version>
+			<version>^3\.7\..*$</version>
+			<version>^3\.8\..*$</version>
+			<version>^3\.9\..*$</version>
+			<version>^3\.10\..*$</version>
+			<version>^3\.11\..*$</version>
+			<version>^3\.12\..*$</version>
+			<version>^3\.13\.0$</version>
+		</versionesAceptadas>
+		<versionesNoAceptadas> <!-- versiones del sistema fuente que NO pasan la validación -->
+			<version>^0\..*</version>
+			<version>^1\.4\..*</version>
+			<version>^1\.5\..*</version>
+			<version>^1\.6\..*</version>
+			<version>^1\.7\..*</version>
+			<version>^1\.8\..*</version>
+			<version>^1\.9\..*</version>
+			<version>^1\.10\..*</version>
+			<version>^1\.11\..*</version>
+			<version>^1\.12\.1</version>
+			<version>^2\.0\..*$</version>
+			<version>^2\.1\..*$</version>
+			<version>^2\.2\..*$</version>
+			<version>^2\.3\..*$</version>
+		</versionesNoAceptadas>
+		<obtencionDeVersion> <!-- cómo saber cuál es la versión del sistema fuente -->
+			<sql><![CDATA[
+				select v.descripcion as "version"
+				from par_version v
+				where v."version" = (
+				  select max("version")
+				  from par_version)
+			]]>
+			</sql>
+		</obtencionDeVersion>
+	</versionSistemaFuente>
+	<estructuraArchivos>
+		<archivo nombre="d_persona.txt" desc="">
+			<columna nombre="persona_codigo" desc=""></columna>
+			<columna nombre="persona_tipo_documento" desc=""></columna>
+			<columna nombre="persona_nro_documento" desc=""></columna>
+			<columna nombre="fisica_o_juridica" desc=""></columna>
+			<columna nombre="razon_social" desc=""></columna>
+			<columna nombre="nombre_fantasia" desc=""></columna>
+			<columna nombre="sexo" desc=""></columna>
+			<columna nombre="nacionalidad" desc=""></columna>
+			<columna nombre="email" desc=""></columna>
+			<columna nombre="cbu" desc=""></columna>
+			<columna nombre="persona_detalle" desc=""></columna>
+			<columna nombre="estado" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_finalidad_funcion.txt" desc="">
+			<columna nombre="finalidad_codigo" desc=""></columna>
+			<columna nombre="funcion_codigo" desc=""></columna>
+			<columna nombre="finalidad_desc" desc=""></columna>
+			<columna nombre="funcion_desc" desc=""></columna>
+			<columna nombre="finalidad_funcion_combo_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_concepto_ingreso.txt" desc="">
+			<columna nombre="concepto_ingreso_codigo" desc=""></columna>
+			<columna nombre="tipo_ingreso_desc" desc=""></columna>
+			<columna nombre="concepto_ingreso_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_expediente.txt" desc="">
+			<columna nombre="anio" desc=""></columna>
+			<columna nombre="tipo" desc=""></columna>
+			<columna nombre="expediente_nro" desc=""></columna>
+			<columna nombre="expediente_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_cuenta_bancaria.txt" desc="">
+			<columna nombre="cuenta_bancaria_codigo" desc=""></columna>
+			<columna nombre="cuenta_bancaria_tipo_desc" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_fuente.txt" desc="">
+			<columna nombre="fuente_codigo" desc=""></columna>
+			<columna nombre="fuente_desc" desc=""></columna>
+			<columna nombre="fuentecompleto_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_estado_liquidacion.txt" desc="">
+			<columna nombre="estado_liquidacion_codigo" desc=""></columna>
+			<columna nombre="estado_liquidacion_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="ft_movimientos_comprobantes.txt" desc="">
+			<columna nombre="comprobante_codigo" desc=""></columna>
+			<columna nombre="comprobante_tipo_codigo" desc=""></columna>
+			<columna nombre="numero" desc=""></columna>
+			<columna nombre="anio" desc=""></columna>
+			<columna nombre="persona_codigo" desc=""></columna>
+			<columna nombre="paso" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_unidad_gestion.txt" desc="">
+			<columna nombre="unidad_gestion_codigo" desc=""></columna>
+			<columna nombre="unidad_gestion_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_tipo_operacion.txt" desc="">
+			<columna nombre="tipo_operacion_codigo" desc=""></columna>
+			<columna nombre="tipo_operacion_nombre" desc=""></columna>
+			<columna nombre="tipo_operacion_desc" desc=""></columna>
+			<columna nombre="circuito_gestion_codigo" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_etapa_presupuestaria.txt" desc="">
+			<columna nombre="etapa_presupuestaria_codigo" desc=""></columna>
+			<columna nombre="etapa_presupuestaria_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_unidad_presupuestaria.txt" desc="">
+			<columna nombre="unidad_presupuestaria_codigo" desc=""></columna>
+			<columna nombre="unidad_presupuestaria_desc" desc=""></columna>
+			<columna nombre="subunidad_presupuestaria_desc" desc=""></columna>
+			<columna nombre="subsubunidad_presupuestaria_desc" desc=""></columna>
+			<columna nombre="unidad_presupuestaria_combo_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_grupo_presupuestario.txt" desc="">
+			<columna nombre="grupo_presupuestario_codigo" desc=""></columna>
+			<columna nombre="grupo_presupuestario_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_comprobante.txt" desc="">
+			<columna nombre="fecha" desc=""></columna>
+			<columna nombre="tipo_codigo" desc=""></columna>
+			<columna nombre="persona_codigo" desc=""></columna>
+			<columna nombre="numero" desc=""></columna>
+			<columna nombre="importe" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="ft_tesorerias.txt" desc="">
+			<columna nombre="fecha" desc=""></columna>
+			<columna nombre="anio" desc=""></columna>
+			<columna nombre="mes" desc=""></columna>
+			<columna nombre="medio_pago" desc=""></columna>
+			<columna nombre="numero_medio" desc=""></columna>
+			<columna nombre="documento_principal_codigo" desc=""></columna>
+			<columna nombre="cuenta_tesoreria" desc=""></columna>
+			<columna nombre="bancocb" desc=""></columna>
+			<columna nombre="sucursalcb" desc=""></columna>
+			<columna nombre="cuenta" desc=""></columna>
+			<columna nombre="sucursal_codigo" desc=""></columna>
+			<columna nombre="debito" desc=""></columna>
+			<columna nombre="credito" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_documento_principal.txt" desc="">
+			<columna nombre="documento_principal_codigo" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_cuenta_tesoreria.txt" desc="">
+			<columna nombre="cuenta_tesoreria_tipo_desc" desc=""></columna>
+			<columna nombre="moneda_codigo" desc=""></columna>
+			<columna nombre="cuenta_tesoreria_desc" desc=""></columna>
+			<columna nombre="cuenta_tesoreria_codigo" desc=""></columna>
+			<columna nombre="tesoreria_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_banco_sucursal.txt" desc="">
+			<columna nombre="banco_desc" desc=""></columna>
+			<columna nombre="cuit" desc=""></columna>
+			<columna nombre="sucursal_desc" desc=""></columna>
+			<columna nombre="sucursal_codigo" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_medio_de_pago.txt" desc="">
+			<columna nombre="medio_pago_codigo" desc=""></columna>
+			<columna nombre="medio_pago_desc" desc=""></columna>
+			<columna nombre="medio_pago_tipo_codigo" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_codigo_economico.txt" desc="">
+			<columna nombre="codigo_economico_codigo" desc=""></columna>
+			<columna nombre="codigo_economico_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="ft_movimientos_ingresos.txt" desc="">
+			<columna nombre="tramite" desc=""></columna>
+			<columna nombre="paso" desc=""></columna>
+			<columna nombre="paso_anterior" desc=""></columna>
+			<columna nombre="fecha_valor" desc=""></columna>
+			<columna nombre="tipo_contenedor" desc=""></columna>
+			<columna nombre="anio_contenedor" desc=""></columna>
+			<columna nombre="nro_contenedor" desc=""></columna>
+			<columna nombre="ejercicio" desc=""></columna>
+			<columna nombre="fecha_movimiento" desc=""></columna>
+			<columna nombre="fecha_vencimiento" desc=""></columna>
+			<columna nombre="concepto_desc" desc=""></columna>
+			<columna nombre="etapa_presupuestaria" desc=""></columna>
+			<columna nombre="tipo_ejercicio" desc=""></columna>
+			<columna nombre="codup" desc=""></columna>
+			<columna nombre="codgru" desc=""></columna>
+			<columna nombre="codfuente" desc=""></columna>
+			<columna nombre="codinciso" desc=""></columna>
+			<columna nombre="coddec" desc=""></columna>
+			<columna nombre="codprog" desc=""></columna>
+			<columna nombre="codfun" desc=""></columna>
+			<columna nombre="codfi" desc=""></columna>
+			<columna nombre="codcre" desc=""></columna>
+			<columna nombre="codgest" desc=""></columna>
+			<columna nombre="credito_original" desc=""></columna>
+			<columna nombre="credito_modificatorio" desc=""></columna>
+			<columna nombre="credito" desc=""></columna>
+			<columna nombre="preventivo" desc=""></columna>
+			<columna nombre="compromiso" desc=""></columna>
+			<columna nombre="devengado" desc=""></columna>
+			<columna nombre="pagado" desc=""></columna>
+			<columna nombre="previsto_de_ingreso" desc=""></columna>
+			<columna nombre="estimado_de_ingreso" desc=""></columna>
+			<columna nombre="devengado_de_ingreso" desc=""></columna>
+			<columna nombre="cobrado" desc=""></columna>
+			<columna nombre="codrubro" desc=""></columna>
+			<columna nombre="codconcepto" desc=""></columna>
+			<columna nombre="moneda" desc=""></columna>
+			<columna nombre="codpersona" desc=""></columna>
+			<columna nombre="tipo_doc_ppal" desc=""></columna>
+			<columna nombre="nro_doc_ppal" desc=""></columna>
+			<columna nombre="anio_doc_ppal" desc=""></columna>
+			<columna nombre="tipo_operacion" desc=""></columna>
+			<columna nombre="contribuyente_codigo" desc=""></columna>
+			<columna nombre="nivel_autorizacion_codigo" desc=""></columna>
+			<columna nombre="estado_liquidacion_codigo" desc=""></columna>
+			<columna nombre="retenciones" desc=""></columna>
+			<columna nombre="disponibilidades" desc=""></columna>
+			<columna nombre="mes" desc=""></columna>
+			<columna nombre="codigo_ud" desc=""></columna>
+			<columna nombre="tipo_resolucion" desc=""></columna>
+			<columna nombre="nro_resolucion" desc=""></columna>
+			<columna nombre="anio_resolucion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_objeto_del_gasto.txt" desc="">
+			<columna nombre="objeto_del_gasto_codigo" desc=""></columna>
+			<columna nombre="resumen_desc" desc=""></columna>
+			<columna nombre="inciso_desc" desc=""></columna>
+			<columna nombre="partida_principal_desc" desc=""></columna>
+			<columna nombre="partida_parcial_desc" desc=""></columna>
+			<columna nombre="objeto_del_gasto_desc" desc=""></columna>
+			<columna nombre="orden" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_red_programatica.txt" desc="">
+			<columna nombre="programa_codigo" desc=""></columna>
+			<columna nombre="programa_desc" desc=""></columna>
+			<columna nombre="subprograma_desc" desc=""></columna>
+			<columna nombre="proyecto_desc" desc=""></columna>
+			<columna nombre="actividad_desc" desc=""></columna>
+			<columna nombre="obra_desc" desc=""></columna>
+			<columna nombre="red_programatica_combo_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_fondo.txt" desc="">
+			<columna nombre="tipo_fondo_desc" desc=""></columna>
+			<columna nombre="tipo_fondo_terceros_desc" desc=""></columna>
+			<columna nombre="fondo_desc" desc=""></columna>
+			<columna nombre="fondo_combo_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_circuito_gestion.txt" desc="">
+			<columna nombre="circuito_gestion_codigo" desc=""></columna>
+			<columna nombre="circuito_gestion_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_concepto.txt" desc="">
+			<columna nombre="concepto_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_tipo_documento.txt" desc="">
+			<columna nombre="tipo_documento_codigo" desc=""></columna>
+			<columna nombre="tipo_documento_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_tipo_comprobante.txt" desc="">
+			<columna nombre="tipo_comprobante_codigo" desc=""></columna>
+			<columna nombre="tipo_comprobante_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_moneda.txt" desc="">
+			<columna nombre="moneda_tipo_desc" desc=""></columna>
+			<columna nombre="moneda_codigo" desc=""></columna>
+			<columna nombre="moneda_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_rubro_ingreso.txt" desc="">
+			<columna nombre="rubro_ingreso_codigo" desc=""></columna>
+			<columna nombre="grupo_desc" desc=""></columna>
+			<columna nombre="rubro_desc" desc=""></columna>
+			<columna nombre="tipo_desc" desc=""></columna>
+			<columna nombre="clase_desc" desc=""></columna>
+			<columna nombre="rubro_ingreso_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_ejercicio.txt" desc="">
+			<columna nombre="ejercicio_codigo" desc=""></columna>
+			<columna nombre="ejercicio_nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_tipo_persona.txt" desc="">
+			<columna nombre="tipo_persona_codigo" desc=""></columna>
+			<columna nombre="tipo_persona_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="ft_movimientos_gastos.txt" desc="">
+			<columna nombre="tramite" desc=""></columna>
+			<columna nombre="paso" desc=""></columna>
+			<columna nombre="paso_anterior" desc=""></columna>
+			<columna nombre="fecha_valor" desc=""></columna>
+			<columna nombre="tipo_contenedor" desc=""></columna>
+			<columna nombre="anio_contenedor" desc=""></columna>
+			<columna nombre="nro_contenedor" desc=""></columna>
+			<columna nombre="ejercicio" desc=""></columna>
+			<columna nombre="fecha_movimiento" desc=""></columna>
+			<columna nombre="fecha_vencimiento" desc=""></columna>
+			<columna nombre="concepto_desc" desc=""></columna>
+			<columna nombre="etapa_presupuestaria" desc=""></columna>
+			<columna nombre="tipo_ejercicio" desc=""></columna>
+			<columna nombre="codup" desc=""></columna>
+			<columna nombre="codgru" desc=""></columna>
+			<columna nombre="codfuente" desc=""></columna>
+			<columna nombre="codinciso" desc=""></columna>
+			<columna nombre="coddec" desc=""></columna>
+			<columna nombre="codprog" desc=""></columna>
+			<columna nombre="codfun" desc=""></columna>
+			<columna nombre="codfi" desc=""></columna>
+			<columna nombre="codcre" desc=""></columna>
+			<columna nombre="codgest" desc=""></columna>
+			<columna nombre="credito_original" desc=""></columna>
+			<columna nombre="credito_modificatorio" desc=""></columna>
+			<columna nombre="credito" desc=""></columna>
+			<columna nombre="preventivo" desc=""></columna>
+			<columna nombre="compromiso" desc=""></columna>
+			<columna nombre="devengado" desc=""></columna>
+			<columna nombre="pagado" desc=""></columna>
+			<columna nombre="devengado_ex" desc=""></columna>
+			<columna nombre="pagado_ex" desc=""></columna>
+			<columna nombre="previsto_de_ingreso" desc=""></columna>
+			<columna nombre="estimado_de_ingreso" desc=""></columna>
+			<columna nombre="devengado_de_ingreso" desc=""></columna>
+			<columna nombre="cobrado" desc=""></columna>
+			<columna nombre="codrubro" desc=""></columna>
+			<columna nombre="codconcepto" desc=""></columna>
+			<columna nombre="moneda" desc=""></columna>
+			<columna nombre="codpersona" desc=""></columna>
+			<columna nombre="tipo_doc_ppal" desc=""></columna>
+			<columna nombre="nro_doc_ppal" desc=""></columna>
+			<columna nombre="anio_doc_ppal" desc=""></columna>
+			<columna nombre="tipo_operacion" desc=""></columna>
+			<columna nombre="contribuyente_codigo" desc=""></columna>
+			<columna nombre="nivel_autorizacion_codigo" desc=""></columna>
+			<columna nombre="estado_liquidacion_codigo" desc=""></columna>
+			<columna nombre="retenciones" desc=""></columna>
+			<columna nombre="disponibilidades" desc=""></columna>
+			<columna nombre="mes" desc=""></columna>
+			<columna nombre="codigo_ud" desc=""></columna>
+			<columna nombre="tipo_resolucion" desc=""></columna>
+			<columna nombre="nro_resolucion" desc=""></columna>
+			<columna nombre="anio_resolucion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_factura.txt" desc="">
+			<columna nombre="comprobante_codigo" desc=""></columna>
+			<columna nombre="fecha_prox_venc" desc=""></columna>
+			<columna nombre="periodo_desde" desc=""></columna>
+			<columna nombre="periodo_hasta" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_servicio_publico.txt" desc="">
+			<columna nombre="servicio_publico_codigo" desc=""></columna>
+			<columna nombre="servicio_publico_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_concepto_sp.txt" desc="">
+			<columna nombre="concepto_sp_codigo" desc=""></columna>
+			<columna nombre="concepto_sp_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_medidor.txt" desc="">
+			<columna nombre="medidor_codigo" desc=""></columna>
+			<columna nombre="medidor_numero" desc=""></columna>
+			<!-- columna nombre="medidor_estado" desc=""></columna -->
+		</archivo>
+		<archivo nombre="d_unidad_medida.txt" desc="">
+			<columna nombre="unidad_medida_codigo" desc=""></columna>
+			<columna nombre="unidad_medida_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_edificio.txt" desc="">
+			<columna nombre="edificio_codigo" desc=""></columna>
+			<columna nombre="edificio_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="ft_servicios_publicos.txt" desc="">
+			<columna nombre="tramite" desc=""></columna>
+			<columna nombre="paso" desc=""></columna>
+			<columna nombre="paso_anterior" desc=""></columna>
+			<columna nombre="fecha_valor" desc=""></columna>
+			<columna nombre="tipo_contenedor" desc=""></columna>
+			<columna nombre="anio_contenedor" desc=""></columna>
+			<columna nombre="nro_contenedor" desc=""></columna>
+			<columna nombre="ejercicio" desc=""></columna>
+			<columna nombre="fecha_movimiento" desc=""></columna>
+			<columna nombre="fecha_vencimiento" desc=""></columna>
+			<columna nombre="concepto_desc" desc=""></columna>
+			<columna nombre="tipo_ejercicio" desc=""></columna>
+			<columna nombre="codup" desc=""></columna>
+			<columna nombre="codgru" desc=""></columna>
+			<columna nombre="codfuente" desc=""></columna>
+			<columna nombre="codinciso" desc=""></columna>
+			<columna nombre="coddec" desc=""></columna>
+			<columna nombre="codprog" desc=""></columna>
+			<columna nombre="codfun" desc=""></columna>
+			<columna nombre="codfi" desc=""></columna>
+			<columna nombre="devengado" desc=""></columna>
+			<columna nombre="moneda" desc=""></columna>
+			<columna nombre="codpersona" desc=""></columna>
+			<columna nombre="tipo_doc_ppal" desc=""></columna>
+			<columna nombre="nro_doc_ppal" desc=""></columna>
+			<columna nombre="anio_doc_ppal" desc=""></columna>
+			<columna nombre="tipo_operacion" desc=""></columna>
+			<columna nombre="estado_liquidacion_codigo" desc=""></columna>
+			<columna nombre="mes" desc=""></columna>
+			<columna nombre="comprobante_codigo" desc=""></columna>
+			<columna nombre="comprobante_tipo_codigo" desc=""></columna>
+			<columna nombre="numero" desc=""></columna>
+			<columna nombre="anio" desc=""></columna>
+			<columna nombre="medidor_codigo" desc=""></columna>
+			<columna nombre="concepto_codigo" desc=""></columna>
+			<columna nombre="servicio_publico_codigo" desc=""></columna>
+			<columna nombre="unidad_medida_codigo" desc=""></columna>
+			<columna nombre="unidad_presupuestaria_medidor_codigo" desc=""></columna>
+			<columna nombre="edificio_codigo" desc=""></columna>
+			<columna nombre="devengado_total" desc=""></columna>
+			<columna nombre="devengado_partida" desc=""></columna>
+			<columna nombre="importe_total_comprobante" desc=""></columna>
+			<columna nombre="porc_dev_partida" desc=""></columna>
+			<columna nombre="importe_porc" desc=""></columna>
+			<columna nombre="consumo" desc=""></columna>
+			<columna nombre="importe" desc=""></columna>
+			<columna nombre="consumo_calculado" desc=""></columna>
+			<columna nombre="importe_calculado" desc=""></columna>
+			<columna nombre="periodo" desc=""></columna>
+			<columna nombre="periodo_desde" desc=""></columna>
+			<columna nombre="periodo_hasta" desc=""></columna>
+			<columna nombre="dias_totales" desc=""></columna>
+			<columna nombre="dias_periodo" desc=""></columna>
+			<columna nombre="importe_final" desc=""></columna>
+			<columna nombre="consumo_final" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_tipo_resolucion.txt" desc="">
+			<columna nombre="tipo_resolucion_codigo" desc=""></columna>
+			<columna nombre="tipo_resolucion_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_codigo_ud.txt" desc="">
+			<columna nombre="codigo" desc=""></columna>
+			<columna nombre="nivel1_desc" desc=""></columna>
+			<columna nombre="nivel2_desc" desc=""></columna>
+			<columna nombre="nivel3_desc" desc=""></columna>
+			<columna nombre="nivel4_desc" desc=""></columna>
+		</archivo>
+	</estructuraArchivos>
+</validaciones>
+

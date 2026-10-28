@@ -1,0 +1,15 @@
+cd /opt/pentaho/data-integration
+./kitchen.sh \
+-file="/opt/pentaho/SIU-Wichi/etl/carga_de_datos/pilaga/principal_carga_pilaga.kjb" \
+-param="periodo=AAAA" \
+-param="actualizacion=0" \
+-param="base_usuario=postgres" \
+-param="base_clave=xxxxxxx" \
+-param="base_host=localhost" \
+-param="base_nombre=siu_wichi" \
+-param="base_puerto=5432" \
+-param="comentario=ejemplo" \
+-param="directorioDestino=/opt/pentaho/cargas/pilaga" \
+-param="directorioTemporal=/opt/pentaho/cargas/pilaga/temp" \
+-param="directorioTxt=/opt/pentaho/cargas/pilaga/txt" \
+-param="instalacion=3-829" \

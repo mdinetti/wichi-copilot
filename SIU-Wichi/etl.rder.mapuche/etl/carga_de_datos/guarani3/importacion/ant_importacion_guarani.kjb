@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job>
+  <name>importacion_guarani</name>
+    <description/>
+    <extended_description/>
+    <job_version/>
+    <job_status>0</job_status>
+  <directory>&#x2f;</directory>
+  <created_user>-</created_user>
+  <created_date>2013&#x2f;10&#x2f;29 16&#x3a;17&#x3a;40.019</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2013&#x2f;10&#x2f;29 16&#x3a;17&#x3a;40.019</modified_date>
+    <parameters>
+        <parameter>
+            <name>base_clave</name>
+            <default_value>postgres</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>base_host</name>
+            <default_value/>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>base_nombre</name>
+            <default_value/>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>base_puerto</name>
+            <default_value>5432</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>base_usuario</name>
+            <default_value>postgres</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>commit-size</name>
+            <default_value>10000</default_value>
+            <description>Tama&#xf1;o de la transaccion</description>
+        </parameter>
+        <parameter>
+            <name>instalacion_id</name>
+            <default_value/>
+            <description>id de la instalacion &#x28;opcional&#x29;</description>
+        </parameter>
+        <parameter>
+            <name>periodo</name>
+            <default_value>0</default_value>
+            <description>periodo a cargar o 0</description>
+        </parameter>
+        <parameter>
+            <name>rutatxt</name>
+            <default_value/>
+            <description>directorio donde est&#xe1;n los archivos txt</description>
+        </parameter>
+    </parameters>
+  <connection>
+    <name>siu_dw</name>
+    <server>&#x24;&#x7b;dw_nombrehost&#x7d;</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>&#x24;&#x7b;dw_nombrebase&#x7d;</database>
+    <port>&#x24;&#x7b;dw_puerto&#x7d;</port>
+    <username>&#x24;&#x7b;dw_usuario&#x7d;</username>
+    <password>&#x24;&#x7b;dw_clave&#x7d;</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;dw_puerto&#x7d;</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+    <slaveservers>
+    </slaveservers>
+<job-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
+<field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>START_JOB_ENTRY</id><enabled>N</enabled><name>START_JOB_ENTRY</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></job-log-table>
+<jobentry-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>JOBENTRYNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>RESULT</id><enabled>Y</enabled><name>RESULT</name></field><field><id>NR_RESULT_ROWS</id><enabled>Y</enabled><name>NR_RESULT_ROWS</name></field><field><id>NR_RESULT_FILES</id><enabled>Y</enabled><name>NR_RESULT_FILES</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field><field><id>COPY_NR</id><enabled>N</enabled><name>COPY_NR</name></field></jobentry-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+   <pass_batchid>N</pass_batchid>
+   <shared_objects_file/>
+  <entries>
+    <entry>
+      <name>START</name>
+      <description/>
+      <type>SPECIAL</type>
+      <start>Y</start>
+      <dummy>N</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>46</xloc>
+      <yloc>125</yloc>
+      </entry>
+    <entry>
+      <name>Rendimiento Academico</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;importacion_guarani_rendimiento.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+            <parameter>            <name>commit-size</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;commit-size&#x7d;</value>
+            </parameter>            <parameter>            <name>base_clave</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;base_clave&#x7d;</value>
+            </parameter>            <parameter>            <name>base_host</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;base_host&#x7d;</value>
+            </parameter>            <parameter>            <name>base_nombre</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;base_nombre&#x7d;</value>
+            </parameter>            <parameter>            <name>base_puerto</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;base_puerto&#x7d;</value>
+            </parameter>            <parameter>            <name>base_usuario</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;base_usuario&#x7d;</value>
+            </parameter>            <parameter>            <name>instalacion_id</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;instalacion_id&#x7d;</value>
+            </parameter>            <parameter>            <name>rutatxt</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;rutatxt&#x7d;</value>
+            </parameter>            <parameter>            <name>periodo</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;periodo&#x7d;</value>
+            </parameter>      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>848</xloc>
+      <yloc>240</yloc>
+      </entry>
+    <entry>
+      <name>Procedencia</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;importacion_guarani_procedencia.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+            <parameter>            <name>commit-size</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;commit-size&#x7d;</value>
+            </parameter>            <parameter>            <name>periodo</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;periodo&#x7d;</value>
+            </parameter>      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>976</xloc>
+      <yloc>240</yloc>
+      </entry>
+    <entry>
+      <name>Alumnos</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;importacion_guarani_alumnos.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+            <parameter>            <name>commit-size</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;commit-size&#x7d;</value>
+            </parameter>            <parameter>            <name>periodo</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;periodo&#x7d;</value>
+            </parameter>      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>720</xloc>
+      <yloc>320</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Se produjo un error en la carga de los datos de Rendimiento Acad&#xe9;mico</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>&#x5b;ERROR&#x5d; - Carga Rend. Acad&#xe9;mico</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>848</xloc>
+      <yloc>368</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log 4</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>La carga de los datos de Rendimiento Acad&#xe9;mico se reliz&#xf3; satisfactoriamente.</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>&#x5b;EXITO&#x5d; - Carga Rend. Acad&#xe9;mico</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>896</xloc>
+      <yloc>144</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log 2</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Se produjo un error en la carga de los datos de Procedencia</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>&#x5b;ERROR&#x5d; - Carga Procedencia</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>976</xloc>
+      <yloc>368</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log 3</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Se produjo un error en la carga de los datos de Alumnos</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>&#x5b;ERROR&#x5d; - Carga Alumnos</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>720</xloc>
+      <yloc>368</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log 4 2</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>La carga de los datos de Procedencia se reliz&#xf3; satisfactoriamente.</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>&#x5b;EXITO&#x5d; - Carga Procedencia</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1008</xloc>
+      <yloc>144</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log 4 3</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>La carga de los datos de Alumnos se reliz&#xf3; satisfactoriamente.</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>&#x5b;EXITO&#x5d; - Carga Alumnos</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>768</xloc>
+      <yloc>144</yloc>
+      </entry>
+    <entry>
+      <name>ejecucion_compartidos</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
+      <filename/>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>ejecucion_compartidos</variable_name>
+          <variable_value>SI</variable_value>
+          <variable_type>ROOT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>dw_esquema</variable_name>
+          <variable_value>guarani3</variable_value>
+          <variable_type>ROOT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>dsa_esquema</variable_name>
+          <variable_value>guarani3_dsa</variable_value>
+          <variable_type>ROOT_JOB</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>135</xloc>
+      <yloc>257</yloc>
+      </entry>
+    <entry>
+      <name>cargar_txt_compartidos</name>
+      <description>Cargar los datos de los txt comunes </description>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;importacion_guarani_tmp&#x2f;cargar_datos_tmp_compartidos.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>275</xloc>
+      <yloc>234</yloc>
+      </entry>
+    <entry>
+      <name>cargar_dsa_compartidos</name>
+      <description>Cargar los datos de los txt comunes </description>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;importacion_guarani_dsa&#x2f;cargar_datos_dsa_compartidos.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>436</xloc>
+      <yloc>234</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log 5</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>La carga de los txt compartidos fall&#xf3;.</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>&#x5b;ERROR&#x5d; - Carga de datos txt compartidos</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>274</xloc>
+      <yloc>322</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log 6</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>La carga de datos de las dimensiones de dsa compartidas fall&#xf3;.</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>&#x5b;ERROR&#x5d; - Carga de datos dsa compartidos</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>435</xloc>
+      <yloc>322</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log 4 4</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>La carga de los txt compartidos se realiz&#xf3; correctamente.</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>&#x5b;EXITO&#x5d; - Carga de datos txt compartidos</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>281</xloc>
+      <yloc>154</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log 4 5</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>La carga de datos de las dimensiones de dsa compartidas se realiz&#xf3; correctamente.</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>&#x5b;EXITO&#x5d; - Carga de datos dsa compartidos</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>436</xloc>
+      <yloc>154</yloc>
+      </entry>
+    <entry>
+      <name>cargar_dw_compartidos</name>
+      <description>Cargar los datos de los txt comunes </description>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;importacion_guarani_dw&#x2f;cargar_datos_dw_compartidos.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>598</xloc>
+      <yloc>234</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log 4 5 2</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>La carga de datos de las dimensiones de dw compartidas se realiz&#xf3; correctamente.</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>&#x5b;EXITO&#x5d; - Carga de datos dw compartidos</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>604</xloc>
+      <yloc>153</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log 6 2</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>La carga de datos de las dimensiones de dw compartidas fall&#xf3;.</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>&#x5b;ERROR&#x5d; - Carga de datos dw compartidos</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>599</xloc>
+      <yloc>331</yloc>
+      </entry>
+    <entry>
+      <name>asignar_y_probar_conexion</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;..&#x2f;..&#x2f;..&#x2f;general&#x2f;asignar_y_probar_conexion&#x2f;asignar_y_probar_conexion.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>136</xloc>
+      <yloc>153</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log 7</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Importaci&#xf3;n de datos Guaran&#xed;&#x3a; copiando dimensiones dw a dsa.&#xa;</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>&#x5b;INFO&#x5d;</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>73</xloc>
+      <yloc>321</yloc>
+      </entry>
+    <entry>
+      <name>Abort job</name>
+      <description/>
+      <type>ABORT</type>
+      <message/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>590</xloc>
+      <yloc>451</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log 7 2</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Importaci&#xf3;n de datos Guaran&#xed;&#x3a; cargando dimensiones compartidas.</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>&#x5b;INFO&#x5d;</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>186</xloc>
+      <yloc>317</yloc>
+      </entry>
+    <entry>
+      <name>Datos Guaran&#xed; Importados</name>
+      <description/>
+      <type>SUCCESS</type>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1124</xloc>
+      <yloc>23</yloc>
+      </entry>
+    <entry>
+      <name>vaccum</name>
+      <description/>
+      <type>SQL</type>
+      <sql>vacuum analyze&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>siu_dw</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1131</xloc>
+      <yloc>196</yloc>
+      </entry>
+    <entry>
+      <name>copiar_dimensiones_dw_a_dsa</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;..&#x2f;..&#x2f;general&#x2f;copiar_dimensiones_dw_dsa&#x2f;copiar_dimensiones_dw_a_dsa.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+            <parameter>            <name>dsa_clave</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dsa_clave&#x7d;</value>
+            </parameter>            <parameter>            <name>dsa_nombrebase</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dsa_nombrebase&#x7d;</value>
+            </parameter>            <parameter>            <name>dsa_nombrehost</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dsa_nombrehost&#x7d;</value>
+            </parameter>            <parameter>            <name>dsa_puerto</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dsa_puerto&#x7d;</value>
+            </parameter>            <parameter>            <name>dsa_usuario</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dsa_usuario&#x7d;</value>
+            </parameter>            <parameter>            <name>dw_clave</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dw_clave&#x7d;</value>
+            </parameter>            <parameter>            <name>dw_nombrebase</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dw_nombrebase&#x7d;</value>
+            </parameter>            <parameter>            <name>dw_nombrehost</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dw_nombrehost&#x7d;</value>
+            </parameter>            <parameter>            <name>dw_puerto</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dw_puerto&#x7d;</value>
+            </parameter>            <parameter>            <name>dw_usuario</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dw_usuario&#x7d;</value>
+            </parameter>      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>128</xloc>
+      <yloc>400</yloc>
+      </entry>
+  </entries>
+  <hops>
+    <hop>
+      <from>Rendimiento Academico</from>
+      <to>Write To Log</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Rendimiento Academico</from>
+      <to>Write To Log 4</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Procedencia</from>
+      <to>Write To Log 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Alumnos</from>
+      <to>Write To Log 3</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Procedencia</from>
+      <to>Write To Log 4 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log 4</from>
+      <to>Procedencia</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>cargar_txt_compartidos</from>
+      <to>Write To Log 5</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>cargar_dsa_compartidos</from>
+      <to>Write To Log 6</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>cargar_txt_compartidos</from>
+      <to>Write To Log 4 4</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>cargar_dsa_compartidos</from>
+      <to>Write To Log 4 5</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>cargar_dw_compartidos</from>
+      <to>Write To Log 4 5 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>cargar_dw_compartidos</from>
+      <to>Write To Log 6 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log 4 4</from>
+      <to>cargar_dsa_compartidos</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log 4 5</from>
+      <to>cargar_dw_compartidos</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>asignar_y_probar_conexion</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>asignar_y_probar_conexion</from>
+      <to>ejecucion_compartidos</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>ejecucion_compartidos</from>
+      <to>Write To Log 7</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log 5</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log 6</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log 6 2</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log 2</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log 3</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log 7 2</from>
+      <to>cargar_txt_compartidos</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>vaccum</from>
+      <to>Datos Guaran&#xed; Importados</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Alumnos</from>
+      <to>Write To Log 4 3</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log 4 3</from>
+      <to>Rendimiento Academico</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log 4 2</from>
+      <to>vaccum</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log 4 5 2</from>
+      <to>Alumnos</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>cargar_txt_compartidos</from>
+      <to>Alumnos</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Alumnos</from>
+      <to>vaccum</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log 7</from>
+      <to>copiar_dimensiones_dw_a_dsa</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>copiar_dimensiones_dw_a_dsa</from>
+      <to>Write To Log 7 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+  </hops>
+  <notepads>
+    <notepad>
+      <note>Alumnos</note>
+      <xloc>688</xloc>
+      <yloc>64</yloc>
+      <width>71</width>
+      <heigth>27</heigth>
+      <fontname>Ubuntu</fontname>
+      <fontsize>11</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+
+</job>

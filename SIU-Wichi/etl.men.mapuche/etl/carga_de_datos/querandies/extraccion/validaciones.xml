@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+
+Este xml especifica validaciones a realizar
+en la carga de datos a Wichi. Si no se cumple alguna
+de las validaciones significa que los datos son
+inválidos o que el extractor o importador es
+inadecuado.
+
+Mantener una copia de este archivo en los
+exportadores y otra en los importadores, para poder
+controlar que al actualizar una se actualice la otra.
+
+-->
+
+
+<validaciones id="validacionesQuerandies1"> <!-- el id debe cambiar con cualquier cambio en este xml -->
+	<sistemaFuente>
+		<codigo>5</codigo> <!-- el código del sistema fuente según estándares wichi -->
+		<nombre>querandies</nombre> <!-- valor permitido para el nombre del sistema fuente, sin el número de versión -->
+		<obtencionDeSistema> <!-- cómo saber cuál es el sistema fuente (nombre sin versión) -->
+			<sql><![CDATA[
+                            select (case when(
+                                    select count(distinct(table_name))
+                                    from information_schema.tables
+                                    where table_schema = 'querandies_dw'
+                                    and table_name in (
+                                      'ft_inmuebles')
+                            ) = 1 then 'querandies' else 'no_querandies' end) as sistema	]]>
+			</sql>
+		</obtencionDeSistema>
+	</sistemaFuente>
+	<versionSistemaFuente> <!-- HC: A RESOLVER ! ! ! ! -->
+		<versionesAceptadas> <!-- versiones del sistema fuente que pasan la validación -->
+			<version>^2\.0\.0$</version>
+		</versionesAceptadas>
+		<versionesNoAceptadas> <!-- versiones del sistema fuente que NO pasan la validación -->
+			<version>^0\..*</version>
+			<version>^1\..*</version>
+		</versionesNoAceptadas>
+		<obtencionDeVersion> <!-- cómo saber cuál es la versión del sistema fuente -->
+			<sql><![CDATA[
+				select '2.0.0' as "version"
+			]]>
+			</sql>
+		</obtencionDeVersion>
+	</versionSistemaFuente>
+	<estructuraArchivos>
+		<archivo nombre="d_cumplimiento.txt" desc="">
+			<columna nombre="cumplimiento_id" desc=""></columna>
+			<columna nombre="cumplimiento_codigo" desc=""></columna>
+			<columna nombre="cumplimiento_desc" desc=""></columna>
+			<columna nombre="fecha_desde" desc=""></columna>
+			<columna nombre="fecha_hasta" desc=""></columna>
+			<columna nombre="version" desc=""></columna>
+			<columna nombre="vigente" desc=""></columna>
+			<columna nombre="fecha_actualizacion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_estado_conservacion.txt" desc="">
+			<columna nombre="estado_conservacion_id" desc=""></columna>
+			<columna nombre="estado_conservacion_codigo" desc=""></columna>
+			<columna nombre="estado_conservacion_desc" desc=""></columna>
+			<columna nombre="fecha_desde" desc=""></columna>
+			<columna nombre="fecha_hasta" desc=""></columna>
+			<columna nombre="version" desc=""></columna>
+			<columna nombre="vigente" desc=""></columna>
+			<columna nombre="fecha_actualizacion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_estado_construccion.txt" desc="">
+			<columna nombre="estado_construccion_id" desc=""></columna>
+			<columna nombre="estado_construccion_codigo" desc=""></columna>
+			<columna nombre="estado_construccion_desc" desc=""></columna>
+			<columna nombre="fecha_desde" desc=""></columna>
+			<columna nombre="fecha_hasta" desc=""></columna>
+			<columna nombre="version" desc=""></columna>
+			<columna nombre="vigente" desc=""></columna>
+			<columna nombre="fecha_actualizacion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_situacion_dominio.txt" desc="">
+			<columna nombre="situacion_dominio_id" desc=""></columna>
+			<columna nombre="situacion_dominio_codigo" desc=""></columna>
+			<columna nombre="situacion_dominio_desc" desc=""></columna>
+			<columna nombre="propio" desc=""></columna>
+			<columna nombre="fecha_desde" desc=""></columna>
+			<columna nombre="fecha_hasta" desc=""></columna>
+			<columna nombre="version" desc=""></columna>
+			<columna nombre="vigente" desc=""></columna>
+			<columna nombre="fecha_actualizacion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_sub_tipo_uso.txt" desc="">
+			<columna nombre="sub_tipo_uso_id" desc=""></columna>
+			<columna nombre="sub_tipo_uso_codigo" desc=""></columna>
+			<columna nombre="sub_tipo_uso_desc" desc=""></columna>
+			<columna nombre="tipo_uso_codigo" desc=""></columna>
+			<columna nombre="tipo_uso_desc" desc=""></columna>
+			<columna nombre="fecha_desde" desc=""></columna>
+			<columna nombre="fecha_hasta" desc=""></columna>
+			<columna nombre="version" desc=""></columna>
+			<columna nombre="vigente" desc=""></columna>
+			<columna nombre="fecha_actualizacion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_tipo_construccion.txt" desc="">
+			<columna nombre="tipo_construccion_id" desc=""></columna>
+			<columna nombre="tipo_construccion_codigo" desc=""></columna>
+			<columna nombre="tipo_construccion_desc" desc=""></columna>
+			<columna nombre="fecha_desde" desc=""></columna>
+			<columna nombre="fecha_hasta" desc=""></columna>
+			<columna nombre="version" desc=""></columna>
+			<columna nombre="vigente" desc=""></columna>
+			<columna nombre="fecha_actualizacion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_tipo_planta.txt" desc="">
+			<columna nombre="tipo_planta_id" desc=""></columna>
+			<columna nombre="tipo_planta_codigo" desc=""></columna>
+			<columna nombre="tipo_planta_desc" desc=""></columna>
+			<columna nombre="fecha_desde" desc=""></columna>
+			<columna nombre="fecha_hasta" desc=""></columna>
+			<columna nombre="version" desc=""></columna>
+			<columna nombre="vigente" desc=""></columna>
+			<columna nombre="fecha_actualizacion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_ubicacion.txt" desc="">
+			<columna nombre="ubicacion_id" desc=""></columna>
+			<columna nombre="ubicacion_codigo" desc=""></columna>
+			<columna nombre="ubicacion_desc" desc=""></columna>
+			<columna nombre="fecha_desde" desc=""></columna>
+			<columna nombre="fecha_hasta" desc=""></columna>
+			<columna nombre="version" desc=""></columna>
+			<columna nombre="vigente" desc=""></columna>
+			<columna nombre="fecha_actualizacion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_uso.txt" desc="">
+			<columna nombre="uso_id" desc=""></columna>
+			<columna nombre="uso_codigo" desc=""></columna>
+			<columna nombre="uso_desc" desc=""></columna>
+			<columna nombre="fecha_desde" desc=""></columna>
+			<columna nombre="fecha_hasta" desc=""></columna>
+			<columna nombre="version" desc=""></columna>
+			<columna nombre="vigente" desc=""></columna>
+			<columna nombre="fecha_actualizacion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_anio.txt" desc="">
+			<columna nombre="anio_id" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_periodo.txt" desc="">
+			<columna nombre="periodo_id" desc=""></columna>
+			<columna nombre="periodo_desc" desc=""></columna>
+			<columna nombre="anio_id" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_sino.txt" desc="">
+			<columna nombre="sino_id" desc=""></columna>
+			<columna nombre="sino_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_construcciones.txt" desc="">
+			<columna nombre="construccion_id" desc=""></columna>
+			<columna nombre="construccion_codigo" desc=""></columna>
+			<columna nombre="construccion_desc" desc=""></columna>
+			<columna nombre="anio_id" desc=""></columna>
+			<columna nombre="telefono" desc=""></columna>
+			<columna nombre="fecha_alta" desc=""></columna>
+			<columna nombre="calle_nombre_numero" desc=""></columna>
+			<columna nombre="anio_ejecucion" desc=""></columna>
+			<columna nombre="anio_intervencion" desc=""></columna>
+			<columna nombre="fecha_desde" desc=""></columna>
+			<columna nombre="fecha_hasta" desc=""></columna>
+			<columna nombre="version" desc=""></columna>
+			<columna nombre="vigente" desc=""></columna>
+			<columna nombre="fecha_actualizacion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_inmuebles.txt" desc="">
+			<columna nombre="inmueble_id" desc=""></columna>
+			<columna nombre="inmueble_codigo" desc=""></columna>
+			<columna nombre="inmueble_desc" desc=""></columna>
+			<columna nombre="anio_id" desc=""></columna>
+			<columna nombre="calle_nombre_numero" desc=""></columna>
+			<columna nombre="unidad_economica" desc=""></columna>
+			<columna nombre="fot_normativo" desc=""></columna>
+			<columna nombre="fot_real" desc=""></columna>
+			<columna nombre="fos_normativo" desc=""></columna>
+			<columna nombre="fos_real" desc=""></columna>
+			<columna nombre="fecha_alta" desc=""></columna>
+			<columna nombre="fecha_desde" desc=""></columna>
+			<columna nombre="fecha_hasta" desc=""></columna>
+			<columna nombre="version" desc=""></columna>
+			<columna nombre="vigente" desc=""></columna>
+			<columna nombre="fecha_actualizacion" desc=""></columna>
+			<columna nombre="fotfos" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_localidad.txt" desc="">
+			<columna nombre="localidad_id" desc=""></columna>
+			<columna nombre="localidad_codigo" desc=""></columna>
+			<columna nombre="localidad_desc" desc=""></columna>
+			<columna nombre="partido_codigo" desc=""></columna>
+			<columna nombre="partido_desc" desc=""></columna>
+			<columna nombre="provincia_codigo" desc=""></columna>
+			<columna nombre="provincia_desc" desc=""></columna>
+			<columna nombre="pais_codigo" desc=""></columna>
+			<columna nombre="pais_desc" desc=""></columna>
+			<columna nombre="fecha_desde" desc=""></columna>
+			<columna nombre="fecha_hasta" desc=""></columna>
+			<columna nombre="version" desc=""></columna>
+			<columna nombre="vigente" desc=""></columna>
+			<columna nombre="fecha_actualizacion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_unidad_academica.txt" desc="">
+			<columna nombre="unidad_academica_id" desc=""></columna>
+			<columna nombre="institucion_codigo" desc=""></columna>
+			<columna nombre="institucion_desc" desc=""></columna>
+			<columna nombre="unidad_academica_codigo" desc=""></columna>
+			<columna nombre="unidad_academica_desc" desc=""></columna>
+			<columna nombre="fecha_desde" desc=""></columna>
+			<columna nombre="fecha_hasta" desc=""></columna>
+			<columna nombre="version" desc=""></columna>
+			<columna nombre="vigente" desc=""></columna>
+			<columna nombre="fecha_actualizacion" desc=""></columna>
+		</archivo>
+                <archivo nombre="ft_construcciones_plantas.txt" desc="">
+                        <columna nombre="ft_construccion_plantas_id" desc=""></columna>
+                        <columna nombre="periodo_id" desc=""></columna>
+                        <columna nombre="institucion_id" desc=""></columna>
+                        <columna nombre="localidad_id" desc=""></columna>
+                        <columna nombre="inmueble_id" desc=""></columna>
+                        <columna nombre="anio_id" desc=""></columna>
+                        <columna nombre="construccion_id" desc=""></columna>
+                        <columna nombre="estado_conservacion_id" desc=""></columna>
+                        <columna nombre="patrimonio_historico" desc=""></columna>
+                        <columna nombre="tipo_construccion_id" desc=""></columna>
+                        <columna nombre="estado_construccion_id" desc=""></columna>
+                        <columna nombre="acceso_circulacion_senderos" desc=""></columna>
+                        <columna nombre="iluminacion_artificial" desc=""></columna>
+                        <columna nombre="solados_antideslizantes" desc=""></columna>
+                        <columna nombre="estacionamiento_designado" desc=""></columna>
+                        <columna nombre="senializacion_vision_reducida" desc=""></columna>
+                        <columna nombre="acceso_desnivel_salvado" desc=""></columna>
+                        <columna nombre="sanitarios_accesibles" desc=""></columna>
+                        <columna nombre="acceso_pisos_superiores" desc=""></columna>
+                        <columna nombre="accesos_a_nivel" desc=""></columna>
+                        <columna nombre="entradas_aulas_sin_escalones" desc=""></columna>
+                        <columna nombre="puertas_accesibles" desc=""></columna>
+                        <columna nombre="mostradores_accesibles" desc=""></columna>
+                        <columna nombre="adecuacion_comunicacion_reducida" desc=""></columna>
+                        <columna nombre="tipo_planta_id" desc=""></columna>
+                        <columna nombre="numero_planta" desc=""></columna>
+                        <columna nombre="cant_plantas" desc=""></columna>
+                        <columna nombre="superficie_construida_cubierta" desc=""></columna>
+                        <columna nombre="superficie_construida_semicubierta" desc=""></columna>
+                        <columna nombre="superficie_no_construida" desc=""></columna>
+                        <columna nombre="superficie_total_construccion" desc=""></columna>
+                </archivo>
+                <archivo nombre="ft_construcciones_tipo_de_uso.txt" desc="">
+                        <columna nombre="ft_construcciones_tipo_de_uso_id" desc=""></columna>
+                        <columna nombre="periodo_id" desc=""></columna>
+                        <columna nombre="institucion_id" desc=""></columna>
+                        <columna nombre="localidad_id" desc=""></columna>
+                        <columna nombre="inmueble_id" desc=""></columna>
+                        <columna nombre="anio_id" desc=""></columna>
+                        <columna nombre="construccion_id" desc=""></columna>
+                        <columna nombre="patrimonio_historico" desc=""></columna>
+                        <columna nombre="estado_conservacion_id" desc=""></columna>
+                        <columna nombre="tipo_construccion_id" desc=""></columna>
+                        <columna nombre="estado_construccion_id" desc=""></columna>
+                        <columna nombre="unidad_academica_id" desc=""></columna>
+                        <columna nombre="uso_id" desc=""></columna>
+                        <columna nombre="sub_tipo_uso_id" desc=""></columna>
+                        <columna nombre="acceso_circulacion_senderos" desc=""></columna>
+                        <columna nombre="iluminacion_artificial" desc=""></columna>
+                        <columna nombre="solados_antideslizantes" desc=""></columna>
+                        <columna nombre="estacionamiento_designado" desc=""></columna>
+                        <columna nombre="senializacion_vision_reducida" desc=""></columna>
+                        <columna nombre="acceso_desnivel_salvado" desc=""></columna>
+                        <columna nombre="sanitarios_accesibles" desc=""></columna>
+                        <columna nombre="acceso_pisos_superiores" desc=""></columna>
+                        <columna nombre="accesos_a_nivel" desc=""></columna>
+                        <columna nombre="entradas_aulas_sin_escalones" desc=""></columna>
+                        <columna nombre="puertas_accesibles" desc=""></columna>
+                        <columna nombre="mostradores_accesibles" desc=""></columna>
+                        <columna nombre="adecuacion_comunicacion_reducida" desc=""></columna>
+                        <columna nombre="superficie_uso" desc=""></columna>
+                </archivo>
+                <archivo nombre="ft_inmuebles.txt" desc="">
+                        <columna nombre="ft_inmueble_id" desc=""></columna>
+                        <columna nombre="periodo_id" desc=""></columna>
+                        <columna nombre="institucion_id" desc=""></columna>
+                        <columna nombre="localidad_id" desc=""></columna>
+                        <columna nombre="inmueble_id" desc=""></columna>
+                        <columna nombre="anio_id" desc=""></columna>
+                        <columna nombre="situacion_dominio_id" desc=""></columna>
+                        <columna nombre="ubicacion_id" desc=""></columna>
+                        <columna nombre="agua_corriente" desc=""></columna>
+                        <columna nombre="gas_natural" desc=""></columna>
+                        <columna nombre="energia" desc=""></columna>
+                        <columna nombre="cloacas" desc=""></columna>
+                        <columna nombre="telecomun_e_informatica" desc=""></columna>
+                        <columna nombre="superficie_terreno" desc=""></columna>
+                        <columna nombre="valuacion_tecnica_contable" desc=""></columna>
+                        <columna nombre="superficie_construida_planta_baja" desc=""></columna>
+                        <columna nombre="superficie_construida_cubierta" desc=""></columna>
+                        <columna nombre="superficie_construida_semicubierta" desc=""></columna>
+                        <columna nombre="superficie_no_construida" desc=""></columna>
+                        <columna nombre="superficie_total_construida" desc=""></columna>
+                        <columna nombre="cantidad_construcciones" desc=""></columna>
+                        <columna nombre="cantidad_solares" desc=""></columna>
+                        <columna nombre="cantidad_total_construcciones" desc=""></columna>
+                </archivo>
+	</estructuraArchivos>
+</validaciones>

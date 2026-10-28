@@ -1,0 +1,1224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job>
+  <name>principal_migrar_pilaga_portal_410_500</name>
+    <description>Migrador de datos de pilaga del portal gerencial de SIU-Wichi 4.1.0 a 5.0.0</description>
+    <extended_description/>
+    <job_version/>
+    <job_status>0</job_status>
+  <directory>&#x2f;</directory>
+  <created_user>-</created_user>
+  <created_date>2013&#x2f;05&#x2f;10 11&#x3a;34&#x3a;19.466</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2013&#x2f;05&#x2f;10 11&#x3a;34&#x3a;19.466</modified_date>
+    <parameters>
+        <parameter>
+            <name>commit_size</name>
+            <default_value>10000</default_value>
+            <description>cada cuantos registros se hace un commit en la base</description>
+        </parameter>
+        <parameter>
+            <name>destino_base</name>
+            <default_value>hc_cinco</default_value>
+            <description>nombre de la base de datos dsa de destino</description>
+        </parameter>
+        <parameter>
+            <name>destino_clave</name>
+            <default_value>postgres</default_value>
+            <description>password del usuario de la base dsa de destino</description>
+        </parameter>
+        <parameter>
+            <name>destino_host</name>
+            <default_value>192.168.132.114</default_value>
+            <description>nombre o ip del host del servidor donde se encuentra la base dsa de destino</description>
+        </parameter>
+        <parameter>
+            <name>destino_puerto</name>
+            <default_value>5432</default_value>
+            <description>puerto al que se conecta a la base de datos dsa de destino</description>
+        </parameter>
+        <parameter>
+            <name>destino_usuario</name>
+            <default_value>postgres</default_value>
+            <description>nombre de usuario de la base siu_dsa de destino</description>
+        </parameter>
+        <parameter>
+            <name>instalacion_id</name>
+            <default_value>0</default_value>
+            <description>id de la instalacion &#x28;Opcional&#x29;</description>
+        </parameter>
+        <parameter>
+            <name>origen_portal_base</name>
+            <default_value>siu_wichi</default_value>
+            <description>nombre de la base de datos del portal gerencial 4.1.0</description>
+        </parameter>
+        <parameter>
+            <name>origen_portal_clave</name>
+            <default_value>postgres</default_value>
+            <description>password del usuario de la base del portal gerencial 4.1.0</description>
+        </parameter>
+        <parameter>
+            <name>origen_portal_host</name>
+            <default_value>10.4.0.206</default_value>
+            <description>nombre o ip del host del servidor donde se encuentra la base del portal gerencial 4.1.0</description>
+        </parameter>
+        <parameter>
+            <name>origen_portal_puerto</name>
+            <default_value>5432</default_value>
+            <description>puerto al que se conecta a la base de datos del portal gerencial 4.1.0</description>
+        </parameter>
+        <parameter>
+            <name>origen_portal_usuario</name>
+            <default_value>postgres</default_value>
+            <description>nombre de usuario de la base del portal gerencial 4.1.0</description>
+        </parameter>
+    </parameters>
+  <connection>
+    <name>siu_dsa</name>
+    <server>&#x24;&#x7b;dsa_nombrehost&#x7d;</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>&#x24;&#x7b;dsa_nombrebase&#x7d;</database>
+    <port>&#x24;&#x7b;dsa_puerto&#x7d;</port>
+    <username>&#x24;&#x7b;dsa_usuario&#x7d;</username>
+    <password>&#x24;&#x7b;dsa_clave&#x7d;</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;dsa_puerto&#x7d;</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SQL_CONNECT</code><attribute>SET datestyle to iso,YMD</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>siu_dw</name>
+    <server>&#x24;&#x7b;dw_nombrehost&#x7d;</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>&#x24;&#x7b;dw_nombrebase&#x7d;</database>
+    <port>&#x24;&#x7b;dw_puerto&#x7d;</port>
+    <username>&#x24;&#x7b;dw_usuario&#x7d;</username>
+    <password>&#x24;&#x7b;dw_clave&#x7d;</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;dw_puerto&#x7d;</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+    <slaveservers>
+    </slaveservers>
+<job-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
+<field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>START_JOB_ENTRY</id><enabled>N</enabled><name>START_JOB_ENTRY</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></job-log-table>
+<jobentry-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>JOBENTRYNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>RESULT</id><enabled>Y</enabled><name>RESULT</name></field><field><id>NR_RESULT_ROWS</id><enabled>Y</enabled><name>NR_RESULT_ROWS</name></field><field><id>NR_RESULT_FILES</id><enabled>Y</enabled><name>NR_RESULT_FILES</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field><field><id>COPY_NR</id><enabled>N</enabled><name>COPY_NR</name></field></jobentry-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+   <pass_batchid>N</pass_batchid>
+   <shared_objects_file/>
+  <entries>
+    <entry>
+      <name>asignar_y_probar_conexion</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;..&#x2f;..&#x2f;general&#x2f;asignar_y_probar_conexion&#x2f;asignar_y_probar_conexion.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>181</xloc>
+      <yloc>269</yloc>
+      </entry>
+    <entry>
+      <name>setear_parametros</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
+      <filename/>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>origen_esquema</variable_name>
+          <variable_value>wichi</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>destino_esquema</variable_name>
+          <variable_value>pilaga_tmp</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>prefijo_tablas</variable_name>
+          <variable_value>d_&#x25;&#x27; or table_name like&#x27;c_tipdoc&#x27;&#x29; and table_name not like &#x28;&#x27;&#x25;_pipe</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>origen_nombrehost</variable_name>
+          <variable_value>&#x24;&#x7b;origen_portal_host&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>origen_puerto</variable_name>
+          <variable_value>&#x24;&#x7b;origen_portal_puerto&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>origen_nombrebase</variable_name>
+          <variable_value>&#x24;&#x7b;origen_portal_base&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>origen_usuario</variable_name>
+          <variable_value>&#x24;&#x7b;origen_portal_usuario&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>origen_clave</variable_name>
+          <variable_value>&#x24;&#x7b;origen_portal_clave&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>destino_nombrehost</variable_name>
+          <variable_value>&#x24;&#x7b;destino_host&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>destino_puerto</variable_name>
+          <variable_value>&#x24;&#x7b;destino_puerto&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>destino_nombrebase</variable_name>
+          <variable_value>&#x24;&#x7b;destino_base&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>destino_usuario</variable_name>
+          <variable_value>&#x24;&#x7b;destino_usuario&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>destino_clave</variable_name>
+          <variable_value>&#x24;&#x7b;destino_clave&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>base_clave</variable_name>
+          <variable_value>&#x24;&#x7b;destino_clave&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>base_host</variable_name>
+          <variable_value>&#x24;&#x7b;destino_host&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>base_nombre</variable_name>
+          <variable_value>&#x24;&#x7b;destino_base&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>base_puerto</variable_name>
+          <variable_value>&#x24;&#x7b;destino_puerto&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+        <field>
+          <variable_name>base_usuario</variable_name>
+          <variable_value>&#x24;&#x7b;destino_usuario&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>32</xloc>
+      <yloc>269</yloc>
+      </entry>
+    <entry>
+      <name>Finalizando con error</name>
+      <description/>
+      <type>ABORT</type>
+      <message>Se produjo un error en el proceso de carga de siu_wichi.pilaga_dsa</message>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>111</xloc>
+      <yloc>513</yloc>
+      </entry>
+    <entry>
+      <name>START</name>
+      <description/>
+      <type>SPECIAL</type>
+      <start>Y</start>
+      <dummy>N</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>9</xloc>
+      <yloc>94</yloc>
+      </entry>
+    <entry>
+      <name>Copiar tablas wichi portal a tmp</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;..&#x2f;..&#x2f;general&#x2f;copiar_tablas_iguales&#x2f;principal_copiar_tablas_iguales.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>341</xloc>
+      <yloc>457</yloc>
+      </entry>
+    <entry>
+      <name>crear tablas tmp portal</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE IF NOT EXISTS pilaga_tmp.d_activi&#xa;&#x28;&#xa;  anio numeric&#x28;4,0&#x29; NOT NULL,&#xa;  codigo_prg numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_sub numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_pry numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_act numeric&#x28;2,0&#x29; NOT NULL,&#xa;  nom_activ character varying&#x28;50&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_benef&#xa;&#x28;&#xa;  tipdoc numeric&#x28;1,0&#x29; NOT NULL,&#xa;  cuit1 numeric&#x28;2,0&#x29; NOT NULL,&#xa;  nrodoc character varying&#x28;20&#x29; NOT NULL,&#xa;  cuit2 numeric&#x28;1,0&#x29; NOT NULL,&#xa;  nombre character varying&#x28;35&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_cabcom&#xa;&#x28;&#xa;  tipo character varying&#x28;4&#x29; NOT NULL,&#xa;  anio numeric&#x28;4,0&#x29; NOT NULL,&#xa;  numero character varying&#x28;30&#x29; NOT NULL,&#xa;  anicomp numeric&#x28;4,0&#x29; NOT NULL,&#xa;  nup character varying&#x28;30&#x29; NOT NULL,&#xa;  exp character varying&#x28;40&#x29;,&#xa;  anprev numeric&#x28;4,0&#x29; NOT NULL,&#xa;  coddep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  subdep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  tipdoc numeric&#x28;1,0&#x29;,&#xa;  cuit1 numeric&#x28;2,0&#x29;,&#xa;  nrodoc character varying&#x28;20&#x29;,&#xa;  cuit2 numeric&#x28;1,0&#x29;,&#xa;  concepto character varying&#x28;40&#x29;,&#xa;  tipoprev character varying&#x28;4&#x29; NOT NULL DEFAULT &#x27;NUI&#x27;&#x3a;&#x3a;character varying&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_cabpre&#xa;&#x28;&#xa;  anio numeric&#x28;4,0&#x29; NOT NULL,&#xa;  numero character varying&#x28;30&#x29; NOT NULL,&#xa;  anprev numeric&#x28;4,0&#x29; NOT NULL,&#xa;  exp character varying&#x28;40&#x29;,&#xa;  coddep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  subdep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  concepto character varying&#x28;40&#x29;,&#xa;  tippre character varying&#x28;3&#x29;,&#xa;  tipo character varying&#x28;4&#x29; NOT NULL DEFAULT &#x27;NUI&#x27;&#x3a;&#x3a;character varying&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_codepa&#xa;&#x28;&#xa;  anio numeric&#x28;4,0&#x29; NOT NULL,&#xa;  d_codepa serial NOT NULL,&#xa;  codigo_prg numeric&#x28;2,0&#x29; NOT NULL,&#xa;  coddep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  codigo_sub numeric&#x28;2,0&#x29; NOT NULL,&#xa;  subdep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  codigo_pry numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_fue numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_inc numeric&#x28;1,0&#x29; NOT NULL,&#xa;  codigo_ppl numeric&#x28;1,0&#x29; NOT NULL,&#xa;  codigo_ppr numeric&#x28;1,0&#x29; NOT NULL,&#xa;  codigo_act numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_obr numeric&#x28;2,0&#x29;,&#xa;  codigo_fin numeric&#x28;1,0&#x29; NOT NULL,&#xa;  codigo_fun numeric&#x28;1,0&#x29; NOT NULL,&#xa;  mes numeric&#x28;2,0&#x29; NOT NULL,&#xa;  comprom numeric&#x28;12,2&#x29;,&#xa;  devengado numeric&#x28;12,2&#x29;,&#xa;  pagado numeric&#x28;12,2&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_coning&#xa;&#x28;&#xa;  anio numeric&#x28;4,0&#x29; NOT NULL,&#xa;  codigo_con character varying&#x28;20&#x29; NOT NULL,&#xa;  nombre character varying&#x28;120&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_depcia&#xa;&#x28;&#xa;  anio numeric&#x28;4,0&#x29; NOT NULL,&#xa;  coddep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  subdep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  codpre numeric&#x28;3,0&#x29;,&#xa;  subpre numeric&#x28;3,0&#x29;,&#xa;  clase character varying&#x28;1&#x29;,&#xa;  nombre character varying&#x28;50&#x29;,&#xa;  doc1 character varying&#x28;20&#x29;,&#xa;  respon character varying&#x28;40&#x29;,&#xa;  saldo numeric&#x28;12,2&#x29;,&#xa;  estado character varying&#x28;1&#x29;,&#xa;  est_via character varying&#x28;1&#x29;,&#xa;  debe numeric&#x28;12,2&#x29;,&#xa;  haber numeric&#x28;12,2&#x29;,&#xa;  salfin numeric&#x28;12,2&#x29;,&#xa;  preventivo numeric&#x28;12,2&#x29;,&#xa;  credpro character varying&#x28;1&#x29;,&#xa;  devengado numeric&#x28;12,2&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_detcom&#xa;&#x28;&#xa;  anio numeric&#x28;4,0&#x29; NOT NULL,&#xa;  tipo character varying&#x28;4&#x29; NOT NULL,&#xa;  numero character varying&#x28;30&#x29; NOT NULL,&#xa;  coddep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  anicomp numeric&#x28;4,0&#x29; NOT NULL,&#xa;  subdep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  codigo_fue numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_prg numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_sub numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_pry numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_act numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_inc numeric&#x28;1,0&#x29; NOT NULL,&#xa;  codigo_obr numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_ppl numeric&#x28;1,0&#x29; NOT NULL,&#xa;  codigo_ppr numeric&#x28;1,0&#x29; NOT NULL,&#xa;  compromiso numeric&#x28;16,2&#x29; NOT NULL,&#xa;  devengado numeric&#x28;16,2&#x29;,&#xa;  saldo numeric&#x28;16,2&#x29; NOT NULL,&#xa;  d_detcom serial NOT NULL&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_detpre&#xa;&#x28;&#xa;  anio numeric&#x28;4,0&#x29; NOT NULL,&#xa;  numero character varying&#x28;30&#x29; NOT NULL,&#xa;  anprev numeric&#x28;4,0&#x29; NOT NULL,&#xa;  coddep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  subdep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  codigo_fue numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_prg numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_sub numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_pry numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_inc numeric&#x28;1,0&#x29; NOT NULL,&#xa;  codigo_act numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_obr numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_ppl numeric&#x28;1,0&#x29; NOT NULL,&#xa;  preventivo numeric&#x28;16,2&#x29;,&#xa;  compromiso numeric&#x28;16,2&#x29; NOT NULL,&#xa;  saldo numeric&#x28;16,2&#x29; NOT NULL,&#xa;  d_detpre serial NOT NULL,&#xa;  tipo character varying&#x28;4&#x29; NOT NULL DEFAULT &#x27;NUI&#x27;&#x3a;&#x3a;character varying&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_liqdet&#xa;&#x28;&#xa;  anio numeric&#x28;4,0&#x29;,&#xa;  tipcom character varying&#x28;4&#x29; NOT NULL,&#xa;  nroliq character varying&#x28;30&#x29; NOT NULL,&#xa;  tipliq character varying&#x28;2&#x29; NOT NULL,&#xa;  coddep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  codigo_fue numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_prg numeric&#x28;2,0&#x29; NOT NULL,&#xa;  subdep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  codigo_sub numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_pry numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_act numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_inc numeric&#x28;1,0&#x29; NOT NULL,&#xa;  codigo_obr numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_ppl numeric&#x28;1,0&#x29; NOT NULL,&#xa;  codigo_ppr numeric&#x28;1,0&#x29; NOT NULL,&#xa;  impoliq numeric&#x28;16,2&#x29;,&#xa;  d_liqdet serial NOT NULL&#xa;&#x29;&#xa;&#x3b;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_liquid&#xa;&#x28;&#xa;  anio numeric&#x28;4,0&#x29; NOT NULL,&#xa;  tipcom character varying&#x28;4&#x29; NOT NULL,&#xa;  nroliq character varying&#x28;30&#x29; NOT NULL,&#xa;  tipliq character varying&#x28;2&#x29; NOT NULL,&#xa;  claseli character varying&#x28;4&#x29; NOT NULL,&#xa;  coddep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  subdep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  nroexp character varying&#x28;40&#x29;,&#xa;  licita character varying&#x28;20&#x29;,&#xa;  nivel numeric&#x28;1,0&#x29;,&#xa;  nrolic character varying&#x28;12&#x29;,&#xa;  concepto character varying&#x28;50&#x29;,&#xa;  nombre character varying&#x28;255&#x29;,&#xa;  estado character varying&#x28;1&#x29;,&#xa;  fecliq date,&#xa;  fecvto date,&#xa;  fecpago date,&#xa;  impag numeric&#x28;12,2&#x29;,&#xa;  rendido numeric&#x28;12,2&#x29;,&#xa;  multa numeric&#x28;12,2&#x29;,&#xa;  desaco numeric&#x28;12,2&#x29;,&#xa;  porret numeric&#x28;5,2&#x29;,&#xa;  retenido numeric&#x28;12,2&#x29;,&#xa;  casoret numeric&#x28;4,0&#x29;,&#xa;  tipdoc numeric&#x28;1,0&#x29;,&#xa;  cuit1 numeric&#x28;2,0&#x29;,&#xa;  nrodoc character varying&#x28;20&#x29;,&#xa;  cuit2 numeric&#x28;1,0&#x29;,&#xa;  nrocta1 character varying&#x28;20&#x29;,&#xa;  nrocta2 numeric&#x28;1,0&#x29;,&#xa;  nrocheq numeric&#x28;20,0&#x29;,&#xa;  ctare1 numeric&#x28;6,0&#x29;,&#xa;  ctare2 numeric&#x28;1,0&#x29;,&#xa;  fecint date,&#xa;  ret_ingb numeric&#x28;12,2&#x29;,&#xa;  ret_obra numeric&#x28;12,2&#x29;,&#xa;  ret_iva numeric&#x28;12,2&#x29;,&#xa;  ret_prex numeric&#x28;12,2&#x29;,&#xa;  ret_otr1 numeric&#x28;12,2&#x29;,&#xa;  ret_not1 character varying&#x28;20&#x29;,&#xa;  ret_otr2 numeric&#x28;12,2&#x29;,&#xa;  ret_not2 character varying&#x28;20&#x29;,&#xa;  sale date,&#xa;  hh numeric&#x28;2,0&#x29;,&#xa;  mm numeric&#x28;2,0&#x29;,&#xa;  llega date,&#xa;  hhl numeric&#x28;2,0&#x29;,&#xa;  mml numeric&#x28;2,0&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_obra&#xa;&#x28;&#xa;  anio numeric&#x28;4,0&#x29; NOT NULL,&#xa;  codigo_prg numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_sub numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_pry numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_act numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_obr numeric&#x28;2,0&#x29; NOT NULL,&#xa;  nom_obr character varying&#x28;50&#x29;&#xa;&#x29;&#xa;&#x3b;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_progra&#xa;&#x28;&#xa;  anio numeric&#x28;4,0&#x29; NOT NULL,&#xa;  codigo_prg numeric&#x28;2,0&#x29; NOT NULL,&#xa;  nom_prog character varying&#x28;50&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_proyec&#xa;&#x28;&#xa;  anio numeric&#x28;4,0&#x29; NOT NULL,&#xa;  codigo_prg numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_sub numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_pry numeric&#x28;2,0&#x29; NOT NULL,&#xa;  nom_proy character varying&#x28;50&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_recaud&#xa;&#x28;&#xa;  anio numeric&#x28;4,0&#x29; NOT NULL,&#xa;  fecha date NOT NULL,&#xa;  codigo_fue numeric&#x28;2,0&#x29; NOT NULL,&#xa;  coddep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  subdep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  rubro character varying&#x28;4&#x29; NOT NULL,&#xa;  impo_rec numeric&#x28;15,2&#x29;,&#xa;  codigo_con character varying&#x28;20&#x29; NOT NULL,&#xa;  d_recaud serial NOT NULL&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_salcre&#xa;&#x28;&#xa;  anio numeric&#x28;4,0&#x29; NOT NULL,&#xa;  d_salcre serial NOT NULL,&#xa;  coddep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  subdep numeric&#x28;3,0&#x29; NOT NULL,&#xa;  codigo_fue numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_inc numeric&#x28;1,0&#x29; NOT NULL,&#xa;  codigo_ppl numeric&#x28;1,0&#x29;,&#xa;  codigo_fin numeric&#x28;1,0&#x29; NOT NULL,&#xa;  codigo_prg numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_fun numeric&#x28;1,0&#x29; NOT NULL,&#xa;  codigo_sub numeric&#x28;2,0&#x29;,&#xa;  codigo_pry numeric&#x28;2,0&#x29;,&#xa;  codigo_act numeric&#x28;2,0&#x29;,&#xa;  codigo_obr numeric&#x28;2,0&#x29;,&#xa;  mes numeric&#x28;2,0&#x29; NOT NULL,&#xa;  fdo_uni numeric&#x28;12,2&#x29;,&#xa;  cred_orig numeric&#x28;12,2&#x29;,&#xa;  cred_mod numeric&#x28;12,2&#x29;,&#xa;  cred_prev numeric&#x28;12,2&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.d_subpro&#xa;&#x28;&#xa;  anio numeric&#x28;4,0&#x29; NOT NULL,&#xa;  codigo_prg numeric&#x28;2,0&#x29; NOT NULL,&#xa;  codigo_sub numeric&#x28;2,0&#x29; NOT NULL,&#xa;  nom_subp character varying&#x28;50&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE IF NOT EXISTS pilaga_tmp.c_tipdoc&#xa;&#x28;&#xa;  tipdoc numeric&#x28;1,0&#x29; NOT NULL,&#xa;  nom_tipd character varying&#x28;4&#x29;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>siu_dsa</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>341</xloc>
+      <yloc>269</yloc>
+      </entry>
+    <entry>
+      <name>borrar tablas temporales portal</name>
+      <description/>
+      <type>SQL</type>
+      <sql>DROP TABLE pilaga_tmp.d_activi&#x3b;&#xa;DROP TABLE pilaga_tmp.d_benef&#x3b;&#xa;DROP TABLE pilaga_tmp.d_cabcom&#x3b;&#xa;DROP TABLE pilaga_tmp.d_cabpre&#x3b;&#xa;DROP TABLE pilaga_tmp.d_codepa&#x3b;&#xa;DROP TABLE pilaga_tmp.d_coning&#x3b;&#xa;DROP TABLE pilaga_tmp.d_depcia&#x3b;&#xa;DROP TABLE pilaga_tmp.d_detcom&#x3b;&#xa;DROP TABLE pilaga_tmp.d_detpre&#x3b;&#xa;DROP TABLE pilaga_tmp.d_liqdet&#x3b;&#xa;DROP TABLE pilaga_tmp.d_liquid&#x3b;&#xa;DROP TABLE pilaga_tmp.d_obra&#x3b;&#xa;DROP TABLE pilaga_tmp.d_progra&#x3b;&#xa;DROP TABLE pilaga_tmp.d_proyec&#x3b;&#xa;DROP TABLE pilaga_tmp.d_recaud&#x3b;&#xa;DROP TABLE pilaga_tmp.d_salcre&#x3b;&#xa;DROP TABLE pilaga_tmp.d_subpro&#x3b;&#xa;DROP TABLE pilaga_tmp.c_tipdoc&#x3b;&#xa;DROP TABLE pilaga_tmp.mig_ft_movimientos&#x3b;&#xa;DROP TABLE pilaga_tmp.mig_ft_movimientos_compromiso&#x3b;&#xa;DROP TABLE pilaga_tmp.mig_ft_movimientos_devengado&#x3b;&#xa;DROP TABLE pilaga_tmp.mig_ft_movimientos_pagado&#x3b;&#xa;DROP TABLE pilaga_tmp.mig_ft_movimientos_cobrado&#x3b;&#xa;DROP TABLE pilaga_tmp.mig_temp_pagado&#x3b;&#xa;DROP TABLE pilaga_tmp.mig_temp_comp&#x3b;&#xa;DROP TABLE pilaga_tmp.mig_temp_deveng&#x3b;&#xa;&#xa;DROP INDEX pilaga.idx_d_documento_principal_001&#x3b;&#xa;&#xa;DROP INDEX pilaga.d_expediente_por_desc_index&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>siu_dsa</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>959</xloc>
+      <yloc>593</yloc>
+      </entry>
+    <entry>
+      <name>crear indices</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE INDEX idx_dcabcom_000 ON pilaga_tmp.d_cabcom USING btree &#x28;anio , tipo , numero , anicomp , coddep , subdep&#x29;&#x3b;&#xa;CREATE INDEX idx_dcabcom_001 ON pilaga_tmp.d_cabcom USING btree &#x28;anio, nup, anprev&#x29;&#x3b;&#xa;CREATE INDEX idx_dcabcom_002 ON pilaga_tmp.d_cabcom USING btree &#x28;anio, coddep, subdep&#x29;&#x3b;&#xa;&#xa;CREATE INDEX idx_dcabpre_000 ON pilaga_tmp.d_cabpre USING btree &#x28;anio , tipo , numero , anprev , coddep , subdep&#x29;&#x3b;&#xa;CREATE INDEX idx_dcabpre_001 ON pilaga_tmp.d_cabpre USING btree &#x28;anio, coddep, subdep&#x29;&#x3b;&#xa;&#xa;CREATE INDEX idx_dcodepa_000 ON pilaga_tmp.d_codepa USING btree &#x28;d_codepa&#x29;&#x3b;&#xa;CREATE INDEX idx_dcodepa_001 ON pilaga_tmp.d_codepa USING btree &#x28;anio, coddep, subdep&#x29;&#x3b;&#xa;CREATE INDEX idx_dcodepa_002 ON pilaga_tmp.d_codepa USING btree &#x28;codigo_fue&#x29;&#x3b;&#xa;CREATE INDEX idx_dcodepa_003 ON pilaga_tmp.d_codepa USING btree &#x28;codigo_inc&#x29;&#x3b;&#xa;CREATE INDEX idx_dcodepa_004 ON pilaga_tmp.d_codepa USING btree &#x28;anio, codigo_prg&#x29;&#x3b;&#xa;CREATE INDEX idx_dcodepa_005 ON pilaga_tmp.d_codepa USING btree &#x28;codigo_ppl&#x29;&#x3b;&#xa;&#xa;CREATE INDEX idx_ddetpre_000 ON pilaga_tmp.d_detpre USING btree &#x28;d_detpre&#x29;&#x3b;&#xa;CREATE INDEX idx_ddetpre_001 ON pilaga_tmp.d_detpre USING btree &#x28;anio, coddep, subdep&#x29;&#x3b;&#xa;CREATE INDEX idx_ddetpre_002 ON pilaga_tmp.d_detpre USING btree &#x28;codigo_inc&#x29;&#x3b;&#xa;CREATE INDEX idx_ddetpre_003 ON pilaga_tmp.d_detpre USING btree &#x28;anio, codigo_prg&#x29;&#x3b;&#xa;CREATE INDEX idx_ddetpre_004 ON pilaga_tmp.d_detpre USING btree &#x28;anio, tipo, numero, anprev&#x29;&#x3b;&#xa;CREATE INDEX idx_ddetpre_005 ON pilaga_tmp.d_detpre USING btree &#x28;codigo_fue&#x29;&#x3b;&#xa;&#xa;CREATE INDEX idx_dliqdet_000 ON pilaga_tmp.d_liqdet USING btree &#x28;d_liqdet&#x29;&#x3b;&#xa;CREATE INDEX idx_dliqdet_001 ON pilaga_tmp.d_liqdet USING btree &#x28;anio, coddep, subdep&#x29;&#x3b;&#xa;CREATE INDEX idx_dliqdet_002 ON pilaga_tmp.d_liqdet USING btree &#x28;anio, tipcom, nroliq, tipliq&#x29;&#x3b;&#xa;CREATE INDEX idx_dliqdet_003 ON pilaga_tmp.d_liqdet USING btree &#x28;codigo_fue&#x29;&#x3b;&#xa;&#xa;CREATE INDEX idx_ddetcom_000 ON pilaga_tmp.d_detcom USING btree &#x28;d_detcom&#x29;&#x3b;&#xa;CREATE INDEX idx_ddetcom_001 ON pilaga_tmp.d_detcom USING btree &#x28;anio, coddep, subdep&#x29;&#x3b;&#xa;CREATE INDEX idx_ddetcom_002 ON pilaga_tmp.d_detcom USING btree &#x28;anio, tipo, numero, anicomp&#x29;&#x3b;&#xa;CREATE INDEX idx_ddetcom_003 ON pilaga_tmp.d_detcom USING btree &#x28;codigo_inc&#x29;&#x3b;&#xa;CREATE INDEX idx_ddetcom_004 ON pilaga_tmp.d_detcom USING btree &#x28;anio, codigo_prg&#x29;&#x3b;&#xa;&#xa;CREATE INDEX idx_liquid_000 ON pilaga_tmp.d_liquid USING btree &#x28;anio , tipcom , nroliq , tipliq&#x29;&#x3b;&#xa;CREATE INDEX idx_liquid_005 ON pilaga_tmp.d_liquid USING btree &#x28;tipdoc, cuit1, nrodoc, cuit2&#x29;&#x3b;&#xa;CREATE INDEX idx_liquid_006 ON pilaga_tmp.d_liquid USING btree &#x28;fecliq&#x29;&#x3b;&#xa;CREATE INDEX idx_liquid_007 ON pilaga_tmp.d_liquid USING btree &#x28;fecpago&#x29;&#x3b;&#xa;&#xa;CREATE INDEX idx_drecaud_000 ON pilaga_tmp.d_recaud USING btree &#x28;d_recaud&#x29;&#x3b;&#xa;CREATE INDEX idx_drecaud_001 ON pilaga_tmp.d_recaud USING btree &#x28;anio, coddep, subdep&#x29;&#x3b;&#xa;CREATE INDEX idx_drecaud_002 ON pilaga_tmp.d_recaud USING btree &#x28;rubro&#x29;&#x3b;&#xa;CREATE INDEX idx_drecaud_003 ON pilaga_tmp.d_recaud USING btree &#x28;codigo_fue&#x29;&#x3b;&#xa;CREATE INDEX idx_drecaud_004 ON pilaga_tmp.d_recaud USING btree &#x28;anio, codigo_con&#x29;&#x3b;&#xa;&#xa;CREATE INDEX idx_dsalcre_000 ON pilaga_tmp.d_salcre USING btree &#x28;d_salcre&#x29;&#x3b;&#xa;CREATE INDEX idx_dsalcre_001 ON pilaga_tmp.d_salcre USING btree &#x28;anio, coddep, subdep&#x29;&#x3b;&#xa;CREATE INDEX idx_dsalcre_002 ON pilaga_tmp.d_salcre USING btree &#x28;codigo_fue&#x29;&#x3b;&#xa;CREATE INDEX idx_dsalcre_003 ON pilaga_tmp.d_salcre USING btree &#x28;codigo_inc&#x29;&#x3b;&#xa;CREATE INDEX idx_dsalcre_004 ON pilaga_tmp.d_salcre USING btree &#x28;codigo_ppl&#x29;&#x3b;&#xa;CREATE INDEX idx_dsalcre_005 ON pilaga_tmp.d_salcre USING btree &#x28;anio, codigo_prg&#x29;&#x3b;&#xa;&#xa;CREATE INDEX idx_d_documento_principal_001 ON pilaga.d_documento_principal USING btree &#x28;documento_principal_codigo&#x29;&#x3b;&#xa;&#xa;CREATE UNIQUE INDEX d_expediente_por_desc_index ON pilaga.d_expediente &#x28;expediente_desc&#x29;&#x3b;&#xa;&#xa;&#xa;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>siu_dsa</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>341</xloc>
+      <yloc>358</yloc>
+      </entry>
+    <entry>
+      <name>VACUUM</name>
+      <description/>
+      <type>SQL</type>
+      <sql>VACUUM FULL ANALYSE pilaga_tmp.d_liquid&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_cabpre&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_cabcom&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_coning&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_benef&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.c_tipdoc&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_salcre&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_progra&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_subpro&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_proyec&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_activi&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_obra&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_depcia&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_detpre&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_detcom&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_liqdet&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_recaud&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.d_coning&#x3b;&#xa;VACUUM FULL ANALYSE pilaga_tmp.c_tipdoc&#x3b;&#xa;&#xa;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>siu_dsa</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>471</xloc>
+      <yloc>458</yloc>
+      </entry>
+    <entry>
+      <name>migrar Dimensiones</name>
+      <description/>
+      <type>SQL</type>
+      <sql>-- d_banco_sucursal &#x28;no tiene&#x29;&#xa;INSERT INTO pilaga.d_banco_sucursal &#x28;banco_sucursal_id, banco_desc, cuit, sucursal_desc, sucursal_codigo,  fecha_desde, fecha_hasta, version, vigente, fecha_actualizacion&#x29;&#xa;  SELECT 0,&#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;,1,&#x27;Y&#x27;,now&#x28;&#x29; &#xa;WHERE 0 NOT IN &#x28;SELECT banco_sucursal_id FROM pilaga.d_banco_sucursal&#x29;&#x3b;&#xa;&#xa;-- d_circuito_gestion &#x28;no tiene&#x29;&#xa;INSERT INTO pilaga.d_circuito_gestion &#x28;circuito_gestion_id, circuito_gestion_codigo, circuito_gestion_desc, fecha_desde, fecha_hasta, version, vigente, fecha_actualizacion&#x29;&#xa;   SELECT 0,&#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;,1,&#x27;Y&#x27;,now&#x28;&#x29; &#xa;WHERE 0 NOT IN &#x28;SELECT circuito_gestion_id FROM pilaga.d_circuito_gestion&#x29;&#x3b;&#xa;&#xa;-- d_codigo_economico&#xa;INSERT INTO pilaga.d_codigo_economico &#x28;codigo_economico_id, codigo_economico_codigo, codigo_economico_desc, fecha_desde, fecha_hasta, version, vigente, fecha_actualizacion&#x29;&#xa;	SELECT 0,&#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;,1,&#x27;Y&#x27;,now&#x28;&#x29; &#xa;WHERE 0 NOT IN &#x28;SELECT codigo_economico_id FROM pilaga.d_codigo_economico&#x29;&#x3b;&#xa;&#xa;-- d_tipo_comprobante&#xa;INSERT INTO pilaga.d_tipo_comprobante &#x28;tipo_comprobante_id, tipo_comprobante_codigo, tipo_comprobante_desc, fecha_desde, fecha_hasta, version, vigente, fecha_actualizacion&#x29;&#xa;	SELECT 0,&#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;,1,&#x27;Y&#x27;,now&#x28;&#x29;&#xa;WHERE 0 NOT IN &#x28;SELECT tipo_comprobante_id FROM pilaga.d_tipo_comprobante&#x29;&#x3b;&#xa;&#xa;-- d_persona&#xa;INSERT INTO pilaga.d_persona &#x28;persona_id, persona_codigo, persona_tipo_documento, persona_nro_documento, fisica_o_juridica,  &#xa;	razon_social_apyno, nombre_fantasia, genero_id, nacionalidad, email, cbu, persona_detalle, estado, fecha_desde, fecha_hasta, version, vigente, fecha_actualizacion&#x29;&#xa;  SELECT 0, 0, &#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;,&#x27;VACIO&#x2f;NULO&#x27;,&#x27;VACIO&#x2f;NULO&#x27;, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;,1,&#x27;Y&#x27;,now&#x28;&#x29;&#xa;WHERE 0 NOT IN &#x28;SELECT persona_id FROM pilaga.d_persona&#x29;&#x3b;&#xa;&#xa;-- d_comprobante&#xa;INSERT INTO pilaga.d_comprobante &#x28;comprobante_id, comprobante_fecha, tipo_comprobante_id, persona_id, comprobante_numero, comprobante_detalle, importe, detalle, fecha_desde, fecha_hasta, version, vigente, fecha_actualizacion&#x29;&#xa;  SELECT 0, &#x27;2199-12-31&#x27;,0, 0, &#x27;VACIO&#x2f;NULO&#x27;,&#x27;VACIO&#x2f;NULO&#x27;, 0, &#x27;VACIO&#x2f;NULO&#x27;, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;,1,&#x27;Y&#x27;,now&#x28;&#x29;&#xa;WHERE 0 NOT IN &#x28;SELECT comprobante_id FROM pilaga.d_comprobante&#x29;&#x3b;&#xa;&#xa;-- d_concepto  &#xa;INSERT INTO pilaga.d_concepto &#x28;concepto_id, concepto_desc, fecha_desde, fecha_hasta, version, vigente, fecha_actualizacion&#x29;&#xa;	SELECT 0, &#x27;VACIO&#x2f;NULO&#x27;, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;,1,&#x27;Y&#x27;,now&#x28;&#x29;&#xa;WHERE 0 NOT IN &#x28;SELECT concepto_id FROM pilaga.d_concepto&#x29;&#x3b;&#xa;&#xa;CREATE SEQUENCE id_cubos_seq&#x3b;&#xa;SELECT setval&#x28;&#x27;id_cubos_seq&#x27;, &#x28;SELECT COALESCE&#x28;max&#x28;concepto_id&#x29;&#x2b;1,1&#x29; FROM pilaga.d_concepto&#x29;&#x29;&#x3b;&#xa;ALTER TABLE pilaga.d_concepto ALTER COLUMN concepto_id SET DEFAULT nextval&#x28;&#x27;id_cubos_seq&#x27;&#x3a;&#x3a;regclass&#x29;&#x3b;&#xa;INSERT INTO pilaga.d_concepto &#x28;concepto_desc, fecha_desde, fecha_hasta, version, vigente, fecha_actualizacion&#x29;&#xa;  SELECT DISTINCT concepto, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;&#x3a;&#x3a;date,1,&#x27;Y&#x27;,now&#x28;&#x29; FROM pilaga_tmp.d_liquid&#xa;WHERE concepto NOT IN &#x28;SELECT concepto_desc FROM pilaga.d_concepto&#x29;&#x3b;&#xa;INSERT INTO pilaga.d_concepto &#x28;concepto_desc, fecha_desde, fecha_hasta, version, vigente, fecha_actualizacion&#x29;&#xa;  SELECT DISTINCT concepto, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;&#x3a;&#x3a;date,1,&#x27;Y&#x27;,now&#x28;&#x29; FROM pilaga_tmp.d_cabpre&#xa;WHERE concepto NOT IN &#x28;SELECT concepto_desc FROM pilaga.d_concepto&#x29;&#x3b;&#xa;INSERT INTO pilaga.d_concepto &#x28;concepto_desc, fecha_desde, fecha_hasta, version, vigente, fecha_actualizacion&#x29;&#xa;  SELECT DISTINCT concepto, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;&#x3a;&#x3a;date,1,&#x27;Y&#x27;,now&#x28;&#x29; FROM pilaga_tmp.d_cabcom&#xa;WHERE concepto NOT IN &#x28;SELECT concepto_desc FROM pilaga.d_concepto&#x29;&#x3b;&#xa;ALTER TABLE pilaga.d_concepto ALTER COLUMN concepto_id DROP DEFAULT&#x3b;&#xa;DROP SEQUENCE id_cubos_seq&#x3b;&#xa;&#xa;-- d_concepto_ingreso&#xa;INSERT INTO pilaga.d_concepto_ingreso &#x28;concepto_ingreso_id, concepto_ingreso_codigo, tipo_ingreso_desc, concepto_ingreso_desc, fecha_desde, fecha_hasta,version,vigente, fecha_actualizacion&#x29;&#xa;  SELECT 0, &#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;&#x3a;&#x3a;date,1,&#x27;Y&#x27;,now&#x28;&#x29;&#xa;WHERE 0 NOT IN &#x28;SELECT concepto_ingreso_id FROM pilaga.d_concepto_ingreso&#x29;&#x3b;&#xa;CREATE SEQUENCE id_cubos_seq&#x3b;&#xa;SELECT setval&#x28;&#x27;id_cubos_seq&#x27;, &#x28;SELECT COALESCE&#x28;max&#x28;concepto_ingreso_id&#x29;&#x2b;1,1&#x29; FROM pilaga.d_concepto_ingreso&#x29;&#x29;&#x3b;&#xa;ALTER TABLE pilaga.d_concepto_ingreso ALTER COLUMN concepto_ingreso_id SET DEFAULT nextval&#x28;&#x27;id_cubos_seq&#x27;&#x3a;&#x3a;regclass&#x29;&#x3b;&#xa;INSERT INTO pilaga.d_concepto_ingreso &#x28;concepto_ingreso_codigo, tipo_ingreso_desc, concepto_ingreso_desc, fecha_desde, fecha_hasta,version,vigente, fecha_actualizacion&#x29;&#xa;  SELECT DISTINCT codigo_con, &#x27;ING&#x27;,&#xa;    &#x28;SELECT nombre FROM pilaga_tmp.d_coning n WHERE c.codigo_con&#x3d;n.codigo_con AND &#xa;      n.anio&#x3d;&#x28;SELECT anio FROM pilaga_tmp.d_coning ci WHERE c.codigo_con&#x3d;ci.codigo_con ORDER BY anio desc LIMIT 1&#x29;&#x29;, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;&#x3a;&#x3a;date,1,&#x27;Y&#x27;,now&#x28;&#x29; &#xa;  FROM pilaga_tmp.d_coning c&#xa;WHERE codigo_con NOT IN &#x28;SELECT concepto_ingreso_codigo FROM pilaga.d_concepto_ingreso&#x29;&#x3b;&#xa;ALTER TABLE pilaga.d_concepto_ingreso ALTER COLUMN concepto_ingreso_id DROP DEFAULT&#x3b;&#xa;DROP SEQUENCE id_cubos_seq&#x3b;&#xa;&#xa;-- d_cuenta_bancaria&#xa;INSERT INTO pilaga.d_cuenta_bancaria &#x28;cuenta_bancaria_id, cuenta_bancaria_numero, cuenta_bancaria_tipo_desc, cuenta_bancaria_desc, fecha_desde, fecha_hasta,version, vigente, fecha_actualizacion&#x29;&#xa;	SELECT 0, &#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;&#x3a;&#x3a;date,1,&#x27;Y&#x27;,now&#x28;&#x29;&#xa;WHERE 0 NOT IN &#x28;SELECT cuenta_bancaria_id FROM pilaga.d_cuenta_bancaria&#x29;&#x3b;&#xa;&#xa;--d_cuenta_tesoreria&#xa;INSERT INTO pilaga.d_cuenta_tesoreria &#x28;cuenta_tesoreria_id, cuenta_tesoreria_tipo_desc, cuenta_tesoreria_codigo, cuenta_tesoreria_desc,&#xa;  tesoreria_desc, fecha_desde, fecha_hasta,version, vigente, fecha_actualizacion&#x29;&#xa;  SELECT 0, &#x27;VACIO&#x2f;NULO&#x27;, 0, &#x27;VACIO&#x2f;NULO&#x27;, &#x27;VACIO&#x2f;NULO&#x27;, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;,1,&#x27;Y&#x27;,now&#x28;&#x29; &#xa;WHERE 0 NOT IN &#x28;SELECT cuenta_tesoreria_id FROM pilaga.d_cuenta_tesoreria&#x29;&#x3b;&#xa;&#xa;-- d_documento_principal&#xa;INSERT INTO pilaga.d_documento_principal &#x28;documento_principal_id, documento_principal_codigo, fecha_desde, fecha_hasta,version, vigente, fecha_actualizacion&#x29;&#xa;	SELECT 0, &#x27;VACIO&#x2f;NULO&#x27;, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;,1,&#x27;Y&#x27;,now&#x28;&#x29;&#xa;WHERE 0 NOT IN &#x28;SELECT documento_principal_id FROM pilaga.d_documento_principal&#x29;&#x3b;&#xa;&#xa;CREATE SEQUENCE id_cubos_seq&#x3b;&#xa;SELECT setval&#x28;&#x27;id_cubos_seq&#x27;, &#x28;SELECT COALESCE&#x28;max&#x28;documento_principal_id&#x29;&#x2b;1,1&#x29; FROM pilaga.d_documento_principal&#x29;&#x29;&#x3b;&#xa;ALTER TABLE pilaga.d_documento_principal ALTER COLUMN documento_principal_id SET DEFAULT nextval&#x28;&#x27;id_cubos_seq&#x27;&#x3a;&#x3a;regclass&#x29;&#x3b;&#xa;INSERT INTO pilaga.d_documento_principal &#x28;documento_principal_codigo, fecha_desde, fecha_hasta,version, vigente, fecha_actualizacion&#x29;&#xa;  SELECT DISTINCT tipcom &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; nroliq &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; anio, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;&#x3a;&#x3a;date,1,&#x27;Y&#x27;,now&#x28;&#x29; FROM pilaga_tmp.d_liquid&#xa;  WHERE tipcom &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; nroliq &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; anio NOT IN &#x28;SELECT documento_principal_codigo FROM pilaga.d_documento_principal&#x29;&#x3b;&#xa;INSERT INTO pilaga.d_documento_principal &#x28;documento_principal_codigo, fecha_desde, fecha_hasta,version, vigente, fecha_actualizacion&#x29;&#xa;  SELECT DISTINCT tipo &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; numero &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; anio&#x3a;&#x3a;text, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;&#x3a;&#x3a;date,1,&#x27;Y&#x27;,now&#x28;&#x29; FROM pilaga_tmp.d_cabpre&#xa;  WHERE tipo &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; numero &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; anio&#x3a;&#x3a;text NOT IN &#x28;SELECT documento_principal_codigo FROM pilaga.d_documento_principal&#x29;&#x3b;&#xa;INSERT INTO pilaga.d_documento_principal &#x28;documento_principal_codigo, fecha_desde, fecha_hasta,version, vigente, fecha_actualizacion&#x29;&#xa;  SELECT DISTINCT tipo &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; numero &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; anio&#x3a;&#x3a;text, now&#x28;&#x29;&#x3a;&#x3a;date,&#x27;2199-12-31&#x27;&#x3a;&#x3a;date,1,&#x27;Y&#x27;,now&#x28;&#x29; FROM pilaga_tmp.d_cabcom&#xa;  WHERE tipo &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; numero &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; anio&#x3a;&#x3a;text NOT IN &#x28;SELECT documento_principal_codigo FROM pilaga.d_documento_principal&#x29;&#x3b;&#xa;ALTER TABLE pilaga.d_documento_principal ALTER COLUMN documento_principal_id DROP DEFAULT&#x3b;&#xa;DROP SEQUENCE id_cubos_seq&#x3b;&#xa;&#xa;-- d_expediente&#xa;CREATE SEQUENCE id_cubos_seq&#x3b;&#xa;SELECT setval&#x28;&#x27;id_cubos_seq&#x27;, &#x28;SELECT COALESCE&#x28;max&#x28;expediente_id&#x29;&#x2b;1,1&#x29; FROM pilaga.d_expediente&#x29;&#x29;&#x3b;&#xa;ALTER TABLE pilaga.d_expediente ALTER COLUMN expediente_id SET DEFAULT nextval&#x28;&#x27;id_cubos_seq&#x27;&#x3a;&#x3a;regclass&#x29;&#x3b;&#xa;INSERT INTO pilaga.d_expediente &#x28;anio, tipo,expediente_nro, expediente_desc, fecha_desde, fecha_hasta,version, vigente, fecha_actualizacion&#x29;&#xa;SELECT anio, tipo, expediente_nro, expediente_desc &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; anio&#x3a;&#x3a;varchar as expediente_desc, fecha_desde, fecha_hasta, version,&#xa;	vigente, fecha_actualizacion&#xa;FROM&#x28;&#xa;	SELECT DISTINCT min&#x28;anio&#x29; as anio, &#x27;EXP&#x27; as tipo, nroexp as expediente_nro,&#x27;EXP&#x27; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; nroexp  as expediente_desc,  now&#x28;&#x29;&#x3a;&#x3a;date as fecha_desde&#xa;	,&#x27;2199-12-31&#x27;&#x3a;&#x3a;date as fecha_hasta,1 as version,&#x27;Y&#x27; as vigente ,now&#x28;&#x29; as fecha_actualizacion &#xa;	FROM pilaga_tmp.d_liquid&#xa;	WHERE &#x27;EXP&#x27; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; nroexp &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; anio&#x3a;&#x3a;varchar NOT IN &#x28;SELECT expediente_desc FROM pilaga.d_expediente&#x29; group by 2,3,4&#xa;&#x29;d_liq&#x3b;&#xa;&#xa;INSERT INTO pilaga.d_expediente &#x28;anio, tipo,expediente_nro, expediente_desc, fecha_desde, fecha_hasta,version, vigente, fecha_actualizacion&#x29;&#xa;SELECT anio, tipo, expediente_nro, expediente_desc &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; anio&#x3a;&#x3a;varchar as expediente_desc, fecha_desde, fecha_hasta, version,&#xa;	vigente, fecha_actualizacion&#xa;FROM&#x28;&#xa;	SELECT DISTINCT min&#x28;anio&#x29; as anio, &#x27;EXP&#x27; as tipo, exp as expediente_nro, &#x27;EXP&#x27; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; exp  as expediente_desc,  now&#x28;&#x29;&#x3a;&#x3a;date as fecha_desde&#xa;	,&#x27;2199-12-31&#x27;&#x3a;&#x3a;date as fecha_hasta,1 as version,&#x27;Y&#x27; as vigente ,now&#x28;&#x29; as fecha_actualizacion  FROM pilaga_tmp.d_cabpre&#xa;	WHERE &#x27;EXP&#x27; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; exp &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; anio&#x3a;&#x3a;varchar NOT IN &#x28;SELECT expediente_desc FROM pilaga.d_expediente&#x29; group by 2,3,4&#xa;&#x29;d_cabp&#x3b;&#xa;&#xa;INSERT INTO pilaga.d_expediente &#x28;anio, tipo,expediente_nro, expediente_desc, fecha_desde, fecha_hasta,version, vigente, fecha_actualizacion&#x29;&#xa;SELECT anio, tipo, expediente_nro, expediente_desc &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; anio&#x3a;&#x3a;varchar as expediente_desc, fecha_desde, fecha_hasta, version,&#xa;	vigente, fecha_actualizacion&#xa;FROM&#x28;&#xa;	SELECT DISTINCT min&#x28;anio&#x29; as anio, &#x27;EXP&#x27; as tipo, exp as expediente_nro, &#x27;EXP&#x27; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; exp  as expediente_desc, now&#x28;&#x29;&#x3a;&#x3a;date as fecha_desde&#xa;	,&#x27;2199-12-31&#x27;&#x3a;&#x3a;date as fecha_hasta,1 as version,&#x27;Y&#x27; as vigente ,now&#x28;&#x29; as fecha_actualizacion FROM pilaga_tmp.d_cabcom&#xa;	WHERE &#x27;EXP&#x27; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; exp &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; anio&#x3a;&#x3a;varchar NOT IN &#x28;SELECT expediente_desc FROM pilaga.d_expediente&#x29; group by 2,3,4&#xa;&#x29;d_cabc&#x3b;&#xa; &#xa;ALTER TABLE pilaga.d_expediente ALTER COLUMN expediente_id DROP DEFAULT&#x3b;&#xa;DROP SEQUENCE id_cubos_seq&#x3b;&#xa;&#xa;-- d_persona&#xa;CREATE SEQUENCE id_cubos_seq&#x3b;&#xa;SELECT setval&#x28;&#x27;id_cubos_seq&#x27;, &#x28;SELECT COALESCE&#x28;max&#x28;persona_id&#x29;&#x2b;1,1&#x29; FROM pilaga.d_persona&#x29;&#x29;&#x3b;&#xa;ALTER TABLE pilaga.d_persona ALTER COLUMN persona_id SET DEFAULT nextval&#x28;&#x27;id_cubos_seq&#x27;&#x3a;&#x3a;regclass&#x29;&#x3b;&#xa;INSERT INTO pilaga.d_persona &#x28;persona_codigo, persona_tipo_documento, persona_nro_documento,&#xa;	fisica_o_juridica, razon_social_apyno, nombre_fantasia, genero_id, nacionalidad, email, cbu, persona_detalle, &#xa;	estado, fecha_desde, fecha_hasta,version, vigente, fecha_actualizacion&#x29;&#xa;  SELECT &#xa;    null as persona_codigo, &#xa;    nom_tipd as persona_tipo_documento,&#xa;    CASE WHEN nom_tipd &#x3d; &#x27;CUIT&#x27; OR nom_tipd &#x3d; &#x27;CUIL&#x27; THEN&#xa;      cuit1&#x3a;&#x3a;varchar &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; nrodoc&#x3a;&#x3a;varchar &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; cuit2&#x3a;&#x3a;varchar&#xa;      ELSE nrodoc&#x3a;&#x3a;varchar&#xa;    END as persona_nro_documento,&#xa;    CASE WHEN  nom_tipd &#x3d; &#x27;CUIT&#x27; AND cuit1&#x3a;&#x3a;varchar &#x3d; &#x27;30&#x27; THEN &#x27;J&#x27;&#xa;      ELSE &#x27;F&#x27; &#xa;    END as fisica_o_juridica,&#xa;    nombre as razon_social_apyno,&#xa;    nombre as nombre_fantasia,&#xa;    0 as genero_id,&#xa;    &#x27;&#x27; as nacionalidad,&#xa;    &#x27;&#x27; as email,&#xa;    &#x27;&#x27; as cbu,&#xa;    CASE WHEN nom_tipd &#x3d; &#x27;CUIT&#x27; OR nom_tipd &#x3d; &#x27;CUIL&#x27; THEN&#xa;      &#x27;&#x28;&#x27; &#x7c;&#x7c; nom_tipd &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; cuit1&#x3a;&#x3a;varchar &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; nrodoc&#x3a;&#x3a;varchar &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; cuit2&#x3a;&#x3a;varchar &#x7c;&#x7c; &#x27;&#x29; &#x27; &#x7c;&#x7c; nombre&#xa;      ELSE  &#x27;&#x28;&#x27; &#x7c;&#x7c; nom_tipd &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; nrodoc&#x3a;&#x3a;varchar &#x7c;&#x7c; &#x27;&#x29; &#x27; &#x7c;&#x7c; nombre&#xa;    END as persona_detalle,&#xa;    &#x27;A&#x27; as estado,&#xa;    now&#x28;&#x29;&#x3a;&#x3a;date as fecha_desde,&#xa;    &#x27;2199-12-31&#x27; as fecha_hasta&#xa;    ,1 as version&#xa;    ,&#x27;Y&#x27; as vigente&#xa;    ,now&#x28;&#x29; as fecha_actualizacion&#xa;  FROM pilaga_tmp.d_benef b, pilaga_tmp.c_tipdoc td&#xa;  WHERE b.tipdoc&#x3d;td.tipdoc AND &#xa;    &#x28;nom_tipd, &#xa;     CASE WHEN nom_tipd &#x3d; &#x27;CUIT&#x27; OR nom_tipd &#x3d; &#x27;CUIL&#x27; THEN&#xa;       cuit1&#x3a;&#x3a;varchar &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; nrodoc&#x3a;&#x3a;varchar &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; cuit2&#x3a;&#x3a;varchar&#xa;       ELSE nrodoc&#x3a;&#x3a;varchar&#xa;    END&#x29; NOT IN &#x28;SELECT persona_tipo_documento, persona_nro_documento FROM pilaga.d_persona&#x29;&#x3b;&#xa;ALTER TABLE pilaga.d_persona ALTER COLUMN persona_id DROP DEFAULT&#x3b;&#xa;DROP SEQUENCE id_cubos_seq&#x3b;&#xa;&#xa;-- d_red_programatica&#xa;CREATE SEQUENCE id_cubos_seq&#x3b;&#xa;SELECT setval&#x28;&#x27;id_cubos_seq&#x27;, &#x28;SELECT COALESCE&#x28;max&#x28;red_programatica_id&#x29;&#x2b;1,1&#x29; FROM pilaga.d_red_programatica&#x29;&#x29;&#x3b;&#xa;ALTER TABLE pilaga.d_red_programatica ALTER COLUMN red_programatica_id SET DEFAULT nextval&#x28;&#x27;id_cubos_seq&#x27;&#x3a;&#x3a;regclass&#x29;&#x3b;&#xa;INSERT INTO pilaga.d_red_programatica &#x28;red_programatica_codigo, programa_desc, subprograma_desc,&#xa;	proyecto_desc, actividad_desc, obra_desc, red_programatica_combo_desc, fecha_desde, fecha_hasta,version, vigente, fecha_actualizacion&#x29;&#xa;SELECT DISTINCT &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_prg&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_sub&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_pry&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_act&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_obr&#x3a;&#x3a;text,2&#x29; as red_programatica_codigo,&#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_prg&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; COALESCE&#x28;p.nom_prog,&#x27;&#x27;&#x29; AS programa_desc,&#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_sub&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; COALESCE&#x28;s.nom_subp,&#x27;&#x27;&#x29; AS subprograma_desc,&#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_pry&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; COALESCE&#x28;r.nom_proy,&#x27;&#x27;&#x29; AS proyecto_desc,&#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_act&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; COALESCE&#x28;a.nom_activ,&#x27;&#x27;&#x29; AS actividad_desc,&#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_obr&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; COALESCE&#x28;o.nom_obr,&#x27;&#x27;&#x29; AS obra_desc,&#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_prg&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_sub&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_pry&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_act&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_obr&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; &#xa;  COALESCE&#x28;p.nom_prog,&#x27;&#x27;&#x29; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; &#xa;  COALESCE&#x28;s.nom_subp,&#x27;&#x27;&#x29; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c;&#xa;  COALESCE&#x28;r.nom_proy,&#x27;&#x27;&#x29; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; &#xa;  COALESCE&#x28;a.nom_activ,&#x27;&#x27;&#x29; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; &#xa;  COALESCE&#x28;o.nom_obr,&#x27;&#x27;&#x29; AS red_programatica_combo_desc,&#xa;  now&#x28;&#x29;&#x3a;&#x3a;date as fecha_desde,&#xa;  &#x27;2199-12-31&#x27;&#x3a;&#x3a;date as fecha_hasta,&#xa;  1 as version,&#xa;  &#x27;Y&#x27; as vigente,&#xa;  now&#x28;&#x29;as fecha_actualizacion&#xa;FROM pilaga_tmp.d_salcre AS d&#xa;LEFT OUTER JOIN pilaga_tmp.d_progra AS p ON&#xa;&#x28;&#xa;  d.codigo_prg &#x3d; p.codigo_prg AND &#xa;  p.anio &#x3d; &#x28;SELECT max&#x28;anio&#x29; FROM pilaga_tmp.d_progra pa WHERE p.codigo_prg &#x3d; pa.codigo_prg&#x29;&#xa;&#x29;&#xa;LEFT OUTER JOIN pilaga_tmp.d_subpro AS s ON&#xa;&#x28;&#xa;  d.codigo_prg &#x3d; s.codigo_prg AND &#xa;  d.codigo_sub &#x3d; s.codigo_sub AND &#xa;  s.anio &#x3d; &#x28;SELECT max&#x28;anio&#x29; FROM pilaga_tmp.d_subpro sa WHERE  p.codigo_prg &#x3d; sa.codigo_prg AND&#xa;							s.codigo_sub &#x3d; sa.codigo_sub&#x29;&#xa;&#x29;&#xa;LEFT OUTER JOIN pilaga_tmp.d_proyec AS r ON&#xa;&#x28;&#xa;  d.codigo_prg &#x3d; r.codigo_prg AND &#xa;  d.codigo_sub &#x3d; r.codigo_sub AND &#xa;  d.codigo_pry &#x3d; r.codigo_pry AND &#xa;  r.anio &#x3d; &#x28;SELECT max&#x28;anio&#x29; FROM pilaga_tmp.d_proyec ra WHERE  p.codigo_prg &#x3d; ra.codigo_prg AND&#xa;							s.codigo_sub &#x3d; ra.codigo_sub AND&#xa;							r.codigo_pry &#x3d; ra.codigo_pry&#x29;&#xa;&#x29;&#xa;LEFT OUTER JOIN pilaga_tmp.d_activi AS a ON&#xa;&#x28;&#xa;  d.codigo_prg &#x3d; a.codigo_prg AND &#xa;  d.codigo_sub &#x3d; a.codigo_sub AND &#xa;  d.codigo_pry &#x3d; a.codigo_pry AND &#xa;  d.codigo_act &#x3d; a.codigo_act AND &#xa;  a.anio &#x3d; &#x28;SELECT max&#x28;anio&#x29; FROM pilaga_tmp.d_activi aa WHERE  p.codigo_prg &#x3d; aa.codigo_prg AND&#xa;							s.codigo_sub &#x3d; aa.codigo_sub AND&#xa;							r.codigo_pry &#x3d; aa.codigo_pry AND&#xa;							a.codigo_act &#x3d; aa.codigo_act&#x29;&#xa;&#x29;&#xa;LEFT OUTER JOIN pilaga_tmp.d_obra AS o ON&#xa;&#x28;&#xa;  d.codigo_prg &#x3d; o.codigo_prg AND &#xa;  d.codigo_sub &#x3d; o.codigo_sub AND &#xa;  d.codigo_pry &#x3d; o.codigo_pry AND &#xa;  d.codigo_act &#x3d; o.codigo_act AND &#xa;  d.codigo_obr &#x3d; o.codigo_obr AND&#xa;  o.anio &#x3d; &#x28;SELECT max&#x28;anio&#x29; FROM pilaga_tmp.d_obra oa WHERE  p.codigo_prg &#x3d; oa.codigo_prg AND&#xa;							s.codigo_sub &#x3d; oa.codigo_sub AND&#xa;							r.codigo_pry &#x3d; oa.codigo_pry AND&#xa;							a.codigo_act &#x3d; oa.codigo_act AND&#xa;							o.codigo_obr &#x3d; oa.codigo_obr&#x29;&#xa;&#x29;&#xa;WHERE&#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_prg&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_sub&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_pry&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_act&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_obr&#x3a;&#x3a;text,2&#x29;&#xa;NOT IN &#x28;SELECT red_programatica_codigo FROM pilaga.d_red_programatica&#x29;&#x3b;&#xa;ALTER TABLE pilaga.d_red_programatica ALTER COLUMN red_programatica_id DROP DEFAULT&#x3b;&#xa;DROP SEQUENCE id_cubos_seq&#x3b;&#xa;&#xa;-- d_tipo_documento&#xa;CREATE SEQUENCE id_cubos_seq&#x3b;&#xa;SELECT setval&#x28;&#x27;id_cubos_seq&#x27;, &#x28;SELECT COALESCE&#x28;max&#x28;tipo_documento_id&#x29;&#x2b;1,1&#x29; FROM pilaga.d_tipo_documento&#x29;&#x29;&#x3b;&#xa;ALTER TABLE pilaga.d_tipo_documento ALTER COLUMN tipo_documento_id SET DEFAULT nextval&#x28;&#x27;id_cubos_seq&#x27;&#x3a;&#x3a;regclass&#x29;&#x3b;&#xa;&#xa;INSERT INTO pilaga.d_tipo_documento &#x28;tipo_documento_codigo, tipo_documento_desc, fecha_desde, fecha_hasta,version, vigente, fecha_actualizacion&#x29;&#xa;	SELECT DISTINCT tipcom, tipcom, now&#x28;&#x29;&#x3a;&#x3a;date as fecha_desde,&#x27;2199-12-31&#x27;&#x3a;&#x3a;date as fecha_hasta,1 as version,&#x27;Y&#x27; as vigente, now&#x28;&#x29; as fecha_actualizacion &#xa;	FROM pilaga_tmp.d_liquid&#xa;	WHERE tipcom NOT IN &#x28;SELECT tipo_documento_codigo FROM pilaga.d_tipo_documento&#x29;&#x3b; &#xa;&#xa;INSERT INTO pilaga.d_tipo_documento &#x28;tipo_documento_codigo, tipo_documento_desc, fecha_desde, fecha_hasta,version, vigente, fecha_actualizacion&#x29;&#xa;	SELECT DISTINCT tipo, tipo, now&#x28;&#x29;&#x3a;&#x3a;date as fecha_desde,&#x27;2199-12-31&#x27;&#x3a;&#x3a;date as fecha_hasta,1 as version,&#x27;Y&#x27; as vigente, now&#x28;&#x29; as fecha_actualizacion &#xa;	FROM pilaga_tmp.d_cabpre&#xa;	WHERE tipo NOT IN &#x28;SELECT tipo_documento_codigo FROM pilaga.d_tipo_documento&#x29;&#x3b; &#xa;&#xa;INSERT INTO pilaga.d_tipo_documento &#x28;tipo_documento_codigo, tipo_documento_desc, fecha_desde, fecha_hasta,version, vigente, fecha_actualizacion&#x29;&#xa;	SELECT DISTINCT tipo, tipo , now&#x28;&#x29;&#x3a;&#x3a;date as fecha_desde,&#x27;2199-12-31&#x27;&#x3a;&#x3a;date as fecha_hasta,1 as version,&#x27;Y&#x27; as vigente, now&#x28;&#x29; as fecha_actualizacion &#xa;	FROM pilaga_tmp.d_cabcom&#xa;	WHERE tipo NOT IN &#x28;SELECT tipo_documento_codigo FROM pilaga.d_tipo_documento&#x29;&#x3b; &#xa;&#xa;ALTER TABLE pilaga.d_tipo_documento ALTER COLUMN tipo_documento_id DROP DEFAULT&#x3b;&#xa;DROP SEQUENCE id_cubos_seq&#x3b;&#xa;&#xa;-- d_unidad_presupuestaria&#xa;CREATE SEQUENCE id_cubos_seq&#x3b;&#xa;SELECT setval&#x28;&#x27;id_cubos_seq&#x27;, &#x28;SELECT COALESCE&#x28;max&#x28;unidad_presupuestaria_id&#x29;&#x2b;1,1&#x29; FROM pilaga.d_unidad_presupuestaria&#x29;&#x29;&#x3b;&#xa;ALTER TABLE pilaga.d_unidad_presupuestaria ALTER COLUMN unidad_presupuestaria_id SET DEFAULT nextval&#x28;&#x27;id_cubos_seq&#x27;&#x3a;&#x3a;regclass&#x29;&#x3b;&#xa;&#xa;INSERT INTO pilaga.d_unidad_presupuestaria &#x28;unidad_presupuestaria_codigo, unidad_presupuestaria_desc, subunidad_presupuestaria_desc, &#xa;  subsubunidad_presupuestaria_desc, unidad_presupuestaria_combo_desc, fecha_desde, fecha_hasta,version, vigente, fecha_actualizacion&#x29;&#xa;SELECT &#xa;  right&#x28;&#x27;00&#x27; &#x7c;&#x7c; coddep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; right&#x28;&#x27;00&#x27; &#x7c;&#x7c; subdep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.000&#x27; AS unidad_presupuestaria_codigo,&#xa;  right&#x28;&#x27;00&#x27; &#x7c;&#x7c; coddep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c;&#xa;  &#x28;SELECT nombre FROM pilaga_tmp.d_depcia du WHERE d.anio&#x3d;du.anio AND d.coddep&#x3d;du.coddep AND du.coddep&#x3d;du.codpre AND&#xa;						du.subdep&#x3d;du.subpre AND du.subdep&#x3d;0&#x29;&#xa;     AS unidad_presupuestaria_desc,&#xa;  CASE WHEN subdep &#x3d; 0 THEN &#x27;000 - SIN SUBUNIDAD&#x27;&#xa;    ELSE right&#x28;&#x27;00&#x27; &#x7c;&#x7c; subdep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; nombre&#xa;  END AS subunidad_presupuestaria_desc,&#xa;  &#x27;000 - SIN SUBSUBUNIDAD&#x27; AS subsubunidad_presupuestaria_desc,&#xa;  right&#x28;&#x27;00&#x27; &#x7c;&#x7c; coddep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; right&#x28;&#x27;00&#x27; &#x7c;&#x7c; subdep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.000 - &#x27; &#x7c;&#x7c;&#xa;  &#x28;SELECT nombre FROM pilaga_tmp.d_depcia du WHERE d.anio&#x3d;du.anio AND d.coddep&#x3d;du.coddep AND du.coddep&#x3d;du.codpre AND&#xa;						du.subdep&#x3d;du.subpre AND du.subdep&#x3d;0&#x29; &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c;   &#xa;  CASE WHEN subdep &#x3d; 0 THEN &#x27;SIN SUBUNIDAD&#x27;&#xa;    ELSE nombre&#xa;  END &#x7c;&#x7c; &#x27; - SIN SUBSUBUNIDAD&#x27;&#xa;  AS unidad_presupuestaria_combo_desc,&#xa;  now&#x28;&#x29;&#x3a;&#x3a;date as fecha_desde,&#xa;  &#x27;2199-12-31&#x27;&#x3a;&#x3a;date as fecha_hasta,&#xa;  1 as version,&#xa;  &#x27;Y&#x27; as vigente,&#xa;  now&#x28;&#x29; as fecha_actualizacion&#xa;FROM pilaga_tmp.d_depcia d&#xa;WHERE coddep&#x3d;codpre AND subdep&#x3d;subpre AND&#xa;  anio IN &#x28;SELECT max&#x28;anio&#x29; FROM pilaga_tmp.d_depcia da WHERE d.coddep&#x3d;da.coddep AND d.subdep&#x3d;da.subdep&#x29; AND&#xa;  right&#x28;&#x27;00&#x27; &#x7c;&#x7c; coddep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; right&#x28;&#x27;00&#x27; &#x7c;&#x7c; subdep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.000&#x27; NOT IN &#x28;SELECT unidad_presupuestaria_codigo FROM pilaga.d_unidad_presupuestaria&#x29;&#x3b; &#xa;  &#xa;ALTER TABLE pilaga.d_unidad_presupuestaria ALTER COLUMN unidad_presupuestaria_id DROP DEFAULT&#x3b;&#xa;DROP SEQUENCE id_cubos_seq&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>siu_dw</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>755</xloc>
+      <yloc>458</yloc>
+      </entry>
+    <entry>
+      <name>temporal &#x28;mig_ft_movimientos&#x29;</name>
+      <description/>
+      <type>SQL</type>
+      <sql>-- ft_movimientos&#xa;-- &#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#xa;-- CREDITO ORIGINAL Y MODIFICATORIO&#xa;-- &#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#xa;DROP TABLE IF EXISTS pilaga_tmp.mig_ft_movimientos&#x3b;&#xa;SELECT &#xa;  d_salcre AS id_tabla,&#xa;  &#x27;&#x27;&#x3a;&#x3a;text as tipo,&#xa;  anio AS anio_id, &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_id, 0 AS red_programatica_id, 0 AS grupo_presupuestario_id, 0 AS codigo_economico_id, 0 AS unidad_presupuestaria_id,&#xa;  0 AS unidad_gestion_id, 0 AS finalidad_funcion_id, 0 AS moneda_id, 0 AS fondo_id, 0 AS tercero_id, 0 AS fuente_id,&#xa;  0 AS circuito_gestion_id, 0 AS objeto_del_gasto_id, 0 AS expediente_id, 0 AS concepto_id, 0 AS documento_principal_id,&#xa;  0 AS tipo_persona_id, 0 AS persona_id, 0 AS persona_comprobante_id, 0 AS comprobante_id, 0 AS contribuyente_id,&#xa;  &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_vencimiento_id, 0 AS nivel_autorizacion_id, 0 AS estado_liquidacion_id, &#xa;  &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_valor_id, 0 AS unidad_generica_id, 0 AS etapa_presupuestaria_id, 0 AS tipo_documento_id,&#xa;  0 AS documento_preventivo_id, 0 AS documento_compromiso_id, 0 AS documento_devengado_id, 0 AS documento_pagado_id,&#xa;  0 AS documento_devengado_ingreso_id, 0 AS documento_cobrado_id, 0 AS cuenta_tesoreria_id, 0 AS cuenta_bancaria_id,&#xa;  0 AS banco_sucursal_id, 0 AS rubro_ingreso_id, 0 AS concepto_ingreso_id, 0 AS tipo_operacion_id, mes AS mes_id,&#xa;  cred_orig AS credito_original,&#xa;  0.0 AS credito_modificatorio,&#xa;  cred_orig AS credito, -- Ver si corresponde dejarlo o es una medida calculada&#xa;  0.0 AS preventivo,&#xa;  0.0 AS compromiso,&#xa;  0.0 AS devengado,&#xa;  0.0 AS pagado,&#xa;  0.0 AS retenciones,&#xa;  0.0 AS disponibilidades,&#xa;  0.0 AS previsto_de_ingreso,&#xa;  0.0 AS estimado_de_ingreso,&#xa;  0.0 AS devengado_de_ingreso,&#xa;  0.0 AS cobrado,&#xa;  &#x27;COM&#x27;&#x3a;&#x3a;text as etapa_migracion  &#xa;INTO pilaga_tmp.mig_ft_movimientos&#xa; FROM pilaga_tmp.d_salcre&#xa; WHERE cred_orig&#x3c;&#x3e;0&#x3b;&#xa;&#xa;INSERT INTO pilaga_tmp.mig_ft_movimientos&#xa;SELECT &#xa;  d_salcre AS id_tabla,&#xa;  &#x27;&#x27;&#x3a;&#x3a;text as tipo,&#xa;  anio AS anio_id, &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_id, 0 AS red_programatica_id, 0 AS grupo_presupuestario_id, 0 AS codigo_economico_id, 0 AS unidad_presupuestaria_id,&#xa;  0 AS unidad_gestion_id, 0 AS finalidad_funcion_id, 0 AS moneda_id, 0 AS fondo_id, 0 AS tercero_id, 0 AS fuente_id,&#xa;  0 AS circuito_gestion_id, 0 AS objeto_del_gasto_id, 0 AS expediente_id, 0 AS concepto_id, 0 AS documento_id,&#xa;  0 AS tipo_persona_id, 0 AS persona_id, 0 AS persona_comprobante_id, 0 AS comprobante_id, 0 AS contribuyente_id,&#xa;  &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_vencimiento_id, 0 AS nivel_autorizacion_id, 0 AS estado_liquidacion_id,&#xa;  &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_valor_id, 0 AS unidad_generica_id, 0 AS etapa_presupuestaria_id, 0 AS tipo_documento_id,&#xa;  0 AS documento_preventivo_id, 0 AS documento_compromiso_id, 0 AS documento_devengado_id, 0 AS documento_pagado_id,&#xa;  0 AS documento_devengado_ingreso_id, 0 AS documento_cobrado_id, 0 AS cuenta_tesoreria_id, 0 AS cuenta_bancaria_id,&#xa;  0 AS banco_sucursal_id, 0 AS rubro_ingreso_id, 0 AS concepto_ingreso_id, 0 AS tipo_operacion_id, mes AS mes_id,&#xa;  0.0 AS credito_original,&#xa;  cred_mod AS credito_modificatorio,&#xa;  cred_mod AS credito, -- Ver si corresponde dejarlo o es una medida calculada&#xa;  0.0 AS preventivo,&#xa;  0.0 AS compromiso,&#xa;  0.0 AS devengado,&#xa;  0.0 AS pagado,&#xa;  0.0 AS retenciones,&#xa;  0.0 AS disponibilidades,&#xa;  0.0 AS previsto_de_ingreso,&#xa;  0.0 AS estimado_de_ingreso,&#xa;  0.0 AS devengado_de_ingreso,&#xa;  0.0 AS cobrado,&#xa;  &#x27;COM&#x27;&#x3a;&#x3a;text as etapa_migracion--Credito original y modificatorio&#xa; FROM pilaga_tmp.d_salcre&#xa; WHERE cred_mod&#x3c;&#x3e;0&#x3b;&#xa;&#xa;INSERT INTO pilaga_tmp.mig_ft_movimientos&#xa;SELECT &#xa;  d_salcre AS id_tabla,&#xa;  &#x27;&#x27;&#x3a;&#x3a;text as tipo,&#xa;  anio AS anio_id, &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_id, 0 AS red_programatica_id, 0 AS grupo_presupuestario_id, 0 AS codigo_economico_id, 0 AS unidad_presupuestaria_id,&#xa;  0 AS unidad_gestion_id, 0 AS finalidad_funcion_id, 0 AS moneda_id, 0 AS fondo_id, 0 AS tercero_id, 0 AS fuente_id,&#xa;  0 AS circuito_gestion_id, 0 AS objeto_del_gasto_id, 0 AS expediente_id, 0 AS concepto_id, 0 AS documento_id,&#xa;  0 AS tipo_persona_id, 0 AS persona_id, 0 AS persona_comprobante_id, 0 AS comprobante_id, 0 AS contribuyente_id,&#xa;  &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_vencimiento_id, 0 AS nivel_autorizacion_id, 0 AS estado_liquidacion_id,&#xa;  &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_valor_id, 0 AS unidad_generica_id, 0 AS etapa_presupuestaria_id, 0 AS tipo_documento_id,&#xa;  0 AS documento_preventivo_id, 0 AS documento_compromiso_id, 0 AS documento_devengado_id, 0 AS documento_pagado_id,&#xa;  0 AS documento_devengado_ingreso_id, 0 AS documento_cobrado_id, 0 AS cuenta_tesoreria_id, 0 AS cuenta_bancaria_id,&#xa;  0 AS banco_sucursal_id, 0 AS rubro_ingreso_id, 0 AS concepto_ingreso_id, 0 AS tipo_operacion_id, mes AS mes_id,&#xa;  0.0 AS credito_original,&#xa;  fdo_uni AS credito_modificatorio,&#xa;  fdo_uni AS credito, -- Ver si corresponde dejarlo o es una medida calculada&#xa;  0.0 AS preventivo,&#xa;  0.0 AS compromiso,&#xa;  0.0 AS devengado,&#xa;  0.0 AS pagado,&#xa;  0.0 AS retenciones,&#xa;  0.0 AS disponibilidades,&#xa;  0.0 AS previsto_de_ingreso,&#xa;  0.0 AS estimado_de_ingreso,&#xa;  0.0 AS devengado_de_ingreso,&#xa;  0.0 AS cobrado,&#xa;  &#x27;COM&#x27;&#x3a;&#x3a;text as etapa_migracion--Credito original y modificatorio&#xa; FROM pilaga_tmp.d_salcre&#xa; WHERE fdo_uni&#x3c;&#x3e;0&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos &#xa;SET fecha_id &#x3d; COALESCE&#x28;&#x28;SELECT &#x28;anio&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; mes&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;-01&#x27;&#x29;&#x3a;&#x3a;date FROM pilaga_tmp.d_salcre WHERE id_tabla&#x3d;d_salcre&#x29;,&#x27;1900-01-01&#x27;&#x3a;&#x3a;date&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;COM&#x27;&#x3b;&#xa; &#xa;UPDATE pilaga_tmp.mig_ft_movimientos &#xa;SET fecha_valor_id &#x3d; COALESCE&#x28;&#x28;SELECT &#x28;anio&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; mes&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;-01&#x27;&#x29;&#x3a;&#x3a;date FROM pilaga_tmp.d_salcre WHERE id_tabla&#x3d;d_salcre&#x29;,&#x27;1900-01-01&#x27;&#x3a;&#x3a;date&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;COM&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa; SET red_programatica_id &#x3d; COALESCE&#x28;&#x28;SELECT rp.red_programatica_id FROM pilaga.d_red_programatica rp, pilaga_tmp.d_salcre d&#xa; WHERE id_tabla&#x3d;d.d_salcre AND&#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_prg&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_sub&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_pry&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_act&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_obr&#x3a;&#x3a;text,2&#x29; &#x3d; rp.red_programatica_codigo&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;COM&#x27;&#x3b;&#xa; &#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa; SET grupo_presupuestario_id &#x3d; COALESCE&#x28;&#x28;SELECT grupo_presupuestario_id FROM pilaga.d_grupo_presupuestario WHERE grupo_presupuestario_codigo&#x3d;&#x27;0001&#x27;&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;COM&#x27;&#x3b; &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa; SET unidad_presupuestaria_id &#x3d; COALESCE&#x28;&#x28;SELECT up.unidad_presupuestaria_id FROM pilaga.d_unidad_presupuestaria up, pilaga_tmp.d_salcre d&#xa; WHERE id_tabla&#x3d;d.d_salcre AND&#xa;  right&#x28;&#x27;00&#x27; &#x7c;&#x7c; d.coddep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; right&#x28;&#x27;00&#x27; &#x7c;&#x7c; d.subdep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.000&#x27; &#x3d; up.unidad_presupuestaria_codigo&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;COM&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa; SET finalidad_funcion_id &#x3d; COALESCE&#x28;&#x28;SELECT f.finalidad_funcion_id FROM pilaga.d_finalidad_funcion f, pilaga_tmp.d_salcre d &#xa;	WHERE id_tabla&#x3d;d.d_salcre AND f.finalidad_codigo&#x3d;d.codigo_fin AND f.funcion_codigo&#x3d;d.codigo_fun&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;COM&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa; SET moneda_id &#x3d; COALESCE&#x28;&#x28;SELECT m.moneda_id FROM pilaga.d_moneda m WHERE m.moneda_codigo&#x3d;&#x27;1&#x27;&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;COM&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos SET fondo_id &#x3d; &#x28;SELECT fondo_id FROM pilaga.d_fondo WHERE fondo_desc &#x3d; &#x27;Presupuestario&#x27;&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;COM&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET fuente_id &#x3d; COALESCE&#x28;&#x28;SELECT f.fuente_id FROM pilaga.d_fuente f, pilaga_tmp.d_salcre d WHERE id_tabla&#x3d;d.d_salcre AND f.fuente_codigo&#x3d;d.codigo_fue&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;COM&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET circuito_gestion_id &#x3d; COALESCE&#x28;&#x28;SELECT cg.circuito_gestion_id FROM pilaga.d_circuito_gestion cg WHERE cg.circuito_gestion_codigo&#x3d;&#x27;CRED&#x27;&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;COM&#x27;&#x3b;&#xa; &#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET objeto_del_gasto_id &#x3d; COALESCE&#x28;&#x28;SELECT og.objeto_del_gasto_id FROM pilaga.d_objeto_del_gasto og, pilaga_tmp.d_salcre d WHERE id_tabla&#x3d;d.d_salcre AND&#xa;  og.objeto_del_gasto_codigo&#x3d;codigo_inc&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; codigo_ppl &#x7c;&#x7c; &#x27;.0.0000&#x27;&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;COM&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET expediente_id &#x3d; COALESCE&#x28;&#x28;SELECT e.expediente_id FROM pilaga.d_expediente e WHERE e.expediente_desc&#x3d;&#x27;VACIO&#x2f;NULO&#x27;&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;COM&#x27;&#x3b; &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET etapa_presupuestaria_id &#x3d; COALESCE&#x28;&#x28;SELECT e.etapa_presupuestaria_id FROM pilaga.d_etapa_presupuestaria e WHERE e.etapa_presupuestaria_codigo&#x3d;&#x27;CR&#x27;&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;COM&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET tipo_operacion_id &#x3d; COALESCE&#x28;&#x28;SELECT t.tipo_operacion_id FROM pilaga.d_tipo_operacion t WHERE t.tipo_operacion_codigo&#x3d;&#x27;CRED&#x27;&#x29;,0&#x29;&#xa;WHERE credito_original&#x3c;&#x3e;0 AND etapa_migracion &#x3d; &#x27;COM&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET tipo_operacion_id &#x3d; COALESCE&#x28;&#x28;SELECT t.tipo_operacion_id FROM pilaga.d_tipo_operacion t WHERE t.tipo_operacion_codigo&#x3d;&#x27;CREM&#x27;&#x29;,0&#x29;&#xa;WHERE credito_modificatorio&#x3c;&#x3e;0 AND etapa_migracion &#x3d; &#x27;COM&#x27;&#x3b;&#xa;&#xa;-- &#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#xa;-- PREVENTIVO&#xa;-- &#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#xa;INSERT INTO pilaga_tmp.mig_ft_movimientos&#xa;SELECT &#xa;  d_detpre AS id_tabla,&#xa;  c.tipo AS tipo,&#xa;  d.anio AS anio_id,&#xa;  &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_id,&#xa;  0 AS red_programatica_id,&#xa;  0 AS grupo_presupuestario_id,&#xa;  0 AS codigo_economico_id,&#xa;  0 AS unidad_presupuestaria_id,&#xa;  0 AS unidad_gestion_id,&#xa;  0 AS finalidad_funcion_id,&#xa;  0 AS moneda_id,&#xa;  0 AS fondo_id,&#xa;  0 AS tercero_id,&#xa;  0 AS fuente_id,&#xa;  0 AS circuito_gestion_id,&#xa;  0 AS objeto_del_gasto_id,&#xa;  0 AS expediente_id,&#xa;  0 AS concepto_id,&#xa;  0 AS documento_id,&#xa;  0 AS tipo_persona_id,&#xa;  0 AS persona_id,&#xa;  0 AS persona_comprobante_id,&#xa;  0 AS comprobante_id,&#xa;  0 AS contribuyente_id,&#xa;  &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_vencimiento_id,&#xa;  0 AS nivel_autorizacion_id,&#xa;  0 AS estado_liquidacion_id,&#xa;  &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_valor_id,&#xa;  0 AS unidad_generica_id,&#xa;  0 AS etapa_presupuestaria_id,&#xa;  0 AS tipo_documento_id,&#xa;  0 AS documento_preventivo_id,&#xa;  0 AS documento_compromiso_id,&#xa;  0 AS documento_devengado_id,&#xa;  0 AS documento_pagado_id,&#xa;  0 AS documento_devengado_ingreso_id,&#xa;  0 AS documento_cobrado_id,&#xa;  0 AS cuenta_tesoreria_id,&#xa;  0 AS cuenta_bancaria_id,&#xa;  0 AS banco_sucursal_id,&#xa;  0 AS rubro_ingreso_id,&#xa;  0 AS concepto_ingreso_id,&#xa;  0 AS tipo_operacion_id,&#xa;  0 AS mes_id,&#xa;  0.0 AS credito_original,&#xa;  0.0 AS credito_modificatorio,&#xa;  0.0 AS credito, -- Ver si corresponde dejarlo o es una medida calculada&#xa;  preventivo AS preventivo,&#xa;  0.0 AS compromiso,&#xa;  0.0 AS devengado,&#xa;  0.0 AS pagado,&#xa;  0.0 AS retenciones,&#xa;  0.0 AS disponibilidades,&#xa;  0.0 AS previsto_de_ingreso,&#xa;  0.0 AS estimado_de_ingreso,&#xa;  0.0 AS devengado_de_ingreso,&#xa;  0.0 AS cobrado,&#xa;  &#x27;PRE&#x27;&#x3a;&#x3a;text as etapa_migracion --Preventivo&#xa;FROM pilaga_tmp.d_detpre d, pilaga_tmp.d_cabpre c &#xa;WHERE d.anio&#x3d;c.anio AND d.tipo&#x3d;c.tipo AND d.numero&#x3d;c.numero AND d.anprev&#x3d;c.anprev AND d.coddep&#x3d;c.coddep AND d.subdep&#x3d;c.subdep&#x3b;&#xa;&#xa;-- TODO&#x3a; el valor del mes esta mal calculado, en realidad no encontramos la forma de obtenerlo &#x28;o tenemos el mes o el numero de documento&#x29;&#xa;-- creemos que el dato real del mes no es obtenible.&#xa;UPDATE pilaga_tmp.mig_ft_movimientos &#xa;SET mes_id &#x3d; COALESCE&#x28;&#x28;select avg&#x28;c.mes&#x29;&#x3a;&#x3a;integer from pilaga_tmp.d_detpre p, pilaga_tmp.d_salcre c&#xa;		WHERE id_tabla &#x3d; p.d_detpre AND&#xa;			p.anio&#x3d;c.anio and p.coddep&#x3d;c.coddep and p.subdep&#x3d;c.subdep and p.codigo_fue&#x3d;c.codigo_fue and p.codigo_prg&#x3d;c.codigo_prg &#xa;			and p.codigo_sub&#x3d;c.codigo_sub and p.codigo_pry&#x3d;c.codigo_pry and p.codigo_inc&#x3d;c.codigo_inc and p.codigo_act&#x3d;c.codigo_act&#xa;			and p.codigo_obr&#x3d;c.codigo_obr and p.codigo_ppl&#x3d;c.codigo_ppl and p.preventivo&#x3c;&#x3d;c.cred_prev and c.cred_prev&#x3c;&#x3e;0&#x29;,1&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos &#xa;SET fecha_id &#x3d; COALESCE&#x28;&#x28;SELECT &#x28;anio_id&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; mes_id&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;-01&#x27;&#x29;&#x3a;&#x3a;date&#x29;,&#x27;1900-01-01&#x27;&#x3a;&#x3a;date&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos &#xa;SET fecha_valor_id &#x3d; COALESCE&#x28;&#x28;SELECT &#x28;anio_id&#x3a;&#x3a;text  &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; mes_id&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;-01&#x27;&#x29;&#x3a;&#x3a;date&#x29;,&#x27;1900-01-01&#x27;&#x3a;&#x3a;date&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET red_programatica_id &#x3d; COALESCE&#x28;&#x28;SELECT rp.red_programatica_id FROM pilaga.d_red_programatica rp, pilaga_tmp.d_detpre d&#xa;WHERE id_tabla&#x3d;d.d_detpre AND&#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_prg&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_sub&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_pry&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_act&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_obr&#x3a;&#x3a;text,2&#x29; &#x3d; rp.red_programatica_codigo&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET grupo_presupuestario_id &#x3d; COALESCE&#x28;&#x28;SELECT grupo_presupuestario_id FROM pilaga.d_grupo_presupuestario WHERE grupo_presupuestario_codigo&#x3d;&#x27;0001&#x27;&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET unidad_presupuestaria_id &#x3d; COALESCE&#x28;&#x28;SELECT up.unidad_presupuestaria_id FROM pilaga.d_unidad_presupuestaria up, pilaga_tmp.d_detpre d&#xa;WHERE id_tabla&#x3d;d.d_detpre AND&#xa;  right&#x28;&#x27;00&#x27; &#x7c;&#x7c; d.coddep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; right&#x28;&#x27;00&#x27; &#x7c;&#x7c; d.subdep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.000&#x27; &#x3d; up.unidad_presupuestaria_codigo&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;-- TODO&#x3a; Hay un 10&#x25; de las funciones que quedaron mal asignadas ya que hay dos candidatas y se selecciono una &#x28;la de codigo minimo&#x29;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET finalidad_funcion_id &#x3d; COALESCE&#x28;&#x28;SELECT f.finalidad_funcion_id FROM pilaga.d_finalidad_funcion f&#xa;	WHERE f.finalidad_codigo&#x3d;3 AND f.funcion_codigo&#x3d;&#xa;						&#x28;SELECT min&#x28;c.codigo_fun&#x29;&#x3a;&#x3a;integer from pilaga_tmp.d_detpre p, pilaga_tmp.d_salcre c&#xa;							WHERE id_tabla &#x3d; p.d_detpre AND&#xa;								p.anio&#x3d;c.anio and p.coddep&#x3d;c.coddep and p.subdep&#x3d;c.subdep and &#xa;								p.codigo_fue&#x3d;c.codigo_fue and p.codigo_prg&#x3d;c.codigo_prg and &#xa;								p.codigo_sub&#x3d;c.codigo_sub and p.codigo_pry&#x3d;c.codigo_pry and&#xa;								p.codigo_inc&#x3d;c.codigo_inc and p.codigo_act&#x3d;c.codigo_act and&#xa;								p.codigo_obr&#x3d;c.codigo_obr and p.codigo_ppl&#x3d;c.codigo_ppl and &#xa;								p.preventivo&#x3c;&#x3d;c.cred_prev and c.cred_prev&#x3c;&#x3e;0&#x29;&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET moneda_id &#x3d; COALESCE&#x28;&#x28;SELECT m.moneda_id FROM pilaga.d_moneda m WHERE m.moneda_codigo&#x3d;&#x27;1&#x27;&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos SET fondo_id &#x3d; &#x28;SELECT fondo_id FROM pilaga.d_fondo WHERE fondo_desc &#x3d; &#x27;Presupuestario&#x27;&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET fuente_id &#x3d; COALESCE&#x28;&#x28;SELECT f.fuente_id FROM pilaga.d_fuente f, pilaga_tmp.d_detpre d WHERE id_tabla&#x3d;d.d_detpre AND f.fuente_codigo&#x3d;d.codigo_fue&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET circuito_gestion_id &#x3d; COALESCE&#x28;&#x28;SELECT cg.circuito_gestion_id FROM pilaga.d_circuito_gestion cg WHERE cg.circuito_gestion_codigo&#x3d;&#x27;GBAS&#x27;&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET objeto_del_gasto_id &#x3d; COALESCE&#x28;&#x28;SELECT og.objeto_del_gasto_id FROM pilaga.d_objeto_del_gasto og, pilaga_tmp.d_detpre d WHERE id_tabla&#x3d;d.d_detpre AND&#xa;  og.objeto_del_gasto_codigo&#x3d;codigo_inc&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; codigo_ppl &#x7c;&#x7c; &#x27;.0.0000&#x27;&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET expediente_id &#x3d; COALESCE&#x28;&#x28;SELECT e.expediente_id&#xa;			FROM pilaga.d_expediente e &#xa;			WHERE e.expediente_desc&#x3d;COALESCE&#x28;&#x28;SELECT &#x27;EXP - &#x27; &#x7c;&#x7c; exp &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;varchar FROM pilaga_tmp.d_cabpre c, pilaga_tmp.d_detpre d&#xa;							WHERE id_tabla&#x3d;d.d_detpre AND &#xa;							d.anio&#x3d;c.anio AND d.tipo&#x3d;c.tipo AND d.numero&#x3d;c.numero AND&#xa;							d.anprev&#x3d;c.anprev AND d.coddep&#x3d;c.coddep AND d.subdep&#x3d;c.subdep AND &#xa;							exp is not null&#x29;,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET etapa_presupuestaria_id &#x3d; COALESCE&#x28;&#x28;SELECT e.etapa_presupuestaria_id FROM pilaga.d_etapa_presupuestaria e WHERE e.etapa_presupuestaria_codigo&#x3d;&#x27;PR&#x27;&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET tipo_operacion_id &#x3d; COALESCE&#x28;&#x28;SELECT t.tipo_operacion_id FROM pilaga.d_tipo_operacion t WHERE t.tipo_operacion_codigo&#x3d;&#x27;CPRE&#x27;&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET concepto_id &#x3d; COALESCE&#x28;&#x28;SELECT c.concepto_id&#xa;			FROM pilaga.d_concepto c &#xa;			WHERE c.concepto_desc&#x3d;COALESCE&#x28;&#x28;SELECT c.concepto FROM pilaga_tmp.d_cabpre c, pilaga_tmp.d_detpre d&#xa;							WHERE id_tabla&#x3d;d.d_detpre AND &#xa;							d.anio&#x3d;c.anio AND d.tipo&#x3d;c.tipo AND d.numero&#x3d;c.numero AND&#xa;							d.anprev&#x3d;c.anprev AND d.coddep&#x3d;c.coddep AND d.subdep&#x3d;c.subdep AND &#xa;							c.concepto is not null&#x29;,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET documento_principal_id &#x3d; COALESCE&#x28;&#x28;SELECT d.documento_principal_id&#xa;			FROM pilaga.d_documento_principal d &#xa;			WHERE d.documento_principal_codigo&#x3d;&#xa;				COALESCE&#x28;&#x28;SELECT c.tipo &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.numero &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text  &#xa;						FROM pilaga_tmp.d_cabpre c, pilaga_tmp.d_detpre d&#xa;							WHERE id_tabla&#x3d;d.d_detpre AND &#xa;							d.anio&#x3d;c.anio AND d.tipo&#x3d;c.tipo AND d.numero&#x3d;c.numero AND&#xa;							d.anprev&#x3d;c.anprev AND d.coddep&#x3d;c.coddep AND d.subdep&#x3d;c.subdep AND &#xa;						&#x28;c.tipo &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.numero &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text&#x29; is not null&#x29;,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos SET documento_preventivo_id &#x3d; COALESCE&#x28;documento_principal_id,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos&#xa;SET tipo_documento_id &#x3d; COALESCE&#x28;&#x28;SELECT t.tipo_documento_id FROM pilaga.d_tipo_documento t WHERE t.tipo_documento_codigo &#x3d; tipo&#x29;,0&#x29;&#xa;WHERE etapa_migracion &#x3d; &#x27;PRE&#x27;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>T</sendOneStatement>
+      <connection>siu_dw</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>755</xloc>
+      <yloc>362</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log 2</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Fall&#xf3; la migraci&#xf3;n de las dimensiones.</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>&#x5b;ERROR&#x5d;</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>557</xloc>
+      <yloc>333</yloc>
+      </entry>
+    <entry>
+      <name>temporal &#x28;mig_ft_movimientos_compromiso&#x29;</name>
+      <description/>
+      <type>SQL</type>
+      <sql>-- &#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#xa;-- COMPROMISO&#xa;-- &#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#xa;DROP TABLE IF EXISTS pilaga_tmp.mig_ft_movimientos_compromiso&#x3b;&#xa;SELECT &#xa;  d_detcom AS id_tabla,&#xa;  nup AS nup, exp AS exp,&#xa;  c.tipo AS tipo,&#xa;  c.tipdoc AS tipdoc,&#xa;  c.cuit1 AS cuit1,&#xa;  c.nrodoc AS nrodoc,&#xa;  c.cuit2 AS cuit2,&#xa;  d.anio AS anio_id, &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_id, 0 AS red_programatica_id, 0 AS grupo_presupuestario_id, 0 AS codigo_economico_id, 0 AS unidad_presupuestaria_id,&#xa;  0 AS unidad_gestion_id, 0 AS finalidad_funcion_id, 0 AS moneda_id, 0 AS fondo_id, 0 AS tercero_id, 0 AS fuente_id,&#xa;  0 AS circuito_gestion_id, 0 AS objeto_del_gasto_id, 0 AS expediente_id, 0 AS concepto_id, 0 AS documento_id,&#xa;  0 AS tipo_persona_id, 0 AS beneficiario_id, 0 AS persona_comprobante_id, 0 AS comprobante_id, 0 AS contribuyente_id,&#xa;  &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_vencimiento_id, 0 AS nivel_autorizacion_id, 0 AS estado_liquidacion_id, &#xa;  &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_valor_id, 0 AS unidad_generica_id, 0 AS etapa_presupuestaria_id, 0 AS tipo_documento_id,&#xa;  0 AS documento_preventivo_id, 0 AS documento_compromiso_id, 0 AS documento_devengado_id, 0 AS documento_pagado_id,&#xa;  0 AS documento_devengado_ingreso_id, 0 AS documento_cobrado_id, 0 AS cuenta_tesoreria_id, 0 AS cuenta_bancaria_id,&#xa;  0 AS banco_sucursal_id, 0 AS rubro_ingreso_id, 0 AS concepto_ingreso_id, 0 AS tipo_operacion_id, 0 AS mes_id,&#xa;  0.0 AS credito_original,&#xa;  0.0 AS credito_modificatorio,&#xa;  0.0 AS credito, -- Ver si corresponde dejarlo o es una medida calculada&#xa;  0.0 AS preventivo,&#xa;  compromiso AS compromiso,&#xa;  0.0 AS devengado,&#xa;  0.0 AS pagado,&#xa;  0.0 AS retenciones,&#xa;  0.0 AS disponibilidades,&#xa;  0.0 AS previsto_de_ingreso,&#xa;  0.0 AS estimado_de_ingreso,&#xa;  0.0 AS devengado_de_ingreso,&#xa;  0.0 AS cobrado&#xa;INTO pilaga_tmp.mig_ft_movimientos_compromiso&#xa;FROM pilaga_tmp.d_detcom d, pilaga_tmp.d_cabcom c &#xa;WHERE d.anio&#x3d;c.anio AND d.tipo&#x3d;c.tipo AND d.numero&#x3d;c.numero AND d.anicomp&#x3d;c.anicomp AND d.coddep&#x3d;c.coddep AND d.subdep&#x3d;c.subdep&#x3b;&#xa;&#xa;-- TODO&#x3a; el valor del mes esta mal calculado, en realidad no encontramos la forma de obtenerlo &#x28;o tenemos el mes o el numero de documento&#x29;&#xa;-- creemos que el dato real del mes no es obtenible.&#xa;DROP TABLE IF EXISTS pilaga_tmp.mig_temp_comp&#x3b;&#xa;SELECT p.anio as anio, p.numero as numero, avg&#x28;c.mes&#x29;&#x3a;&#x3a;integer as mes&#xa;INTO pilaga_tmp.mig_temp_comp&#xa;FROM pilaga_tmp.d_detpre p, pilaga_tmp.d_salcre c&#xa;		WHERE p.anio&#x3d;c.anio and p.coddep&#x3d;c.coddep and p.subdep&#x3d;c.subdep and p.codigo_fue&#x3d;c.codigo_fue and p.codigo_prg&#x3d;c.codigo_prg &#xa;			and p.codigo_sub&#x3d;c.codigo_sub and p.codigo_pry&#x3d;c.codigo_pry and p.codigo_inc&#x3d;c.codigo_inc and p.codigo_act&#x3d;c.codigo_act&#xa;			and p.codigo_obr&#x3d;c.codigo_obr and p.codigo_ppl&#x3d;c.codigo_ppl and p.preventivo&#x3c;&#x3d;c.cred_prev and c.cred_prev&#x3c;&#x3e;0&#xa;			group by 1,2&#x3b;&#xa;CREATE UNIQUE INDEX mig_temp_comp_index ON pilaga_tmp.mig_temp_comp &#x28;anio, numero&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET mes_id &#x3d; COALESCE&#x28;&#x28;select mes from pilaga_tmp.mig_temp_comp t&#xa;		WHERE anio_id &#x3d; t.anio AND nup&#x3d;t.numero&#x29;,1&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso &#xa; SET fecha_id &#x3d; COALESCE&#x28;&#x28;SELECT &#x28;anio_id&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; mes_id&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;-01&#x27;&#x29;&#x3a;&#x3a;date&#x29;,&#x27;1900-01-01&#x27;&#x3a;&#x3a;date&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso &#xa; SET fecha_valor_id &#x3d; COALESCE&#x28;&#x28;SELECT &#x28;anio_id&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; mes_id&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;-01&#x27;&#x29;&#x3a;&#x3a;date&#x29;,&#x27;1900-01-01&#x27;&#x3a;&#x3a;date&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET red_programatica_id &#x3d; COALESCE&#x28;&#x28;SELECT rp.red_programatica_id FROM pilaga.d_red_programatica rp, pilaga_tmp.d_detpre d&#xa; WHERE id_tabla&#x3d;d.d_detpre AND&#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_prg&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_sub&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_pry&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_act&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_obr&#x3a;&#x3a;text,2&#x29; &#x3d; rp.red_programatica_codigo&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET grupo_presupuestario_id &#x3d; COALESCE&#x28;&#x28;SELECT grupo_presupuestario_id &#xa;	FROM pilaga.d_grupo_presupuestario 	&#xa;	WHERE grupo_presupuestario_codigo&#x3d;&#x27;0001&#x27;&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET unidad_presupuestaria_id &#x3d; COALESCE&#x28;&#x28;SELECT up.unidad_presupuestaria_id FROM pilaga.d_unidad_presupuestaria up, pilaga_tmp.d_detpre d&#xa; WHERE id_tabla&#x3d;d.d_detpre AND&#xa;  right&#x28;&#x27;00&#x27; &#x7c;&#x7c; d.coddep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; right&#x28;&#x27;00&#x27; &#x7c;&#x7c; d.subdep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.000&#x27; &#x3d; up.unidad_presupuestaria_codigo&#x29;,0&#x29;&#x3b;&#xa;&#xa;-- TODO&#x3a; Hay un 10&#x25; de las funciones que quedaron mal asignadas ya que hay dos candidatas y se selecciono una &#x28;la de codigo minimo&#x29;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET finalidad_funcion_id &#x3d; COALESCE&#x28;&#x28;SELECT f.finalidad_funcion_id FROM pilaga.d_finalidad_funcion f&#xa;	WHERE f.finalidad_codigo&#x3d;3 AND f.funcion_codigo&#x3d;&#xa;						&#x28;SELECT min&#x28;c.codigo_fun&#x29;&#x3a;&#x3a;integer from pilaga_tmp.d_detpre p, pilaga_tmp.d_salcre c&#xa;							WHERE id_tabla &#x3d; p.d_detpre AND&#xa;								p.anio&#x3d;c.anio and p.coddep&#x3d;c.coddep and p.subdep&#x3d;c.subdep and &#xa;								p.codigo_fue&#x3d;c.codigo_fue and p.codigo_prg&#x3d;c.codigo_prg and &#xa;								p.codigo_sub&#x3d;c.codigo_sub and p.codigo_pry&#x3d;c.codigo_pry and&#xa;								p.codigo_inc&#x3d;c.codigo_inc and p.codigo_act&#x3d;c.codigo_act and&#xa;								p.codigo_obr&#x3d;c.codigo_obr and p.codigo_ppl&#x3d;c.codigo_ppl and &#xa;								p.preventivo&#x3c;&#x3d;c.cred_prev and c.cred_prev&#x3c;&#x3e;0&#x29;&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET moneda_id &#x3d; COALESCE&#x28;&#x28;SELECT m.moneda_id FROM pilaga.d_moneda m WHERE m.moneda_codigo&#x3d;&#x27;1&#x27;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso SET fondo_id &#x3d; &#x28;SELECT fondo_id FROM pilaga.d_fondo WHERE fondo_desc &#x3d; &#x27;Presupuestario&#x27;&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET fuente_id &#x3d; COALESCE&#x28;&#x28;SELECT f.fuente_id FROM pilaga.d_fuente f, pilaga_tmp.d_detpre d WHERE id_tabla&#x3d;d.d_detpre AND f.fuente_codigo&#x3d;d.codigo_fue&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET circuito_gestion_id &#x3d; COALESCE&#x28;&#x28;SELECT cg.circuito_gestion_id FROM pilaga.d_circuito_gestion cg WHERE cg.circuito_gestion_codigo&#x3d;&#x27;GBAS&#x27;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET objeto_del_gasto_id &#x3d; COALESCE&#x28;&#x28;SELECT og.objeto_del_gasto_id FROM pilaga.d_objeto_del_gasto og, pilaga_tmp.d_detcom d WHERE id_tabla&#x3d;d.d_detcom AND&#xa;  og.objeto_del_gasto_codigo&#x3d;codigo_inc&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; codigo_ppl&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; codigo_ppr&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;.0000&#x27;&#x29;,0&#x29;&#x3b; &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET expediente_id &#x3d; COALESCE&#x28;&#x28;SELECT e.expediente_id&#xa;			FROM pilaga.d_expediente e &#xa;			WHERE e.expediente_desc&#x3d;COALESCE&#x28;&#x27;EXP - &#x27; &#x7c;&#x7c; exp &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; anio_id&#x3a;&#x3a;varchar ,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET concepto_id &#x3d; COALESCE&#x28;&#x28;SELECT c.concepto_id&#xa;			FROM pilaga.d_concepto c &#xa;			WHERE c.concepto_desc&#x3d;COALESCE&#x28;&#x28;SELECT c.concepto FROM pilaga_tmp.d_cabcom c, pilaga_tmp.d_detcom d&#xa;							WHERE id_tabla&#x3d;d.d_detcom AND &#xa;							d.anio&#x3d;c.anio AND d.tipo&#x3d;c.tipo AND d.numero&#x3d;c.numero AND &#xa;							d.anicomp&#x3d;c.anicomp AND d.coddep&#x3d;c.coddep AND d.subdep&#x3d;c.subdep AND &#xa;							c.concepto is not null&#x29;,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET documento_id &#x3d; COALESCE&#x28;&#x28;SELECT d.documento_principal_id&#xa;			FROM pilaga.d_documento_principal d &#xa;			WHERE d.documento_principal_codigo&#x3d;&#xa;				COALESCE&#x28;&#x28;SELECT c.tipo &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.numero &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text  &#xa;						FROM pilaga_tmp.d_cabcom c, pilaga_tmp.d_detcom d&#xa;							WHERE id_tabla&#x3d;d.d_detcom AND &#xa;							d.anio&#x3d;c.anio AND d.tipo&#x3d;c.tipo AND d.numero&#x3d;c.numero AND &#xa;							d.anicomp&#x3d;c.anicomp AND d.coddep&#x3d;c.coddep AND d.subdep&#x3d;c.subdep AND &#xa;							&#x28;c.tipo &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.numero &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text&#x29; is not null&#x29;,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#x3b; &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso SET documento_compromiso_id &#x3d; COALESCE&#x28;documento_id,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET documento_preventivo_id &#x3d; COALESCE&#x28;&#x28;SELECT d.documento_principal_id&#xa;			FROM pilaga.d_documento_principal d &#xa;			WHERE d.documento_principal_codigo&#x3d;&#xa;				COALESCE&#x28;&#x28;SELECT c.tipoprev &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.nup &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text  &#xa;						FROM pilaga_tmp.d_cabcom c, pilaga_tmp.d_detcom d&#xa;							WHERE id_tabla&#x3d;d.d_detcom AND &#xa;							d.anio&#x3d;c.anio AND d.tipo&#x3d;c.tipo AND d.numero&#x3d;c.numero AND &#xa;							d.anicomp&#x3d;c.anicomp AND d.coddep&#x3d;c.coddep AND d.subdep&#x3d;c.subdep AND &#xa;							&#x28;c.tipoprev &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.nup &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text&#x29; is not null&#x29;,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#x3b; &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET etapa_presupuestaria_id &#x3d; COALESCE&#x28;&#x28;SELECT e.etapa_presupuestaria_id FROM pilaga.d_etapa_presupuestaria e WHERE e.etapa_presupuestaria_codigo&#x3d;&#x27;CD&#x27;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET tipo_operacion_id &#x3d; COALESCE&#x28;&#x28;SELECT t.tipo_operacion_id FROM pilaga.d_tipo_operacion t WHERE t.tipo_operacion_codigo&#x3d;&#x27;CDEF&#x27;&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET tipo_documento_id &#x3d; COALESCE&#x28;&#x28;SELECT t.tipo_documento_id FROM pilaga.d_tipo_documento t WHERE t.tipo_documento_codigo &#x3d; tipo&#x29;,0&#x29;&#x3b;&#xa;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET beneficiario_id &#x3d; COALESCE&#x28;&#x28;SELECT persona_id FROM pilaga.d_persona p, pilaga_tmp.c_tipdoc t&#xa;				WHERE tipdoc&#x3d;t.tipdoc AND&#xa;				t.nom_tipd&#x3d;p.persona_tipo_documento AND&#xa;				CASE WHEN t.nom_tipd &#x3d; &#x27;CUIT&#x27; OR t.nom_tipd &#x3d; &#x27;CUIL&#x27; THEN&#xa;					cuit1&#x3a;&#x3a;varchar &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; nrodoc&#x3a;&#x3a;varchar &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; cuit2&#x3a;&#x3a;varchar&#xa;					ELSE nrodoc&#x3a;&#x3a;varchar&#xa;				END &#x3d; p.persona_nro_documento LIMIT 1&#x29;&#xa;			,0&#x29;&#x3b;&#xa;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_compromiso&#xa; SET tipo_persona_id &#x3d; COALESCE&#x28;&#x28;SELECT tipo_persona_id FROM pilaga.d_tipo_persona WHERE tipo_persona_codigo &#x3d; &#x27;P&#x27;&#x29;,0&#x29;&#xa;WHERE beneficiario_id &#x3c;&#x3e; 0&#x3b;&#xa;&#xa;-- TODO&#x3a; para relacionar cabcom con cabpre&#xa;-- CONSTRAINT d_cabcom_anio_fkey FOREIGN KEY &#x28;anio, tipoprev, nup, anprev, coddep, subdep&#x29;&#xa;-- REFERENCES pilaga_tmp.d_cabpre &#x28;anio, tipo, numero, anprev, coddep, subdep&#x29; MATCH SIMPLE</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>T</sendOneStatement>
+      <connection>siu_dw</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>755</xloc>
+      <yloc>271</yloc>
+      </entry>
+    <entry>
+      <name>temporal &#x28;mig_ft_movimientos_devengado&#x29;</name>
+      <description/>
+      <type>SQL</type>
+      <sql>-- &#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#xa;-- DEVENGADO&#xa;-- &#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#xa;DROP TABLE IF EXISTS pilaga_tmp.mig_ft_movimientos_devengado&#x3b;&#xa;SELECT &#xa;  d_liqdet AS id_tabla,&#xa;  d.nroexp AS nroexp,&#xa;  c.impoliq AS impoliq,&#xa;  d.tipcom AS tipcom,&#xa;  d.tipdoc AS tipdoc,&#xa;  d.cuit1 AS cuit1,&#xa;  d.nrodoc AS nrodoc,&#xa;  d.cuit2 AS cuit2,&#xa;  d.estado AS estado,&#xa;  d.anio AS anio_id, d.fecliq AS fecha_id, 0 AS red_programatica_id, 0 AS grupo_presupuestario_id, 0 AS codigo_economico_id, 0 AS unidad_presupuestaria_id,&#xa;  0 AS unidad_gestion_id, 0 AS finalidad_funcion_id, 0 AS moneda_id, 0 AS fondo_id, 0 AS tercero_id, 0 AS fuente_id,&#xa;  0 AS circuito_gestion_id, 0 AS objeto_del_gasto_id, 0 AS expediente_id, 0 AS concepto_id, 0 AS documento_id,&#xa;  0 AS tipo_persona_id, 0 AS beneficiario_id, 0 AS persona_comprobante_id, 0 AS comprobante_id, 0 AS contribuyente_id,&#xa;  d.fecvto AS fecha_vencimiento_id, 0 AS nivel_autorizacion_id, 0 AS estado_liquidacion_id, &#xa;  d.fecliq AS fecha_valor_id, 0 AS unidad_generica_id, 0 AS etapa_presupuestaria_id, 0 AS tipo_documento_id,&#xa;  0 AS documento_preventivo_id, 0 AS documento_compromiso_id, 0 AS documento_devengado_id, 0 AS documento_pagado_id,&#xa;  0 AS documento_devengado_ingreso_id, 0 AS documento_cobrado_id, 0 AS cuenta_tesoreria_id, 0 AS cuenta_bancaria_id,&#xa;  0 AS banco_sucursal_id, 0 AS rubro_ingreso_id, 0 AS concepto_ingreso_id, 0 AS tipo_operacion_id, 0 AS mes_id,&#xa;  0.0 AS credito_original,&#xa;  0.0 AS credito_modificatorio,&#xa;  0.0 AS credito, -- Ver si corresponde dejarlo o es una medida calculada&#xa;  0.0 AS preventivo,&#xa;  0.0 AS compromiso,&#xa;  impoliq AS devengado,&#xa;  0.0 AS pagado,&#xa;  0.0 AS retenciones,&#xa;  0.0 AS disponibilidades,&#xa;  0.0 AS previsto_de_ingreso,&#xa;  0.0 AS estimado_de_ingreso,&#xa;  0.0 AS devengado_de_ingreso,&#xa;  0.0 AS cobrado,&#xa;  d.tipliq&#xa;INTO pilaga_tmp.mig_ft_movimientos_devengado&#xa; FROM pilaga_tmp.d_liquid d, pilaga_tmp.d_liqdet c &#xa; WHERE d.anio&#x3d;c.anio AND d.tipcom&#x3d;c.tipcom AND d.nroliq&#x3d;c.nroliq AND d.tipliq&#x3d;c.tipliq&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET red_programatica_id &#x3d; COALESCE&#x28;&#x28;SELECT rp.red_programatica_id FROM pilaga.d_red_programatica rp, pilaga_tmp.d_liqdet d&#xa; WHERE id_tabla&#x3d;d.d_liqdet AND&#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_prg&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_sub&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_pry&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_act&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_obr&#x3a;&#x3a;text,2&#x29; &#x3d; rp.red_programatica_codigo&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET grupo_presupuestario_id &#x3d; COALESCE&#x28;&#x28;SELECT grupo_presupuestario_id FROM pilaga.d_grupo_presupuestario WHERE grupo_presupuestario_codigo&#x3d;&#x27;0001&#x27;&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET unidad_presupuestaria_id &#x3d; COALESCE&#x28;&#x28;SELECT up.unidad_presupuestaria_id FROM pilaga.d_unidad_presupuestaria up, pilaga_tmp.d_liqdet d&#xa; WHERE id_tabla&#x3d;d.d_liqdet AND&#xa;  right&#x28;&#x27;00&#x27; &#x7c;&#x7c; d.coddep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; right&#x28;&#x27;00&#x27; &#x7c;&#x7c; d.subdep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.000&#x27; &#x3d; up.unidad_presupuestaria_codigo&#x29;,0&#x29;&#x3b;&#xa;&#xa;-- TODO&#x3a; Hay un 10&#x25; de las funciones que quedaron mal asignadas ya que hay dos candidatas y se selecciono una &#x28;la de codigo minimo&#x29;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET finalidad_funcion_id &#x3d; COALESCE&#x28;&#x28;SELECT f.finalidad_funcion_id FROM pilaga.d_finalidad_funcion f&#xa;	WHERE f.finalidad_codigo&#x3d;3 AND f.funcion_codigo&#x3d;&#xa;						&#x28;SELECT min&#x28;c.codigo_fun&#x29;&#x3a;&#x3a;integer from pilaga_tmp.d_liqdet p, pilaga_tmp.d_salcre c&#xa;							WHERE id_tabla &#x3d; p.d_liqdet AND&#xa;								p.anio&#x3d;c.anio and p.coddep&#x3d;c.coddep and p.subdep&#x3d;c.subdep and &#xa;								p.codigo_fue&#x3d;c.codigo_fue and p.codigo_prg&#x3d;c.codigo_prg and &#xa;								p.codigo_sub&#x3d;c.codigo_sub and p.codigo_pry&#x3d;c.codigo_pry and&#xa;								p.codigo_inc&#x3d;c.codigo_inc and p.codigo_act&#x3d;c.codigo_act and&#xa;								p.codigo_obr&#x3d;c.codigo_obr and p.codigo_ppl&#x3d;c.codigo_ppl and &#xa;								p.impoliq&#x3c;&#x3d;c.cred_prev and c.cred_prev&#x3c;&#x3e;0&#x29;&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET moneda_id &#x3d; COALESCE&#x28;&#x28;SELECT m.moneda_id FROM pilaga.d_moneda m WHERE m.moneda_codigo&#x3d;&#x27;1&#x27;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado SET fondo_id &#x3d; &#x28;SELECT fondo_id FROM pilaga.d_fondo WHERE fondo_desc &#x3d; &#x27;Presupuestario&#x27;&#x29;&#x3b;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado SET fondo_id &#x3d; &#x28;SELECT fondo_id FROM pilaga.d_fondo WHERE fondo_desc &#x3d; &#x27;Deuda Exigible&#x27;&#x29;&#xa; WHERE tipliq&#x3d;&#x27;EX&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET fuente_id &#x3d; COALESCE&#x28;&#x28;SELECT f.fuente_id FROM pilaga.d_fuente f, pilaga_tmp.d_liqdet d WHERE id_tabla&#x3d;d.d_liqdet AND f.fuente_codigo&#x3d;d.codigo_fue&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET circuito_gestion_id &#x3d; COALESCE&#x28;&#x28;SELECT cg.circuito_gestion_id FROM pilaga.d_circuito_gestion cg WHERE cg.circuito_gestion_codigo&#x3d;&#x27;GBAS&#x27;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET objeto_del_gasto_id &#x3d; COALESCE&#x28;&#x28;SELECT og.objeto_del_gasto_id FROM pilaga.d_objeto_del_gasto og, pilaga_tmp.d_liqdet d WHERE id_tabla&#x3d;d.d_liqdet AND&#xa;  og.objeto_del_gasto_codigo&#x3d;codigo_inc&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; codigo_ppl&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; codigo_ppr&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;.0000&#x27;&#x29;,0&#x29;&#x3b; &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET expediente_id &#x3d; COALESCE&#x28;&#x28;SELECT e.expediente_id&#xa;			FROM pilaga.d_expediente e &#xa;			WHERE e.expediente_desc&#x3d;COALESCE&#x28;&#x27;EXP - &#x27; &#x7c;&#x7c; nroexp &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; anio_id&#x3a;&#x3a;varchar,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET concepto_id &#x3d; COALESCE&#x28;&#x28;SELECT c.concepto_id&#xa;			FROM pilaga.d_concepto c &#xa;			WHERE c.concepto_desc&#x3d;COALESCE&#x28;&#x28;SELECT c.concepto FROM pilaga_tmp.d_liquid c, pilaga_tmp.d_liqdet d&#xa;							WHERE id_tabla&#x3d;d.d_liqdet AND &#xa;							d.anio&#x3d;c.anio AND d.tipcom&#x3d;c.tipcom AND d.nroliq&#x3d;c.nroliq AND d.tipliq&#x3d;c.tipliq AND &#xa;							c.concepto is not null&#x29;,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET documento_id &#x3d; COALESCE&#x28;&#x28;SELECT d.documento_principal_id&#xa;			FROM pilaga.d_documento_principal d &#xa;			WHERE d.documento_principal_codigo&#x3d;&#xa;				COALESCE&#x28;&#x28;SELECT c.tipcom &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.nroliq &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text  &#xa;						FROM pilaga_tmp.d_liquid c, pilaga_tmp.d_liqdet d&#xa;							WHERE id_tabla&#x3d;d.d_liqdet AND &#xa;							d.anio&#x3d;c.anio AND d.tipcom&#x3d;c.tipcom AND d.nroliq&#x3d;c.nroliq AND d.tipliq&#x3d;c.tipliq AND &#xa;							&#x28;c.tipcom &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.nroliq &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text&#x29; is not null&#x29;,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#x3b; &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado SET documento_devengado_id &#x3d; documento_id&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET beneficiario_id &#x3d; COALESCE&#x28;&#x28;SELECT persona_id FROM pilaga.d_persona p, pilaga_tmp.c_tipdoc t&#xa;				WHERE tipdoc&#x3d;t.tipdoc AND&#xa;				t.nom_tipd&#x3d;p.persona_tipo_documento AND&#xa;				CASE WHEN t.nom_tipd &#x3d; &#x27;CUIT&#x27; OR t.nom_tipd &#x3d; &#x27;CUIL&#x27; THEN&#xa;					cuit1&#x3a;&#x3a;varchar &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; nrodoc&#x3a;&#x3a;varchar &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; cuit2&#x3a;&#x3a;varchar&#xa;					ELSE nrodoc&#x3a;&#x3a;varchar&#xa;				END &#x3d; p.persona_nro_documento LIMIT 1&#x29;&#xa;			,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET tipo_persona_id &#x3d; COALESCE&#x28;&#x28;SELECT tipo_persona_id FROM pilaga.d_tipo_persona WHERE tipo_persona_codigo &#x3d; &#x27;P&#x27;&#x29;,0&#x29;&#xa;WHERE beneficiario_id &#x3c;&#x3e; 0&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET estado_liquidacion_id &#x3d; &#xa;	COALESCE&#x28;&#xa;		 &#x28;CASE WHEN estado IN &#x28;&#x27;1&#x27;, &#x27;2&#x27;, &#x27;3&#x27;, &#x27;4&#x27;, &#x27;5&#x27;, &#x27;6&#x27;, &#x27;7&#x27;, &#x27;8&#x27;, &#x27;A&#x27;, &#x27;S&#x27;, &#x27;D&#x27;&#x29; THEN &#x28;SELECT estado_liquidacion_id FROM pilaga.d_estado_liquidacion WHERE estado_liquidacion_codigo &#x3d; &#x27;L&#x27;&#x29;&#xa;		       WHEN estado IN &#x28;&#x27;P&#x27;, &#x27;R&#x27;&#x29; THEN &#x28;SELECT estado_liquidacion_id FROM pilaga.d_estado_liquidacion WHERE estado_liquidacion_codigo &#x3d; &#x27;P&#x27;&#x29;&#xa;		       WHEN estado &#x3d; &#x27;U&#x27; THEN &#x28;SELECT estado_liquidacion_id FROM pilaga.d_estado_liquidacion WHERE estado_liquidacion_codigo &#x3d; &#x27;U&#x27;&#x29;&#xa;		       ELSE 0&#xa;		  END&#xa;		 &#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET etapa_presupuestaria_id &#x3d; COALESCE&#x28;&#x28;SELECT e.etapa_presupuestaria_id FROM pilaga.d_etapa_presupuestaria e WHERE e.etapa_presupuestaria_codigo&#x3d;&#x27;DE&#x27;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET tipo_documento_id &#x3d; COALESCE&#x28;&#x28;SELECT t.tipo_documento_id FROM pilaga.d_tipo_documento t WHERE t.tipo_documento_codigo &#x3d; tipcom&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET tipo_operacion_id &#x3d; COALESCE&#x28;&#x28;SELECT t.tipo_operacion_id FROM pilaga.d_tipo_operacion t WHERE t.tipo_operacion_codigo&#x3d;&#x27;CDEV&#x27;&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET mes_id &#x3d; COALESCE&#x28;extract&#x28;month from fecha_id&#x29;,1&#x29;&#x3b;&#xa;&#xa;-- Obtencion de documento_preventivo y documento_compromiso en el devengado&#xa;DROP TABLE IF EXISTS pilaga_tmp.mig_temp_deveng&#x3b;&#xa;SELECT DISTINCT l.nroexp AS tt_nroexp, ld.impoliq AS tt_impoliq, min&#x28;d.d_detcom&#x29; AS tt_d_detcom, &#xa;	max&#x28;c.numero&#x29;&#x3a;&#x3a;integer - min&#x28;c.numero&#x29;&#x3a;&#x3a;integer AS tt_distancia_compromisos&#xa;	INTO pilaga_tmp.mig_temp_deveng&#xa;	FROM pilaga_tmp.d_cabcom c, pilaga_tmp.d_detcom d, pilaga_tmp.d_liquid l, pilaga_tmp.d_liqdet ld&#xa;WHERE &#xa;  d.anio&#x3d;c.anio AND d.tipo&#x3d;c.tipo AND d.numero&#x3d;c.numero AND d.anicomp&#x3d;c.anicomp AND d.coddep&#x3d;c.coddep AND d.subdep&#x3d;c.subdep AND&#xa;  ld.anio&#x3d;l.anio AND ld.tipcom&#x3d;l.tipcom AND ld.nroliq&#x3d;l.nroliq AND ld.tipliq&#x3d;l.tipliq AND&#xa;  c.exp&#x3d;l.nroexp AND d.devengado&#x3d;ld.impoliq AND&#xa;  ld.coddep&#x3d;d.coddep AND ld.subdep&#x3d;d.subdep AND ld.codigo_fue&#x3d;d.codigo_fue AND &#xa;  ld.codigo_prg&#x3d;d.codigo_prg AND ld.codigo_pry&#x3d;d.codigo_pry AND ld.codigo_act&#x3d;d.codigo_act AND&#xa;  ld.codigo_obr&#x3d;d.codigo_obr AND ld.codigo_inc&#x3d;d.codigo_inc AND ld.codigo_ppl&#x3d;d.codigo_ppl AND&#xa;  ld.codigo_ppr&#x3d;d.codigo_ppr&#xa;GROUP BY 1,2&#x3b;&#xa;CREATE UNIQUE INDEX idx_mig_temp_deveng_index ON pilaga_tmp.mig_temp_deveng &#x28;tt_nroexp, tt_impoliq&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET documento_compromiso_id &#x3d; COALESCE&#x28;&#x28;SELECT d.documento_principal_id&#xa;			FROM pilaga.d_documento_principal d &#xa;			WHERE d.documento_principal_codigo&#x3d;&#xa;				COALESCE&#x28;&#x28;SELECT c.tipo &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.numero &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text  &#xa;						FROM pilaga_tmp.d_cabcom c, pilaga_tmp.d_detcom d, pilaga_tmp.mig_temp_deveng tt&#xa;							WHERE nroexp&#x3d;tt.tt_nroexp AND impoliq&#x3d;tt.tt_impoliq AND &#xa;							tt.tt_d_detcom &#x3d; d.d_detcom AND tt.tt_distancia_compromisos&#x3d;0 AND&#xa;							d.anio&#x3d;c.anio AND d.tipo&#x3d;c.tipo AND d.numero&#x3d;c.numero AND &#xa;							d.anicomp&#x3d;c.anicomp AND d.coddep&#x3d;c.coddep AND d.subdep&#x3d;c.subdep AND &#xa;							&#x28;c.tipo &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.numero &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text&#x29; is not null&#x29;,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#x3b; &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_devengado&#xa; SET documento_preventivo_id &#x3d; COALESCE&#x28;&#x28;SELECT d.documento_principal_id&#xa;			FROM pilaga.d_documento_principal d &#xa;			WHERE d.documento_principal_codigo&#x3d;&#xa;				COALESCE&#x28;&#x28;SELECT c.tipoprev &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.nup &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text  &#xa;						FROM pilaga_tmp.d_cabcom c, pilaga_tmp.d_detcom d, pilaga_tmp.mig_temp_deveng tt&#xa;							WHERE nroexp&#x3d;tt.tt_nroexp AND impoliq&#x3d;tt.tt_impoliq AND &#xa;							tt.tt_d_detcom &#x3d; d.d_detcom AND tt.tt_distancia_compromisos&#x3d;0 AND&#xa;							d.anio&#x3d;c.anio AND d.tipo&#x3d;c.tipo AND d.numero&#x3d;c.numero AND &#xa;							d.anicomp&#x3d;c.anicomp AND d.coddep&#x3d;c.coddep AND d.subdep&#x3d;c.subdep AND &#xa;							&#x28;c.tipoprev &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.nup &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text&#x29; is not null&#x29;,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#x3b; &#xa;&#xa;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>T</sendOneStatement>
+      <connection>siu_dw</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>755</xloc>
+      <yloc>185</yloc>
+      </entry>
+    <entry>
+      <name>temporal &#x28;mig_ft_movimientos_pagado&#x29;</name>
+      <description/>
+      <type>SQL</type>
+      <sql>-- &#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#xa;-- PAGADO&#xa;-- &#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#xa;DROP TABLE IF EXISTS pilaga_tmp.mig_ft_movimientos_pagado&#x3b;&#xa;SELECT &#xa;  d_liqdet AS id_tabla,&#xa;  d.nroexp AS nroexp,&#xa;  c.impoliq AS impoliq,&#xa;  d.tipcom AS tipcom,&#xa;  d.tipdoc AS tipdoc,&#xa;  d.cuit1 AS cuit1,&#xa;  d.nrodoc AS nrodoc,&#xa;  d.cuit2 AS cuit2,&#xa;  d.estado AS estado,&#xa;  d.anio AS anio_id, d.fecliq AS fecha_id, 0 AS red_programatica_id, 0 AS grupo_presupuestario_id, 0 AS codigo_economico_id, 0 AS unidad_presupuestaria_id,&#xa;  0 AS unidad_gestion_id, 0 AS finalidad_funcion_id, 0 AS moneda_id, 0 AS fondo_id, 0 AS tercero_id, 0 AS fuente_id,&#xa;  0 AS circuito_gestion_id, 0 AS objeto_del_gasto_id, 0 AS expediente_id, 0 AS concepto_id, 0 AS documento_id,&#xa;  0 AS tipo_persona_id, 0 AS beneficiario_id, 0 AS persona_comprobante_id, 0 AS comprobante_id, 0 AS contribuyente_id,&#xa;  d.fecvto AS fecha_vencimiento_id, 0 AS nivel_autorizacion_id, 0 AS estado_liquidacion_id, &#xa;  d.fecliq AS fecha_valor_id, 0 AS unidad_generica_id, 0 AS etapa_presupuestaria_id, 0 AS tipo_documento_id,&#xa;  0 AS documento_preventivo_id, 0 AS documento_compromiso_id, 0 AS documento_devengado_id, 0 AS documento_pagado_id,&#xa;  0 AS documento_devengado_ingreso_id, 0 AS documento_cobrado_id, 0 AS cuenta_tesoreria_id, 0 AS cuenta_bancaria_id,&#xa;  0 AS banco_sucursal_id, 0 AS rubro_ingreso_id, 0 AS concepto_ingreso_id, 0 AS tipo_operacion_id, 0 AS mes_id,&#xa;  0.0 AS credito_original,&#xa;  0.0 AS credito_modificatorio,&#xa;  0.0 AS credito, -- Ver si corresponde dejarlo o es una medida calculada&#xa;  0.0 AS preventivo,&#xa;  0.0 AS compromiso,&#xa;  0.0 AS devengado,&#xa;  impoliq AS pagado,&#xa;-- TODO&#x3a; Se justifica dividir las retensiones en registros separados e identificar los agentes de recaudacion &#x3f;&#x3f;&#x3f;&#xa;  ret_ingb &#x2b; ret_obra &#x2b; ret_iva &#x2b; ret_prex &#x2b; ret_otr1 &#x2b; ret_otr2 AS retenciones,&#xa;  0.0 AS disponibilidades,&#xa;  0.0 AS previsto_de_ingreso,&#xa;  0.0 AS estimado_de_ingreso,&#xa;  0.0 AS devengado_de_ingreso,&#xa;  0.0 AS cobrado,&#xa;  d.tipliq&#xa;INTO pilaga_tmp.mig_ft_movimientos_pagado&#xa; FROM pilaga_tmp.d_liquid d, pilaga_tmp.d_liqdet c &#xa; WHERE d.anio&#x3d;c.anio AND d.tipcom&#x3d;c.tipcom AND d.nroliq&#x3d;c.nroliq AND d.tipliq&#x3d;c.tipliq AND&#xa;       d.estado IN &#x28;&#x27;P&#x27;, &#x27;R&#x27;&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET red_programatica_id &#x3d; COALESCE&#x28;&#x28;SELECT rp.red_programatica_id FROM pilaga.d_red_programatica rp, pilaga_tmp.d_liqdet d&#xa; WHERE id_tabla&#x3d;d.d_liqdet AND&#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_prg&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_sub&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_pry&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_act&#x3a;&#x3a;text,2&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; &#xa;  right&#x28;&#x27;0&#x27; &#x7c;&#x7c; d.codigo_obr&#x3a;&#x3a;text,2&#x29; &#x3d; rp.red_programatica_codigo&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET grupo_presupuestario_id &#x3d; COALESCE&#x28;&#x28;SELECT grupo_presupuestario_id FROM pilaga.d_grupo_presupuestario WHERE grupo_presupuestario_codigo&#x3d;&#x27;0001&#x27;&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET unidad_presupuestaria_id &#x3d; COALESCE&#x28;&#x28;SELECT up.unidad_presupuestaria_id FROM pilaga.d_unidad_presupuestaria up, pilaga_tmp.d_liqdet d&#xa; WHERE id_tabla&#x3d;d.d_liqdet AND&#xa;  right&#x28;&#x27;00&#x27; &#x7c;&#x7c; d.coddep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; right&#x28;&#x27;00&#x27; &#x7c;&#x7c; d.subdep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.000&#x27; &#x3d; up.unidad_presupuestaria_codigo&#x29;,0&#x29;&#x3b;&#xa;&#xa;-- TODO&#x3a; Hay un 10&#x25; de las funciones que quedaron mal asignadas ya que hay dos candidatas y se selecciono una &#x28;la de codigo minimo&#x29;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET finalidad_funcion_id &#x3d; &#x28;SELECT f.finalidad_funcion_id FROM pilaga.d_finalidad_funcion f&#xa;	WHERE f.finalidad_codigo&#x3d;3 AND f.funcion_codigo&#x3d;&#xa;						&#x28;SELECT min&#x28;c.codigo_fun&#x29;&#x3a;&#x3a;integer from pilaga_tmp.d_liqdet p, pilaga_tmp.d_salcre c&#xa;							WHERE id_tabla &#x3d; p.d_liqdet AND&#xa;								p.anio&#x3d;c.anio and p.coddep&#x3d;c.coddep and p.subdep&#x3d;c.subdep and &#xa;								p.codigo_fue&#x3d;c.codigo_fue and p.codigo_prg&#x3d;c.codigo_prg and &#xa;								p.codigo_sub&#x3d;c.codigo_sub and p.codigo_pry&#x3d;c.codigo_pry and&#xa;								p.codigo_inc&#x3d;c.codigo_inc and p.codigo_act&#x3d;c.codigo_act and&#xa;								p.codigo_obr&#x3d;c.codigo_obr and p.codigo_ppl&#x3d;c.codigo_ppl and &#xa;								p.impoliq&#x3c;&#x3d;c.cred_prev and c.cred_prev&#x3c;&#x3e;0&#x29;&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET moneda_id &#x3d; COALESCE&#x28;&#x28;SELECT m.moneda_id FROM pilaga.d_moneda m WHERE m.moneda_codigo&#x3d;&#x27;1&#x27;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado SET fondo_id &#x3d; &#x28;SELECT fondo_id FROM pilaga.d_fondo WHERE fondo_desc &#x3d; &#x27;Presupuestario&#x27;&#x29;&#x3b;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado SET fondo_id &#x3d; &#x28;SELECT fondo_id FROM pilaga.d_fondo WHERE fondo_desc &#x3d; &#x27;Deuda Exigible&#x27;&#x29;&#xa; WHERE tipliq&#x3d;&#x27;EX&#x27;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET fuente_id &#x3d; COALESCE&#x28;&#x28;SELECT f.fuente_id FROM pilaga.d_fuente f, pilaga_tmp.d_liqdet d WHERE id_tabla&#x3d;d.d_liqdet AND f.fuente_codigo&#x3d;d.codigo_fue&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET circuito_gestion_id &#x3d; COALESCE&#x28;&#x28;SELECT cg.circuito_gestion_id FROM pilaga.d_circuito_gestion cg WHERE cg.circuito_gestion_codigo&#x3d;&#x27;GBAS&#x27;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET objeto_del_gasto_id &#x3d; COALESCE&#x28;&#x28;SELECT og.objeto_del_gasto_id FROM pilaga.d_objeto_del_gasto og, pilaga_tmp.d_liqdet d WHERE id_tabla&#x3d;d.d_liqdet AND&#xa;  og.objeto_del_gasto_codigo&#x3d;codigo_inc&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; codigo_ppl&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; codigo_ppr&#x3a;&#x3a;text &#x7c;&#x7c; &#x27;.0000&#x27;&#x29;,0&#x29;&#x3b; &#xa;&#xa;-- TODO&#x3a; Ver donde se pone este indice CREATE UNIQUE INDEX d_expediente_por_desc_index ON pilaga.d_expediente &#x28;expediente_desc&#x29;&#x3b;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET expediente_id &#x3d; COALESCE&#x28;&#x28;SELECT e.expediente_id&#xa;			FROM pilaga.d_expediente e &#xa;			WHERE e.expediente_desc&#x3d;COALESCE&#x28;&#x27;EXP - &#x27; &#x7c;&#x7c; nroexp &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; anio_id&#x3a;&#x3a;varchar,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET concepto_id &#x3d; COALESCE&#x28;&#x28;SELECT c.concepto_id&#xa;			FROM pilaga.d_concepto c &#xa;			WHERE c.concepto_desc&#x3d;COALESCE&#x28;&#x28;SELECT c.concepto FROM pilaga_tmp.d_liquid c, pilaga_tmp.d_liqdet d&#xa;							WHERE id_tabla&#x3d;d.d_liqdet AND &#xa;							d.anio&#x3d;c.anio AND d.tipcom&#x3d;c.tipcom AND d.nroliq&#x3d;c.nroliq AND d.tipliq&#x3d;c.tipliq AND &#xa;							c.concepto is not null&#x29;,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET documento_id &#x3d; COALESCE&#x28;&#x28;SELECT d.documento_principal_id&#xa;			FROM pilaga.d_documento_principal d &#xa;			WHERE d.documento_principal_codigo&#x3d;&#xa;				COALESCE&#x28;&#x28;SELECT c.tipcom &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.nroliq &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text  &#xa;						FROM pilaga_tmp.d_liquid c, pilaga_tmp.d_liqdet d&#xa;							WHERE id_tabla&#x3d;d.d_liqdet AND &#xa;							d.anio&#x3d;c.anio AND d.tipcom&#x3d;c.tipcom AND d.nroliq&#x3d;c.nroliq AND d.tipliq&#x3d;c.tipliq AND &#xa;							&#x28;c.tipcom &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.nroliq &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text&#x29; is not null&#x29;,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#x3b; &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado SET documento_devengado_id &#x3d; COALESCE&#x28;documento_id,0&#x29;&#x3b;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado SET documento_pagado_id &#x3d; COALESCE&#x28;documento_id,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET beneficiario_id &#x3d; COALESCE&#x28;&#x28;SELECT persona_id FROM pilaga.d_persona p, pilaga_tmp.c_tipdoc t&#xa;				WHERE tipdoc&#x3d;t.tipdoc AND&#xa;				t.nom_tipd&#x3d;p.persona_tipo_documento AND&#xa;				CASE WHEN t.nom_tipd &#x3d; &#x27;CUIT&#x27; OR t.nom_tipd &#x3d; &#x27;CUIL&#x27; THEN&#xa;					cuit1&#x3a;&#x3a;varchar &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; nrodoc&#x3a;&#x3a;varchar &#x7c;&#x7c; &#x27;-&#x27; &#x7c;&#x7c; cuit2&#x3a;&#x3a;varchar&#xa;					ELSE nrodoc&#x3a;&#x3a;varchar&#xa;				END &#x3d; p.persona_nro_documento LIMIT 1&#x29;&#xa;			,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET tipo_persona_id &#x3d; COALESCE&#x28;&#x28;SELECT tipo_persona_id FROM pilaga.d_tipo_persona WHERE tipo_persona_codigo &#x3d; &#x27;P&#x27;&#x29;,0&#x29;&#xa;WHERE beneficiario_id &#x3c;&#x3e; 0&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET estado_liquidacion_id &#x3d; &#xa;		 COALESCE&#x28;&#x28;CASE WHEN estado IN &#x28;&#x27;P&#x27;, &#x27;R&#x27;&#x29; THEN &#x28;SELECT estado_liquidacion_id FROM pilaga.d_estado_liquidacion WHERE estado_liquidacion_codigo &#x3d; &#x27;P&#x27;&#x29;&#xa;		       ELSE 0&#xa;		  END&#xa;		 &#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET etapa_presupuestaria_id &#x3d; COALESCE&#x28;&#x28;SELECT e.etapa_presupuestaria_id FROM pilaga.d_etapa_presupuestaria e WHERE e.etapa_presupuestaria_codigo&#x3d;&#x27;PA&#x27;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET tipo_documento_id &#x3d; COALESCE&#x28;&#x28;SELECT t.tipo_documento_id FROM pilaga.d_tipo_documento t WHERE t.tipo_documento_codigo &#x3d; tipcom&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET tipo_operacion_id &#x3d; COALESCE&#x28;&#x28;SELECT t.tipo_operacion_id FROM pilaga.d_tipo_operacion t WHERE t.tipo_operacion_codigo&#x3d;&#x27;CPAG&#x27;&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET mes_id &#x3d; COALESCE&#x28;extract&#x28;month from fecha_id&#x29;,1&#x29;&#x3b;&#xa;&#xa;-- Obtencion de documento_preventivo y documento_compromiso en el devengado&#xa;DROP TABLE IF EXISTS pilaga_tmp.mig_temp_pagado&#x3b;&#xa;SELECT DISTINCT l.nroexp AS tt_nroexp, ld.impoliq AS tt_impoliq, min&#x28;d.d_detcom&#x29; AS tt_d_detcom, &#xa;	max&#x28;c.numero&#x29;&#x3a;&#x3a;integer - min&#x28;c.numero&#x29;&#x3a;&#x3a;integer AS tt_distancia_compromisos&#xa;	INTO pilaga_tmp.mig_temp_pagado&#xa;	FROM pilaga_tmp.d_cabcom c, pilaga_tmp.d_detcom d, pilaga_tmp.d_liquid l, pilaga_tmp.d_liqdet ld&#xa;WHERE &#xa;  d.anio&#x3d;c.anio AND d.tipo&#x3d;c.tipo AND d.numero&#x3d;c.numero AND d.anicomp&#x3d;c.anicomp AND d.coddep&#x3d;c.coddep AND d.subdep&#x3d;c.subdep AND&#xa;  ld.anio&#x3d;l.anio AND ld.tipcom&#x3d;l.tipcom AND ld.nroliq&#x3d;l.nroliq AND ld.tipliq&#x3d;l.tipliq AND&#xa;  c.exp&#x3d;l.nroexp AND d.devengado&#x3d;ld.impoliq AND&#xa;  ld.coddep&#x3d;d.coddep AND ld.subdep&#x3d;d.subdep AND ld.codigo_fue&#x3d;d.codigo_fue AND &#xa;  ld.codigo_prg&#x3d;d.codigo_prg AND ld.codigo_pry&#x3d;d.codigo_pry AND ld.codigo_act&#x3d;d.codigo_act AND&#xa;  ld.codigo_obr&#x3d;d.codigo_obr AND ld.codigo_inc&#x3d;d.codigo_inc AND ld.codigo_ppl&#x3d;d.codigo_ppl AND&#xa;  ld.codigo_ppr&#x3d;d.codigo_ppr&#xa;GROUP BY 1,2&#x3b;&#xa;CREATE UNIQUE INDEX temp_temp_index ON pilaga_tmp.mig_temp_pagado &#x28;tt_nroexp, tt_impoliq&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET documento_compromiso_id &#x3d; COALESCE&#x28;&#x28;SELECT d.documento_principal_id&#xa;			FROM pilaga.d_documento_principal d &#xa;			WHERE d.documento_principal_codigo&#x3d;&#xa;				COALESCE&#x28;&#x28;SELECT c.tipo &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.numero &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text  &#xa;						FROM pilaga_tmp.d_cabcom c, pilaga_tmp.d_detcom d, pilaga_tmp.mig_temp_pagado tt&#xa;							WHERE nroexp&#x3d;tt.tt_nroexp AND impoliq&#x3d;tt.tt_impoliq AND &#xa;							tt.tt_d_detcom &#x3d; d.d_detcom AND tt.tt_distancia_compromisos&#x3d;0 AND&#xa;							d.anio&#x3d;c.anio AND d.tipo&#x3d;c.tipo AND d.numero&#x3d;c.numero AND &#xa;							d.anicomp&#x3d;c.anicomp AND d.coddep&#x3d;c.coddep AND d.subdep&#x3d;c.subdep AND &#xa;							&#x28;c.tipo &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.numero &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text&#x29; is not null&#x29;,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#x3b; &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_pagado&#xa; SET documento_preventivo_id &#x3d; COALESCE&#x28;&#x28;SELECT d.documento_principal_id&#xa;			FROM pilaga.d_documento_principal d &#xa;			WHERE d.documento_principal_codigo&#x3d;&#xa;				COALESCE&#x28;&#x28;SELECT c.tipoprev &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.nup &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text  &#xa;						FROM pilaga_tmp.d_cabcom c, pilaga_tmp.d_detcom d, pilaga_tmp.mig_temp_pagado tt&#xa;							WHERE nroexp&#x3d;tt.tt_nroexp AND impoliq&#x3d;tt.tt_impoliq AND &#xa;							tt.tt_d_detcom &#x3d; d.d_detcom AND tt.tt_distancia_compromisos&#x3d;0 AND&#xa;							d.anio&#x3d;c.anio AND d.tipo&#x3d;c.tipo AND d.numero&#x3d;c.numero AND &#xa;							d.anicomp&#x3d;c.anicomp AND d.coddep&#x3d;c.coddep AND d.subdep&#x3d;c.subdep AND &#xa;							&#x28;c.tipoprev &#x7c;&#x7c; &#x27; - &#x27; &#x7c;&#x7c; c.nup &#x7c;&#x7c; &#x27; &#x2f; &#x27; &#x7c;&#x7c; c.anio&#x3a;&#x3a;text&#x29; is not null&#x29;,&#x27;VACIO&#x2f;NULO&#x27;&#x29;&#x29;,0&#x29;&#x3b; &#xa;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>T</sendOneStatement>
+      <connection>siu_dw</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>755</xloc>
+      <yloc>99</yloc>
+      </entry>
+    <entry>
+      <name>temporal &#x28;mig_ft_movimientos_cobrado&#x29;</name>
+      <description/>
+      <type>SQL</type>
+      <sql>-- &#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#xa;-- COBRADO&#xa;-- &#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#xa;DROP TABLE IF EXISTS pilaga_tmp.mig_ft_movimientos_cobrado&#x3b;&#xa;SELECT &#xa;  d_recaud AS id_tabla,&#xa;  r.anio AS anio_id, r.fecha AS fecha_id, 0 AS red_programatica_id, 0 AS grupo_presupuestario_id, 0 AS codigo_economico_id, 0 AS unidad_presupuestaria_id,&#xa;  0 AS unidad_gestion_id, 0 AS finalidad_funcion_id, 0 AS moneda_id, 0 AS fondo_id, 0 AS tercero_id, 0 AS fuente_id,&#xa;  0 AS circuito_gestion_id, 0 AS objeto_del_gasto_id, 0 AS expediente_id, 0 AS concepto_id, 0 AS documento_id,&#xa;  0 AS tipo_persona_id, 0 AS beneficiario_id, 0 AS persona_comprobante_id, 0 AS comprobante_id, 0 AS contribuyente_id,&#xa;  &#x27;1900-01-01&#x27;&#x3a;&#x3a;date AS fecha_vencimiento_id, 0 AS nivel_autorizacion_id, 0 AS estado_liquidacion_id, &#xa;  r.fecha AS fecha_valor_id, 0 AS unidad_generica_id, 0 AS etapa_presupuestaria_id, 0 AS tipo_documento_id,&#xa;  0 AS documento_preventivo_id, 0 AS documento_compromiso_id, 0 AS documento_devengado_id, 0 AS documento_pagado_id,&#xa;  0 AS documento_devengado_ingreso_id, 0 AS documento_cobrado_id, 0 AS cuenta_tesoreria_id, 0 AS cuenta_bancaria_id,&#xa;  0 AS banco_sucursal_id, 0 AS rubro_ingreso_id, 0 AS concepto_ingreso_id, 0 AS tipo_operacion_id, 0 AS mes_id,&#xa;  0.0 AS credito_original,&#xa;  0.0 AS credito_modificatorio,&#xa;  0.0 AS credito, -- Ver si corresponde dejarlo o es una medida calculada&#xa;  0.0 AS preventivo,&#xa;  0.0 AS compromiso,&#xa;  0.0 AS devengado,&#xa;  0.0 AS pagado,&#xa;  0.0 AS retenciones,&#xa;  0.0 AS disponibilidades,&#xa;  0.0 AS previsto_de_ingreso,&#xa;  0.0 AS estimado_de_ingreso,&#xa;  0.0 AS devengado_de_ingreso,&#xa;  r.impo_rec AS cobrado&#xa;INTO pilaga_tmp.mig_ft_movimientos_cobrado&#xa; FROM pilaga_tmp.d_recaud r, pilaga_tmp.d_coning c &#xa; WHERE r.codigo_con&#x3d;c.codigo_con&#xa; AND r.anio &#x3d; c.anio&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_cobrado&#xa; SET grupo_presupuestario_id &#x3d; COALESCE&#x28;&#x28;SELECT grupo_presupuestario_id FROM pilaga.d_grupo_presupuestario WHERE grupo_presupuestario_codigo&#x3d;&#x27;0001&#x27;&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_cobrado&#xa; SET moneda_id &#x3d; COALESCE&#x28;&#x28;SELECT m.moneda_id FROM pilaga.d_moneda m WHERE m.moneda_codigo&#x3d;&#x27;1&#x27;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_cobrado SET fondo_id &#x3d; &#x28;SELECT fondo_id FROM pilaga.d_fondo WHERE fondo_desc &#x3d; &#x27;Presupuestario&#x27;&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_cobrado&#xa; SET fuente_id &#x3d; COALESCE&#x28;&#x28;SELECT f.fuente_id FROM pilaga.d_fuente f, pilaga_tmp.d_recaud d WHERE id_tabla&#x3d;d.d_recaud AND f.fuente_codigo&#x3d;d.codigo_fue&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_cobrado&#xa; SET circuito_gestion_id &#x3d; COALESCE&#x28;&#x28;SELECT cg.circuito_gestion_id FROM pilaga.d_circuito_gestion cg WHERE cg.circuito_gestion_codigo&#x3d;&#x27;INGT&#x27;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_cobrado&#xa; SET etapa_presupuestaria_id &#x3d; COALESCE&#x28;&#x28;SELECT e.etapa_presupuestaria_id FROM pilaga.d_etapa_presupuestaria e WHERE e.etapa_presupuestaria_codigo&#x3d;&#x27;CI&#x27;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_cobrado&#xa; SET circuito_gestion_id &#x3d; COALESCE&#x28;&#x28;SELECT cg.circuito_gestion_id FROM pilaga.d_circuito_gestion cg WHERE cg.circuito_gestion_codigo&#x3d;&#x27;CCIT&#x27;&#x29;,0&#x29;&#x3b;  &#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_cobrado&#xa; SET unidad_presupuestaria_id &#x3d; COALESCE&#x28;&#x28;SELECT up.unidad_presupuestaria_id FROM pilaga.d_unidad_presupuestaria up, pilaga_tmp.d_recaud d&#xa; WHERE id_tabla&#x3d;d.d_recaud AND&#xa;  right&#x28;&#x27;00&#x27; &#x7c;&#x7c; d.coddep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; right&#x28;&#x27;00&#x27; &#x7c;&#x7c; d.subdep&#x3a;&#x3a;text,3&#x29; &#x7c;&#x7c; &#x27;.000&#x27; &#x3d; up.unidad_presupuestaria_codigo&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_cobrado&#xa; SET rubro_ingreso_id &#x3d; COALESCE&#x28;&#x28;SELECT ri.rubro_ingreso_id FROM pilaga.d_rubro_ingreso ri, pilaga_tmp.d_recaud d&#xa; WHERE id_tabla&#x3d;d.d_recaud AND&#xa;  substring&#x28;rubro,1,1&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; substring&#x28;rubro,2,1&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; substring&#x28;rubro,3,1&#x29; &#x7c;&#x7c; &#x27;.&#x27; &#x7c;&#x7c; substring&#x28;rubro,4,1&#x29; &#x3d; ri.rubro_ingreso_codigo&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_cobrado&#xa; SET concepto_ingreso_id &#x3d; COALESCE&#x28;&#x28;SELECT ci.concepto_ingreso_id FROM pilaga.d_concepto_ingreso ci, pilaga_tmp.d_recaud d&#xa; WHERE id_tabla&#x3d;d.d_recaud AND codigo_con &#x3d; ci.concepto_ingreso_codigo&#x29;,0&#x29;&#x3b;&#xa;&#xa;UPDATE pilaga_tmp.mig_ft_movimientos_cobrado&#xa; SET mes_id &#x3d; COALESCE&#x28;extract&#x28;month from fecha_id&#x29;,1&#x29;&#x3b;&#xa;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>T</sendOneStatement>
+      <connection>siu_dw</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>755</xloc>
+      <yloc>14</yloc>
+      </entry>
+    <entry>
+      <name>validar y crear importaci&#xf3;n</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;..&#x2f;..&#x2f;carga_de_datos&#x2f;general&#x2f;validar_y_crear importacion.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+            <parameter>            <name>dsa_clave</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dsa_clave&#x7d;</value>
+            </parameter>            <parameter>            <name>dsa_nombrebase</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dsa_nombrebase&#x7d;</value>
+            </parameter>            <parameter>            <name>dsa_nombrehost</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dsa_nombrehost&#x7d;</value>
+            </parameter>            <parameter>            <name>dsa_puerto</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dsa_puerto&#x7d;</value>
+            </parameter>            <parameter>            <name>dsa_usuario</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dsa_usuario&#x7d;</value>
+            </parameter>            <parameter>            <name>dw_clave</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dw_clave&#x7d;</value>
+            </parameter>            <parameter>            <name>dw_nombrebase</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dw_nombrebase&#x7d;</value>
+            </parameter>            <parameter>            <name>dw_nombrehost</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dw_nombrehost&#x7d;</value>
+            </parameter>            <parameter>            <name>dw_puerto</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dw_puerto&#x7d;</value>
+            </parameter>            <parameter>            <name>dw_usuario</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dw_usuario&#x7d;</value>
+            </parameter>            <parameter>            <name>observaciones</name>
+            <stream_name/>
+            <value>Migraci&#xf3;n de datos de Pilag&#xe1; de la base del Portal  Gerencial de SIU-Wichi 4.1.0 a SIU-Wichi 5.0.0</value>
+            </parameter>            <parameter>            <name>ultima_importacion_id</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;ultima_importacion_id&#x7d;</value>
+            </parameter>      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>962</xloc>
+      <yloc>256</yloc>
+      </entry>
+    <entry>
+      <name>setear fuentedato</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
+      <filename/>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>fuentedato_id</variable_name>
+          <variable_value>3</variable_value>
+          <variable_type>ROOT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>fuentedato_desc</variable_name>
+          <variable_value>pilaga</variable_value>
+          <variable_type>ROOT_JOB</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>962</xloc>
+      <yloc>126</yloc>
+      </entry>
+    <entry>
+      <name>error 7</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Se produjo un error al intentar crear la nueva importaci&#xf3;n.&#xa;</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>&#x5b;ERROR&#x5d;&#x3a; Validaci&#xf3;n y creci&#xf3;n de importaci&#xf3;n</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1158</xloc>
+      <yloc>256</yloc>
+      </entry>
+    <entry>
+      <name>tipo importacion</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
+      <filename/>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>tipo_importacion</variable_name>
+          <variable_value>migracion</variable_value>
+          <variable_type>ROOT_JOB</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>962</xloc>
+      <yloc>17</yloc>
+      </entry>
+    <entry>
+      <name>ERROR temporales</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Se produjo un error en la carga de las tablas temporales</logmessage>
+      <loglevel>Minimal</loglevel>
+      <logsubject>&#x5b;ERROR&#x5d;</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>557</xloc>
+      <yloc>144</yloc>
+      </entry>
+    <entry>
+      <name>Finalizado con error</name>
+      <description/>
+      <type>ABORT</type>
+      <message/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>497</xloc>
+      <yloc>219</yloc>
+      </entry>
+    <entry>
+      <name>Finalizado con error 2</name>
+      <description/>
+      <type>ABORT</type>
+      <message/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1216</xloc>
+      <yloc>385</yloc>
+      </entry>
+    <entry>
+      <name>migrar FT</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;migrar_pilaga_portal_410_500&#x2f;migrar_ft.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+            <parameter>            <name>dsa_clave</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dsa_clave&#x7d;</value>
+            </parameter>            <parameter>            <name>dsa_nombrebase</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dsa_nombrebase&#x7d;</value>
+            </parameter>            <parameter>            <name>dsa_nombrehost</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dsa_nombrehost&#x7d;</value>
+            </parameter>            <parameter>            <name>dsa_puerto</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dsa_puerto&#x7d;</value>
+            </parameter>            <parameter>            <name>dsa_usuario</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dsa_usuario&#x7d;</value>
+            </parameter>            <parameter>            <name>dw_clave</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dw_clave&#x7d;</value>
+            </parameter>            <parameter>            <name>dw_nombrebase</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dw_nombrebase&#x7d;</value>
+            </parameter>            <parameter>            <name>dw_nombrehost</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dw_nombrehost&#x7d;</value>
+            </parameter>            <parameter>            <name>dw_puerto</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dw_puerto&#x7d;</value>
+            </parameter>            <parameter>            <name>dw_usuario</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;dw_usuario&#x7d;</value>
+            </parameter>      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>962</xloc>
+      <yloc>390</yloc>
+      </entry>
+    <entry>
+      <name>cerrar importaci&#xf3;n</name>
+      <description/>
+      <type>SQL</type>
+      <sql>update public.importacion&#xa;set estado &#x3d; &#x27;finalizada&#x27;,&#xa;    fecha_fin &#x3d; now&#x28;&#x29;&#xa;where importacion_id &#x3d; &#x24;&#x7b;importacion_id&#x7d;&#x3b;&#xa;</sql>
+      <useVariableSubstitution>T</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>T</sendOneStatement>
+      <connection>siu_dw</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>962</xloc>
+      <yloc>493</yloc>
+      </entry>
+    <entry>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>624</xloc>
+      <yloc>591</yloc>
+      </entry>
+    <entry>
+      <name>error 7 2</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Se produjo un error en la migraci&#xf3;n de las tablas de hecho.</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>&#x5b;ERROR&#x5d;&#x3a; Migraci&#xf3; tablas de hecho</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1108</xloc>
+      <yloc>390</yloc>
+      </entry>
+    <entry>
+      <name>error 7 2 2</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Se produjo un error en la creaci&#xf3;n de las tablas temporales en pilaga_dsa.</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>&#x5b;ERROR&#x5d;&#x3a; Creaci&#xf3;n tablas temporales</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>188</xloc>
+      <yloc>387</yloc>
+      </entry>
+    <entry>
+      <name>error 8</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Se produjo un error en la eliminaci&#xf3;n de las tablas temporales en pilaga_dsa.</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>&#x5b;ERROR&#x5d;&#x3a; Borrado tablas temporales</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1174</xloc>
+      <yloc>591</yloc>
+      </entry>
+    <entry>
+      <name>error 8 2</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>Se produjo un error al momento de cerrar el registro de importaci&#xf3;n de datos en public.importacion.</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>&#x5b;ERROR&#x5d;&#x3a; Cerrar importaci&#xf3;n</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1119</xloc>
+      <yloc>493</yloc>
+      </entry>
+    <entry>
+      <name>VACUUM ANALYZE</name>
+      <description/>
+      <type>SQL</type>
+      <sql>--Se realiza el vacuum analyz de las tablas del esquema pilaga&#xa;VACUUM FULL ANALYZE pilaga.d_fuente&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_documento_principal&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_cuenta_tesoreria&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_concepto&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_red_programatica&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_unidad_gestion&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_estado_liquidacion&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_unidad_presupuestaria&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_tipo_documento&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_tipo_persona&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_rubro_ingreso&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_comprobante&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.ft_movimientos&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.ft_tesorerias&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_persona&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_etapa_presupuestaria&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_grupo_presupuestario&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_objeto_del_gasto&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_finalidad_funcion&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_concepto_ingreso&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_circuito_gestion&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_tipo_comprobante&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_cuenta_bancaria&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_medio_pago&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.ft_comprobantes&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_moneda&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_ejercicio&#x3b;&#xa;VACUUM FULL ANALYZE pilaga.d_expediente&#x3b;&#xa;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>siu_dw</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>753</xloc>
+      <yloc>591</yloc>
+      </entry>
+  </entries>
+  <hops>
+    <hop>
+      <from>setear_parametros</from>
+      <to>asignar_y_probar_conexion</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>asignar_y_probar_conexion</from>
+      <to>Finalizando con error</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>setear_parametros</from>
+      <to>Finalizando con error</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>asignar_y_probar_conexion</from>
+      <to>crear tablas tmp portal</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Copiar tablas wichi portal a tmp</from>
+      <to>VACUUM</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>VACUUM</from>
+      <to>migrar Dimensiones</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>migrar Dimensiones</from>
+      <to>temporal &#x28;mig_ft_movimientos&#x29;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>crear tablas tmp portal</from>
+      <to>crear indices</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>crear indices</from>
+      <to>Copiar tablas wichi portal a tmp</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>migrar Dimensiones</from>
+      <to>Write To Log 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>temporal &#x28;mig_ft_movimientos&#x29;</from>
+      <to>temporal &#x28;mig_ft_movimientos_compromiso&#x29;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>temporal &#x28;mig_ft_movimientos_compromiso&#x29;</from>
+      <to>temporal &#x28;mig_ft_movimientos_devengado&#x29;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>temporal &#x28;mig_ft_movimientos_devengado&#x29;</from>
+      <to>temporal &#x28;mig_ft_movimientos_pagado&#x29;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>temporal &#x28;mig_ft_movimientos_pagado&#x29;</from>
+      <to>temporal &#x28;mig_ft_movimientos_cobrado&#x29;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>tipo importacion</from>
+      <to>setear fuentedato</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>setear fuentedato</from>
+      <to>validar y crear importaci&#xf3;n</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>validar y crear importaci&#xf3;n</from>
+      <to>error 7</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>temporal &#x28;mig_ft_movimientos_cobrado&#x29;</from>
+      <to>tipo importacion</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>temporal &#x28;mig_ft_movimientos_cobrado&#x29;</from>
+      <to>ERROR temporales</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>temporal &#x28;mig_ft_movimientos_pagado&#x29;</from>
+      <to>ERROR temporales</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>temporal &#x28;mig_ft_movimientos_devengado&#x29;</from>
+      <to>ERROR temporales</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>temporal &#x28;mig_ft_movimientos_compromiso&#x29;</from>
+      <to>ERROR temporales</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>temporal &#x28;mig_ft_movimientos&#x29;</from>
+      <to>ERROR temporales</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>ERROR temporales</from>
+      <to>Finalizado con error</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>VACUUM</from>
+      <to>Finalizado con error</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log 2</from>
+      <to>Finalizado con error</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>error 7</from>
+      <to>Finalizado con error 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>validar y crear importaci&#xf3;n</from>
+      <to>migrar FT</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>migrar FT</from>
+      <to>cerrar importaci&#xf3;n</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>cerrar importaci&#xf3;n</from>
+      <to>borrar tablas temporales portal</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>migrar FT</from>
+      <to>error 7 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>error 7 2</from>
+      <to>Finalizado con error 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>crear tablas tmp portal</from>
+      <to>error 7 2 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>error 7 2 2</from>
+      <to>Finalizando con error</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>borrar tablas temporales portal</from>
+      <to>error 8</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>error 8</from>
+      <to>Finalizado con error 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>cerrar importaci&#xf3;n</from>
+      <to>error 8 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>error 8 2</from>
+      <to>Finalizado con error 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>borrar tablas temporales portal</from>
+      <to>VACUUM ANALYZE</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>VACUUM ANALYZE</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>setear_parametros</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+  </hops>
+  <notepads>
+    <notepad>
+      <note>ESTA MIGRACI&#xd3;N HAY QUE CORRERLA LUEGO DE&#xa;HABER CARGADO AL MENOS UN PER&#xcd;ODO &#xa;DE PILAG&#xc1; PARA QUE ESTEN TODAS LAS DIMENSIONES &#xa;CARGADAS</note>
+      <xloc>103</xloc>
+      <yloc>32</yloc>
+      <width>386</width>
+      <heigth>74</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+
+</job>

@@ -1,0 +1,3 @@
+No es necesaria una migración de datos para pasar de 5.2.2 a 5.2.3, ya que solo cambian los procesos de ETL.
+Opcionalmente se puede correr el script actualizacion.sql para tener el número de versión registrado.
+

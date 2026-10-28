@@ -1,0 +1,1328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>cursado</name>
+    <description/>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>/</directory>
+    <parameters>
+      <parameter>
+        <name>directorioTxt</name>
+        <default_value/>
+        <description/>
+      </parameter>
+    </parameters>
+    <log>
+      <trans-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>50000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+    <created_user>-</created_user>
+    <created_date>2014/12/09 15:21:54.332</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2014/12/09 15:21:54.332</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+    <notepad>
+      <note>-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- Generación del archivo LT_Cursadas.txt
+-- Cuenta los siguiente:
+--  * Promocionados en actas de promocion cerradas.
+--  * Aprobados en actas de cursadas que no promocionaron
+--  * Desaprobados en actas de cursadas y promocion
+--  * Ausentes en actas de cursadas y promocion
+-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</note>
+      <xloc>480</xloc>
+      <yloc>32</yloc>
+      <width>754</width>
+      <heigth>170</heigth>
+      <fontname>Ubuntu</fontname>
+      <fontsize>11</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <connection>
+    <name>siu_guarani</name>
+    <server>${fuente_host}</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>${fuente_nombre}</database>
+    <port>${fuente_puerto}</port>
+    <username>${fuente_usuario}</username>
+    <password>${fuente_clave}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>${fuente_puerto}</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>${search_path_guarani}</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <order>
+    <hop>
+      <from>cursado</from>
+      <to>FT_Cursado</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <step>
+    <name>FT_Cursado</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>|</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>Y</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>UNIX</format>
+    <compression>None</compression>
+    <encoding>UTF-8</encoding>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>N</create_parent_folder>
+    <file>
+      <name>${directorioTxt}/FT_Cursado</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>ubicacion</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>anio_academico</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>tipoperiodo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>periodo_lectivo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>orden_periodo_en_anio</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>alumno</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>propuesta</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>plan_version</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>actividad</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>sexo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>edad</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>nacionalidad</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>colegio</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>catedra</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>comision</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>condicion_regularidad</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>resultado</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>nota</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>concepto</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>pct_asistencia</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>actividad_comun</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>acta</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>estado_acta</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>totalintentoscursada</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>nrointentocursada</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>cantidad_registros_cursada</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>anio_ingreso_institucion</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>anio_ingreso_propuesta</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>periodo_inscripcion_nombre</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>modalidad</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>persona</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>horas_trabajadas</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>estado_civil</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>localidad_per_lec</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>localidad_proc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>costeo_estudios</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>beca</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>tecno_internet</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>tecno_pc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>idioma</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>discapacidad</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>cursado</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>siu_guarani</connection>
+    <sql>WITH actas as (SELECT *  FROM negocio.sga_actas where origen IN ('R','P') AND estado = 'C'),
+actas_det as (SELECT *  FROM negocio.sga_actas_detalle WHERE sga_actas_detalle.resultado IN ('A','R','U')
+	AND sga_actas_detalle.estado = 'A'AND sga_actas_detalle.rectificado = 'N')
+SELECT
+	_wichi_comisiones.ubicacion ,
+	cast(_wichi_comisiones.anio_academico as integer) as anio_academico,
+	sga_periodos_genericos.periodo_generico_tipo AS tipoperiodo,
+	_wichi_comisiones.periodo_nombre as periodo_lectivo,
+	_wichi_comisiones.orden as orden_periodo_en_anio,
+	sga_alumnos.alumno,
+	sga_alumnos.propuesta,
+	actas_det.plan_version as plan_version,
+	_wichi_comisiones.elemento as actividad,
+	CASE
+	   WHEN mdp_personas.sexo = 'M' THEN 1
+	   WHEN mdp_personas.sexo = 'F' THEN 2
+	   WHEN mdp_personas.sexo = 'X' THEN 3 
+	END AS sexo,
+       (CASE WHEN mdp_personas.fecha_nacimiento IS NULL THEN NULL ELSE (
+		extract(year from age(date (_wichi_comisiones.anio_academico ||'-12-31'), mdp_personas.fecha_nacimiento))
+	) END) as edad,
+	mdp_personas.nacionalidad,
+	(SELECT CASE WHEN mdp_datos_estudios.nivel_estudio = 3 THEN mdp_datos_estudios.colegio 
+		ELSE NULL END
+	FROM mdp_datos_estudios 
+	WHERE mdp_datos_estudios.persona = mdp_personas.persona
+	LIMIT 1) as colegio,
+	sga_catedras.catedra as catedra,
+	_wichi_comisiones.comision as comision,
+	CASE
+	   WHEN actas.origen = 'P' AND actas_det.resultado = 'A' THEN 5 -- Promociono
+	   WHEN actas.origen = 'P' AND actas_det.resultado &lt;&gt; 'A' THEN 104 -- No Promocionó (No promocionados y Ausentes)
+       ELSE	actas_det.cond_regularidad
+       END as condicion_regularidad,
+	CASE
+	   WHEN actas.origen = 'P' AND actas_det.resultado = 'A' THEN 'PR' -- Promociono
+	   WHEN actas.origen = 'P' AND actas_det.resultado &lt;&gt; 'A' THEN 'NP' -- No Promocionó (No promocionados y Ausentes)
+	   WHEN actas.origen = 'R' THEN actas_det.resultado  -- Resultados del acta de cursadas 
+	END AS resultado,
+	actas_det.nota as nota,
+	sga_escalas_notas_det.concepto as concepto,
+	actas_det.pct_asistencia,
+	0 as actividad_comun,
+	actas.nro_acta as acta,
+	actas.estado as estado_acta,
+	
+	intentos.total_intentos as totalintentoscursada, -- Total de veces que ha intentado cursar la materia dentro de la carrera
+	intentos.nro_intento as nrointentocursada,       -- Número de vez que intenta cursar la materia dentro de la carrera.
+	
+	1 as cantidad_registros_cursada,
+	ingreso.anio_academico_institucion as anio_ingreso_institucion,
+	ingreso.anio_academico_propuesta as anio_ingreso_propuesta,
+	ingreso.periodo_inscripcion_nombre as periodo_inscripcion_nombre,
+    sga_alumnos.modalidad,
+	sga_alumnos.persona,
+	wdc.hs_trabajo_situacion_alumno as horas_trabajadas, 
+	wdc.estado_civil,
+	wdc.localidad_per_lec,
+	wdc.localidad_proc,
+	wdc.costeo_estudios,
+	wdc.beca,
+	wdc.tecno_internet,
+	wdc.tecno_pc,
+	wdc.idioma,
+	0 as discapacidad
+FROM
+	actas,
+	actas_det LEFT JOIN sga_escalas_notas_det ON (sga_escalas_notas_det.escala_nota = actas_det.escala_nota AND sga_escalas_notas_det.nota = actas_det.nota), 
+	sga_planes_versiones,
+	_wichi_comisiones
+	   LEFT JOIN sga_catedras ON sga_catedras.catedra = _wichi_comisiones.catedra,
+	sga_alumnos,
+	mdp_personas,
+	sga_propuestas,
+	_wichi_intentos_cursadas as intentos,
+	_wichi_ingreso_alumnos as ingreso,
+	sga_periodos_genericos,
+    _wichi_datos_censales wdc 
+	
+WHERE actas_det.id_acta = actas.id_acta
+        AND ((actas.origen = 'P') OR
+             (actas.origen = 'R' AND actas_det.resultado &lt;&gt; 'A') OR
+             (actas.origen = 'R' AND actas_det.resultado = 'A' AND 
+              NOT EXISTS (SELECT 1 FROM _wichi_alumnos_promovidos as promo WHERE promo.comision = actas.comision AND promo.alumno = actas_det.alumno)) -- No cuento las promociones en actas de cursadas
+            ) 
+	AND _wichi_comisiones.comision = actas.comision
+	AND _wichi_comisiones.periodo_generico = sga_periodos_genericos.periodo_generico
+	AND sga_planes_versiones.plan_version = actas_det.plan_version
+	AND sga_alumnos.alumno = actas_det.alumno
+	AND sga_alumnos.persona = mdp_personas.persona
+	AND sga_propuestas.propuesta = sga_alumnos.propuesta
+	
+	-- Intentos de cursada de la materia
+	AND intentos.alumno = actas_det.alumno
+	AND intentos.elemento = _wichi_comisiones.elemento
+	AND intentos.comision = _wichi_comisiones.comision
+	
+	AND ingreso.alumno = sga_alumnos.alumno
+
+    AND sga_alumnos.persona = wdc.persona AND _wichi_comisiones.anio_academico = wdc.anio_academico
+	AND (${periodo} = 0 or _wichi_comisiones.anio_academico= ${periodo})
+
+UNION ALL
+
+-- Cursadas aprobadas en otras propuestas del alumno (Cursadas de actividades comunes con el plan actual)
+SELECT
+	_wichi_comisiones.ubicacion,
+	cast(_wichi_comisiones.anio_academico as integer) as anio_academico,
+	sga_periodos_genericos.periodo_generico_tipo AS tipoperiodo,
+	_wichi_comisiones.periodo_nombre as periodo_lectivo,
+	_wichi_comisiones.orden as orden_periodo_en_anio,
+	sga_alumnos2.alumno , 
+	sga_alumnos2.propuesta , 
+	sga_planes_versiones2.plan_version as plan_version, -- actas_det.plan_version
+	_wichi_comisiones.elemento as actididad, -- _wichi_comisiones.elemento
+	CASE
+	   WHEN mdp_personas.sexo = 'M' THEN 1
+	   WHEN mdp_personas.sexo = 'F' THEN 2
+	END AS sexo,
+       (CASE WHEN mdp_personas.fecha_nacimiento IS NULL THEN NULL ELSE (
+		extract(year from age(date (_wichi_comisiones.anio_academico ||'-12-31'), mdp_personas.fecha_nacimiento))
+	) END) as edad,
+	mdp_personas.nacionalidad,
+	(SELECT CASE WHEN mdp_datos_estudios.nivel_estudio = 3 THEN mdp_datos_estudios.colegio 
+		ELSE NULL END
+	FROM mdp_datos_estudios 
+	WHERE mdp_datos_estudios.persona = mdp_personas.persona
+	LIMIT 1) as colegio,
+	sga_catedras.catedra as catedra,
+	_wichi_comisiones.comision as comision,
+	CASE
+	   WHEN actas.origen = 'P' AND actas_det.resultado = 'A' THEN 5 -- Promociono
+           ELSE	actas_det.cond_regularidad
+        END as condicion_regularidad,
+	--actas_det.resultado as resultado,	
+	CASE
+	   WHEN actas.origen = 'P' AND actas_det.resultado = 'A' THEN 'PR' -- Promociono
+	   ELSE actas_det.resultado 
+	END AS resultado,
+	
+	actas_det.nota as nota,
+	sga_escalas_notas_det.concepto as concepto,
+	actas_det.pct_asistencia AS porcentajeasistencia,
+	1 as actividad_comun,
+	actas.nro_acta as acta,
+	actas.estado as estado_acta,
+	
+	intentos.total_intentos as totalintentoscursada, -- Total de veces que ha intentado cursar la materia dentro de la carrera
+	intentos.nro_intento as nrointentocursada,       -- Número de vez que intenta cursar la materia dentro de la carrera.
+	
+	1 as cantidad_registros_cursada,
+	ingreso.anio_academico_institucion as anio_ingreso_institucion,
+	ingreso.anio_academico_propuesta as anio_ingreso_propuesta,
+	ingreso.periodo_inscripcion_nombre as periodo_inscripcion_nombre,
+    sga_alumnos.modalidad,
+	sga_alumnos.persona,
+	wdc.hs_trabajo_situacion_alumno as horas_trabajadas, 
+	wdc.estado_civil,
+	wdc.localidad_per_lec,
+	wdc.localidad_proc,
+	wdc.costeo_estudios,
+	wdc.beca,
+	wdc.tecno_internet,
+	wdc.tecno_pc,
+	wdc.idioma,
+	0 as discapacidad
+FROM
+	actas,
+	actas_det LEFT JOIN sga_escalas_notas_det ON (sga_escalas_notas_det.escala_nota = actas_det.escala_nota AND sga_escalas_notas_det.nota = actas_det.nota),
+	sga_planes_versiones,
+	_wichi_comisiones
+	   LEFT JOIN sga_catedras ON sga_catedras.catedra = _wichi_comisiones.catedra,
+	sga_alumnos,
+	mdp_personas,
+	sga_propuestas,
+	_wichi_intentos_cursadas as intentos,
+	_wichi_ingreso_alumnos as ingreso,
+	sga_alumnos as sga_alumnos2,
+	sga_planes_versiones as sga_planes_versiones2,
+	sga_elementos_plan as sga_elementos_plan2,
+	sga_elementos_revision as sga_elementos_revision2,
+	sga_periodos_genericos,
+    _wichi_datos_censales wdc 
+	
+WHERE
+	actas_det.id_acta = actas.id_acta
+        AND ((actas.origen = 'P' AND actas_det.resultado = 'A') OR
+             (actas.origen = 'R' AND actas_det.resultado &lt;&gt; 'A') OR
+             (actas.origen = 'R' AND actas_det.resultado = 'A' AND 
+              NOT EXISTS (SELECT 1 FROM _wichi_alumnos_promovidos as promo WHERE promo.comision = actas.comision AND promo.alumno = actas_det.alumno)) -- No cuento las promociones en actas de cursadas
+            ) 
+	AND _wichi_comisiones.comision = actas.comision
+	AND _wichi_comisiones.periodo_generico = sga_periodos_genericos.periodo_generico
+	AND sga_planes_versiones.plan_version = actas_det.plan_version
+	AND sga_alumnos.alumno = actas_det.alumno
+	AND sga_alumnos.persona = mdp_personas.persona
+	
+	-- Intentos de cursada en la otra propuesta
+	AND intentos.alumno   = actas_det.alumno
+	AND intentos.elemento = _wichi_comisiones.elemento
+	AND intentos.comision = _wichi_comisiones.comision
+
+	-- Otra propuesta del alumno  
+	AND sga_alumnos2.persona = sga_alumnos.persona
+	AND sga_alumnos2.propuesta &lt;&gt; sga_alumnos.propuesta
+	AND sga_propuestas.propuesta = sga_alumnos2.propuesta
+	AND sga_planes_versiones2.plan_version = sga_alumnos2.plan_version
+	AND ingreso.alumno = sga_alumnos2.alumno
+	AND sga_elementos_revision2.elemento = _wichi_comisiones.elemento
+	AND sga_elementos_plan2.plan_version      = sga_alumnos2.plan_version
+	AND sga_elementos_plan2.elemento_revision = sga_elementos_revision2.elemento_revision
+
+    AND sga_alumnos.persona = wdc.persona AND _wichi_comisiones.anio_academico = wdc.anio_academico
+	AND (${periodo} = 0 or _wichi_comisiones.anio_academico= ${periodo})</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>96</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step_error_handling>
+  </step_error_handling>
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+  <attributes/>
+</transformation>

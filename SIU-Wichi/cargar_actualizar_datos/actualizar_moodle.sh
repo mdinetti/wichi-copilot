@@ -1,0 +1,9 @@
+cd /opt/pentaho/data-integration
+./kitchen.sh \
+ -file="/opt/pentaho/SIU-Wichi/etl/carga_de_datos/moodle/principal_carga_moodle.kjb" \
+  -param="base_wichi_clave=xxxxxxx" \
+  -param="base_wichi_host=localhost" \
+  -param="base_wichi_nombre=siu_wichi" \
+  -param="base_wichi_puerto=5432" \
+  -param="base_wichi_usuario=postgres" \
+  -param="carga_directorioTemporalMoodle=/opt/pentaho/cargas/moodle" \

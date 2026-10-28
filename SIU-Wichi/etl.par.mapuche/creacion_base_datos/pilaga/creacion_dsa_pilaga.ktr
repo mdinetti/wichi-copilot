@@ -1,0 +1,1343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>creacion_dsa_pilaga</name>
+    <description/>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>/</directory>
+    <parameters>
+    </parameters>
+    <log>
+      <trans-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+    <created_user>-</created_user>
+    <created_date>2013/03/22 15:33:44.716</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2013/03/22 15:33:44.716</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+    <notepad>
+      <note>Ejecuta el script
+de creación</note>
+      <xloc>193</xloc>
+      <yloc>74</yloc>
+      <width>131</width>
+      <heigth>48</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <connection>
+    <name>siu_dsa</name>
+    <server>${dsa_nombrehost}</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>${dsa_nombrebase}</database>
+    <port>${dsa_puerto}</port>
+    <username>${dsa_usuario}</username>
+    <password>${dsa_clave}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>${dsa_puerto}</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>SET datestyle to iso,YMD</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <order>
+    <hop>
+      <from>nada</from>
+      <to>Execute SQL script</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <step>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>siu_dsa</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>--Esquema pilaga_dsa
+
+--Crea el esquema dsa de pilagá
+CREATE SCHEMA pilaga_dsa;
+
+--tablas dimensiones 
+
+--d_red_programatica
+CREATE TABLE pilaga_dsa.d_red_programatica
+(
+  red_programatica_id integer NOT NULL,
+  red_programatica_codigo character varying,
+  programa_desc character varying,
+  subprograma_desc character varying,
+  proyecto_desc character varying,
+  actividad_desc character varying,
+  obra_desc character varying,
+  red_programatica_combo_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+ CONSTRAINT pk_d_red_programatica PRIMARY KEY (red_programatica_id)
+);
+
+--d_banco_sucursal
+CREATE TABLE pilaga_dsa.d_banco_sucursal
+ (
+  banco_sucursal_id integer NOT NULL, 
+  banco_desc character varying,
+  cuit character varying, -- datos del banco
+  sucursal_desc character varying,
+  sucursal_codigo character varying,
+  fecha_desde date, 
+  fecha_hasta date, 
+  version integer, 
+  vigente character varying,
+  fecha_actualizacion TIMESTAMP WITHOUT TIME ZONE,
+CONSTRAINT pk_d_banco_sucursal PRIMARY KEY (banco_sucursal_id)
+);
+
+--d_circuito_gestion 
+CREATE TABLE pilaga_dsa.d_circuito_gestion
+(
+  circuito_gestion_id integer NOT NULL,
+  circuito_gestion_codigo character varying,
+  circuito_gestion_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+ CONSTRAINT pk_d_circuito_gestion PRIMARY KEY (circuito_gestion_id)
+);
+
+--d_codigo_economico
+CREATE TABLE pilaga_dsa.d_codigo_economico
+(
+  codigo_economico_id integer NOT NULL,
+  codigo_economico_codigo character varying,
+  codigo_economico_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+ CONSTRAINT pk_d_codigo_economico PRIMARY KEY (codigo_economico_id)
+);
+
+-- d_concepto_ingreso
+CREATE TABLE pilaga_dsa.d_concepto_ingreso
+ (
+  concepto_ingreso_id integer NOT NULL,
+  concepto_ingreso_codigo character varying, 
+  tipo_ingreso_desc character varying, 
+  concepto_ingreso_desc character varying, 
+  fecha_desde date, 
+  fecha_hasta date, 
+  version integer, 
+  vigente character varying, 
+  fecha_actualizacion TIMESTAMP WITHOUT TIME ZONE,
+CONSTRAINT pk_d_concepto_ingreso PRIMARY KEY (concepto_ingreso_id)
+);
+
+--d_finalidad_funcion
+CREATE TABLE pilaga_dsa.d_finalidad_funcion
+(
+  finalidad_funcion_id integer NOT NULL,
+  finalidad_codigo smallint,
+  funcion_codigo smallint,
+  finalidad_desc character varying,
+  funcion_desc character varying,
+  finalidad_funcion_combo_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+CONSTRAINT pk_d_finalidad_funcion PRIMARY KEY (finalidad_funcion_id)
+);
+
+-- d_fuente
+CREATE TABLE pilaga_dsa.d_fuente
+(
+  fuente_id integer NOT NULL,
+  fuente_codigo smallint,
+  fuente_desc character varying,
+  fuentecompleto_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+ CONSTRAINT pk_dsa_d_fuente PRIMARY KEY (fuente_id)
+);
+CREATE UNIQUE INDEX pk_d_fuente ON pilaga_dsa.d_fuente  (fuente_id);
+
+--d_grupo_presupuestario
+CREATE TABLE pilaga_dsa.d_grupo_presupuestario
+(
+  grupo_presupuestario_id integer NOT NULL,
+  grupo_presupuestario_codigo character varying,
+  grupo_presupuestario_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+ CONSTRAINT pk_d_grupo_presupuestario PRIMARY KEY (grupo_presupuestario_id)
+);
+
+-- d_moneda 
+CREATE TABLE pilaga_dsa.d_moneda
+ (
+  moneda_id integer NOT NULL,
+  moneda_tipo_desc character varying, 
+  moneda_codigo character varying, 
+  moneda_desc character varying, 
+  fecha_desde date, 
+  fecha_hasta date, 
+  version integer, 
+  vigente character varying, 
+  fecha_actualizacion TIMESTAMP WITHOUT TIME ZONE,
+CONSTRAINT pk_d_moneda PRIMARY KEY (moneda_id)
+);
+
+--d_objeto_del_gasto
+CREATE TABLE pilaga_dsa.d_objeto_del_gasto
+(
+  objeto_del_gasto_id integer NOT NULL,
+  objeto_del_gasto_codigo character varying, 
+  resumen_desc character varying, 
+  inciso_desc character varying, 
+  partida_principal_desc character varying, 
+  partida_parcial_desc character varying, 
+  objeto_del_gasto_desc character varying,
+  orden integer, 
+  fecha_desde date, 
+  fecha_hasta date, 
+  version integer, 
+  vigente character varying, 
+  fecha_actualizacion TIMESTAMP WITHOUT TIME ZONE,
+ CONSTRAINT pk_d_objeto_del_gasto PRIMARY KEY (objeto_del_gasto_id)
+);
+
+-- d_rubro_ingreso
+CREATE TABLE pilaga_dsa.d_rubro_ingreso
+ (
+  rubro_ingreso_id integer NOT NULL, 
+  rubro_ingreso_codigo character varying, 
+  grupo_desc character varying,
+  rubro_desc character varying,
+  tipo_desc character varying,
+  clase_desc character varying,
+  rubro_ingreso_desc character varying, 
+  fecha_desde date, 
+  fecha_hasta date, 
+  version integer, 
+  vigente character varying,
+  fecha_actualizacion TIMESTAMP WITHOUT TIME ZONE,
+CONSTRAINT pk_d_rubro_ingreso PRIMARY KEY (rubro_ingreso_id)
+);
+
+--d_unidad_presupuestaria
+CREATE TABLE pilaga_dsa.d_unidad_presupuestaria
+(
+  unidad_presupuestaria_id integer NOT NULL,
+  unidad_presupuestaria_codigo character varying,
+  unidad_presupuestaria_desc character varying,
+  subunidad_presupuestaria_desc character varying,
+  subsubunidad_presupuestaria_desc character varying,
+  unidad_presupuestaria_combo_desc character varying,
+  instalacion_id INTEGER,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+ CONSTRAINT pk_d_unidad_presupuestaria PRIMARY KEY (unidad_presupuestaria_id)
+);
+
+--d_tipo_comprobante. De tercero.
+CREATE TABLE pilaga_dsa.d_tipo_comprobante
+(
+  tipo_comprobante_id integer NOT NULL,
+  tipo_comprobante_codigo character varying,
+  tipo_comprobante_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+CONSTRAINT pk_d_tipo_comprobante PRIMARY KEY (tipo_comprobante_id)
+);
+--CREATE INDEX d_tipo_comprobante_por_codigo ON pilaga_dsa.d_tipo_comprobante (tipo_comprobante_codigo);
+
+--d_tipo_documento (son documentos de la Universidad, no de terceros.)
+CREATE TABLE pilaga_dsa.d_tipo_documento
+(
+  tipo_documento_id integer NOT NULL,
+  tipo_documento_codigo character varying,
+  tipo_documento_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+CONSTRAINT pk_d_tipo_documento PRIMARY KEY (tipo_documento_id)
+);
+
+--d_documento_principal (son documentos de la Universidad, no de terceros.)
+CREATE TABLE pilaga_dsa.d_documento_principal
+(
+  documento_principal_id integer NOT NULL,
+  documento_principal_codigo character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+CONSTRAINT pk_d_documento_principal PRIMARY KEY (documento_principal_id)
+);
+
+--d_tipo_persona. Clasificacion de proveedores que hace la Universidad. (Cliente / Proveedor / Tercero)
+CREATE TABLE pilaga_dsa.d_tipo_persona
+(
+  tipo_persona_id integer NOT NULL,
+  tipo_persona_codigo character varying,
+  tipo_persona_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+CONSTRAINT pk_d_tipo_persona PRIMARY KEY (tipo_persona_id)
+);
+
+--d_persona
+CREATE TABLE pilaga_dsa.d_persona     
+(
+  persona_id integer not null,
+  persona_codigo integer,
+  persona_tipo_documento character varying,
+  persona_nro_documento character varying,
+  fisica_o_juridica character varying,
+  razon_social_apyno character varying,
+  nombre_fantasia character varying,
+  genero_id character varying,
+  nacionalidad character varying,
+  email character varying,
+  cbu character varying,
+  persona_detalle character varying,
+  estado character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+CONSTRAINT pk_d_persona PRIMARY KEY (persona_id)
+);
+
+--d_cuenta_bancaria (banco, tipo y número de cuenta) Tambien existen cuentas “puente” que son usadas para hacer transferencias entre tesorerias y deberían siempre quedar con saldo cero.                        
+
+CREATE TABLE pilaga_dsa.d_cuenta_bancaria
+ (
+  cuenta_bancaria_id integer NOT NULL,
+  cuenta_bancaria_numero character varying,  
+  cuenta_bancaria_tipo_desc character varying,
+  cuenta_bancaria_desc character varying, -- Incluir entre parentesis la moneda   
+  fecha_desde date, 
+  fecha_hasta date, 
+  version integer, 
+  vigente character varying, 
+  fecha_actualizacion TIMESTAMP WITHOUT TIME ZONE,
+CONSTRAINT pk_d_cuenta_bancaria PRIMARY KEY (cuenta_bancaria_id)
+);
+
+--d_unidad_gestion
+CREATE TABLE pilaga_dsa.d_unidad_gestion
+ (
+  unidad_gestion_id integer NOT NULL, 
+  unidad_gestion_codigo character varying, 
+  unidad_gestion_desc character varying, 
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+ CONSTRAINT pk_d_unidad_gestion PRIMARY KEY (unidad_gestion_id)
+);
+
+--d_fondo
+CREATE TABLE pilaga_dsa.d_fondo
+(
+  fondo_id integer NOT NULL,
+  tipo_fondo_desc character varying,          -- Presupuestario, No presupuestario
+  tipo_fondo_terceros_desc character varying, -- Retenciones, Fondos de terceros
+  fondo_desc character varying,               -- Retención de IVA, Retención de IIBB
+  fondo_combo_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+CONSTRAINT pk_d_fondo PRIMARY KEY (fondo_id)
+);
+
+--d_cuenta_tesoreria (tesorería, tipo y número de cuenta)
+CREATE TABLE pilaga_dsa.d_cuenta_tesoreria
+ (
+  cuenta_tesoreria_id integer NOT NULL, 
+  cuenta_tesoreria_tipo_desc character varying, --Efectivo, Bancaria, Virtual
+  cuenta_tesoreria_codigo integer, -- Codigo de cuenta en Pilaga
+  cuenta_tesoreria_desc character varying, 
+  tesoreria_desc character varying,  -- En realidad es usuario o responsable.? Se puede agregar entre parentesis la moneda.
+  fecha_desde date, 
+  fecha_hasta date, 
+  version integer, 
+  vigente character varying,
+  fecha_actualizacion TIMESTAMP WITHOUT TIME ZONE,
+CONSTRAINT pk_d_cuenta_tesoreria PRIMARY KEY (cuenta_tesoreria_id)
+);
+
+-- d_expediente
+CREATE TABLE pilaga_dsa.d_expediente
+(
+  expediente_id integer NOT NULL,
+  anio integer,
+  tipo character varying, -- Se obtiene de “E” igual que d_tipo_documento
+  expediente_nro character varying,
+  expediente_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+CONSTRAINT pk_d_expediente PRIMARY KEY (expediente_id)
+);
+
+--d_comprobante (anio, numero[puesto y numero], fecha, descripcion) de tercero.
+CREATE TABLE pilaga_dsa.d_comprobante
+(
+  comprobante_id integer NOT NULL,
+  comprobante_fecha date,
+  tipo_comprobante_id integer,
+  persona_id integer,
+  comprobante_numero character varying,
+  comprobante_detalle character varying,
+  importe numeric(22,2),
+  detalle character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+CONSTRAINT pk_d_comprobante PRIMARY KEY (comprobante_id)
+);
+--CREATE INDEX d_comprobante_por_numero ON pilaga_dsa.d_comprobante (tipo_comprobante_id, persona_id, comprobante_numero);
+
+--d_ejercicio
+CREATE TABLE pilaga_dsa.d_ejercicio
+(
+  ejercicio_id integer NOT NULL,
+  ejercicio_codigo character varying,
+  ejercicio_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+ CONSTRAINT pk_d_ejercicio PRIMARY KEY (ejercicio_id)
+);
+
+-- d_medio_pago (sau_te_medios)
+CREATE TABLE pilaga_dsa.d_medio_pago
+ (
+  medio_pago_id integer NOT NULL,
+  medio_pago_codigo smallint,
+  medio_pago_desc character varying,
+  medio_pago_tipo_codigo character varying,
+  medio_pago_tipo_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+ CONSTRAINT pk_d_medio_pago PRIMARY KEY (medio_pago_id)
+ );
+
+-- d_concepto
+CREATE TABLE pilaga_dsa.d_concepto
+(
+  concepto_id integer NOT NULL,
+  concepto_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+CONSTRAINT pk_d_concepto PRIMARY KEY (concepto_id)
+);
+CREATE INDEX d_concepto_por_concepto_desc ON pilaga_dsa.d_concepto (concepto_desc);
+
+--d_estado_liquidacion
+CREATE TABLE pilaga_dsa.d_estado_liquidacion
+(
+  estado_liquidacion_id integer NOT NULL,
+  estado_liquidacion_codigo character varying,
+  estado_liquidacion_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+CONSTRAINT pk_d_estado_liquidacion PRIMARY KEY (estado_liquidacion_id)
+);
+
+--d_etapa_presupuestaria 
+CREATE TABLE pilaga_dsa.d_etapa_presupuestaria
+(
+  etapa_presupuestaria_id integer NOT NULL,
+  etapa_presupuestaria_codigo character varying,
+  etapa_presupuestaria_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+ CONSTRAINT pk_d_etapa_presupuestaria PRIMARY KEY (etapa_presupuestaria_id)
+);
+
+--d_tipo_operacion
+CREATE TABLE pilaga_dsa.d_tipo_operacion
+(
+  tipo_operacion_id integer NOT NULL,
+  tipo_operacion_codigo character varying,
+  tipo_operacion_nombre character varying,
+  tipo_operacion_desc character varying,
+  circuito_gestion_codigo character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+CONSTRAINT pk_d_tipo_operacion PRIMARY KEY (tipo_operacion_id)
+);
+
+
+--d_concepto_sp;
+CREATE TABLE pilaga_dsa.d_concepto_sp
+(
+  concepto_sp_id integer NOT NULL,
+  concepto_sp_codigo character varying,
+  concepto_sp_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+  CONSTRAINT pk_d_concepto_sp PRIMARY KEY (concepto_sp_id)
+);
+
+
+--d_edificio;
+CREATE TABLE pilaga_dsa.d_edificio
+(
+  edificio_id integer NOT NULL,
+  edificio_codigo character varying,
+  edificio_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+  CONSTRAINT pk_d_edificio PRIMARY KEY (edificio_id)
+);
+
+
+--d_medidor;
+CREATE TABLE pilaga_dsa.d_medidor
+(
+  medidor_id integer NOT NULL,
+  medidor_codigo character varying,
+  medidor_numero character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+  CONSTRAINT pk_d_medidor PRIMARY KEY (medidor_id)
+);
+
+
+--d_servicio_publico;
+CREATE TABLE pilaga_dsa.d_servicio_publico
+(
+  servicio_publico_id integer NOT NULL,
+  servicio_publico_codigo character varying,
+  servicio_publico_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+  CONSTRAINT pk_d_servicio_publico PRIMARY KEY (servicio_publico_id)
+);
+
+
+--d_unidad_medida;
+CREATE TABLE pilaga_dsa.d_unidad_medida
+(
+  unidad_medida_id integer NOT NULL,
+  unidad_medida_codigo character varying,
+  unidad_medida_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+  CONSTRAINT pk_d_unidad_medida PRIMARY KEY (unidad_medida_id)
+);
+
+CREATE TABLE pilaga_dsa.d_codigo_ud
+(
+  codigo_ud_id integer NOT NULL,
+  codigo character varying,
+  nivel1_desc character varying,
+  nivel2_desc character varying,
+  nivel3_desc character varying,
+  nivel4_desc character varying,
+  fecha_desde date,
+  fecha_hasta date,
+  version integer,
+  vigente character varying,
+  fecha_actualizacion timestamp without time zone,
+ CONSTRAINT pk_d_codigo_ud PRIMARY KEY (codigo_ud_id)
+);
+
+CREATE TABLE pilaga_dsa.d_tipo_resolucion
+ (
+  tipo_resolucion_id integer NOT NULL, 
+  tipo_resolucion_codigo character varying,
+  tipo_resolucion_desc character varying,
+  fecha_desde date, 
+  fecha_hasta date, 
+  version integer, 
+  vigente character varying,
+  fecha_actualizacion TIMESTAMP WITHOUT TIME ZONE,
+CONSTRAINT pk_d_tipo_resolucion PRIMARY KEY (tipo_resolucion_id)
+);
+
+--ft_movimientos_gastos
+CREATE TABLE pilaga_dsa.ft_movimientos_gastos
+(
+  fecha_id date, 
+  anio_id integer,
+  mes_id integer,
+  paso integer,
+  paso_anterior integer,
+  etapa_presupuestaria text,
+  red_programatica_id integer,
+  grupo_presupuestario_id integer,
+  codigo_economico_id integer,
+  unidad_presupuestaria_id integer,
+  unidad_gestion_id integer,
+  finalidad_funcion_id integer,
+  moneda_id integer,
+  fondo_id integer,
+  tercero_id integer,		
+  fuente_id integer,
+  circuito_gestion_id integer,
+  objeto_del_gasto_id integer,
+  expediente_id integer,
+  concepto_id integer,
+  documento_principal_id integer, -- de la Universidad (OP, NUI, etc.)
+  tipo_persona_id integer,      -- Clasifica el beneficiario
+  persona_id integer,	
+  contribuyente_id integer,	
+  fecha_vencimiento_id date,
+  nivel_autorizacion_id integer,
+  estado_liquidacion_id integer,
+  clase_liquidacion_id integer,
+  fecha_valor_id date,
+  etapa_presupuestaria_id integer,
+  tipo_documento_id integer,
+  documento_preventivo_id integer,
+  documento_compromiso_id integer,
+  documento_devengado_id integer,
+  documento_pagado_id integer,
+  documento_devengado_ingreso_id integer,
+  documento_cobrado_id integer,
+  rubro_ingreso_id integer,
+  concepto_ingreso_id integer,
+  tipo_operacion_id integer,
+  ejercicio_id integer,
+  codigo_ud_id integer,
+  tipo_resolucion_id integer,
+  nro_resolucion character varying,
+  anio_resolucion integer,
+  credito_original numeric(22,2),
+  credito_modificatorio numeric(22,2),
+  credito numeric(22,2),
+  preventivo numeric(22,2),
+  compromiso numeric(22,2),
+  devengado numeric(22,2),
+  pagado numeric(22,2),
+  devengado_ex numeric(22,2),
+  pagado_ex numeric(22,2),
+  retenciones numeric(22,2),
+  disponibilidades numeric(22,2),
+  previsto_de_ingreso numeric(22,2),
+  estimado_de_ingreso numeric(22,2),
+  devengado_de_ingreso numeric(22,2),
+  cobrado numeric(22,2)
+);
+
+--ft_movimientos_ingresos
+CREATE TABLE pilaga_dsa.ft_movimientos_ingresos
+(
+  fecha_id date, 
+  anio_id integer,
+  mes_id integer,
+  paso integer,
+  paso_anterior integer,
+  etapa_presupuestaria text,
+  red_programatica_id integer,
+  grupo_presupuestario_id integer,
+  codigo_economico_id integer,
+  unidad_presupuestaria_id integer,
+  unidad_gestion_id integer,
+  finalidad_funcion_id integer,
+  moneda_id integer,
+  fondo_id integer,
+  tercero_id integer,		
+  fuente_id integer,
+  circuito_gestion_id integer,
+  objeto_del_gasto_id integer,
+  expediente_id integer,
+  concepto_id integer,
+  documento_principal_id integer, -- de la Universidad (OP, NUI, etc.)
+  tipo_persona_id integer,      -- Clasifica el beneficiario
+  persona_id integer,	
+  contribuyente_id integer,	
+  fecha_vencimiento_id date,
+  nivel_autorizacion_id integer,
+  estado_liquidacion_id integer,
+  clase_liquidacion_id integer,
+  fecha_valor_id date,
+  etapa_presupuestaria_id integer,
+  tipo_documento_id integer,
+  documento_preventivo_id integer,
+  documento_compromiso_id integer,
+  documento_devengado_id integer,
+  documento_pagado_id integer,
+  documento_devengado_ingreso_id integer,
+  documento_cobrado_id integer,
+  rubro_ingreso_id integer,
+  concepto_ingreso_id integer,
+  tipo_operacion_id integer,
+  ejercicio_id integer,
+  codigo_ud_id integer,
+  tipo_resolucion_id integer,
+  nro_resolucion character varying,
+  anio_resolucion integer,
+  credito_original numeric(22,2),
+  credito_modificatorio numeric(22,2),
+  credito numeric(22,2),
+  preventivo numeric(22,2),
+  compromiso numeric(22,2),
+  devengado numeric(22,2),
+  pagado numeric(22,2),
+  retenciones numeric(22,2),
+  disponibilidades numeric(22,2),
+  previsto_de_ingreso numeric(22,2),
+  estimado_de_ingreso numeric(22,2),
+  devengado_de_ingreso numeric(22,2),
+  cobrado numeric(22,2)
+);
+
+
+--ft_comprobantes
+CREATE TABLE pilaga_dsa.ft_comprobantes
+(
+  anio_id integer,
+  documento_id integer, -- Asociado a ft_movimientos._devengado_id
+  comprobante_id integer -- Código de la factura (vincula a d_comprobante)
+);
+
+--ft_tesorerias
+CREATE TABLE pilaga_dsa.ft_tesorerias
+(
+  fecha_id date, 
+  anio_id integer,
+  mes_id integer,  
+  documento_principal_id integer,
+  medio_pago_id integer,
+  numero_medio varchar,
+  banco_sucursal_id integer,
+  cuenta_tesoreria_id integer,
+  cuenta_bancaria_id integer,
+  debito numeric(22,2),
+  credito numeric(22,2)
+);
+
+
+--ft_servicios_publicos;
+CREATE TABLE pilaga_dsa.ft_servicios_publicos
+(
+  fecha_id date,
+  expediente_id integer,
+  fecha_vencimiento_id date,
+  concepto_id integer,
+  ejercicio_id integer,
+  unidad_gestion_id integer,
+  unidad_presupuestaria_id integer,
+  grupo_presupuestario_id integer,
+  fuente_id integer,
+  objeto_del_gasto_id integer,
+  codigo_economico_id integer,
+  red_programatica_id integer,
+  finalidad_funcion_id integer,
+  moneda_id integer,
+  persona_id integer,
+  tipo_persona_id integer,
+  tipo_documento_id integer,
+  documento_principal_id integer,
+  tipo_operacion_id integer,
+  estado_liquidacion_id integer,
+  comprobante_id integer,
+  medidor_id integer,
+  concepto_sp_id integer,
+  servicio_publico_id integer,
+  unidad_medida_id integer,
+  unidad_presupuestaria_medidor_id integer,
+  edificio_id integer,
+  periodo_id integer,
+  importe numeric(22,2),
+  consumo numeric(22,2)
+);</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>224</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>nada</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step_error_handling>
+  </step_error_handling>
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+  <attributes/>
+</transformation>

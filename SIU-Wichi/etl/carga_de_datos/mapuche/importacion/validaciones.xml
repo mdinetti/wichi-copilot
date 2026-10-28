@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+
+Este xml especifica validaciones a realizar
+en la carga de datos a Wichi. Si no se cumple alguna
+de las validaciones significa que los datos son
+inválidos o que el extractor o importador es
+inadecuado.
+
+Mantener una copia de este archivo en los
+exportadores y otra en los importadores, para poder
+controlar que al actualizar una se actualice la otra.
+
+-->
+
+
+<validaciones id="validacionesMapuche"> <!-- el id debe cambiar con cualquier cambio en este xml -->
+	<sistemaFuente>
+		<codigo>2</codigo> <!-- el código del sistema fuente según estándares wichi -->
+		<nombre>mapuche</nombre> <!-- valor permitido para el nombre del sistema fuente, sin el número de versión -->
+		<obtencionDeSistema> <!-- cómo saber cuál es el sistema fuente (nombre sin versión) -->
+			<sql><![CDATA[
+                            select (case when(
+				    select count(distinct(table_name))
+				    from information_schema.tables
+				    where table_schema = 'mapuche'
+				    and table_name in (
+					'dh01',
+					'dh02',
+					'dh03',
+					'dh21'					)
+				) = 4 then 'mapuche' else 'no_mapuche' end) as sistema
+			]]>
+			</sql>
+		</obtencionDeSistema>
+	</sistemaFuente>
+	<versionSistemaFuente>
+			<versionesAceptadas> <!-- versiones del sistema fuente que pasan la validación --> 
+				<version>^3\.12\.1$</version>
+				<version>^3\.12\.2$</version>
+				<version>^3\.12\.3$</version>
+				<version>^3\.13\..*$</version>
+				<version>^3\.14\..*$</version>
+				<version>^3\.15\..*$</version>
+				<version>^3\.16\..*$</version>
+				<version>^3\.17\..*$</version>
+				<version>^3\.18\..*$</version>
+				<version>^3\.19\..*$</version>
+				<version>^3\.20\..*$</version>
+				<version>^3\.21\..$</version>
+				<version>^3\.22\..$</version>
+				<version>^3\.23\..$</version>
+				<version>^3\.24\..$</version>
+				<version>^3\.25\..$</version>
+				<version>^3\.26\.0$</version>
+			</versionesAceptadas>
+			<versionesNoAceptadas> <!-- versiones del sistema fuente que NO pasan la validación -->
+				<version>^1\..*</version>
+				<version>^2\..*</version>
+				<version>^3\.0\..*$</version>
+				<version>^3\.1\..*$</version>
+				<version>^3\.2\..*$</version>
+				<version>^3\.3\..*$</version>
+				<version>^3\.4\..*$</version>
+				<version>^3\.5\..*$</version>
+				<version>^3\.6\..*$</version>
+				<version>^3\.7\..*$</version>
+				<version>^3\.8\..*$</version>
+				<version>^3\.9\..*$</version>
+				<version>^3\.10\..*$</version>
+				<version>^3\.11\..*$</version>
+				<version>^3\.12\.0$</version>
+			</versionesNoAceptadas>
+			<obtencionDeVersion>  <!-- cómo saber cuál es la versión del sistema fuente -->
+				 <sql><![CDATA[
+					SELECT dato_parametro as version  FROM mapuche.rrhhini  WHERE nombre_parametro = 'Version'
+					]]>
+				</sql>
+			</obtencionDeVersion>
+		</versionSistemaFuente>
+	<estructuraArchivos>
+		<archivo nombre="d_estado_civil.txt" desc="">
+			<columna nombre="estado_civil_codigo" desc=""></columna>
+			<columna nombre="estado_civil_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_dedicacion.txt" desc="">
+			<columna nombre="dedicacion_codigo" desc=""></columna>
+			<columna nombre="dedicacion_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_escalafon.txt" desc="">
+			<columna nombre="escalafon_codigo" desc=""></columna>
+			<columna nombre="escalafon_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_categorias_cargo.txt" desc="">
+			<columna nombre="categoria_cargo_codigo" desc=""></columna>
+			<columna nombre="categoria_cargo_desc" desc=""></columna>
+			<columna nombre="categoria_cargo_escalafon" desc=""></columna>
+			<columna nombre="categoria_cargo_estadolaboral" desc=""></columna>
+			<columna nombre="categoria_cargo_dedicacion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_caracter.txt" desc="">
+			<columna nombre="caracter_codigo" desc=""></columna>
+			<columna nombre="caracter_grupo_desc" desc=""></columna>
+			<columna nombre="catacter_tipo" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_agrupamiento.txt" desc="">
+			<columna nombre="agrupamiento_codigo" desc=""></columna>
+			<columna nombre="agrupamiento_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_dependencia_desemp.txt" desc="">
+			<columna nombre="dependencia_desemp_codigo" desc=""></columna>
+			<columna nombre="dependencia_desemp_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_dependencia_desig.txt" desc="">
+			<columna nombre="dependencia_desig_codigo" desc=""></columna>
+			<columna nombre="dependencia_desig_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_unidad_presupuestaria.txt" desc="">
+			<columna nombre="unidad_presupuestaria_codigo" desc=""></columna>
+			<columna nombre="unidad_presupuestaria_desc" desc=""></columna>
+			<columna nombre="subunidad_presupuestaria_desc" desc=""></columna>
+			<columna nombre="subsubunidad_presupuestaria_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_nivel_estudio.txt" desc="">
+			<columna nombre="nivel_estudio_codigo" desc=""></columna>
+			<columna nombre="nivel_estudio_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_concepto.txt" desc="">
+			<columna nombre="concepto_codigo" desc=""></columna>
+			<columna nombre="concepto_desc" desc=""></columna>
+			<columna nombre="concepto_tipo" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_red_programatica.txt" desc="">
+			<columna nombre="codn_progr" desc=""></columna>
+			<columna nombre="codn_subpr" desc=""></columna>
+			<columna nombre="codn_proye" desc=""></columna>
+			<columna nombre="codn_activ" desc=""></columna>
+			<columna nombre="codn_obra" desc=""></columna>
+			<columna nombre="desc_imput" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_liquidacion.txt" desc="">
+			<columna nombre="liquidacion_codigo" desc=""></columna>
+			<columna nombre="liquidacion_desc" desc=""></columna>
+			<columna nombre="es_cerrada" desc=""></columna>
+			<columna nombre="sino_cerra" desc=""></columna>			
+		</archivo>
+		<archivo nombre="d_regional.txt" desc="">
+			<columna nombre="regional_codigo" desc=""></columna>
+			<columna nombre="regional_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_titulo.txt" desc="">
+			<columna nombre="titulo_codigo" desc=""></columna>
+			<columna nombre="titulo_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_finalidad_funcion.txt" desc="">
+			<columna nombre="finalidad_codigo" desc=""></columna>
+			<columna nombre="finalidad_desc" desc=""></columna>
+			<columna nombre="funcion_codigo" desc=""></columna>
+			<columna nombre="funcion_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_grupo_presupuestario.txt" desc="">
+			<columna nombre="grupo_presupuestario_codigo" desc=""></columna>
+			<columna nombre="grupo_presupuestario_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_antiguedad.txt" desc="">
+			<columna nombre="legajo" desc=""></columna>
+			<columna nombre="antiguedaduno" desc=""></columna>
+			<columna nombre="antiguedadud" desc=""></columna>
+			<columna nombre="antiguedadusu" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_licencia.txt" desc="">
+			<columna nombre="licencia_codigo" desc=""></columna>
+			<columna nombre="licencia_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_domicilio.txt" desc="">
+			<columna nombre="domicilio_codigo" desc=""></columna>
+			<columna nombre="descripcion_pais" desc=""></columna>
+			<columna nombre="descripcion_pcia" desc=""></columna>
+			<columna nombre="codigo_postal" desc=""></columna>
+			<columna nombre="desc_localidad" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_tarea.txt" desc="">
+			<columna nombre="tarea_codigo" desc=""></columna>
+			<columna nombre="tarea_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_identidad_genero.txt" desc="">
+			<columna nombre="identidad_genero_codigo" desc=""></columna>
+			<columna nombre="identidad_genero_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_carrera.txt" desc="">
+			<columna nombre="carrera_codigo" desc=""></columna>
+			<columna nombre="carrera_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_nivel_funcion.txt" desc="">
+			<columna nombre="nivel_funcion_codigo" desc=""></columna>
+			<columna nombre="nivel_funcion_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_tipo_documento.txt" desc="">
+			<columna nombre="tipo_documento_codigo" desc=""></columna>
+			<columna nombre="tipo_documento_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_clasificacion_cargo.txt" desc="">
+			<columna nombre="clasificacion_cargo_codigo" desc=""></columna>
+			<columna nombre="clasificacion_cargo_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_obra_social.txt" desc="">
+			<columna nombre="obra_social_codigo" desc=""></columna>
+			<columna nombre="obra_social_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="ft_liq_conceptosXCargos.txt" desc="">
+			<columna nombre="periodo_info" desc=""></columna>
+			<columna nombre="nro_liquidacion" desc=""></columna>
+			<columna nombre="codn_conce" desc=""></columna>
+			<columna nombre="nro_cargo" desc=""></columna>
+			<columna nombre="nro_legaj" desc=""></columna>
+			<columna nombre="unidad_presupuestaria" desc=""></columna>
+			<columna nombre="tipo_ejercicio" desc=""></columna>
+			<columna nombre="codn_grupo_presup" desc=""></columna>
+			<columna nombre="codn_fuent" desc=""></columna>
+			<columna nombre="obj_gt" desc=""></columna>
+			<columna nombre="red" desc=""></columna>
+			<columna nombre="codn_final" desc=""></columna>
+			<columna nombre="codn_funci" desc=""></columna>
+			<columna nombre="impp_conce" desc=""></columna>
+			<columna nombre="nro_cargo_base" desc=""></columna>
+			<columna nombre="porc_ipres" desc=""></columna>
+			<columna nombre="antiguedad_liq" desc=""></columna>
+			<columna nombre="dias_trabajados" desc=""></columna>
+			<columna nombre="ano_retro" desc=""></columna>
+			<columna nombre="mes_retro" desc=""></columna>
+			<columna nombre="nro_recibo" desc=""></columna>
+			<columna nombre="nro_orimp" desc=""></columna>
+			<columna nombre="cant_cargos" desc=""></columna>
+			<columna nombre="nov1_conce" desc=""></columna>
+			<columna nombre="nov2_conce" desc=""></columna>			
+		</archivo>
+		<archivo nombre="ft_lt_legajos.txt" desc="">
+			<columna nombre="periodo_info" desc=""></columna>
+			<columna nombre="nro_legaj" desc=""></columna>
+			<columna nombre="apellido" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+			<columna nombre="tipo_estado" desc=""></columna>
+			<columna nombre="sexo" desc=""></columna>
+			<columna nombre="anios" desc=""></columna>
+			<columna nombre="fec_nacim" desc=""></columna>
+			<columna nombre="estado_civil" desc=""></columna>
+			<columna nombre="nivel_estudio" desc=""></columna>
+			<columna nombre="titulo" desc=""></columna>
+			<columna nombre="nivel_estudio_liq" desc=""></columna>
+			<columna nombre="titulo_liq" desc=""></columna>
+			<columna nombre="discapacidad_id" desc=""></columna>
+			<columna nombre="cant_horas" desc=""></columna>
+			<columna nombre="cant_leg_activos" desc=""></columna>
+			<columna nombre="cant_leg_liq" desc=""></columna>
+			<columna nombre="categoria_incentivo_codigo" desc=""></columna>
+			<columna nombre="dedicacion_incentivo_codigo" desc=""></columna>
+			<columna nombre="cuil" desc=""></columna>
+			<columna nombre="correo_electronico" desc=""></columna>
+			<columna nombre="domicilio_codigo" desc=""></columna>
+			<columna nombre="direccion" desc=""></columna>			
+			<columna nombre="regional_cabecera" desc=""></columna>
+			<columna nombre="unidad_academica_cabecera" desc=""></columna>
+			<columna nombre="depdesemp_cabecera" desc=""></columna>									
+			<columna nombre="grupo_sanguineo" desc=""></columna>
+			<columna nombre="telefono" desc=""></columna>
+			<columna nombre="nro_ficha" desc=""></columna>
+			<columna nombre="anioalta" desc=""></columna>
+			<columna nombre="mesalta" desc=""></columna>
+			<columna nombre="tipo_docum" desc=""></columna>
+			<columna nombre="nro_docum" desc=""></columna>
+			<columna nombre="anioactualizacion" desc=""></columna>
+			<columna nombre="mesactualizacion" desc=""></columna>
+			<columna nombre="identidad_genero" desc=""></columna>
+			<columna nombre="codc_obsoc" desc=""></columna>
+			<columna nombre="fec_ingreso" desc=""></columna>
+			<columna nombre="fecha_recibo" desc=""></columna>
+			<columna nombre="codigosituacion" desc=""></columna>
+			<columna nombre="codigocondicion" desc=""></columna>
+			<columna nombre="codigoactividad" desc=""></columna>
+			<columna nombre="codigozona" desc=""></columna>
+			<columna nombre="porcaporteadicss" desc=""></columna>
+			<columna nombre="provincialocalidad" desc=""></columna>
+			<columna nombre="nro_afili" desc=""></columna>
+			<columna nombre="cbu" desc=""></columna>
+		</archivo>
+		<archivo nombre="ft_lt_cargos.txt" desc="">	
+			<columna nombre="periodo_info" desc=""></columna>
+			<columna nombre="nro_cargo" desc=""></columna>
+			<columna nombre="nro_legaj" desc=""></columna>
+			<columna nombre="codc_uacad" desc=""></columna>
+			<columna nombre="nudo" desc=""></columna>
+			<columna nombre="dependencia_desemp_id" desc=""></columna>
+			<columna nombre="codc_categ" desc=""></columna>
+			<columna nombre="codc_agrup" desc=""></columna>
+			<columna nombre="subrogancia" desc=""></columna>
+			<columna nombre="categoria_subrogada" desc=""></columna>
+			<columna nombre="caracter_id" desc=""></columna>
+			<columna nombre="asociado_id" desc=""></columna>
+			<columna nombre="estado_del_cargo" desc=""></columna>
+			<columna nombre="horas" desc=""></columna>
+			<columna nombre="hs_dedic_cargo" desc=""></columna>			
+			<columna nombre="antiguedad_en_escalafon" desc=""></columna>
+			<columna nombre="porcentaje_trabajado_en_el_mes" desc=""></columna>
+			<columna nombre="porcentaje_reduccion_horaria" desc=""></columna>
+			<columna nombre="cant_cargos_activos" desc=""></columna>
+			<columna nombre="cant_cargos_liq" desc=""></columna>
+			<columna nombre="importe_neto" desc=""></columna>
+			<columna nombre="importe_bruto" desc=""></columna>
+			<columna nombre="importe_gasto_total" desc=""></columna>
+			<columna nombre="regional" desc=""></columna>
+			<columna nombre="fecha_alta" desc=""></columna>
+			<columna nombre="fecha_baja" desc=""></columna>
+			<columna nombre="nro_cargo_base" desc=""></columna>
+			<columna nombre="tipo_escalafon" desc=""></columna>
+			<columna nombre="licencia_codigo" desc=""></columna>
+			<columna nombre="idtareacargo" desc=""></columna>
+			<columna nombre="porc_aplic" desc=""></columna>
+			<columna nombre="nro_cargo_ant" desc=""></columna>
+			<columna nombre="cod_clasif_cargo" desc=""></columna>
+			<columna nombre="codn_carrera_uacad" desc=""></columna>
+			<columna nombre="nivel_funcion" desc=""></columna>
+			<columna nombre="imp_basico_cat" desc=""></columna>			
+		</archivo>
+	</estructuraArchivos>
+</validaciones>

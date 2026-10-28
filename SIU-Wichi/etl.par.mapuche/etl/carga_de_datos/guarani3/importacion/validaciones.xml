@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+
+Este xml especifica validaciones a realizar
+en la carga de datos a Wichi. Si no se cumple alguna
+de las validaciones significa que los datos son
+inválidos o que el extractor o importador es
+inadecuado.
+
+Mantener una copia de este archivo en los
+exportadores y otra en los importadores, para poder
+controlar que al actualizar una se actualice la otra.
+
+-->
+
+
+<validaciones id="validacionesG3v6"> <!-- el id debe cambiar con cualquier cambio en este xml -->
+	<sistemaFuente>
+		<codigo>10</codigo> <!-- el código del sistema fuente según estándares wichi -->
+		<nombre>guarani3</nombre> <!-- valor permitido para el nombre del sistema fuente, sin el número de versión -->
+		<obtencionDeSistema> <!-- cómo saber cuál es el sistema fuente (nombre sin versión) -->
+			<sql><![CDATA[
+                            select (case when(
+                                    select count(distinct(table_name))
+                                    from information_schema.tables
+                                    where table_schema in ('negocio', 'guarani')
+                                    and table_name in (
+                                      'sga_alumnos',
+                                      'sga_catedras_equivalentes',
+                                      'sga_comisiones',
+                                      'sga_condiciones',
+                                      'sga_niveles_formacion')
+                            ) = 5 then 'guarani3' else 'otra' end) as sistema
+			]]>
+			</sql>
+		</obtencionDeSistema>
+	</sistemaFuente>
+	<versionSistemaFuente>
+		<versionesAceptadas> <!-- versiones del sistema fuente que pasan la validación -->
+			<version>^3\.11\..*$</version>
+			<version>^3\.12\..*$</version>
+			<version>^3\.13\..*$</version>
+			<version>^3\.14\..*$</version>
+			<version>^3\.15\..*$</version>
+			<version>^3\.16\..*$</version>
+			<version>^3\.17\..*$</version>
+			<version>^3\.18\..*$</version>
+			<version>^3\.19\..*$</version>
+			<version>^3\.20\.0$</version>
+			<version>^3\.20\.1$</version>
+			<version>^3\.21\.0$</version>
+		</versionesAceptadas>
+		<versionesNoAceptadas> <!-- versiones del sistema fuente que NO pasan la validación -->
+			<version>^0\..*</version>
+			<version>^1\..*</version>
+			<version>^2\..*</version>
+			<version>^3\.0\..*$</version>
+			<version>^3\.1\..*$</version>
+			<version>^3\.2\..*$</version>
+			<version>^3\.3\..*$</version>
+			<version>^3\.4\..*$</version>
+			<version>^3\.5\..*$</version>
+			<version>^3\.6\..*$</version>
+			<version>^3\.7\..*$</version>
+			<version>^3\.8\..*$</version>
+			<version>^3\.9\..*$</version>
+			<version>^3\.10\..*$</version>
+		</versionesNoAceptadas>
+		<obtencionDeVersion> <!-- cómo saber cuál es la versión del sistema fuente -->
+			<sql><![CDATA[
+                                select version_app as "version"
+                                from ${esquema_guarani}.app_versiones
+                                where fecha_actualizacion = 
+                                (select max(fecha_actualizacion) from ${esquema_guarani}.app_versiones)
+			]]>
+			</sql>
+		</obtencionDeVersion>
+	</versionSistemaFuente>
+	<estructuraArchivos>
+		<archivo nombre="FT_Alumnos.txt" desc="">
+			<columna nombre="anio_academico" desc=""></columna>
+			<columna nombre="plan_version" desc=""></columna>
+			<columna nombre="propuesta_formativa" desc=""></columna>
+			<columna nombre="ubicacion" desc=""></columna>
+			<columna nombre="titulo" desc=""></columna>
+			<columna nombre="sexo" desc=""></columna>
+			<columna nombre="anio_ingreso_propuesta" desc=""></columna>
+			<columna nombre="colegio" desc=""></columna>
+			<columna nombre="rendidas_anio_ant" desc=""></columna>
+			<columna nombre="aprobadas_anio_ant" desc=""></columna>
+			<columna nombre="rendidas_total" desc=""></columna>
+			<columna nombre="aprobadas_total" desc=""></columna>
+			<columna nombre="horas_trabajadas" desc=""></columna>
+			<columna nombre="tipo_ingreso" desc=""></columna>
+			<columna nombre="edad" desc=""></columna>
+			<columna nombre="alumno" desc=""></columna>
+			<columna nombre="nacionalidad" desc=""></columna>
+			<columna nombre="calidad" desc=""></columna>
+			<columna nombre="max_trabajo_padres" desc=""></columna>			
+			<columna nombre="situacion_laboral_padres" desc=""></columna>
+			<columna nombre="persona" desc=""></columna>
+			<columna nombre="estado_civil" desc=""></columna>
+			<columna nombre="localidad_per_lec" desc=""></columna>
+			<columna nombre="localidad_proc" desc=""></columna>
+			<columna nombre="costeo_estudios" desc=""></columna>
+			<columna nombre="beca" desc=""></columna>
+			<columna nombre="tecno_internet" desc=""></columna>
+			<columna nombre="tecno_pc" desc=""></columna>
+			<columna nombre="idioma" desc=""></columna>
+			<columna nombre="discapacidad" desc=""></columna>
+			<columna nombre="situacion_asp" desc=""></columna>
+			<columna nombre="nuevos_inscriptos" desc=""></columna>
+			<columna nombre="reinscriptos" desc=""></columna>
+			<columna nombre="egresados" desc=""></columna>
+			<columna nombre="campo_cero" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Propuesta_Formativa.txt" desc="">
+			<columna nombre="responsables_academicas_codigo" desc=""></columna>
+			<columna nombre="propuesta_tipo_codigo" desc=""></columna>
+			<columna nombre="propuesta_tipo_descripcion" desc=""></columna>
+			<columna nombre="propuesta_codigo" desc=""></columna>
+			<columna nombre="propuesta_descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Responsables_Academicas.txt" desc="">
+			<columna nombre="propuesta" desc=""></columna>
+			<columna nombre="responsable_academica_tipo_descripcion" desc=""></columna>
+			<columna nombre="responsable_academica_codigo" desc=""></columna>
+			<columna nombre="responsable_academica_descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Colegios.txt" desc="">
+			<columna nombre="colegio" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+			<columna nombre="localidad" desc=""></columna>
+			<columna nombre="sector" desc=""></columna>
+			<columna nombre="ambito" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_HorasTrabajadas.txt" desc="">
+			<columna nombre="trabajo_hora_sem" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_TipoIngreso.txt" desc="">
+			<columna nombre="tipo_ingreso" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_TitulosAraucano.txt" desc="">
+			<columna nombre="titulo_araucano" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+			<columna nombre="titulo_nivel" desc=""></columna>						
+		</archivo>
+		<archivo nombre="LT_Ubicacion.txt" desc="">
+			<columna nombre="ubicacion_tipo_codigo" desc=""></columna>
+			<columna nombre="ubicacion_tipo_descripcion" desc=""></columna>
+			<columna nombre="ubicacion_codigo" desc=""></columna>
+			<columna nombre="ubicacion_descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Sexos.txt" desc="">
+			<columna nombre="sexo" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Alumno.txt" desc="">
+			<columna nombre="alumno" desc=""></columna>
+			<columna nombre="legajo" desc=""></columna>
+			<columna nombre="persona" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Nacionalidad.txt" desc="">
+			<columna nombre="nacionalidad_codigo" desc=""></columna>
+			<columna nombre="nacionalidad_descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Costeo_Estudios.txt" desc="">
+			<columna nombre="costeo_estudios_codigo" desc=""></columna>
+			<columna nombre="costeo_estudios_descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Calidad.txt" desc="">
+			<columna nombre="calidad_codigo" desc=""></columna>
+			<columna nombre="calidad_descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Estado_Civil.txt" desc="">
+			<columna nombre="estado_civil_codigo" desc=""></columna>
+			<columna nombre="estado_civil_descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Rama_Disciplinar.txt" desc="">
+			<columna nombre="rama_disciplinar" desc=""></columna>
+			<columna nombre="rama_codigo" desc=""></columna>
+			<columna nombre="rama_descripcion" desc=""></columna>
+			<columna nombre="disciplina_codigo" desc=""></columna>
+			<columna nombre="disciplina_descripcion" desc=""></columna>
+			<columna nombre="area_codigo" desc=""></columna>
+			<columna nombre="area_descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Persona.txt" desc="">
+			<columna nombre="persona" desc=""></columna>
+			<columna nombre="apyno" desc=""></columna>
+			<columna nombre="fecha_nacimiento" desc=""></columna>
+			<columna nombre="tipoynum" desc=""></columna>
+			<columna nombre="email" desc=""></columna>
+			<columna nombre="telefono" desc=""></columna>
+			<columna nombre="apyno_elegido" desc=""></columna>
+			<columna nombre="pueblo_originario" desc=""></columna>
+			<columna nombre="identidad_genero" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Nivel_Estudio_Padres.txt" desc="">
+			<columna nombre="nivel_estudio_padres_codigo" desc=""></columna>
+			<columna nombre="nivel_estudio_padres_descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Situacion_Laboral_Padres.txt" desc="">
+			<columna nombre="trabajo_existe_codigo" desc=""></columna>
+			<columna nombre="trabajo_existe_descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Localidades_ColSec.txt" desc="">
+			<columna nombre="localidad" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+			<columna nombre="dpto_partido" desc=""></columna>
+			<columna nombre="dpto_partido_nombre" desc=""></columna>
+			<columna nombre="provincia" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Provincias.txt" desc="">
+			<columna nombre="provincia" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+			<columna nombre="pais" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Paises.txt" desc="">
+			<columna nombre="pais" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Plan.txt" desc="">
+			<columna nombre="plan_id" desc=""></columna>
+			<columna nombre="plan_version_desc" desc=""></columna>
+			<columna nombre="estado" desc=""></columna>
+			<columna nombre="plan" desc=""></columna>
+			<columna nombre="plan_version" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Situaciones_Aspirantes.txt" desc="">
+			<columna nombre="situacion_asp" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+			<columna nombre="resultado_asp" desc=""></columna>
+		</archivo>
+		<archivo nombre="FT_Procedencia_Aspirantes.txt" desc="">
+			<columna nombre="anio_academico" desc=""></columna>
+			<columna nombre="periodo_inscripcion" desc=""></columna>
+			<columna nombre="propuesta_codigo" desc=""></columna>
+			<columna nombre="colegio" desc=""></columna>
+			<columna nombre="situacion_asp" desc=""></columna>
+			<columna nombre="sexo" desc=""></columna>
+			<columna nombre="ubicacion" desc=""></columna>
+			<columna nombre="plan_version" desc=""></columna>
+			<columna nombre="tipo_ingreso" desc=""></columna>
+			<columna nombre="persona" desc=""></columna>
+			<columna nombre="edad" desc=""></columna>
+			<columna nombre="nacionalidad" desc=""></columna>
+			<columna nombre="max_trabajo_padres" desc=""></columna>
+			<columna nombre="max_estudio_padres" desc=""></columna>
+			<columna nombre="localidad_procedencia" desc=""></columna>		
+			<columna nombre="cantidad" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Resultado_Aspirantes.txt" desc="">
+			<columna nombre="cod_resultado_aspirante" desc=""></columna>
+			<columna nombre="desc_resultado_aspirante" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Tipo_Ingreso_Aspirante.txt" desc="">
+			<columna nombre="cod_tipo_ingreso_aspirante" desc=""></columna>
+			<columna nombre="desc_tipo_ingreso_aspirante" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Resultados.txt" desc="">
+			<columna nombre="resultado" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>	
+		<archivo nombre="LT_Condicion.txt" desc="">
+			<columna nombre="codigo" desc=""></columna>
+			<columna nombre="desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="FT_Cursado.txt" desc="">
+			<columna nombre="ubicacion" desc=""></columna>
+			<columna nombre="anio_academico" desc=""></columna>
+			<columna nombre="tipoperiodo" desc=""></columna>
+			<columna nombre="periodo_lectivo" desc=""></columna>
+			<columna nombre="orden_periodo_en_anio" desc=""></columna>
+			<columna nombre="alumno" desc=""></columna>
+			<columna nombre="propuesta" desc=""></columna>
+			<columna nombre="plan_version" desc=""></columna>
+			<columna nombre="actividad" desc=""></columna>
+			<columna nombre="sexo" desc=""></columna>
+			<columna nombre="edad" desc=""></columna>
+			<columna nombre="nacionalidad" desc=""></columna>
+			<columna nombre="colegio" desc=""></columna>
+			<columna nombre="catedra" desc=""></columna>
+			<columna nombre="comision" desc=""></columna>
+			<columna nombre="condicion_regularidad" desc=""></columna>
+			<columna nombre="resultado" desc=""></columna>
+			<columna nombre="nota" desc=""></columna>
+			<columna nombre="concepto" desc=""></columna>
+			<columna nombre="pct_asistencia" desc=""></columna>
+			<columna nombre="actividad_comun" desc=""></columna>
+			<columna nombre="acta" desc=""></columna>
+			<columna nombre="estado_acta" desc=""></columna>
+			<columna nombre="totalintentoscursada" desc=""></columna>
+			<columna nombre="nrointentocursada" desc=""></columna>
+			<columna nombre="cantidad_registros_cursada" desc=""></columna>
+			<columna nombre="anio_ingreso_institucion" desc=""></columna>
+			<columna nombre="anio_ingreso_propuesta" desc=""></columna>
+			<columna nombre="periodo_inscripcion_nombre" desc=""></columna>
+			<columna nombre="persona" desc=""></columna>
+			<columna nombre="horas_trabajadas" desc=""></columna>
+			<columna nombre="estado_civil" desc=""></columna>
+			<columna nombre="localidad_per_lec" desc=""></columna>
+			<columna nombre="localidad_proc" desc=""></columna>
+			<columna nombre="costeo_estudios" desc=""></columna>
+			<columna nombre="beca" desc=""></columna>
+			<columna nombre="tecno_internet" desc=""></columna>
+			<columna nombre="tecno_pc" desc=""></columna>
+			<columna nombre="idioma" desc=""></columna>
+			<columna nombre="discapacidad" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Cond_Regular.txt" desc="">
+			<columna nombre="cond_regularidad" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="FT_Equivalencia.txt" desc="">
+			<columna nombre="anio_academico" desc=""></columna>
+			<columna nombre="ubicacion" desc=""></columna>
+			<columna nombre="fecha_equivalencia" desc=""></columna>
+			<columna nombre="alumno" desc=""></columna>
+			<columna nombre="sexo" desc=""></columna>
+			<columna nombre="edad" desc=""></columna>
+			<columna nombre="nacionalidad" desc=""></columna>
+			<columna nombre="colegio" desc=""></columna>
+			<columna nombre="propuesta" desc=""></columna>
+			<columna nombre="plan_version" desc=""></columna>
+			<columna nombre="actividad" desc=""></columna>
+			<columna nombre="alcance" desc=""></columna>
+			<columna nombre="resultado" desc=""></columna>
+			<columna nombre="nota" desc=""></columna>
+			<columna nombre="concepto" desc=""></columna>
+			<columna nombre="origen" desc=""></columna>
+			<columna nombre="equivalencia" desc=""></columna>
+			<columna nombre="actividad_comun" desc=""></columna>
+			<columna nombre="tramite" desc=""></columna>
+			<columna nombre="estado_tramite" desc=""></columna>
+			<columna nombre="condicion_alumno" desc=""></columna>
+			<columna nombre="registros_examenes" desc=""></columna>
+			<columna nombre="anio_ingreso_institucion" desc=""></columna>
+			<columna nombre="anio_ingreso_propuesta" desc=""></columna>
+			<columna nombre="periodo_inscripcion_nombre" desc=""></columna>
+			<columna nombre="persona" desc=""></columna>
+			<columna nombre="horas_trabajadas" desc=""></columna>
+			<columna nombre="estado_civil" desc=""></columna>
+			<columna nombre="localidad_per_lec" desc=""></columna>
+			<columna nombre="localidad_proc" desc=""></columna>
+			<columna nombre="costeo_estudios" desc=""></columna>
+			<columna nombre="beca" desc=""></columna>
+			<columna nombre="tecno_internet" desc=""></columna>
+			<columna nombre="tecno_pc" desc=""></columna>
+			<columna nombre="idioma" desc=""></columna>
+			<columna nombre="discapacidad" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Tipos_Periodo.txt" desc="">
+			<columna nombre="periodo_generico_tipo" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Origen_Equiv.txt" desc="">
+			<columna nombre="origen" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Estados_Actas.txt" desc="">
+			<columna nombre="estado" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Estados_Tramites.txt" desc="">
+			<columna nombre="estado" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Alcance_Equiv.txt" desc="">
+			<columna nombre="codigo" desc=""></columna>
+			<columna nombre="desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Comisiones.txt" desc="">
+			<columna nombre="comision" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Comisiones_Docentes.txt" desc="">
+			<columna nombre="comision" desc=""></columna>
+			<columna nombre="responsabilidad_docentes_codigo" desc=""></columna>
+			<columna nombre="responsabilidad_docentes_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Mesas_Docentes.txt" desc="">
+			<columna nombre="mesa" desc=""></columna>
+			<columna nombre="tribunal_docentes_codigo" desc=""></columna>
+			<columna nombre="tribunal_docentes_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Catedra.txt" desc="">
+			<columna nombre="catedra" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="FT_Examen.txt" desc="">
+			<columna nombre="ubicacion_id" desc=""></columna>
+			<columna nombre="anio_academico" desc=""></columna>
+			<columna nombre="codigo_tipo_periodo" desc=""></columna>
+			<columna nombre="turno_examen_nombre" desc=""></columna>
+			<columna nombre="mesa_examen_nombre" desc=""></columna>
+			<columna nombre="fecha_examen" desc=""></columna>
+			<columna nombre="mesa_id" desc=""></columna>
+			<columna nombre="alumno" desc=""></columna>
+			<columna nombre="propuesta" desc=""></columna>
+			<columna nombre="plan_version" desc=""></columna>
+			<columna nombre="actividad" desc=""></columna>
+			<columna nombre="catedra" desc=""></columna>
+			<columna nombre="resultado" desc=""></columna>
+			<columna nombre="nota" desc=""></columna>
+			<columna nombre="concepto" desc=""></columna>
+			<columna nombre="actividad_comun" desc=""></columna>
+			<columna nombre="tipo_acta" desc=""></columna>
+			<columna nombre="nro_acta" desc=""></columna>
+			<columna nombre="estado_acta" desc=""></columna>
+			<columna nombre="condicion_alumno" desc=""></columna>
+			<columna nombre="sexo" desc=""></columna>
+			<columna nombre="edad" desc=""></columna>
+			<columna nombre="nacionalidad" desc=""></columna>
+			<columna nombre="colegio" desc=""></columna>
+			<columna nombre="totalintentos" desc=""></columna>
+			<columna nombre="nrointento" desc=""></columna>
+			<columna nombre="uno" desc=""></columna>
+			<columna nombre="anio_ingreso_institucion" desc=""></columna>
+			<columna nombre="anio_ingreso_propuesta" desc=""></columna>
+			<columna nombre="periodo_inscripcion_nombre" desc=""></columna>
+			<columna nombre="persona" desc=""></columna>
+			<columna nombre="horas_trabajadas" desc=""></columna>
+			<columna nombre="estado_civil" desc=""></columna>
+			<columna nombre="localidad_per_lec" desc=""></columna>
+			<columna nombre="localidad_proc" desc=""></columna>
+			<columna nombre="costeo_estudios" desc=""></columna>
+			<columna nombre="beca" desc=""></columna>
+			<columna nombre="tecno_internet" desc=""></columna>
+			<columna nombre="tecno_pc" desc=""></columna>
+			<columna nombre="idioma" desc=""></columna>
+			<columna nombre="discapacidad" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Concepto.txt" desc="">
+			<columna nombre="concepto" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Actividad.txt" desc="">
+			<columna nombre="elemento" desc=""></columna>		
+			<columna nombre="actividad_id" desc=""></columna>
+			<columna nombre="actividad_desc" desc=""></columna>
+			<columna nombre="tipo_actividad_desc" desc=""></columna>
+			<columna nombre="estado_actividad_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Tecno_Internet.txt" desc="">
+			<columna nombre="tecno_internet_codigo" desc=""></columna>
+			<columna nombre="tecno_internet_descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Tecno_PC.txt" desc="">
+			<columna nombre="tecno_pc_codigo" desc=""></columna>
+			<columna nombre="tecno_pc_descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Idioma.txt" desc="">
+			<columna nombre="idioma_codigo" desc=""></columna>
+			<columna nombre="idioma_descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="LT_Discapacidad.txt" desc="">
+			<columna nombre="discapacidad_codigo" desc=""></columna>
+			<columna nombre="discapacidad_descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="int_pv_cursos.txt" desc="">
+			<columna nombre="curso" desc=""></columna>
+			<columna nombre="id_curso_externo" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+			<columna nombre="plataforma" desc=""></columna>
+		</archivo>
+		<archivo nombre="int_pv_cursos_comisiones.txt" desc="">
+			<columna nombre="curso" desc=""></columna>
+			<columna nombre="comision" desc=""></columna>
+		</archivo>
+		<archivo nombre="int_pv_plataformas.txt" desc="">
+			<columna nombre="plataforma" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+			<columna nombre="url" desc=""></columna>
+			<columna nombre="host" desc=""></columna>
+			<columna nombre="token" desc=""></columna>
+			<columna nombre="rol_alumno" desc=""></columna>
+			<columna nombre="rol_alumno_curso" desc=""></columna>
+			<columna nombre="categoria_curso_default" desc=""></columna>
+			<columna nombre="activa" desc=""></columna>
+		</archivo>
+		<archivo nombre="int_pv_plataformas_ra.txt" desc="">
+			<columna nombre="plataforma" desc=""></columna>
+			<columna nombre="responsable_academica" desc=""></columna>
+		</archivo>
+		<archivo nombre="int_pv_roles_docentes.txt" desc="">
+			<columna nombre="plataforma" desc=""></columna>
+			<columna nombre="responsabilidad" desc=""></columna>
+			<columna nombre="rol_externo" desc=""></columna>
+		</archivo>
+		<archivo nombre="int_pv_usuarios.txt" desc="">
+			<columna nombre="plataforma" desc=""></columna>
+			<columna nombre="persona" desc=""></columna>
+			<columna nombre="id_usuario_externo" desc=""></columna>
+		</archivo>
+		<archivo nombre="comisiones_completas.txt" desc="">
+			<columna nombre="comision" desc=""></columna>
+			<columna nombre="materia" desc=""></columna>
+			<columna nombre="propuesta" desc=""></columna>
+			<columna nombre="plan" desc=""></columna>
+			<columna nombre="responsable_academica" desc=""></columna>
+		</archivo>
+		<archivo nombre="inscripciones_personas_comisiones.txt" desc="">
+			<columna nombre="comision" desc=""></columna>
+			<columna nombre="alumno" desc=""></columna>
+			<columna nombre="materia" desc=""></columna>
+			<columna nombre="curso" desc=""></columna>
+			<columna nombre="legajo" desc=""></columna>
+			<columna nombre="persona" desc=""></columna>
+			<columna nombre="propuesta" desc=""></columna>
+			<columna nombre="plan_version" desc=""></columna>
+			<columna nombre="ubicacion" desc=""></columna>
+			<columna nombre="plataforma" desc=""></columna>
+			<columna nombre="id_usuario_externo" desc=""></columna>
+		</archivo>
+		<archivo nombre="inscripciones_comision.txt" desc="">
+			<columna nombre="comision" desc=""></columna>
+			<columna nombre="curso" desc=""></columna>
+			<columna nombre="cantidad_inscripciones" desc=""></columna>
+			<columna nombre="cantidad_bajas" desc=""></columna>
+			<columna nombre="total" desc=""></columna>
+		</archivo>
+		<archivo nombre="encuestas.txt" desc="">
+			<columna nombre="respuesta" desc=""></columna>
+			<columna nombre="persona" desc=""></columna>
+			<columna nombre="formulario" desc=""></columna>
+			<columna nombre="fecha_alta" desc=""></columna>
+			<columna nombre="fecha_respuesta" desc=""></columna>
+			<columna nombre="hash" desc=""></columna>			
+		</archivo>
+		<archivo nombre="encuestas_propuestas.txt" desc="">
+			<columna nombre="kolla_id_encuesta" desc=""></columna>
+			<columna nombre="encuesta" desc=""></columna>
+			<columna nombre="kolla_unidad_gestion" desc=""></columna>
+			<columna nombre="respuesta" desc=""></columna>
+			<columna nombre="respuesta_externa" desc=""></columna>
+			<columna nombre="formulario" desc=""></columna>
+			<columna nombre="formulario_externo" desc=""></columna>
+			<columna nombre="elemento" desc=""></columna>
+			<columna nombre="elemento_externo" desc=""></columna>
+			<columna nombre="kolla_id_habilitacion" desc=""></columna>
+			<columna nombre="persona" desc=""></columna>
+			<columna nombre="alumno" desc=""></columna>	
+			<columna nombre="propuesta" desc=""></columna>
+			<columna nombre="propuesta_nombre" desc=""></columna>		
+		</archivo>
+	</estructuraArchivos>
+</validaciones>

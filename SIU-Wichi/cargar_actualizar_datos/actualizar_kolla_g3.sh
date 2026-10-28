@@ -1,0 +1,9 @@
+cd /opt/pentaho/data-integration
+./kitchen.sh \
+ -file="/opt/pentaho/SIU-Wichi/etl/carga_de_datos/kolla_g3/principal_integracion_kolla_g3.kjb" \
+  -param="base_wichi_clave=xxxxxxx" \
+  -param="base_wichi_host=localhost" \
+  -param="base_wichi_nombre=siu_wichi" \
+  -param="base_wichi_puerto=5432" \
+  -param="base_wichi_usuario=postgres" \
+  -param="carga_instalacion=14-14" \

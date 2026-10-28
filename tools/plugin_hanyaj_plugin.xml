@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin title="hanyaj" name="hanyaj" loader="OVERRIDING">
+ <overlays>
+    <overlay id="startup.hanyajAnalytics"  resourcebundle="content/hanyaj-ui/hanyajplugin.properties" priority="1">
+                <menubar id="newmenu">
+                        <menuitem id="new-hanyaj-analytics" label="SIU-Hanyaj" command="mantleXulHandler.openUrl('SIU-Hanyaj','SIU-Hanyaj','/pentaho/api/repos/cda/static/hanyaj.html')" />
+                </menubar>
+    </overlay>
+
+
+    <overlay id="launch" resourcebundle="content/hanyaj-ui/hanyajplugin.properties">
+        <button id="HanyajAnalytics" label="SIU-Hanyaj" command="Home.openFile('SIU-Hanyaj','SIU-Hanyaj', '/pentaho/api/repos/cda/static/hanyaj.html');$('#btnCreateNew').popover('hide')"/>
+    </overlay>
+
+  </overlays>
+</plugin>
+

@@ -1,0 +1,2 @@
+base_wichi_host|base_wichi_puerto|base_wichi_nombre|base_wichi_usuario|base_wichi_clave|cantidad_legajos|carga_directorioTemporal|carga_instalacion|url_mapuche|usuario_mapuche|clave_usuario_mapuche|performance_commit_size|carga_comentario
+ARBASIUPGSQL01.uca.local|5432|siu_wichi|wichi|u2Uj68A56ghb|100000|/opt/pentaho/cargas/mapuche|5-4-5|https://par.mapuche.uca.edu.ar/mapuche/rest/antiguedades|ucarest|$llomapu2024|10000|

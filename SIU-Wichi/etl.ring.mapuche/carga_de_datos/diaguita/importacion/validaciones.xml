@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+
+Este xml especifica validaciones a realizar
+en la carga de datos a Wichi. Si no se cumple alguna
+de las validaciones significa que los datos son
+inválidos o que el extractor o importador es
+inadecuado.
+
+Mantener una copia de este archivo en los
+exportadores y otra en los importadores, para poder
+controlar que al actualizar una se actualice la otra.
+
+-->
+
+
+<validaciones id="validacionesDiaguita4"> <!-- el id debe cambiar con cualquier cambio en este xml -->
+	<sistemaFuente>
+		<codigo>7</codigo> <!-- el código del sistema fuente según estándares wichi -->
+		<nombre>diaguita</nombre> <!-- valor permitido para el nombre del sistema fuente, sin el número de versión -->
+		<obtencionDeSistema> <!-- cómo saber cuál es el sistema fuente (nombre sin versión) -->
+			<sql><![CDATA[
+                            select (case when(
+                                    select count(distinct(table_name))
+                                    from information_schema.tables
+                                    where table_schema = 'diaguita'
+                                    and table_name in (
+                                      'scp_amortizaciones',
+                                      'scp_actas_apertura',
+                                      'scp_articulos',
+                                      'scp_bienes_patrimoniales',
+                                      'scp_monedas')
+                            ) = 5 then 'diaguita' else 'no_diaguita' end) as sistema
+			]]>
+			</sql>
+		</obtencionDeSistema>
+	</sistemaFuente>
+	<versionSistemaFuente>
+		<versionesAceptadas> <!-- versiones del sistema fuente que pasan la validación -->
+			<version>^2\.0\.0$</version>
+			<version>^2\.1\..*$</version>
+			<version>^2\.2\..*$</version>
+			<version>^2\.3\..*$</version>
+			<version>^2\.4\..*$</version>
+			<version>^2\.5\..*$</version>
+			<version>^2\.6\..*$</version>
+			<version>^2\.7\..*$</version>
+			<version>^3\.3\.0$</version>
+			<version>^3\.3\.1$</version>
+			<version>^3\.3\.2$</version>
+			<version>^3\.3\.3$</version>
+			<version>^3\.4\.0$</version>
+		</versionesAceptadas>
+		<versionesNoAceptadas> <!-- versiones del sistema fuente que NO pasan la validación -->
+			<version>^0\..*</version>
+			<version>^1\..*</version>
+		</versionesNoAceptadas>
+		<obtencionDeVersion> <!-- cómo saber cuál es la versión del sistema fuente -->
+			<sql><![CDATA[
+				select descripcion as "version"
+				from diaguita.par_version
+				where fecha = (select max(fecha) from diaguita.par_version)
+			]]>
+			</sql>
+		</obtencionDeVersion>
+	</versionSistemaFuente>
+	<estructuraArchivos>
+		<archivo nombre="d_area.txt" desc="">
+			<columna nombre="id_area" desc=""></columna>
+			<columna nombre="id_area_padre" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+			<columna nombre="id_oficina_patrimonio" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_tipo_bien.txt" desc="">
+			<columna nombre="id_bien_tipo" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_ubicacion_fisica.txt" desc="">
+			<columna nombre="id_ubicacion_fisica" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_motivo_alta_bien.txt" desc="">
+			<columna nombre="id_motivo_alta" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="ft_patrimonio.txt" desc="">
+			<columna nombre="tipo_documento" desc=""></columna>
+			<columna nombre="expediente" desc=""></columna>
+			<columna nombre="numero_anterior" desc=""></columna>
+			<columna nombre="id_bien_patrimonial" desc=""></columna>
+			<columna nombre="numero_patrimonial" desc=""></columna>
+			<columna nombre="id_motivo_baja" desc=""></columna>
+			<columna nombre="id_alta" desc=""></columna>
+			<columna nombre="fecha_alta" desc=""></columna>
+			<columna nombre="id_motivo_alta" desc=""></columna>
+			<columna nombre="id_estado_bien" desc=""></columna>
+			<columna nombre="id_catalogo_bien_patrimonial" desc=""></columna>
+			<columna nombre="id_area_responsable" desc=""></columna>
+			<columna nombre="id_ubicacion_fisica" desc=""></columna>
+			<columna nombre="fecha_incorporacion" desc=""></columna>
+			<columna nombre="fecha_baja" desc=""></columna>
+			<columna nombre="vida_util" desc=""></columna>
+			<columna nombre="valor_bien" desc=""></columna>
+			<columna nombre="valor_residual" desc=""></columna>
+			<columna nombre="amortizacion_acumulada" desc=""></columna>
+			<columna nombre="persona" desc=""></columna>
+			<columna nombre="id_oficina_patrimonio" desc=""></columna>
+			<columna nombre="id_bien_tipo" desc=""></columna>
+			<columna nombre="expediente_baja" desc=""></columna>
+			<columna nombre="id_empleado_responsable_uso" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_vida_util.txt" desc="">
+			<columna nombre="vida_util" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_estado.txt" desc="">
+			<columna nombre="id_estado_bien" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_catalogo_bienes.txt" desc="">
+			<columna nombre="id_catalogo_bien_patrimonial" desc=""></columna>
+			<columna nombre="id_catalogo_bien_uso_padre" desc=""></columna>
+			<columna nombre="codigo_completo" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_catalogo_bienes_servicios.txt" desc="">
+			<columna nombre="id_catalogo_bien_patrimonial" desc=""></columna>
+			<columna nombre="id_catalogo_bien_uso_padre" desc=""></columna>
+			<columna nombre="codigo_completo" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_bien_patrimonial.txt" desc="">
+			<columna nombre="id_bien_patrimonial" desc=""></columna>
+			<columna nombre="descripcion_bien" desc=""></columna>
+			<columna nombre="numero_patrimonial" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_motivo_baja_bien.txt" desc="">
+			<columna nombre="id_motivo_baja" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_oficina_patrimonio.txt" desc="">
+			<columna nombre="id_oficina_patrimonio" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_tipo_documento.txt" desc="">
+			<columna nombre="tipo_documento_codigo" desc=""></columna>
+			<columna nombre="tipo_documento_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_expediente.txt" desc="">
+			<columna nombre="expediente_codigo" desc=""></columna>
+			<columna nombre="expediente_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_numero_anterior.txt" desc="">
+			<columna nombre="numero_anterior_codigo" desc=""></columna>
+			<columna nombre="numero_anterior_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_persona.txt" desc="">
+			<columna nombre="persona_codigo" desc=""></columna>
+			<columna nombre="persona_tipo_documento" desc=""></columna>
+			<columna nombre="persona_nro_documento" desc=""></columna>
+			<columna nombre="fisica_o_juridica" desc=""></columna>
+			<columna nombre="razon_social" desc=""></columna>
+			<columna nombre="nombre_fantasia" desc=""></columna>
+			<columna nombre="sexo" desc=""></columna>
+			<columna nombre="nacionalidad" desc=""></columna>
+			<columna nombre="email" desc=""></columna>
+			<columna nombre="cbu" desc=""></columna>
+			<columna nombre="persona_detalle" desc=""></columna>
+			<columna nombre="estado" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_responsable.txt" desc="">
+			<columna nombre="responsable_codigo" desc=""></columna>
+			<columna nombre="responsable_desc" desc=""></columna>
+			<columna nombre="cuil" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_lugar_entrega.txt" desc="">
+			<columna nombre="id_lugar_entrega" desc=""></columna>
+			<columna nombre="nombre_lugar_entrega" desc=""></columna>
+			<columna nombre="domicilio_lugar_entrega" desc=""></columna>
+			<columna nombre="localidad_lugar_entrega" desc=""></columna>
+			<columna nombre="codigo_postal_lugar_entrega" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_oficina_contrataciones.txt" desc="">
+			<columna nombre="id_oficina" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_procedimiento_modalidades.txt" desc="">
+			<columna nombre="id_procedimiento_modalidad" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_procedimiento_clases.txt" desc="">
+			<columna nombre="id_procedimiento_clase" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_proveedor.txt" desc="">
+			<columna nombre="id_proveedor" desc=""></columna>
+			<columna nombre="razon_social" desc=""></columna>
+			<columna nombre="nombre_fantasia" desc=""></columna>
+			<columna nombre="email" desc=""></columna>
+			<columna nombre="cbu" desc=""></columna>
+			<columna nombre="cuit" desc=""></columna>
+			<columna nombre="descripcion_domicilio" desc=""></columna>
+			<columna nombre="nombre_localidad" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_rubro.txt" desc="">
+			<columna nombre="rubro_codigo" desc=""></columna>
+			<columna nombre="rubro_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_moneda.txt" desc="">
+			<columna nombre="moneda_codigo" desc=""></columna>
+			<columna nombre="moneda_desc" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_usuario.txt" desc="">
+			<columna nombre="usuario_codigo" desc=""></columna>
+			<columna nombre="apyno" desc=""></columna>
+		</archivo>
+		<archivo nombre="ft_compras_1.txt" desc="">
+			<columna nombre="identificador_solicitud" desc=""></columna>
+			<columna nombre="fecha_creacion_solicitud" desc=""></columna>
+			<columna nombre="descripcion_solicitud" desc=""></columna>
+			<columna nombre="prioridad_solicitud" desc=""></columna>
+			<columna nombre="estado_solicitud" desc=""></columna>
+			<columna nombre="referente_solicitud" desc=""></columna>
+			<columna nombre="id_lugar_entrega_solicitud" desc=""></columna>
+			<columna nombre="id_oficina_central_contratacion_solicitud" desc=""></columna>
+			<columna nombre="id_area_solicitud" desc=""></columna>
+			<columna nombre="descripcion_item_solicitado" desc=""></columna>
+			<columna nombre="id_rubro_solicitud" desc=""></columna>
+			<columna nombre="cantidad_item_solicitado" desc=""></columna>
+			<columna nombre="unidad_medida_item_solicitado" desc=""></columna>
+			<columna nombre="precio_estimado_item_solicitado" desc=""></columna>
+			<columna nombre="id_area_item_solicitado" desc=""></columna>
+			<columna nombre="numero_mcc" desc=""></columna>	
+			<columna nombre="descripcion_mcc" desc=""></columna>
+			<columna nombre="identificador_convocatoria" desc=""></columna>
+			<columna nombre="fecha_creacion_convocatoria" desc=""></columna>
+			<columna nombre="descripcion_convocatoria" desc=""></columna>
+			<columna nombre="estado_convocatoria" desc=""></columna>
+			<columna nombre="prioridad_convocatoria" desc=""></columna>
+			<columna nombre="id_convocatoria" desc=""></columna>
+			<columna nombre="expediente_ejercicio" desc=""></columna>
+			<columna nombre="expediente_convocatoria" desc=""></columna>
+			<columna nombre="tipo_procedimiento_convocatoria" desc=""></columna>
+			<columna nombre="id_oficina_convocatoria" desc=""></columna>
+			<columna nombre="id_procedimiento_modalidad" desc=""></columna>
+			<columna nombre="id_procedimiento_clase" desc=""></columna>
+			<columna nombre="usuario_autorizante_conv" desc=""></columna>
+			<columna nombre="fecha_autorizacion_conv" desc=""></columna>
+			<columna nombre="id_renglon" desc=""></columna>
+			<columna nombre="descripcion_renglon" desc=""></columna>
+			<columna nombre="numero_renglon" desc=""></columna>
+			<columna nombre="precio_estimado_renglon" desc=""></columna>
+			<columna nombre="catalogo_bien_servicio_renglon" desc=""></columna>
+			<columna nombre="id_rubro_convocatoria" desc=""></columna>
+			<columna nombre="id_renglon_area" desc=""></columna>
+			<columna nombre="cantidad_renglon" desc=""></columna>
+			<columna nombre="id_item_area" desc=""></columna>
+			<columna nombre="id_convocatoria_aa" desc=""></columna>
+			<columna nombre="id_acto_apertura" desc=""></columna>
+			<columna nombre="inicio_acto_apertura" desc=""></columna>
+			<columna nombre="fin_acto_apertura" desc=""></columna>
+			<columna nombre="oficina_acto_apertura" desc=""></columna>
+			<columna nombre="lugar_acto_apertura" desc=""></columna>
+			<columna nombre="identificador_acto_apertura" desc=""></columna>
+			<columna nombre="estado_acto_apertura" desc=""></columna>
+			<columna nombre="id_acto_apertura_de" desc=""></columna>
+			<columna nombre="fecha_creacion_dictamen" desc=""></columna>
+			<columna nombre="fecha_generacion_dictamen" desc=""></columna>
+			<columna nombre="identificador_dictamen" desc=""></columna>
+			<columna nombre="estado_dictamen" desc=""></columna>
+			<columna nombre="etapa" desc=""></columna>
+		</archivo>
+		<archivo nombre="ft_compras_2.txt" desc="">
+			<columna nombre="id_renglon_ad" desc=""></columna>
+			<columna nombre="estado_adjudicacion" desc=""></columna>
+			<columna nombre="identificador_adjudicacion" desc=""></columna>
+			<columna nombre="id_proveedor" desc=""></columna>
+			<columna nombre="cantidad_ad" desc=""></columna>
+			<columna nombre="monto_unitario" desc=""></columna>
+			<columna nombre="id_adjudicacion" desc=""></columna>
+			<columna nombre="etapa" desc=""></columna>
+		</archivo>
+		<archivo nombre="ft_compras_3.txt" desc="">
+			<columna nombre="id_renglon_area_oc" desc=""></columna>
+			<columna nombre="id_detalle_orden_compra_oc" desc=""></columna>
+			<columna nombre="id_proveedor" desc=""></columna>
+			<columna nombre="id_proveedor_oc" desc=""></columna>
+			<columna nombre="id_area_oc" desc=""></columna>
+			<columna nombre="estado_orden_compra" desc=""></columna>
+			<columna nombre="identificador_orden_compra" desc=""></columna>
+			<columna nombre="fecha_emision_oc" desc=""></columna>
+			<columna nombre="id_lugar_entrega_oc" desc=""></columna>
+			<columna nombre="fecha_vencimiento_oc" desc=""></columna>
+			<columna nombre="cantidad_oc" desc=""></columna>
+			<columna nombre="id_adjudicacion_oc" desc=""></columna>
+			<columna nombre="id_moneda_oc" desc=""></columna>
+			<columna nombre="etapa" desc=""></columna>
+		</archivo>
+		<archivo nombre="ft_compras_4.txt" desc="">
+			<columna nombre="id_detalle_orden_compra_re" desc=""></columna>
+			<columna nombre="fecha_recepcion" desc=""></columna>
+			<columna nombre="estado_recepcion" desc=""></columna>
+			<columna nombre="remito" desc=""></columna>
+			<columna nombre="factura_numero" desc=""></columna>
+			<columna nombre="identificador_acta_provisoria_recepcion" desc=""></columna>
+			<columna nombre="fecha_acta_provisoria_re" desc=""></columna>
+			<columna nombre="id_area_re" desc=""></columna>
+			<columna nombre="identificador_acta_definitiva_recepcion" desc=""></columna>
+			<columna nombre="fecha_acta_definitiva_re" desc=""></columna>
+			<columna nombre="cantidad_recibida" desc=""></columna>
+			<columna nombre="cantidad_aceptada" desc=""></columna>
+			<columna nombre="cantidad_rechazada" desc=""></columna>
+			<columna nombre="etapa" desc=""></columna>
+		</archivo>
+	</estructuraArchivos>
+</validaciones>

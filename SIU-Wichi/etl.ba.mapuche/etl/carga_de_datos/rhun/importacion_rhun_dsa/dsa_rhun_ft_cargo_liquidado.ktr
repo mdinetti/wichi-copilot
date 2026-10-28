@@ -1,0 +1,1978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>dsa_rhun_ft_cargo_liquidado</name>
+    <description>Carga la tabla de hechos de cargos liquidados</description>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>&#x2f;</directory>
+    <parameters>
+    </parameters>
+    <log>
+<trans-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
+<perf-log-table><connection/>
+<schema/>
+<table/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+<step-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+<metrics-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>100</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>1000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+  <created_user>-</created_user>
+  <created_date>2012&#x2f;09&#x2f;03 15&#x3a;41&#x3a;08.225</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2012&#x2f;09&#x2f;03 15&#x3a;41&#x3a;08.225</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+    <notepad>
+      <note>Esquema origen&#x3a; rhun_tmp &#xa;Base origen&#x3a; siu_dsa&#xa;------------------------------------&#xa;Esquema destino&#x3a; rhun&#xa;Base destino&#x3a; siu_dsa</note>
+      <xloc>7</xloc>
+      <yloc>4</yloc>
+      <width>160</width>
+      <heigth>75</heigth>
+      <fontname>Sans</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>															MAPEO DE LA TABLA DE HECHOS &#x28;FT&#x29; CON LAS DIMENSIONES															</note>
+      <xloc>354</xloc>
+      <yloc>8</yloc>
+      <width>1042</width>
+      <heigth>23</heigth>
+      <fontname>Sans</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>&#x28;1&#x29; Si es vac&#xed;o pone NULO&#xa;&#x28;2&#x29; Si es NULO pone VACIO&#x2f;NULO</note>
+      <xloc>141</xloc>
+      <yloc>196</yloc>
+      <width>186</width>
+      <heigth>36</heigth>
+      <fontname>Sans</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Almacena los datos en DSA</note>
+      <xloc>313</xloc>
+      <yloc>373</yloc>
+      <width>159</width>
+      <heigth>23</heigth>
+      <fontname>Sans</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>8</backgroundcolorred>
+      <backgroundcolorgreen>184</backgroundcolorgreen>
+      <backgroundcolorblue>61</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Lee los datos de TMP</note>
+      <xloc>0</xloc>
+      <yloc>210</yloc>
+      <width>125</width>
+      <heigth>23</heigth>
+      <fontname>Sans</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>8</backgroundcolorred>
+      <backgroundcolorgreen>184</backgroundcolorgreen>
+      <backgroundcolorblue>61</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <connection>
+    <name>siu_dsa</name>
+    <server>&#x24;&#x7b;dsa_nombrehost&#x7d;</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>&#x24;&#x7b;dsa_nombrebase&#x7d;</database>
+    <port>&#x24;&#x7b;dsa_puerto&#x7d;</port>
+    <username>&#x24;&#x7b;dsa_usuario&#x7d;</username>
+    <password>&#x24;&#x7b;dsa_clave&#x7d;</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;dsa_puerto&#x7d;</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SQL_CONNECT</code><attribute>SET datestyle to iso,YMD</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <order>
+  <hop> <from>d_persona</from><to>persona_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>&#x28;2&#x29; reemplazar si es NULO</from><to>persona_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>tmp -&#x3e; ft_cargos_liq</from><to>&#x28;1&#x29; NULO si es vacio</to><enabled>Y</enabled> </hop>
+  <hop> <from>&#x28;1&#x29; NULO si es vacio</from><to>&#x28;2&#x29; reemplazar si es NULO</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_escalafon</from><to>escalafon_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>persona_id</from><to>escalafon_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_categoria_universidad</from><to>categoria_universidad_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>escalafon_id</from><to>categoria_universidad_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_equivalencia_cargo</from><to>equivalencia_cargo_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>categoria_universidad_id</from><to>equivalencia_cargo_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_unidad_academica</from><to>unidad_academica_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_fuente_financiamiento</from><to>fuente_financiamiento_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>unidad_academica_id</from><to>fuente_financiamiento_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_estado_laboral</from><to>estado_laboral_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>fuente_financiamiento_id</from><to>estado_laboral_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_tipo_planta</from><to>tipo_planta_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>estado_laboral_id</from><to>tipo_planta_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_estado_cargo</from><to>estado_cargo_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>tipo_planta_id</from><to>estado_cargo_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_situacion_laboral</from><to>situacion_laboral_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>estado_cargo_id</from><to>situacion_laboral_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_nivel_ensenianza</from><to>nivel_ensenianza_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_agrupamiento_no_docente</from><to>agrupamiento_no_docente_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_tipo_cargo_asociado</from><to>tipo_cargo_asociado_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>agrupamiento_no_docente_id</from><to>tipo_cargo_asociado_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_escalafon &#x28;2&#x29;</from><to>escalafon_relacionado_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>tipo_cargo_asociado_id</from><to>escalafon_relacionado_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_categoria_universidad &#x28;2&#x29;</from><to>dedicacion_relacionada_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>escalafon_relacionado_id</from><to>dedicacion_relacionada_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>dedicacion_relacionada_id</from><to>categoria_relacionada_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_categoria_universidad &#x28;2&#x29;</from><to>categoria_relacionada_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>categoria_relacionada_id</from><to>Seleccionar atributos</to><enabled>Y</enabled> </hop>
+  <hop> <from>Seleccionar atributos</from><to>ft_cargo_liquidado -&#x3e; dsa</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_antiguedad_docente</from><to>rango_antiguedad_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>nivel_ensenianza_id</from><to>rango_antiguedad_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>rango_antiguedad_id</from><to>agrupamiento_no_docente_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_anios_de_antiguedad</from><to>anios_de_antiguedad_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>situacion_laboral_id</from><to>anios_de_antiguedad_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_cargo_por_persona</from><to>cargo_por_persona_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>cargo_por_persona_id</from><to>nivel_ensenianza_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>equivalencia_cargo_id</from><to>equiv_cargo_relacionado_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>equiv_cargo_relacionado_id</from><to>unidad_academica_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_equivalencia_cargo</from><to>equiv_cargo_relacionado_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>d_hora_dedicacion</from><to>hora_dedicacion_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>anios_de_antiguedad_id</from><to>hora_dedicacion_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>hora_dedicacion_id</from><to>cargo_por_persona_id</to><enabled>Y</enabled> </hop>
+  </order>
+  <step>
+    <name>&#x28;1&#x29; NULO si es vacio</name>
+    <type>NullIf</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>periodo_id</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>numero_cargo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>persona_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>escalafon_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>cargo_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>equivalencia_cargo_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>unidad_academica_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>fuente_financiamiento_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>estado_laboral_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>tipo_planta_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>estado_cargo_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>situacion_laboral_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>nivel_ensenianza_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>rango_antiguedad_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>hora_dedicacion_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>anios_antiguedad_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>agrupamiento_no_docente_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>tipo_cargo_asociado_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>escalafon_relacionado_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      <field>
+        <name>cargo_univ_relacionado_codigo</name>
+        <value>&#x27;&#x27;</value>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>220</xloc>
+      <yloc>235</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x28;2&#x29; reemplazar si es NULO</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>N</selectFields>
+      <selectValuesType>Y</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      <valuetype>
+        <name>String</name>
+        <value>VACIO&#x2f;NULO</value>
+        <mask/>
+        <set_type_empty_string>N</set_type_empty_string>
+        </valuetype>
+      </valuetypes>
+    <fields>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>220</xloc>
+      <yloc>318</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Seleccionar atributos</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>periodo_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>numero_cargo</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>persona_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>escalafon_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>categoria_universidad_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>equivalencia_cargo_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>unidad_academica_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>fuente_financiamiento_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>estado_laboral_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>tipo_planta_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>estado_cargo_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>situacion_laboral_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>nivel_ensenianza_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>rango_antiguedad_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>cargo_por_persona_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>anios_de_antiguedad_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>agrupamiento_nd_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>tipo_cargo_asociado_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>escalafon_relacionado_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>dedicacion_relacionada_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>categoria_relacionada_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>cantidad_cargos</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>equivalencia_cargo_relacionado_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>hora_dedicacion_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>periodo_id</name>
+        <rename>periodo_id</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>numero_cargo</name>
+        <rename>numero_cargo</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>rango_antiguedad_id</name>
+        <rename>rango_antiguedad_id</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>530</xloc>
+      <yloc>375</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>agrupamiento_no_docente_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_agrupamiento_no_docente</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>agrupamiento_no_docente_codigo</name>
+        <field>agrupamiento_no_docente_codigo</field>
+      </key>
+      <value>
+        <name>agrupamiento_no_docente_id</name>
+        <rename>agrupamiento_nd_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1237</xloc>
+      <yloc>255</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>anios_de_antiguedad_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_anios_de_antiguedad</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>anios_antiguedad_codigo</name>
+        <field>antiguedad_codigo</field>
+      </key>
+      <value>
+        <name>anios_de_antiguedad_id</name>
+        <rename>anios_de_antiguedad_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1877</xloc>
+      <yloc>156</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>cargo_por_persona_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_cargo_por_persona</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>numero_cargo_codigo</name>
+        <field>cargo_por_persona_codigo</field>
+      </key>
+      <value>
+        <name>cargo_por_persona_id</name>
+        <rename>cargo_por_persona_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1713</xloc>
+      <yloc>254</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>categoria_relacionada_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_categoria_universidad &#x28;2&#x29;</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>escalafon_relacionado_codigo</name>
+        <field>escalafon_codigo</field>
+      </key>
+      <key>
+        <name>cargo_univ_relacionado_codigo</name>
+        <field>cargo_codigo</field>
+      </key>
+      <value>
+        <name>categoria_universidad_id</name>
+        <rename>categoria_relacionada_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>586</xloc>
+      <yloc>255</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>categoria_universidad_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_categoria_universidad</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>escalafon_codigo</name>
+        <field>escalafon_codigo</field>
+      </key>
+      <key>
+        <name>cargo_codigo</name>
+        <field>cargo_codigo</field>
+      </key>
+      <value>
+        <name>categoria_universidad_id</name>
+        <rename>categoria_universidad_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>574</xloc>
+      <yloc>158</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_agrupamiento_no_docente</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  agrupamiento_no_docente_id&#xa;, agrupamiento_no_docente_codigo&#xa;--, agrupamiento_no_docente_desc&#xa;FROM rhun_dsa.d_agrupamiento_no_docente&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1240</xloc>
+      <yloc>363</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_anios_de_antiguedad</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  anios_de_antiguedad_id&#xa;, antiguedad_codigo&#xa;FROM rhun_dsa.d_anios_de_antiguedad&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;&#xa;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1873</xloc>
+      <yloc>56</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_antiguedad_docente</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  antiguedad_docente_id&#xa;, antiguedad_docente_codigo&#xa;--, antiguedad_docente_desc&#xa;, rango_antiguedad_docente_codigo&#xa;, rango_antiguedad_docente_desc&#xa;, meses&#xa;FROM rhun_dsa.d_antiguedad_docente&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1420</xloc>
+      <yloc>364</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_cargo_por_persona</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  cargo_por_persona_id&#xa;, cargo_por_persona_codigo&#xa;FROM rhun_dsa.d_cargo_por_persona&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;&#xa;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1714</xloc>
+      <yloc>362</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_categoria_universidad</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  categoria_universidad_id&#xa;--, categoria_universidad_desc&#xa;--, categoria_universidad_dedicacion&#xa;, escalafon_codigo&#xa;, cargo_codigo&#xa;FROM rhun_dsa.d_categoria_universidad&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>576</xloc>
+      <yloc>58</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_categoria_universidad &#x28;2&#x29;</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  categoria_universidad_id&#xa;--, categoria_universidad_desc&#xa;--, categoria_universidad_dedicacion&#xa;, escalafon_codigo&#xa;, cargo_codigo&#xa;FROM rhun_dsa.d_categoria_universidad&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>747</xloc>
+      <yloc>363</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_equivalencia_cargo</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  equivalencia_cargo_id&#xa;, equivalencia_cargo_codigo&#xa;--, escalafon_codigo&#xa;--, categoria_dedicacion&#xa;--, categoria_tipo&#xa;--, categoria_denominacion&#xa;--, categoria_horas&#xa;FROM rhun_dsa.d_equivalencia_cargo&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>732</xloc>
+      <yloc>58</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_escalafon</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  escalafon_id&#xa;, escalafon_codigo&#xa;--, escalafon_desc&#xa;FROM rhun_dsa.d_escalafon&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>447</xloc>
+      <yloc>58</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_escalafon &#x28;2&#x29;</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  escalafon_id&#xa;, escalafon_codigo&#xa;--, escalafon_desc&#xa;FROM rhun_dsa.d_escalafon&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>919</xloc>
+      <yloc>363</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_estado_cargo</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  estado_cargo_id&#xa;, estado_cargo_codigo&#xa;--, estado_cargo_desc&#xa;FROM rhun_dsa.d_estado_cargo&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1562</xloc>
+      <yloc>57</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_estado_laboral</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  estado_laboral_id&#xa;, estado_laboral_codigo&#xa;--, estado_laboral_desc&#xa;FROM rhun_dsa.d_estado_laboral&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1327</xloc>
+      <yloc>57</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_fuente_financiamiento</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  fuente_financiamiento_id&#xa;, fuente_financiamiento_codigo&#xa;--, fuente_financiamiento_desc&#xa;FROM rhun_dsa.d_fuente_financiamiento&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1181</xloc>
+      <yloc>57</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_hora_dedicacion</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  hora_dedicacion_id&#xa;,   hora_dedicacion_codigo&#xa;FROM rhun_dsa.d_hora_dedicacion&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;&#xa;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1892</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_nivel_ensenianza</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  nivel_ensenianza_id&#xa;, nivel_ensenianza_codigo&#xa;--, nivel_ensenianza_desc&#xa;FROM rhun_dsa.d_nivel_ensenianza&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1566</xloc>
+      <yloc>363</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_persona</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  persona_id&#xa;, persona_codigo&#xa;--, persona_desc&#xa;--, inicial&#xa;FROM rhun_dsa.d_persona&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>359</xloc>
+      <yloc>58</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_situacion_laboral</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  situacion_laboral_id&#xa;, situacion_laboral_codigo&#xa;--, situacion_laboral_desc&#xa;FROM rhun_dsa.d_situacion_laboral&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1709</xloc>
+      <yloc>57</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_tipo_cargo_asociado</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  tipo_cargo_asociado_id&#xa;, tipo_cargo_asociado_codigo&#xa;--, tipo_cargo_asociado_desc&#xa;--, orden&#xa;FROM rhun_dsa.d_tipo_cargo_asociado&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1071</xloc>
+      <yloc>363</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_tipo_planta</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  tipo_planta_id&#xa;, tipo_planta_codigo&#xa;--, tipo_planta_desc&#xa;FROM rhun_dsa.d_tipo_planta&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1453</xloc>
+      <yloc>57</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>d_unidad_academica</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  unidad_academica_id&#xa;, unidad_academica_codigo&#xa;--, unidad_academica_desc&#xa;FROM rhun_dsa.d_unidad_academica&#xa;WHERE vigente &#x3d; &#x27;Y&#x27;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1026</xloc>
+      <yloc>57</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>dedicacion_relacionada_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_categoria_universidad &#x28;2&#x29;</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>escalafon_relacionado_codigo</name>
+        <field>escalafon_codigo</field>
+      </key>
+      <key>
+        <name>cargo_univ_relacionado_codigo</name>
+        <field>cargo_codigo</field>
+      </key>
+      <value>
+        <name>categoria_universidad_id</name>
+        <rename>dedicacion_relacionada_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>748</xloc>
+      <yloc>255</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>equiv_cargo_relacionado_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_equivalencia_cargo</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>equivalencia_cargo_relacionado_codigo</name>
+        <field>equivalencia_cargo_codigo</field>
+      </key>
+      <value>
+        <name>equivalencia_cargo_id</name>
+        <rename>equivalencia_cargo_relacionado_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>881</xloc>
+      <yloc>137</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>equivalencia_cargo_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_equivalencia_cargo</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>equivalencia_cargo_codigo</name>
+        <field>equivalencia_cargo_codigo</field>
+      </key>
+      <value>
+        <name>equivalencia_cargo_id</name>
+        <rename>equivalencia_cargo_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>731</xloc>
+      <yloc>158</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>escalafon_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_escalafon</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>escalafon_codigo</name>
+        <field>escalafon_codigo</field>
+      </key>
+      <value>
+        <name>escalafon_id</name>
+        <rename>escalafon_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>447</xloc>
+      <yloc>158</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>escalafon_relacionado_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_escalafon &#x28;2&#x29;</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>escalafon_relacionado_codigo</name>
+        <field>escalafon_codigo</field>
+      </key>
+      <value>
+        <name>escalafon_id</name>
+        <rename>escalafon_relacionado_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>920</xloc>
+      <yloc>255</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>estado_cargo_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_estado_cargo</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>estado_cargo_codigo</name>
+        <field>estado_cargo_codigo</field>
+      </key>
+      <value>
+        <name>estado_cargo_id</name>
+        <rename>estado_cargo_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1561</xloc>
+      <yloc>155</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>estado_laboral_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_estado_laboral</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>estado_laboral_codigo</name>
+        <field>estado_laboral_codigo</field>
+      </key>
+      <value>
+        <name>estado_laboral_id</name>
+        <rename>estado_laboral_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1326</xloc>
+      <yloc>157</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>ft_cargo_liquidado -&#x3e; dsa</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <schema>rhun_dsa</schema>
+    <table>ft_cargo_liquidado</table>
+    <commit>&#x24;&#x7b;commit_size&#x7d;</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>periodo_id</column_name>
+          <stream_name>periodo_id</stream_name>
+        </field>
+        <field>
+          <column_name>numero_cargo</column_name>
+          <stream_name>numero_cargo</stream_name>
+        </field>
+        <field>
+          <column_name>persona_id</column_name>
+          <stream_name>persona_id</stream_name>
+        </field>
+        <field>
+          <column_name>escalafon_id</column_name>
+          <stream_name>escalafon_id</stream_name>
+        </field>
+        <field>
+          <column_name>categoria_universidad_id</column_name>
+          <stream_name>categoria_universidad_id</stream_name>
+        </field>
+        <field>
+          <column_name>equivalencia_cargo_id</column_name>
+          <stream_name>equivalencia_cargo_id</stream_name>
+        </field>
+        <field>
+          <column_name>unidad_academica_id</column_name>
+          <stream_name>unidad_academica_id</stream_name>
+        </field>
+        <field>
+          <column_name>fuente_financiamiento_id</column_name>
+          <stream_name>fuente_financiamiento_id</stream_name>
+        </field>
+        <field>
+          <column_name>estado_laboral_id</column_name>
+          <stream_name>estado_laboral_id</stream_name>
+        </field>
+        <field>
+          <column_name>tipo_planta_id</column_name>
+          <stream_name>tipo_planta_id</stream_name>
+        </field>
+        <field>
+          <column_name>estado_cargo_id</column_name>
+          <stream_name>estado_cargo_id</stream_name>
+        </field>
+        <field>
+          <column_name>situacion_laboral_id</column_name>
+          <stream_name>situacion_laboral_id</stream_name>
+        </field>
+        <field>
+          <column_name>nivel_ensenianza_id</column_name>
+          <stream_name>nivel_ensenianza_id</stream_name>
+        </field>
+        <field>
+          <column_name>rango_antiguedad_id</column_name>
+          <stream_name>rango_antiguedad_id</stream_name>
+        </field>
+        <field>
+          <column_name>numero_cargo_id</column_name>
+          <stream_name>cargo_por_persona_id</stream_name>
+        </field>
+        <field>
+          <column_name>anios_antiguedad_id</column_name>
+          <stream_name>anios_de_antiguedad_id</stream_name>
+        </field>
+        <field>
+          <column_name>agrupamiento_nd_id</column_name>
+          <stream_name>agrupamiento_nd_id</stream_name>
+        </field>
+        <field>
+          <column_name>tipo_cargo_asociado_id</column_name>
+          <stream_name>tipo_cargo_asociado_id</stream_name>
+        </field>
+        <field>
+          <column_name>escalafon_relacionado_id</column_name>
+          <stream_name>escalafon_relacionado_id</stream_name>
+        </field>
+        <field>
+          <column_name>dedicacion_relacionada_id</column_name>
+          <stream_name>dedicacion_relacionada_id</stream_name>
+        </field>
+        <field>
+          <column_name>categoria_relacionada_id</column_name>
+          <stream_name>categoria_relacionada_id</stream_name>
+        </field>
+        <field>
+          <column_name>cantidad_cargos</column_name>
+          <stream_name>cantidad_cargos</stream_name>
+        </field>
+        <field>
+          <column_name>equivalencia_cargo_relacionado_id</column_name>
+          <stream_name>equivalencia_cargo_relacionado_id</stream_name>
+        </field>
+        <field>
+          <column_name>horas_dedicacion_id</column_name>
+          <stream_name>hora_dedicacion_id</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>381</xloc>
+      <yloc>398</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>fuente_financiamiento_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_fuente_financiamiento</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>fuente_financiamiento_codigo</name>
+        <field>fuente_financiamiento_codigo</field>
+      </key>
+      <value>
+        <name>fuente_financiamiento_id</name>
+        <rename>fuente_financiamiento_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1180</xloc>
+      <yloc>157</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>hora_dedicacion_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_hora_dedicacion</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>hora_dedicacion_codigo</name>
+        <field>hora_dedicacion_codigo</field>
+      </key>
+      <value>
+        <name>hora_dedicacion_id</name>
+        <rename>hora_dedicacion_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1881</xloc>
+      <yloc>254</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>nivel_ensenianza_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_nivel_ensenianza</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>nivel_ensenianza_codigo</name>
+        <field>nivel_ensenianza_codigo</field>
+      </key>
+      <value>
+        <name>nivel_ensenianza_id</name>
+        <rename>nivel_ensenianza_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1563</xloc>
+      <yloc>255</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>persona_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_persona</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>persona_codigo</name>
+        <field>persona_codigo</field>
+      </key>
+      <value>
+        <name>persona_id</name>
+        <rename>persona_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>357</xloc>
+      <yloc>158</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>rango_antiguedad_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_antiguedad_docente</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>rango_antiguedad_codigo</name>
+        <field>meses</field>
+      </key>
+      <value>
+        <name>antiguedad_docente_id</name>
+        <rename>rango_antiguedad_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1417</xloc>
+      <yloc>255</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>situacion_laboral_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_situacion_laboral</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>situacion_laboral_codigo</name>
+        <field>situacion_laboral_codigo</field>
+      </key>
+      <value>
+        <name>situacion_laboral_id</name>
+        <rename>situacion_laboral_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1709</xloc>
+      <yloc>157</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>tipo_cargo_asociado_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_tipo_cargo_asociado</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>tipo_cargo_asociado_codigo</name>
+        <field>tipo_cargo_asociado_codigo</field>
+      </key>
+      <value>
+        <name>tipo_cargo_asociado_id</name>
+        <rename>tipo_cargo_asociado_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1068</xloc>
+      <yloc>255</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>tipo_planta_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_tipo_planta</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>tipo_planta_codigo</name>
+        <field>tipo_planta_codigo</field>
+      </key>
+      <value>
+        <name>tipo_planta_id</name>
+        <rename>tipo_planta_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1452</xloc>
+      <yloc>157</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>tmp -&#x3e; ft_cargos_liq</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dsa</connection>
+    <sql>SELECT&#xa;  to_char&#x28;periodo&#x3a;&#x3a;timestamp,&#x27;YYYYMM&#x27;&#x29; as periodo_id&#xa;, numero_cargo as numero_cargo&#xa;, cuil_cuit as persona_codigo&#xa;, escalafon_id as escalafon_codigo&#xa;, cod_cargo_universidad as cargo_codigo&#xa;, equivalencia_cargo_id as equivalencia_cargo_codigo&#xa;, unidad_academica_id as unidad_academica_codigo&#xa;, fuente_financiamiento_id as fuente_financiamiento_codigo&#xa;, estado_laboral_id as estado_laboral_codigo&#xa;, tipo_planta_id as tipo_planta_codigo&#xa;, estado_cargo_id as estado_cargo_codigo&#xa;, situacion_laboral_id as situacion_laboral_codigo&#xa;, nivel_ensenianza_id as nivel_ensenianza_codigo&#xa;, CASE WHEN cast&#x28;meses_antiguedad as integer&#x29; &#x3e; 731 THEN &#x27;731&#x27; ELSE meses_antiguedad END as rango_antiguedad_codigo --Si supera los 731 meses se pone directamente meses&#x3d;731 &#x28;m&#xe1;s de 60 a&#xf1;os&#x29;&#xa;, horas_dedicacion as hora_dedicacion_codigo&#xa;, nro_cargo_pers as numero_cargo_codigo&#xa;, anios_antiguedad as anios_antiguedad_codigo&#xa;, agrupamiento_nd_id as agrupamiento_no_docente_codigo&#xa;, tipo_cargo_asociado_id as tipo_cargo_asociado_codigo&#xa;, escalafon_relacionado_id as escalafon_relacionado_codigo&#xa;, cargo_univ_relacionado_id as cargo_univ_relacionado_codigo&#xa;, &#x28;&#xa;  select coalesce&#x28;&#xa;  &#x28;&#xa;    select equivalencia_cargo_id&#xa;    from rhun_tmp.lt_equivalencias_cargos&#xa;    where&#xa;      equivalencia_cargo_id &#x3d;&#xa;      &#x28;&#xa;        select equivalencia_cargo_categ_univ&#xa;        from rhun_tmp.lt_categorias_univ&#xa;        where&#xa;          to_char&#x28;periodo&#x3a;&#x3a;timestamp,&#x27;YYYYMM&#x27;&#x29;&#x3d;to_char&#x28;c.periodo&#x3a;&#x3a;timestamp,&#x27;YYYYMM&#x27;&#x29; and &#xa;          escalafon_categ_univ &#x3d; &#x28;&#xa;            select escalafon_relacionado_id&#xa;            from rhun_tmp.ft_cargos_liq&#xa;            where to_char&#x28;periodo&#x3a;&#x3a;timestamp,&#x27;YYYYMM&#x27;&#x29;&#x3d;to_char&#x28;c.periodo&#x3a;&#x3a;timestamp,&#x27;YYYYMM&#x27;&#x29; and numero_cargo&#x3d;c.numero_cargo&#xa;          &#x29; and&#xa;          cod_cargo_universidad &#x3d; &#x28;&#xa;            select cargo_univ_relacionado_id&#xa;            from rhun_tmp.ft_cargos_liq&#xa;            where to_char&#x28;periodo&#x3a;&#x3a;timestamp,&#x27;YYYYMM&#x27;&#x29;&#x3d;to_char&#x28;c.periodo&#x3a;&#x3a;timestamp,&#x27;YYYYMM&#x27;&#x29; and numero_cargo&#x3d;c.numero_cargo&#xa;          &#x29;&#xa;      &#x29; and&#xa;      escalafon_id &#x3d;&#xa;      &#x28;&#xa;        select escalafon_relacionado_id&#xa;        from rhun_tmp.ft_cargos_liq&#xa;        where to_char&#x28;periodo&#x3a;&#x3a;timestamp,&#x27;YYYYMM&#x27;&#x29;&#x3d;to_char&#x28;c.periodo&#x3a;&#x3a;timestamp,&#x27;YYYYMM&#x27;&#x29; and numero_cargo&#x3d;c.numero_cargo&#xa;      &#x29;&#xa;  &#x29;,&#xa;  &#x27;VACIO&#x2f;NULO&#x27;&#xa;  &#x29;&#xa;&#x29; as equivalencia_cargo_relacionado_codigo&#xa;&#xa;, 1 as cantidad_cargos&#xa;FROM rhun_tmp.ft_cargos_liq c</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>54</xloc>
+      <yloc>235</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>unidad_academica_id</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>d_unidad_academica</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>unidad_academica_codigo</name>
+        <field>unidad_academica_codigo</field>
+      </key>
+      <value>
+        <name>unidad_academica_id</name>
+        <rename>unidad_academica_id</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1025</xloc>
+      <yloc>157</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step_error_handling>
+  </step_error_handling>
+   <slave-step-copy-partition-distribution>
+</slave-step-copy-partition-distribution>
+   <slave_transformation>N</slave_transformation>
+
+</transformation>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>creacion_dw_diaguita</name>
+    <description/>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>&#x2f;</directory>
+    <parameters>
+    </parameters>
+    <log>
+<trans-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
+<perf-log-table><connection/>
+<schema/>
+<table/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+<step-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+<metrics-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+         <slaveserver><name>SPU</name><hostname>&#x24;&#x7b;SPU_host&#x7d;</hostname><port>&#x24;&#x7b;SPU_port&#x7d;</port><webAppName/><username>&#x24;&#x7b;SPU_usuario&#x7d;</username><password>&#x24;&#x7b;SPU_datos&#x7d;</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>Y</master><sslMode>N</sslMode></slaveserver>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+  <created_user>-</created_user>
+  <created_date>2015&#x2f;01&#x2f;06 12&#x3a;54&#x3a;05.518</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2015&#x2f;01&#x2f;06 12&#x3a;54&#x3a;05.518</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+    <notepad>
+      <note>Ejecuta el script&#xa;de creaci&#xf3;n</note>
+      <xloc>163</xloc>
+      <yloc>40</yloc>
+      <width>131</width>
+      <heigth>48</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <connection>
+    <name>siu_dw</name>
+    <server>&#x24;&#x7b;dw_nombrehost&#x7d;</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>&#x24;&#x7b;dw_nombrebase&#x7d;</database>
+    <port>&#x24;&#x7b;dw_puerto&#x7d;</port>
+    <username>&#x24;&#x7b;dw_usuario&#x7d;</username>
+    <password>&#x24;&#x7b;dw_clave&#x7d;</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;dw_puerto&#x7d;</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <order>
+  <hop> <from>nada</from><to>Execute SQL script</to><enabled>Y</enabled> </hop>
+  </order>
+  <step>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>siu_dw</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>--Crea el esquema diaguita&#xa;&#xa;create schema diaguita&#x3b;&#xa;&#xa;&#xa;--Crea las tablas de diaguita_dw&#xa;&#xa;create table diaguita.d_tipo_documento&#x28;&#xa;  tipo_documento_id serial,  &#xa;  tipo_documento_codigo text,&#xa;  tipo_documento_desc text&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_tipo_documento PRIMARY KEY &#x28;tipo_documento_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_expediente&#x28;&#xa;  expediente_id serial,  &#xa;  expediente_codigo text,&#xa;  expediente_desc text&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_expediente PRIMARY KEY &#x28;expediente_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_numero_anterior&#x28;&#xa;  numero_anterior_id serial,  &#xa;  numero_anterior_codigo text,&#xa;  numero_anterior_desc text&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_numero_anterior PRIMARY KEY &#x28;numero_anterior_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_estado_bien&#x28;&#xa;   estado_bien_id serial not null&#xa;  ,estado_bien_codigo text&#xa;  ,estado_bien_desc text&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_estado_bien PRIMARY KEY &#x28;estado_bien_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_ubicacion_fisica&#x28;&#xa;   ubicacion_fisica_id serial not null&#xa;  ,ubicacion_fisica_codigo text&#xa;  ,ubicacion_fisica_desc text&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_ubicacion_fisica PRIMARY KEY &#x28;ubicacion_fisica_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_catalogo_bien&#x28;&#xa;   catalogo_bien_id serial not null&#xa;  ,catalogo_bien_nivel1_codigo integer&#xa;  ,catalogo_bien_nivel1_desc text&#xa;  ,catalogo_bien_nivel2_codigo integer&#xa;  ,catalogo_bien_nivel2_desc text&#xa;  ,catalogo_bien_nivel3_codigo integer&#xa;  ,catalogo_bien_nivel3_desc text&#xa;  ,catalogo_bien_nivel4_codigo integer&#xa;  ,catalogo_bien_nivel4_desc text&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_catalogo_bien PRIMARY KEY &#x28;catalogo_bien_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_catalogo_bien_servicio&#x28;&#xa;   catalogo_bien_id serial not null&#xa;  ,catalogo_bien_nivel1_codigo integer&#xa;  ,catalogo_bien_nivel1_desc text&#xa;  ,catalogo_bien_nivel2_codigo integer&#xa;  ,catalogo_bien_nivel2_desc text&#xa;  ,catalogo_bien_nivel3_codigo integer&#xa;  ,catalogo_bien_nivel3_desc text&#xa;  ,catalogo_bien_nivel4_codigo integer&#xa;  ,catalogo_bien_nivel4_desc text&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_catalogo_bien_servicio PRIMARY KEY &#x28;catalogo_bien_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_bien_patrimonial&#x28;&#xa;   bien_patrimonial_id serial not null&#xa;  ,bien_patrimonial_codigo text&#xa;  ,bien_patrimonial_desc text&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_bien_patrimonial PRIMARY KEY &#x28;bien_patrimonial_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_numero_patrimonial&#x28;&#xa;   numero_patrimonial_id serial not null&#xa;  ,numero_patrimonial_codigo text&#xa;  ,numero_patrimonial_desc text&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_numero_patrimonial PRIMARY KEY &#x28;numero_patrimonial_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_motivo_alta_bien&#x28;&#xa;   motivo_alta_id serial not null&#xa;  ,motivo_alta_codigo text&#xa;  ,motivo_alta_desc text&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_motivo_alta_bien PRIMARY KEY &#x28;motivo_alta_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_motivo_baja_bien&#x28;&#xa;   motivo_baja_id serial not null&#xa;  ,motivo_baja_codigo text&#xa;  ,motivo_baja_desc text&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_motivo_baja_bien PRIMARY KEY &#x28;motivo_baja_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_area&#x28;&#xa;   area_id serial not null&#xa;  ,area_nivel1_codigo text&#xa;  ,area_nivel2_codigo text&#xa;  ,area_nivel1_desc text&#xa;  ,area_nivel2_desc text&#xa;  ,oficina_patrimonio_codigo text&#xa;  ,instalacion_id integer NOT NULL&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_area PRIMARY KEY &#x28;area_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_vida_util&#x28;&#xa;   vida_util_id serial&#xa;  ,vida_util_codigo text&#xa;  ,vida_util_desc text&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_vida_util PRIMARY KEY &#x28;vida_util_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_tipo_bien&#x28;&#xa;   tipo_bien_id serial not null&#xa;  ,tipo_bien_codigo text&#xa;  ,tipo_bien_desc text&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_tipo_bien PRIMARY KEY &#x28;tipo_bien_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_alta_baja&#x28;&#xa;   alta_baja_id serial not null&#xa;  ,alta_baja_codigo text&#xa;  ,alta_baja_desc text&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_alta_baja PRIMARY KEY &#x28;alta_baja_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_oficina_patrimonio&#x28;&#xa;   oficina_patrimonio_id serial not null&#xa;  ,oficina_patrimonio_codigo text&#xa;  ,oficina_patrimonio_desc text&#xa;  ,fecha_desde date&#xa;  ,fecha_hasta date&#xa;  ,version integer&#xa;  ,vigente character varying&#xa;  ,fecha_actualizacion timestamp without time zone&#xa;  ,CONSTRAINT pk_d_oficina_patrimonio PRIMARY KEY &#x28;oficina_patrimonio_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.d_persona&#xa;&#x28;&#xa;  persona_id serial NOT NULL,&#xa;  persona_codigo integer,&#xa;  persona_tipo_documento character varying,&#xa;  persona_nro_documento character varying,&#xa;  fisica_o_juridica character varying,&#xa;  razon_social_apyno character varying,&#xa;  nombre_fantasia character varying,&#xa;  genero_id character varying,&#xa;  nacionalidad character varying,&#xa;  email character varying,&#xa;  cbu character varying,&#xa;  persona_detalle character varying,&#xa;  estado character varying,&#xa;  fecha_desde date,&#xa;  fecha_hasta date,&#xa;  version integer,&#xa;  vigente character varying,&#xa;  fecha_actualizacion timestamp without time zone,&#xa;  CONSTRAINT pk_d_persona PRIMARY KEY &#x28;persona_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE diaguita.d_responsable&#xa;&#x28;&#xa;  responsable_id serial NOT NULL,&#xa;  responsable_codigo text,&#xa;  responsable_desc text,&#xa;  cuil text,&#xa;  fecha_desde date,&#xa;  fecha_hasta date,&#xa;  version integer,&#xa;  vigente character varying,&#xa;  fecha_actualizacion timestamp without time zone,&#xa;  CONSTRAINT pk_d_responsable PRIMARY KEY &#x28;responsable_id&#x29;&#xa;&#x29;&#x3b;&#xa;&#xa;create table diaguita.ft_patrimonio&#x28;&#xa;   id serial&#xa;  ,tipo_documento_id integer&#xa;  ,expediente_id integer&#xa;  ,numero_anterior_id integer&#xa;  ,importacion_id integer&#xa;  ,unidad_generica_id integer&#xa;  ,bien_patrimonial_id integer not null&#xa;  ,numero_patrimonial_id integer not null&#xa;  ,motivo_baja_id smallint&#xa;  ,numero_alta_id integer&#xa;  ,fecha_alta_id date not null&#xa;  ,motivo_alta_id smallint not null&#xa;  ,estado_bien_id smallint not null&#xa;  ,catalogo_bien_id integer not null&#xa;  ,area_responsable_id integer not null&#xa;  ,ubicacion_fisica_id integer not null&#xa;  ,fecha_incorporacion_id date not null&#xa;  ,fecha_baja_id date&#xa;  ,alta_baja_id smallint not null&#xa;  ,vida_util smallint not null&#xa;  ,tipo_bien_id smallint&#xa;  ,oficina_patrimonio_id smallint&#xa;  ,persona_id integer&#xa;  ,expediente_baja_id integer&#xa;  ,responsable_uso_id integer&#xa;  ,valor_bien numeric&#x28;15,2&#x29;&#xa;  ,valor_residual numeric&#x28;15,2&#x29;&#xa;  ,amortizacion_acumulada numeric&#x28;15,2&#x29;&#xa;  ,cant_bienes integer&#xa;&#x29;&#x3b;&#xa;&#xa;CREATE TABLE diaguita.d_lugar_entrega&#xa;&#x28;&#xa;  id_lugar_entrega integer not null,&#xa;  nombre_lugar_entrega character varying,&#xa;  domicilio_lugar_entrega character varying,&#xa;  localidad_lugar_entrega character varying,&#xa;  codigo_postal_lugar_entrega character varying,&#xa;  CONSTRAINT d_lugar_entrega_pkey PRIMARY KEY &#x28;id_lugar_entrega&#x29;&#xa;&#x29;&#x3b;&#xa;CREATE TABLE diaguita.d_oficina_contrataciones&#xa;&#x28;&#xa;  id_oficina integer not null,&#xa;  nombre character varying,&#xa;  CONSTRAINT d_oficina_contratacion_pkey PRIMARY KEY &#x28;id_oficina&#x29;&#xa;&#x29;&#x3b;&#xa;CREATE TABLE diaguita.d_proveedor&#xa;&#x28;&#xa;  id_proveedor integer not null,&#xa;  razon_social character varying,&#xa;  nombre_fantasia character varying,&#xa;  email character varying,&#xa;  cbu character varying,&#xa;  cuit character varying,&#xa;  descripcion_domicilio character varying,&#xa;  nombre_localidad character varying,&#xa;  CONSTRAINT d_proveedor_pkey PRIMARY KEY &#x28;id_proveedor&#x29;&#xa;&#x29;&#x3b;&#xa;CREATE TABLE diaguita.d_procedimiento_modalidades&#xa;&#x28;&#xa;  id_procedimiento_modalidad integer not null,&#xa;  nombre character varying,&#xa;  CONSTRAINT d_procedimiento_modalidad_pkey PRIMARY KEY &#x28;id_procedimiento_modalidad&#x29;&#xa;&#x29;&#x3b;&#xa;CREATE TABLE diaguita.d_procedimiento_clases&#xa;&#x28;&#xa;  id_procedimiento_clase integer not null,&#xa;  nombre character varying,&#xa;  CONSTRAINT d_procedimiento_clase_pkey PRIMARY KEY &#x28;id_procedimiento_clase&#x29;&#xa;&#x29;&#x3b;&#xa;CREATE TABLE diaguita.d_rubro&#xa;&#x28;&#xa;  id_rubro integer NOT NULL,&#xa;  rubro_desc character varying,&#xa;  CONSTRAINT d_rubro_pkey PRIMARY KEY &#x28;id_rubro&#x29;&#xa;&#x29;&#x3b;&#xa;CREATE TABLE diaguita.d_moneda&#xa;&#x28;&#xa;  id_moneda integer NOT NULL,&#xa;  moneda_desc character varying,&#xa;  CONSTRAINT d_moneda_pkey PRIMARY KEY &#x28;id_moneda&#x29;&#xa;&#x29;&#x3b;&#xa;CREATE TABLE diaguita.d_usuario&#xa;&#x28;&#xa;  id_usuario integer NOT NULL,&#xa;  apyno character varying,&#xa;  CONSTRAINT d_usuario_pkey PRIMARY KEY &#x28;id_usuario&#x29;&#xa;&#x29;&#x3b;&#xa;CREATE TABLE diaguita.ft_compras&#xa;&#x28;&#xa;  id_compras serial not null,&#xa;  etapa character varying,&#xa;  identificador_solicitud character varying,&#xa;  fecha_creacion_solicitud date,&#xa;  descripcion_solicitud character varying,&#xa;  prioridad_solicitud character varying,&#xa;  estado_solicitud character varying,&#xa;  referente_solicitud character varying,&#xa;  id_lugar_entrega_solicitud integer,&#xa;  id_oficina_central_contratacion_solicitud integer,&#xa;  id_area_solicitud integer,&#xa;  descripcion_item_solicitado character varying,&#xa;  id_rubro_solicitud integer,&#xa;  cantidad_item_solicitado double precision DEFAULT 0,&#xa;  unidad_medida_item_solicitado character varying,&#xa;  precio_estimado_item_solicitado double precision DEFAULT 0,&#xa;  id_area_item_solicitado integer,&#xa;  numero_mcc character varying,&#xa;  descripcion_mcc character varying,&#xa;  identificador_convocatoria character varying,&#xa;  fecha_creacion_convocatoria date,&#xa;  descripcion_convocatoria character varying,&#xa;  estado_convocatoria character varying,&#xa;  prioridad_convocatoria character varying,&#xa;  id_convocatoria integer,&#xa;  expediente_ejercicio_conv integer,&#xa;  expediente_convocatoria character varying,&#xa;  tipo_procedimiento_convocatoria character varying,&#xa;  id_oficina_convocatoria integer,&#xa;  id_procedimiento_modalidad integer,&#xa;  id_procedimiento_clase integer,&#xa;  usuario_autorizante_conv integer,&#xa;  fecha_autorizacion_conv date,&#xa;  id_renglon integer,&#xa;  descripcion_renglon character varying,&#xa;  numero_renglon character varying,&#xa;  precio_estimado_renglon double precision DEFAULT 0,&#xa;  catalogo_bien_servicio_renglon integer,&#xa;  id_rubro_convocatoria integer,&#xa;  id_renglon_area integer,&#xa;  cantidad_renglon double precision DEFAULT 0,&#xa;  id_item_area integer,&#xa;  id_convocatoria_aa integer,&#xa;  id_acto_apertura integer,&#xa;  inicio_acto_apertura timestamp without time zone,&#xa;  fecha_acto_apertura date,&#xa;  fin_acto_apertura timestamp without time zone,&#xa;  oficina_acto_apertura character varying,&#xa;  lugar_acto_apertura character varying,&#xa;  identificador_acto_apertura character varying,&#xa;  estado_acto_apertura character varying,&#xa;  id_acto_apertura_de integer,&#xa;  fecha_creacion_dictamen date,&#xa;  fecha_generacion_dictamen date,&#xa;  identificador_dictamen character varying,&#xa;  estado_dictamen character varying,&#xa;  -- Adjudicacion&#xa;  id_renglon_ad integer,&#xa;  estado_adjudicacion character varying,&#xa;  identificador_adjudicacion character varying,&#xa;  id_proveedor integer,&#xa;  cantidad_ad double precision DEFAULT 0,&#xa;  monto_unitario double precision DEFAULT 0,&#xa;  id_adjudicacion integer, -- Clave para Orden de Compra&#xa;  -- Orden de Compra&#xa;  id_renglon_area_oc integer,&#xa;  id_detalle_orden_compra_oc integer,&#xa;  id_proveedor_oc integer,&#xa;  id_area_oc integer,&#xa;  estado_orden_compra character varying,&#xa;  identificador_orden_compra character varying,&#xa;  fecha_emision_oc date,&#xa;  id_lugar_entrega_oc integer,&#xa;  fecha_vencimiento_oc date,&#xa;  cantidad_oc double precision DEFAULT 0,&#xa;  monto_unitario_oc double precision DEFAULT 0,&#xa;  id_adjudicacion_oc integer, -- Clave para Adjudicacion&#xa;  id_moneda_oc integer,&#xa;  -- Recepciones&#xa;  id_detalle_orden_compra_re integer,&#xa;  fecha_recepcion date,&#xa;  estado_recepcion character varying,&#xa;  remito character varying,&#xa;  factura_numero character varying,&#xa;  identificador_acta_provisoria_recepcion character varying,&#xa;  fecha_acta_provisoria_re date,&#xa;  id_area_re integer,&#xa;  identificador_acta_definitiva_recepcion character varying,&#xa;  fecha_acta_definitiva_re date,&#xa;  cantidad_recibida double precision DEFAULT 0,&#xa;  cantidad_aceptada double precision DEFAULT 0,&#xa;  cantidad_rechazada double precision DEFAULT 0,&#xa;  importe_total_solicitud double precision DEFAULT 0,&#xa;  importe_total_convocatoria double precision DEFAULT 0,&#xa;  importe_total_adjudicado double precision DEFAULT 0,&#xa;  importe_total_oc double precision DEFAULT 0,&#xa;  unidad_generica_id integer,&#xa;  CONSTRAINT ft_compras_pkey PRIMARY KEY &#x28;id_compras&#x29;&#xa;&#x29;&#x3b;&#xa;</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>195</xloc>
+      <yloc>86</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>nada</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>60</xloc>
+      <yloc>85</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step_error_handling>
+  </step_error_handling>
+   <slave-step-copy-partition-distribution>
+</slave-step-copy-partition-distribution>
+   <slave_transformation>N</slave_transformation>
+
+</transformation>

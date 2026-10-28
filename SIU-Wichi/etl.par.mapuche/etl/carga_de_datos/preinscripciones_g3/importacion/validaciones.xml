@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+
+Este xml especifica validaciones a realizar
+en la carga de datos a Wichi. Si no se cumple alguna
+de las validaciones significa que los datos son
+inválidos o que el extractor o importador es
+inadecuado.
+
+Mantener una copia de este archivo en los
+exportadores y otra en los importadores, para poder
+controlar que al actualizar una se actualice la otra.
+
+-->
+
+
+<validaciones id="validacionesG3v6"> <!-- el id debe cambiar con cualquier cambio en este xml -->
+	<sistemaFuente>
+		<codigo>11</codigo> <!-- el código del sistema fuente según estándares wichi -->
+		<nombre>preinscripciones</nombre> <!-- valor permitido para el nombre del sistema fuente, sin el número de versión -->
+		<obtencionDeSistema> <!-- cómo saber cuál es el sistema fuente (nombre sin versión) -->
+			<sql><![CDATA[
+                             select (case when(
+                                    select count(distinct(table_name))
+                                    from information_schema.tables
+                                    where table_schema = 'public'
+                                    and table_name in (
+                                      'sga_preinscripcion',
+                                      'sga_preinscripcion_propuestas',
+                                      'sga_propuestas_tipos')
+                            ) = 3 then 'preinscripciones' else 'otra' end) as sistema
+			]]>
+			</sql>
+		</obtencionDeSistema>
+	</sistemaFuente>
+	<versionSistemaFuente>
+		<versionesAceptadas> <!-- versiones del sistema fuente que pasan la validación -->
+			<version>^3\.21\.0$</version>
+		</versionesAceptadas>
+		<versionesNoAceptadas> <!-- versiones del sistema fuente que NO pasan la validación -->
+			<version>^0\..*</version>
+			<version>^1\..*</version>
+			<version>^2\..*</version>
+			<version>^3\.0\..*$</version>
+			<version>^3\.1\..*$</version>
+			<version>^3\.2\..*$</version>
+			<version>^3\.3\..*$</version>
+			<version>^3\.4\..*$</version>
+			<version>^3\.5\..*$</version>
+			<version>^3\.6\..*$</version>
+			<version>^3\.7\..*$</version>
+			<version>^3\.8\..*$</version>
+			<version>^3\.9\..*$</version>
+			<version>^3\.10\..*$</version>
+			<version>^3\.11\..*$</version>
+			<version>^3\.12\..*$</version>
+			<version>^3\.13\..*$</version>
+			<version>^3\.14\..*$</version>
+			<version>^3\.15\..*$</version>
+			<version>^3\.16\..*$</version>
+			<version>^3\.17\..*$</version>
+			<version>^3\.18\..*$</version>
+			<version>^3\.19\..*$</version>
+			<version>^3\.20\..*$</version>
+		</versionesNoAceptadas>
+		<obtencionDeVersion> <!-- cómo saber cuál es la versión del sistema fuente -->
+			<sql><![CDATA[
+                                select version_base as "version"
+                                from public.app_versiones_base
+                                where fecha_actualizacion = 
+                                (select max(fecha_actualizacion) from public.app_versiones_base)
+			]]>
+			</sql>
+		</obtencionDeVersion>
+	</versionSistemaFuente>
+	<estructuraArchivos>
+		<archivo nombre="FT_preinscripciones.txt" desc="">
+			<columna nombre="responsable_academica" desc=""></columna>
+			<columna nombre="propuesta" desc=""></columna>
+			<columna nombre="ubicacion" desc=""></columna>
+			<columna nombre="modalidad" desc=""></columna>
+			<columna nombre="periodo_insc" desc=""></columna>
+			<columna nombre="fecha_preinscripcion" desc=""></columna>
+			<columna nombre="estado_preinsc" desc=""></columna>
+			<columna nombre="apyno" desc=""></columna>
+			<columna nombre="tipo_documento" desc=""></columna>
+			<columna nombre="nro_documento" desc=""></columna>
+			<columna nombre="sexo" desc=""></columna>
+			<columna nombre="fecha_nacimiento" desc=""></columna>
+			<columna nombre="nacionalidad" desc=""></columna>
+			<columna nombre="loc_nacimiento" desc=""></columna>
+			<columna nombre="estado_civil" desc=""></columna>
+			<columna nombre="alu_est_civil_uh" desc=""></columna>
+			<columna nombre="turno_preferido" desc=""></columna>
+			<columna nombre="colegio_secundario" desc=""></columna>
+			<columna nombre="titulo_secundario" desc=""></columna>
+			<columna nombre="anio_egreso_sec" desc=""></columna>
+			<columna nombre="alu_trabajo" desc=""></columna>
+			<columna nombre="pertenece_pueblo_originario" desc=""></columna>
+			<columna nombre="pueblo_originario" desc=""></columna>
+			<columna nombre="pueblo_originario_otro" desc=""></columna>
+			<columna nombre="identidad_genero" desc=""></columna>
+			<columna nombre="identidad_genero_otro" desc=""></columna>
+			<columna nombre="celular_numero" desc=""></columna>
+			<columna nombre="e_mail" desc=""></columna>
+			<columna nombre="apyno_elegido" desc=""></columna>
+			<columna nombre="apyno_padre" desc=""></columna>
+			<columna nombre="apyno_madre" desc=""></columna>
+			<columna nombre="sit_laboral_padre" desc=""></columna>
+			<columna nombre="padre_trab_ocup" desc=""></columna>
+			<columna nombre="sit_laboral_madre" desc=""></columna>
+			<columna nombre="madre_trab_ocup" desc=""></columna>
+			<columna nombre="sit_actual_padre" desc=""></columna>
+			<columna nombre="sit_actual_madre" desc=""></columna>
+			<columna nombre="nivel_estudio_padre" desc=""></columna>
+			<columna nombre="nivel_estudio_madre" desc=""></columna>
+			<columna nombre="tipo_allegado" desc=""></columna>
+			<columna nombre="apyno_pers_alleg" desc=""></columna>
+			<columna nombre="costeo_estudios," desc=""></columna>
+			<columna nombre="tiene_beca" desc=""></columna>
+			<columna nombre="tecno_pc" desc=""></columna>
+			<columna nombre="tecno_int" desc=""></columna>
+			<columna nombre="idioma" desc=""></columna>
+			<columna nombre="condicion_discapacidad" desc=""></columna>
+			<columna nombre="tiene_cud" desc=""></columna>
+			<columna nombre="discapacidad" desc=""></columna>
+			<columna nombre="cant_hijos_alum" desc=""></columna>
+			<columna nombre="vive_actual_con" desc=""></columna>
+			<columna nombre="obra_social_alu" desc=""></columna>
+			<columna nombre="loc_per_lect" desc=""></columna>
+			<columna nombre="loc_proc" desc=""></columna>
+			<columna nombre="es_celiaco" desc=""></columna>
+			<columna nombre="adeuda_materias" desc=""></columna>
+		</archivo>
+		<archivo nombre="FT_preinscripcionesg3.txt" desc="">
+			<columna nombre="responsable_academica" desc=""></columna>
+			<columna nombre="propuesta" desc=""></columna>
+			<columna nombre="ubicacion" desc=""></columna>
+			<columna nombre="modalidad" desc=""></columna>
+			<columna nombre="periodo_insc" desc=""></columna>
+			<columna nombre="fecha_preinscripcion" desc=""></columna>
+			<columna nombre="estado_preinsc" desc=""></columna>
+			<columna nombre="apyno" desc=""></columna>
+			<columna nombre="tipo_documento" desc=""></columna>
+			<columna nombre="nro_documento" desc=""></columna>
+			<columna nombre="sexo" desc=""></columna>
+			<columna nombre="fecha_nacimiento" desc=""></columna>
+			<columna nombre="nacionalidad" desc=""></columna>
+			<columna nombre="loc_nacimiento" desc=""></columna>
+			<columna nombre="estado_civil" desc=""></columna>
+			<columna nombre="alu_est_civil_uh" desc=""></columna>
+			<columna nombre="turno_preferido" desc=""></columna>
+			<columna nombre="colegio_secundario" desc=""></columna>
+			<columna nombre="titulo_secundario" desc=""></columna>
+			<columna nombre="anio_egreso_sec" desc=""></columna>
+			<columna nombre="alu_trabajo" desc=""></columna>
+			<columna nombre="pertenece_pueblo_originario" desc=""></columna>
+			<columna nombre="pueblo_originario" desc=""></columna>
+			<columna nombre="pueblo_originario_otro" desc=""></columna>
+			<columna nombre="identidad_genero" desc=""></columna>
+			<columna nombre="identidad_genero_otro" desc=""></columna>
+			<columna nombre="celular_numero" desc=""></columna>
+			<columna nombre="e_mail" desc=""></columna>
+			<columna nombre="apyno_elegido" desc=""></columna>
+			<columna nombre="apyno_padre" desc=""></columna>
+			<columna nombre="apyno_madre" desc=""></columna>
+			<columna nombre="sit_laboral_padre" desc=""></columna>
+			<columna nombre="padre_trab_ocup" desc=""></columna>
+			<columna nombre="sit_laboral_madre" desc=""></columna>
+			<columna nombre="madre_trab_ocup" desc=""></columna>
+			<columna nombre="sit_actual_padre" desc=""></columna>
+			<columna nombre="sit_actual_madre" desc=""></columna>
+			<columna nombre="nivel_estudio_padre" desc=""></columna>
+			<columna nombre="nivel_estudio_madre" desc=""></columna>
+			<columna nombre="tipo_allegado" desc=""></columna>
+			<columna nombre="apyno_pers_alleg" desc=""></columna>
+			<columna nombre="costeo_estudios," desc=""></columna>
+			<columna nombre="tiene_beca" desc=""></columna>
+			<columna nombre="tecno_pc" desc=""></columna>
+			<columna nombre="tecno_int" desc=""></columna>
+			<columna nombre="idioma" desc=""></columna>
+			<columna nombre="condicion_discapacidad" desc=""></columna>
+			<columna nombre="tiene_cud" desc=""></columna>
+			<columna nombre="discapacidad" desc=""></columna>
+			<columna nombre="cant_hijos_alum" desc=""></columna>
+			<columna nombre="vive_actual_con" desc=""></columna>
+			<columna nombre="obra_social_alu" desc=""></columna>
+			<columna nombre="loc_per_lect" desc=""></columna>
+			<columna nombre="loc_proc" desc=""></columna>
+			<columna nombre="es_celiaco" desc=""></columna>
+			<columna nombre="adeuda_materias" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_cobertura_salud.txt" desc="">
+			<columna nombre="cobertura_salud" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_identidad_genero.txt" desc="">
+			<columna nombre="identidad_genero" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_pueblos_originarios.txt" desc="">
+			<columna nombre="pueblo_originario" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_tipo_allegado.txt" desc="">
+			<columna nombre="tipo_allegado" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_tipo_documento.txt" desc="">
+			<columna nombre="tipo_documento" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_trabajo_ocupacion.txt" desc="">
+			<columna nombre="trabajo_ocupacion" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>			
+		</archivo>
+		<archivo nombre="d_turno_preferido.txt" desc="">
+			<columna nombre="turno_preferido" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>			
+		</archivo>
+		<archivo nombre="d_vive_con.txt" desc="">
+			<columna nombre="vive_con" desc=""></columna>
+			<columna nombre="descripcion" desc=""></columna>
+		</archivo>
+		<archivo nombre="d_periodo_inscripcion.txt" desc="">
+			<columna nombre="periodo_inscripcion" desc=""></columna>
+			<columna nombre="nombre" desc=""></columna>
+			<columna nombre="anio_academico" desc=""></columna>
+		</archivo>				
+	</estructuraArchivos>
+</validaciones>

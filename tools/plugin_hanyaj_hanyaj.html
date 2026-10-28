@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- se ubica en: pentaho-server/pentaho-solutions/system/cda/static/hanyaj.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        // Función para enviar el formulario
+         function enviarFormulario() {
+                // URL de destino
+                var url = "HANYAJ_PAGE";        //var url = "http://127.0.0.1:9999/hanyaj.php";
+                // Crea un formulario dinámicamente
+                var form = document.createElement("form");
+                form.setAttribute("method", "POST");
+                form.setAttribute("action", url);
+                form.setAttribute("target", "_self"); // Abre la respuesta en una nueva ventana/tab
+                form.style.display = "none"; // Oculta el formulario
+                // Crea un campo de entrada para el parámetro pentaho_usuario_logueado
+                var usuarioLogueadoInput = document.createElement("input");
+                usuarioLogueadoInput.setAttribute("type", "hidden");
+                usuarioLogueadoInput.setAttribute("name", "pentaho_usuario_logueado");
+                var elementos = window.top.document.getElementById("pucUserDropDown");
+                var valor = elementos.getElementsByClassName("custom-dropdown-label")[0].innerHTML;
+                usuarioLogueadoInput.setAttribute("value",  valor);
+                // Crea un campo de entrada para el parámetro path (ruta y archivo seleccionado)
+                var pathInput = document.createElement("input");
+                pathInput.setAttribute("type", "hidden");
+                pathInput.setAttribute("name", "path");
+                pathInput.setAttribute("value", "");
+                // Crea un campo de entrada para el parámetro modo (normalmente run)
+                var modoInput = document.createElement("input");
+                modoInput.setAttribute("type", "hidden");
+                modoInput.setAttribute("name", "modo");
+                modoInput.setAttribute("value", "run");
+                // Agrega el campo de entrada al formulario
+                form.appendChild(usuarioLogueadoInput);
+                form.appendChild(pathInput);
+                form.appendChild(modoInput);
+                // Agrega el formulario al cuerpo del documento
+                document.body.appendChild(form);
+                // Envía el formulario
+                form.submit();
+                // Limpia el formulario después de enviarlo (opcional)
+                document.body.removeChild(form);
+                return;
+        }
+
+        // Llamar a la función para enviar el formulario cuando la página se carga
+        window.onload = function() {
+            enviarFormulario();
+        };
+    </script>
+</body>
+</html>
+
