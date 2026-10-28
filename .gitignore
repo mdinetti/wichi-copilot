@@ -22,3 +22,9 @@ Thumbs.db
 *.bak
 *.old
 *.orig
+
+# Paquetes oficiales SIU-Wichi
+Paquete_SIU-Wichi*.zip
+
+# Directorios temporales de preparación
+SIU-Wichi-*-preparacion/
